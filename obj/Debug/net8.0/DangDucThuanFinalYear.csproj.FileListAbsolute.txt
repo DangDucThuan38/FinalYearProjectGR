@@ -140,3 +140,4 @@ F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\refint\DangDucThuanFinalYear
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.pdb
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.genruntimeconfig.cache
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\ref\DangDucThuanFinalYear.dll
+F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.sourcelink.json
