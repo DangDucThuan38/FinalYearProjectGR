@@ -18,7 +18,10 @@ namespace DangDucThuanFinalYear.Data
 
         [Required, MaxLength(10), RegularExpression(@"[^0-9\+\(\)\s]")]
         public string ContactNumber { get; set; }
+        [MaxLength(50),Unicode(false)]
         public string Desgination { get; set; }
+        [MaxLength(50), Unicode(false)]
+
         public string? Image { get; set; }
     }
 

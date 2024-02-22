@@ -4,6 +4,7 @@ using DangDucThuanFinalYear.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DangDucThuanFinalYear.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240222023559_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,7 @@ namespace DangDucThuanFinalYear.Migrations
 
                     b.Property<string>("Desgination")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -59,9 +60,7 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Image")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -117,171 +116,6 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Amenity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Icon")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Amenitys");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Boooking", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<int>("Adults")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("BookedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CheckInDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CheckOutDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Children")
-                        .HasColumnType("int");
-
-                    b.Property<string>("GuestId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GuestId");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("Boookings");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("IsAvaiable")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("RoomNumber")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<short>("RoomTypeId")
-                        .HasColumnType("smallint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoomTypeId");
-
-                    b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomType", b =>
-                {
-                    b.Property<short>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("smallint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<short>("Id"));
-
-                    b.Property<string>("AddedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastUpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MaxAults")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaxChildren")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddedBy");
-
-                    b.ToTable("RoomTypes");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomTypeAmenity", b =>
-                {
-                    b.Property<short>("RoomTypeId")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("AmenityId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Unit")
-                        .HasColumnType("int");
-
-                    b.HasKey("RoomTypeId", "AmenityId");
-
-                    b.HasIndex("AmenityId");
-
-                    b.ToTable("RoomTypeAmenitys");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -417,66 +251,6 @@ namespace DangDucThuanFinalYear.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Boooking", b =>
-                {
-                    b.HasOne("DangDucThuanFinalYear.Data.ApplicationUser", "Guest")
-                        .WithMany()
-                        .HasForeignKey("GuestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DangDucThuanFinalYear.Data.Entities.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Guest");
-
-                    b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
-                {
-                    b.HasOne("DangDucThuanFinalYear.Data.Entities.RoomType", "RoomType")
-                        .WithMany("Rooms")
-                        .HasForeignKey("RoomTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("RoomType");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomType", b =>
-                {
-                    b.HasOne("DangDucThuanFinalYear.Data.ApplicationUser", "AddByUser")
-                        .WithMany()
-                        .HasForeignKey("AddedBy")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AddByUser");
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomTypeAmenity", b =>
-                {
-                    b.HasOne("DangDucThuanFinalYear.Data.Entities.Amenity", "Amenity")
-                        .WithMany()
-                        .HasForeignKey("AmenityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DangDucThuanFinalYear.Data.Entities.RoomType", "RoomType")
-                        .WithMany("RoomTypeAmenitys")
-                        .HasForeignKey("RoomTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Amenity");
-
-                    b.Navigation("RoomType");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -526,13 +300,6 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomType", b =>
-                {
-                    b.Navigation("RoomTypeAmenitys");
-
-                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }
