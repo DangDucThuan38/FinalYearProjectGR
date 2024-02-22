@@ -4,6 +4,7 @@ using DangDucThuanFinalYear.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DangDucThuanFinalYear.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240222031936_setupdbb")]
+    partial class setupdbb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,8 +210,6 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasColumnType("smallint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("Rooms");
                 });
@@ -436,17 +437,6 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Navigation("Room");
                 });
 
-            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
-                {
-                    b.HasOne("DangDucThuanFinalYear.Data.Entities.RoomType", "RoomType")
-                        .WithMany("Rooms")
-                        .HasForeignKey("RoomTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("RoomType");
-                });
-
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomType", b =>
                 {
                     b.HasOne("DangDucThuanFinalYear.Data.ApplicationUser", "AddByUser")
@@ -531,8 +521,6 @@ namespace DangDucThuanFinalYear.Migrations
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.RoomType", b =>
                 {
                     b.Navigation("RoomTypeAmenitys");
-
-                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }
