@@ -1,6 +1,7 @@
 using DangDucThuanFinalYear.Components;
 using DangDucThuanFinalYear.Components.Account;
 using DangDucThuanFinalYear.Data;
+using DangDucThuanFinalYear.IServices;
 using DangDucThuanFinalYear.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -36,7 +37,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-builder.Services.AddTransient<SeedServices>();
+builder.Services.AddTransient<SeedServices>()
+                .AddTransient<IAmenititesService, AmenitiesService>();
 
 var app = builder.Build();
 await InitializeAdminUser(app.Services);

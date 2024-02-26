@@ -12,6 +12,10 @@ namespace DangDucThuanFinalYear.Data.Entities
 
         [Required, MaxLength(100)]
         public string Icon { get; set; }
+        public bool IsDeleted { get; set; }
+
+        public Amenity Clone() => (MemberwiseClone() as Amenity)!;
+
     }
 
 

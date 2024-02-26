@@ -3,6 +3,7 @@ using DangDucThuanFinalYear.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes;
+using Microsoft.EntityFrameworkCore;
 
 namespace DangDucThuanFinalYear.Services
 {
@@ -12,19 +13,31 @@ public class SeedServices
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
 
         public SeedServices(UserManager<ApplicationUser> userManager,
                               IUserStore<ApplicationUser> userStore,
                               RoleManager<IdentityRole> roleManager,
-                              IConfiguration configuration)
+                              IConfiguration configuration,
+                              IDbContextFactory<ApplicationDbContext> contextFactory)
         {
             _userManager = userManager;
             _userStore = userStore;
             _roleManager = roleManager;
             _configuration = configuration;
+            _contextFactory = contextFactory;
         }
         public async Task SeedDatabaseAsync()
         {
+            using(var context = _contextFactory.CreateDbContext())
+            {
+                if(context.Database.GetPendingMigrations().Any())
+                {
+                    context.Database.Migrate();
+                }
+            }    
+
+
             var adminUserEmail = _configuration.GetValue<string>("AdminHotel:Email");
             var dbAdminUser = await _userManager.FindByEmailAsync(adminUserEmail);
             if (dbAdminUser is not null)
