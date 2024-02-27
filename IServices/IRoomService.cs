@@ -5,6 +5,6 @@ namespace DangDucThuanFinalYear.IServices
 {
     public interface IRoomService
     {
-        Task<HotelResult<Guid>> CreateRoomAsync(RoomCreateDTO input, string userId);
+        Task<HotelResult<short>> CreateRoomAsync(RoomCreateDTO input, string userId);
     }
 }

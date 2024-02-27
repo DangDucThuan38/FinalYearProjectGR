@@ -39,7 +39,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 builder.Services.AddTransient<SeedServices>()
-                .AddTransient<IAmenititesService, AmenitiesService>();
+                .AddTransient<IAmenititesService, AmenitiesService>()
+                .AddTransient<IRoomService, RoomService>();
 
 var app = builder.Build();
 await InitializeAdminUser(app.Services);
