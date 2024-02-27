@@ -1,6 +1,7 @@
 using DangDucThuanFinalYear.Components;
 using DangDucThuanFinalYear.Components.Account;
 using DangDucThuanFinalYear.Data;
+using DangDucThuanFinalYear.Endpoints;
 using DangDucThuanFinalYear.IServices;
 using DangDucThuanFinalYear.Services;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -65,6 +66,7 @@ app.MapRazorComponents<App>()
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+app.MapCustomeEndPoint();
 
 app.Run();
 

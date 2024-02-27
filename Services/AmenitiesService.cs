@@ -16,12 +16,13 @@ namespace DangDucThuanFinalYear.Services
             _contextFactory = contextFactory;
         }
 
-        public async Task<HotelResult<bool>> DeleteAmenitityAsyns(int id)
+        public async Task<HotelResult<bool>> DeleteAmenitityAsyns(int amenityId)
         {
             using var context =_contextFactory.CreateDbContext();
-            var amenity = context.Amenitys.FirstOrDefault(a => a.Id == id);
+            var amenity = context.Amenitys.FirstOrDefault(a => a.Id == amenityId);
             if(amenity is not null)
             {
+                context.Entry(amenity).State = EntityState.Modified;
                 amenity.IsDeleted = true;
                 await context.SaveChangesAsync();
                 return true;
@@ -32,7 +33,7 @@ namespace DangDucThuanFinalYear.Services
         public async Task<Amenity[]> GetAmenitiesAsync()
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.Amenitys.Where(a=>!a.IsDeleted).ToArrayAsync();
+            return await context.Amenitys.Where(a=>a.IsDeleted == false).ToArrayAsync();
 
 
         }
@@ -43,7 +44,7 @@ namespace DangDucThuanFinalYear.Services
             if (amenity.Id == 0)
             {
                 //Create new
-                if(await context.Amenitys.AnyAsync(a=>a.Name == amenity.Name))
+                if(await context.Amenitys.AnyAsync(a=>a.Name == amenity.Name && a.IsDeleted == false))
                 {
                     //return HotelResult<Amenity>.Errors("Amenity exists already");
                     return "Amenity exists already";

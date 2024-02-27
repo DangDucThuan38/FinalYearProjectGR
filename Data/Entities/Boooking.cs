@@ -21,5 +21,4 @@ namespace DangDucThuanFinalYear.Data.Entities
         public virtual ApplicationUser Guest { get; set; }
     }
 
-
 }

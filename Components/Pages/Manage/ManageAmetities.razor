@@ -60,13 +60,14 @@
                             <th>Name</th>
                             <th>Icon Css Class</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @if (_amenities.Length == 0)
                         {
                             <tr>
-                                <td colspan="4">
+                                <td colspan="6">
                                     <h4 class="text-danger">No amenities </h4>
                                 </td>
                             </tr>
@@ -83,11 +84,15 @@
                                     <span>@a.Icon</span>
                                 </td>
                                 <td>
-
-
+                                    
                                     <a href="staff-admin/manage-amenitites?id=@a.Id" class="btn btn-sm btn-primary">
                                         Edit
                                     </a>
+                                </td>
+                                <td>
+                                    <form id="deleteForm" method="post" action="staff-admin/manage-amenitites/delete/@a.Id" onsubmit="return confirm('Are you sure delete?');">
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         }

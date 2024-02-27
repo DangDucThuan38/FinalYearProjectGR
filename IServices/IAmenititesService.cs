@@ -7,6 +7,6 @@ namespace DangDucThuanFinalYear.IServices
     {
         Task<Amenity[]> GetAmenitiesAsync();
         Task<HotelResult<Amenity>> SaveAmenityAsync(Amenity amenity);
-        Task<HotelResult<bool>> DeleteAmenitityAsyns(int id);
+        Task<HotelResult<bool>> DeleteAmenitityAsyns(int amenityId);
     }
 }

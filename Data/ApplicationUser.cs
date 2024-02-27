@@ -14,7 +14,6 @@ namespace DangDucThuanFinalYear.Data
         [MaxLength(50)]
         public string LastName { get; set; }
         [Required, MaxLength(10)]
-
         public string RoleName { get; set; }
 
         [Required, MaxLength(10), RegularExpression(@"[^0-9\+\(\)\s]")]
