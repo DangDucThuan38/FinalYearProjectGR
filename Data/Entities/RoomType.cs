@@ -6,6 +6,8 @@ namespace DangDucThuanFinalYear.Data.Entities
     public class RoomType
     {
         public short Id { get; set; }
+        [Required, MaxLength(200)]
+        public string Name { get; set; }
 
         [Required, MaxLength(200)]
         public string ImageUrl { get; set; }

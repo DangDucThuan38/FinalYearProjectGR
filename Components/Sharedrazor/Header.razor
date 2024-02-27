@@ -1,9 +1,12 @@
-﻿    <!-- Header Start -->
+﻿@implements IDisposable
+@inject NavigationManager NavigationManager
+
+<!-- Header Start -->
 <div class="container-fluid bg-dark px-0">
     <div class="row gx-0">
         <div class="col-lg-3 bg-dark d-none d-lg-block">
             <NavLink Match="NavLinkMatch.All" href="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                <h1 class="m-0 text-primary text-uppercase">ĐT Sports</h1>
+                <h1 class="m-0 text-primary text-uppercase">Mai Hotel</h1>
             </NavLink>
         </div>
         <div class="col-lg-9">
@@ -38,20 +41,62 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <NavLink Match="NavLinkMatch.All" href="/" class="nav-item nav-link active">Home</NavLink>
-                        <NavLink href="about-us" class="nav-item nav-link">About</NavLink>
+                        <NavLink href="abouthotel" class="nav-item nav-link">About</NavLink>
                         <NavLink href="services" class="nav-item nav-link">Services</NavLink>
                         <NavLink href="room" class="nav-item nav-link">Room </NavLink>
-                        <div class="nav-item dropdown">
+                      @*   <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <NavLink href="bookings" class="dropdown-item">Booking</NavLink>
                                 <NavLink href="team" class="dropdown-item">Our Team</NavLink>
                                 <NavLink href="testimonial" class="dropdown-item">Testimonial</NavLink>
                             </div>
-                        </div>
+                        </div> *@
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+
+                        <AuthorizeView>
+                            <Authorized>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <NavLink href="booking" class="dropdown-item">My Profile</NavLink>
+                                        <AuthorizeView Roles="@RoleType.Guest.ToString()" Context="guestContext">
+                                            <NavLink href="booking" class="dropdown-item">My Booking</NavLink>
+                                        </AuthorizeView>
+                                        <AuthorizeView Roles="Staff,Admin" Context="staffContext">
+                                            <NavLink href="booking" class="dropdown-item">Manage Bookings</NavLink>
+                                            <NavLink href="staff-admin/manage-room" class="dropdown-item">Manage Rooms</NavLink>
+                                            <NavLink href="/manage-room/new" class="dropdown-item">Add Room</NavLink>
+
+                                            <NavLink href="staff-admin/manage-amenitites" class="dropdown-item">Manage Amenities</NavLink>
+
+                                        </AuthorizeView>
+                                        <AuthorizeView Roles="Admin" Context="adminContext">
+                                            <NavLink href="booking" class="dropdown-item">Manage Staff</NavLink>
+                                        </AuthorizeView>
+                                    </div>
+                                </div>
+                            </Authorized>
+                        </AuthorizeView>
                     </div>
-                    <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
+                        <AuthorizeView>
+                            <Authorized>
+                            <form action="Account/Logout" method="post">
+                                <AntiforgeryToken />
+                                <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                                <button type="submit" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">
+                                        Logout<i class="fa fa-arrow-right ms-3"></i>                                
+                                </button>
+                            </form>
+                            </Authorized>
+                            <NotAuthorized>
+                                <a href="account/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+                            </NotAuthorized>
+                        </AuthorizeView>
+
+
+
+
                 </div>
             </nav>
         </div>
@@ -59,5 +104,22 @@
 </div>
 <!-- Header End -->
 @code {
+    private string? currentUrl;
 
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
 }

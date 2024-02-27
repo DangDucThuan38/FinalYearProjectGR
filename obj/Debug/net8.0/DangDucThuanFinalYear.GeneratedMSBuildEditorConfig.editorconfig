@@ -178,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcSW5uZXJMYXlvdXRQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Layout/PageNoHF.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUGFnZU5vSEYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/About.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -204,6 +208,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/AddRoom.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcQWRkUm9vbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageAmetities.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlQW1ldGl0aWVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageRoom.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlUm9vbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/_Import.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcX0ltcG9ydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Room.razor]

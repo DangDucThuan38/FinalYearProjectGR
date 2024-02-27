@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9DCeLAJnQTFrSRnoX9y87BXANR9Qm7FwrieHCJDygZA=",
+  "Hash": "1DctsezXMFutx64wJjCoTlyI+SZk/TrzjJceAlJ9hTY=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\carousel-2.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\mariot.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "img/mariot.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\mariot.jpg"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-1.jpg",

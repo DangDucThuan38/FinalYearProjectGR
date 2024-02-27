@@ -1,12 +1,14 @@
 using DangDucThuanFinalYear.Components;
 using DangDucThuanFinalYear.Components.Account;
 using DangDucThuanFinalYear.Data;
+using DangDucThuanFinalYear.Endpoints;
+using DangDucThuanFinalYear.IServices;
 using DangDucThuanFinalYear.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -36,7 +38,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-builder.Services.AddTransient<SeedServices>();
+builder.Services.AddTransient<SeedServices>()
+                .AddTransient<IAmenititesService, AmenitiesService>()
+                .AddTransient<IRoomService, RoomService>();
 
 var app = builder.Build();
 await InitializeAdminUser(app.Services);
@@ -63,6 +67,7 @@ app.MapRazorComponents<App>()
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+app.MapCustomeEndPoint();
 
 app.Run();
 
