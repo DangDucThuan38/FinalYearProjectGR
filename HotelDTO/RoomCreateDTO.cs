@@ -16,6 +16,9 @@ namespace DangDucThuanFinalYear.HotelDTO
         [Required, MaxLength(200)]
         public string ImageUrl { get; set; }
 
+        public IFormFile ImageFile { get; set; }
+
+
         [Required, Range(1, double.MaxValue)]
         public decimal Price { get; set; }
 
@@ -30,11 +33,12 @@ namespace DangDucThuanFinalYear.HotelDTO
 
         public RoomTypeAmenityCreateDTO[] Amenities { get; set; } = [];
 
+        public class RoomTypeAmenityCreateDTO
+        {
+            public RoomTypeAmenityCreateDTO(int id, int? unit) => (Id, Unit) = (id, unit);
+            public int Id { get; set; }
+            public int? Unit { get; set; }
+        }
 
-    }
-    public class RoomTypeAmenityCreateDTO
-    {
-        public int Id { get; set; }
-        public int? Unit { get; set; }
     }
 }

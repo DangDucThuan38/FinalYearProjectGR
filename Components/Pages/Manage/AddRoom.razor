@@ -1,7 +1,154 @@
 ﻿@page "/manage-room/new"
+@using DangDucThuanFinalYear.Data.Entities
+@using DangDucThuanFinalYear.HotelDTO
+@using System.Security.Claims
+@inject IAmenititesService AmenitiesService
+@rendermode @(new InteractiveServerRenderMode(prerender: false)) 
 
-<h3>AddRoom</h3>
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthStateprovider
+@inject IRoomService RoomService
+
+
+<div class ="container">
+    <h1>
+        Create new Room
+    </h1>
+    <hr/>
+    <EditForm Model="Model"  OnInvalidSubmit="SaveRoomAsnyc">
+        <DataAnnotationsValidator/>
+        <div class="row">
+             <div class="col-sm-6">
+                 <div class="mb-3">
+                     <label class="form-label">Name: </label>
+                     <InputText @bind-Value="Model.Name" class="form-control" placeholder="Room Name" />
+                     <ValidationMessage For="() => Model.Name" class="text-danger" />
+                 </div>
+             </div>
+             <div class="col-sm-6">
+                 <div class="mb-3">
+                     <label class="form-label">Image: </label>
+                     <InputFile @bind-Value="Model.ImageFile" class="form-control" />
+                     <ValidationMessage For="@(() => Model.ImageFile)" class="text-danger" />
+                </div>
+             </div>
+             <div class="col-sm-6">
+                 <div class="mb-3">
+                     <label class="form-label">Price: </label>
+                     <InputNumber @bind-Value="Model.Price" class="form-control" placeholder="Price" />
+                     <ValidationMessage For="() => Model.Price" class="text-danger" />
+                 </div>
+                 <div class="mb-3">
+                     <label class="form-label">Max Adults: </label>
+                     <InputNumber @bind-Value="Model.MaxAults" class="form-control" placeholder="Max Aults" />
+                     <ValidationMessage For="() => Model.MaxAults" class="text-danger" />
+                 </div>
+                 <div class="mb-3">
+                     <label class="form-label">Max Children: </label>
+                     <InputNumber @bind-Value="Model.MaxChildren" class="form-control" placeholder="Max Children" />
+                     <ValidationMessage For="() => Model.MaxChildren" class="text-danger" />
+                 </div>
+             </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label class="form-label">Descripcion: </label>
+                    <textarea @bind="Model.Descripcion" class="form-control resizable" placeholder="Descripcion Room" rows="5"></textarea>
+                    <ValidationMessage For="() => Model.Descripcion" class="text-danger" />
+                </div>
+            </div>
+
+            <style>
+                .resizable {
+                    resize: both; /* Enables vertical and horizontal resizing */
+                    overflow: auto; /* Allows content to be scrolled when resized */
+                }
+            </style>
+             <div class="col-sm-12 d-flex justify-content-between">
+                @foreach (var x in _amenities)
+                {
+                    <div>
+                        <label>
+                            <InputCheckbox @bind-Value="x.IsChecked" />
+                            <span>@x.Name</span>
+                            <InputNumber @bind-Value="@x.Unit" class="form-control col-form-sm" placeholder="Unit Value" />
+                        </label>
+                    </div>
+
+                }
+            </div>
+            <div class=" sol-sm-6">
+                <div class="d-grid">
+                    @if (!string.IsNullOrWhiteSpace(_erroMessage))
+                    {
+                        <p class="text-danger">@_erroMessage</p>
+                    }
+                    <button type="submit" class="btn btn-primary">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+    </EditForm>
+</div>
 
 @code {
+    [SupplyParameterFromForm]
+    private RoomCreateDTO Model{ get; set; } = new();
+    private AmenitySelectionReposen[] _amenities = [];
+    private string? _erroMessage = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var amenities = await AmenitiesService.GetAmenitiesAsync();
+        _amenities = amenities.Select(a => new AmenitySelectionReposen(a.Id, a.Name, false, null)).ToArray();
+
+    }
+
+    private async Task SaveRoomAsnyc()
+    {
+        _erroMessage = null;
+        Model.Amenities = _amenities.Where(a => a.IsChecked)
+                                    .Select(a => new RoomCreateDTO.RoomTypeAmenityCreateDTO(a.AmenityId, a.Unit))
+                                    .ToArray();
+        var authState = await AuthStateprovider.GetAuthenticationStateAsync();
+        if(authState.User.Identity is null || !authState.User.Identity.IsAuthenticated)
+        {
+            var lgoinPageURl = NavigationManager.GetUriWithQueryParameters("Account/Login", new Dictionary<string, object?> { ["ReturnUrl"] = NavigationManager.Uri });
+            NavigationManager.NavigateTo(lgoinPageURl);
+            return;
+        }
+        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+        try
+        {
+            var newRoom = await RoomService.CreateRoomAsync(Model, userId);
+            if (newRoom.IsSuccess)
+            {
+                NavigationManager.NavigateTo("staff-admin/manage-room");
+                return;
+            }
+            _erroMessage = newRoom.ErrorMessage ?? "Error in saving room";
+
+        }catch(Exception ex)
+        {
+            _erroMessage = ex.Message;
+        }
+    }
+
+    private class AmenitySelectionReposen
+    {
+        public AmenitySelectionReposen(int id, string name, bool isChecked, int? unit) =>
+        (AmenityId, Name, IsChecked, Unit) = (id, name, isChecked, unit);
+
+        public int AmenityId { get; set; }
+        public string Name { get; set; }
+        public bool IsChecked { get; set; }
+        public int? Unit { get; set; }
+    }
+
+
+
+
 
 }
