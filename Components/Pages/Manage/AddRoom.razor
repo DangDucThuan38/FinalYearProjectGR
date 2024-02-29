@@ -2,9 +2,11 @@
 @using DangDucThuanFinalYear.Data.Entities
 @using DangDucThuanFinalYear.HotelDTO
 @using System.Security.Claims
+@using System.IO
 @inject IAmenititesService AmenitiesService
 @rendermode @(new InteractiveServerRenderMode(prerender: false)) 
 
+@inject IWebHostEnvironment WebHostEnviroment
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthStateprovider
 @inject IRoomService RoomService
@@ -27,13 +29,6 @@
              </div>
              <div class="col-sm-6">
                  <div class="mb-3">
-                     <label class="form-label">Image: </label>
-                     <InputFile @bind-Value="Model.ImageFile" class="form-control" />
-                     <ValidationMessage For="@(() => Model.ImageFile)" class="text-danger" />
-                </div>
-             </div>
-             <div class="col-sm-6">
-                 <div class="mb-3">
                      <label class="form-label">Price: </label>
                      <InputNumber @bind-Value="Model.Price" class="form-control" placeholder="Price" />
                      <ValidationMessage For="() => Model.Price" class="text-danger" />
@@ -50,11 +45,21 @@
                  </div>
              </div>
 
-            <div class="col-sm-6">
+             <div class="col-sm-6">
                 <div class="mb-3">
                     <label class="form-label">Descripcion: </label>
                     <textarea @bind="Model.Descripcion" class="form-control resizable" placeholder="Descripcion Room" rows="5"></textarea>
                     <ValidationMessage For="() => Model.Descripcion" class="text-danger" />
+                </div>
+            </div>
+             <div class="col-sm-6">
+                @if (!string.IsNullOrWhiteSpace(_imageUrl))
+                {
+                    <img src="@_imageUrl" class="img-fluid" />
+                }
+                <div class="mb-3">
+                    <label class="form-label">Image: </label>
+                    <InputFile OnChange="OnImageSelectAsnyc" class="form-control" />
                 </div>
             </div>
 
@@ -77,6 +82,7 @@
 
                 }
             </div>
+
             <div class=" sol-sm-6">
                 <div class="d-grid">
                     @if (!string.IsNullOrWhiteSpace(_erroMessage))
@@ -98,7 +104,8 @@
     private RoomCreateDTO Model{ get; set; } = new();
     private AmenitySelectionReposen[] _amenities = [];
     private string? _erroMessage = null;
-
+    private string? _imageUrl = null;
+    private IBrowserFile? _image;
     protected override async Task OnInitializedAsync()
     {
         var amenities = await AmenitiesService.GetAmenitiesAsync();
@@ -109,6 +116,12 @@
     private async Task SaveRoomAsnyc()
     {
         _erroMessage = null;
+        if(_image is null)
+        {
+            _erroMessage ="Image is required";
+            return;
+        }
+
         Model.Amenities = _amenities.Where(a => a.IsChecked)
                                     .Select(a => new RoomCreateDTO.RoomTypeAmenityCreateDTO(a.AmenityId, a.Unit))
                                     .ToArray();
@@ -122,6 +135,12 @@
         var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
         try
         {
+            var imageUrl = await SaveImageAsync();
+            if (imageUrl is null)
+            {
+                return;
+            }
+            Model.ImageUrl = imageUrl;
             var newRoom = await RoomService.CreateRoomAsync(Model, userId);
             if (newRoom.IsSuccess)
             {
@@ -135,6 +154,37 @@
             _erroMessage = ex.Message;
         }
     }
+    private async Task OnImageSelectAsnyc(InputFileChangeEventArgs e)
+    {
+        using var imageStream = e.File.OpenReadStream();
+        using var ms= new MemoryStream();
+        await imageStream.CopyToAsync(ms);
+
+        var base64ImageData = Convert.ToBase64String(ms.ToArray());
+        var extension = Path.GetExtension(e.File.Name)[1..];
+        _imageUrl = $"data:image/{extension};base64,{base64ImageData}";
+        _image = e.File;
+    }
+    private async Task<string?> SaveImageAsync()
+    {
+        var extension = Path.GetExtension(_image.Name);
+        var imageName = $"room-img{Guid.NewGuid()}{extension}";
+        var folderPath = Path.Combine(WebHostEnviroment.WebRootPath, "images", "room");
+        Directory.CreateDirectory(folderPath);
+        var fullFilePath = Path.Combine(folderPath, imageName);
+        try
+        {
+            await using FileStream fs = new FileStream(fullFilePath, FileMode.Create);
+            using var imageStream = _image.OpenReadStream();
+            await imageStream.CopyToAsync(fs);
+            return $"/images/room/{imageName}";
+        }catch(Exception ex)
+        {
+            _erroMessage = $"Error in saving image.{ex.Message}";
+            return null;
+        }
+    }
+
 
     private class AmenitySelectionReposen
     {

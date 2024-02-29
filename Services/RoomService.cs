@@ -55,5 +55,18 @@ namespace DangDucThuanFinalYear.Services
 
 
         }
+
+        public async Task<SearchListRoomResults[]> GetRoomForManagePageResults()
+        {
+            using var context = _contextFactory.CreateDbContext();
+            return await context.RoomTypes
+                .Select(x => new SearchListRoomResults(
+                    x.Id,
+                    x.Name,
+                    x.ImageUrl,
+                    x.Price
+                    )).ToArrayAsync();
+
+        }
     }
 }

@@ -1,7 +1,55 @@
 ﻿@page "/staff-admin/manage-room"
+@using DangDucThuanFinalYear.HotelDTO
 
-<h3>ManageRoom</h3>
+@inject IRoomService RoomService
+<div class="concontainer">
+    <div class="d-flex justify-content-between align-content-center">
+        <h1>Manage Rooms</h1>
+        <NavLink href="manage-room/new" class="btn btn-sm btn-primary">+ Add new Rooms</NavLink>
+    </div>
+    <hr />
+    <div class="row">
+        @if(_rooms.Length == 0)
+        {
+            <p>There is no rooms created yet</p>
+        }
+        else
+        {
+            @foreach(var room in _rooms)
+            {
+                var editLink = $"staff-admin/manage-room/{room.Id}/edit";
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-content-center">
+                            <h6>@room.Name</h6>
+                            <NavLink href="@editLink" class="btn btn-sm btn-default">
+                                <i class="fade fa-pencil-alt"></i>
+                            </NavLink>
+                        </div>
+                        <div class="card-body">
+                            <img src="@room.Image" class="img-fluid"/>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                        <h6>@room.Price.ToString("c")/night</h6>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+            }
+        }
+    </div>
+
+</div>
+
 
 @code {
+    private SearchListRoomResults[] _rooms = [];
+    protected override async Task OnInitializedAsync()
+    {
+        _rooms = await RoomService.GetRoomForManagePageResults();
+
+    }
 
 }
