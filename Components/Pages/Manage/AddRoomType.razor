@@ -1,4 +1,4 @@
-﻿@page "/manage-room/new"
+﻿@page "/staff-admin/manage-room-types/new"
 @using DangDucThuanFinalYear.Data.Entities
 @using DangDucThuanFinalYear.HotelDTO
 @using System.Security.Claims
@@ -14,7 +14,7 @@
 
 <div class ="container">
     <h1>
-        Create new Room
+        Create new Room Type
     </h1>
     <hr/>
     <EditForm Model="Model"  OnInvalidSubmit="SaveRoomAsnyc">
@@ -101,7 +101,7 @@
 
 @code {
     [SupplyParameterFromForm]
-    private RoomCreateDTO Model{ get; set; } = new();
+    private RoomTypeCreateDTO Model{ get; set; } = new();
     private AmenitySelectionReposen[] _amenities = [];
     private string? _erroMessage = null;
     private string? _imageUrl = null;
@@ -123,7 +123,7 @@
         }
 
         Model.Amenities = _amenities.Where(a => a.IsChecked)
-                                    .Select(a => new RoomCreateDTO.RoomTypeAmenityCreateDTO(a.AmenityId, a.Unit))
+                                    .Select(a => new RoomTypeCreateDTO.RoomTypeAmenityCreateDTO(a.AmenityId, a.Unit))
                                     .ToArray();
         var authState = await AuthStateprovider.GetAuthenticationStateAsync();
         if(authState.User.Identity is null || !authState.User.Identity.IsAuthenticated)

@@ -1,4 +1,4 @@
-﻿@page "/staff-admin/manage-room"
+﻿@page "/staff-admin/manage-room-types"
 @using DangDucThuanFinalYear.HotelDTO
 
 @inject IRoomService RoomService
@@ -45,7 +45,7 @@
 
 
 @code {
-    private SearchListRoomResults[] _rooms = [];
+    private SearchListRoomTypeResults[] _rooms = [];
     protected override async Task OnInitializedAsync()
     {
         _rooms = await RoomService.GetRoomForManagePageResults();
