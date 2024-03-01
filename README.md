@@ -5,19 +5,19 @@
 -Databse : SQL
 ## 2. Main Function with Role
 - Role Admin:
-  + Quản Lí Staff
-  + Quản Lí Room
-  + Quản Lí Room Type
-  + Quản Lí Thu Chi
-  + Quản lí Account
-  + Quản Lí Booking
-  + Vew Profile
+ + Staff Management
+ + Room Management
+ + Room Type Management
+ + Income and Expenditure Management
+ + Account Management
+ + Booking Management
+ + Vew Profile
 - Role Staff:
-  + Quản Lí Room
-  + Quản Lí Room Type
-  + Quản Lí Booking
-  + Quản Lí Payment
-  + View Profile
+ + Room Management
+ + Room Type Management
+ + Booking Management
+ + Payment Management
+ + View Profile
 - Role Guest(Customer):
   + View Home Page
   + View Room of Hotel
