@@ -1,6 +1,16 @@
-﻿namespace DangDucThuanFinalYear.ApplicationHotel
+﻿namespace DangDucThuanFinalYear.ApplicationHotel;
+
+
+public readonly record struct HotelResult(bool IsSuccess, string? ErrorMessage)
 {
-    public record HotelResult<TData>(bool IsSuccess, string? ErrorMessage, TData Data)
+    public static HotelResult Success() => new(true, null);
+    public static HotelResult Errors(string errorMessage) => new(false, errorMessage);
+    public static implicit operator HotelResult(bool isSuccess) => new(isSuccess, default);
+    public static implicit operator HotelResult(string errorMessage) => Errors(errorMessage);
+
+}
+
+public record HotelResult<TData>(bool IsSuccess, string? ErrorMessage, TData Data)
     {
         public static HotelResult<TData> Success(TData data) => new ( true, null, data );
         public static HotelResult<TData> Errors(string errorMessage) => new(false, errorMessage, default);
@@ -9,4 +19,6 @@
 
     }
 
-}
+   
+
+

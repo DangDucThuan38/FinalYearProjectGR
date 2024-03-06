@@ -1,0 +1,128 @@
+﻿@page "/staff-admin/manage-room-types/{RoomTypeId:int?}/rooms"
+
+@using DangDucThuanFinalYear.Data.Entities
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+
+@inject NavigationManager NavigationManager
+@inject IRoomTypeService RoomTypeService
+@inject IJSRuntime JsRuntime
+
+<div class="container">
+    <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange;">Manage Rooms</h1>
+        <button type="button" @onclick="OpenCreateRoomModal" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Is Availabe</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if(_rooms.Length == 0)
+                {
+                    <tr>
+                        <td colspan="3">
+                            <h1 class="text-danger"> No rooms </h1>
+
+                        </td>
+                    </tr>
+                }
+                @foreach(var room in _rooms)
+                {
+                    <tr>
+                        <td>@room.RoomNumber</td>
+                        <td>@room.IsAvaiable</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+<dialog id="@DialogId" style=" min-width:300px">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4> Create Room</h4>
+        <button class="btn btn-danger btn-sm" @onclick="CloseRoomModal">X</button>
+    </div>
+    <hr />
+    <EditForm Model="ModelRoom" OnInvalidSubmit="CreateRoomAsync">
+        <DataAnnotationsValidator/>
+            <div class="mb-3">
+                <label class="form-label">Room Number: </label>
+                <InputText @bind-Value="ModelRoom.RoomNumber" class="form-control form-control-sm" placeholder="Room Number" />
+                <ValidationMessage For="() => ModelRoom.RoomNumber" class="text-danger" />
+            </div>
+        <div class="mb-3">
+            <label class="form-label">
+                <InputCheckbox @bind-Value="ModelRoom.IsAvaiable" />
+                 Is Availabe?
+            </label>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Save
+            </button>
+        </div>
+    </EditForm>
+</dialog>
+
+
+<style>
+    ::backdrop{
+        background-color: revert-layer;
+    }
+</style>
+@code {
+    [Parameter]
+    public int RoomTypeId { get; set; }
+    private Room[] _rooms = [];
+    private Room ModelRoom = new();
+    private short _romTypeId = 0;
+
+    private const string DialogId ="create-room";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (RoomTypeId <= 0 || !short.TryParse(RoomTypeId.ToString(),out var roomTypeId))
+        {
+            NavigationManager.NavigateTo("/staff-admin/manage-room-types", replace: true);
+            return;
+        }
+        _romTypeId = roomTypeId;
+        _rooms = await RoomTypeService.GetRoomsAllAsync(roomTypeId);
+
+    }
+    public async Task CreateRoomAsync()
+    {
+        ModelRoom.RoomTypeId = _romTypeId;
+        var result = await RoomTypeService.SaveRoomAsync(ModelRoom);
+        if(result.IsSuccess)
+        {
+            _rooms = [.. _rooms, result.Data];
+            ModelRoom = new();
+            await CloseRoomModal();
+        }
+
+    }
+
+    private async Task CloseRoomModal() => await JsRuntime.InvokeVoidAsync("window.closeModal", DialogId);
+    private async Task OpenCreateRoomModal() => await JsRuntime.InvokeVoidAsync("window.showModal", DialogId);
+
+
+
+
+}

@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
+      "PackagePath": "staticwebassets\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg"
     },
@@ -159,6 +163,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\video.jpg",
       "PackagePath": "staticwebassets\\img\\video.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\main.js",

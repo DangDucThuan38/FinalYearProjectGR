@@ -28,6 +28,9 @@ namespace DangDucThuanFinalYear.Data
                 .HasMany(rt => rt.Rooms)
                 .WithOne(r=> r.RoomType)
                 .OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Entities.Room>()
+                .HasIndex(r => r.RoomNumber)
+                .IsUnique();
 
         }
     }

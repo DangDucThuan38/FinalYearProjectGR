@@ -1,0 +1,57 @@
+﻿@page "/staff-admin/manage-room-types"
+@using DangDucThuanFinalYear.HotelDTO
+
+@inject IRoomTypeService RoomService
+<div class="concontainer">
+    <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange;">Manage Rooms Type</h1>
+        <NavLink href="staff-admin/manage-room-types/new" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</NavLink>
+    </div>
+    <hr />
+    <div class="row">
+        @if(_rooms.Length == 0)
+        {
+            <p>There is no rooms type created yet</p>
+        }
+        else
+        {
+            @foreach(var room in _rooms)
+            {
+                var editLink = $"/staff-admin/manage-room-types/{room.Id}/edit";
+                var roomLink = $"/staff-admin/manage-room-types/{room.Id}/rooms";
+
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">@room.Name</h5>
+                            <NavLink href="@editLink" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </NavLink>
+                        </div>
+                        <div class="card-body">
+                            <img src="@room.Image" class="img-fluid" alt="@room.Name Image" />
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">@room.Price.ToString("c")/night</h6>
+                            <NavLink href="@roomLink" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-list"></i>
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+
+
+@code {
+    private SearchListRoomTypeResults[] _rooms = [];
+    protected override async Task OnInitializedAsync()
+    {
+        _rooms = await RoomService.GetRoomForManagePageResults();
+
+    }
+
+}

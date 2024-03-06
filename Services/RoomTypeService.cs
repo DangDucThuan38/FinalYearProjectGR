@@ -6,6 +6,7 @@ using DangDucThuanFinalYear.HotelDTO;
 using DangDucThuanFinalYear.IServices;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using DangDucThuanFinalYear.Data.Entities;
+using DangDucThuanFinalYear.Components.Pages;
 
 namespace DangDucThuanFinalYear.Services
 {
@@ -18,17 +19,17 @@ namespace DangDucThuanFinalYear.Services
             _contextFactory = contextFactory;
         }
 
-        public async Task<HotelResult<short>> CreateRoomAsync(RoomTypeCreateUpDateDTO input,string userId)
+        public async Task<HotelResult<short>> CreateRoomAsync(RoomTypeCreateUpDateDTO input, string userId)
         {
             using var context = _contextFactory.CreateDbContext();
             RoomType? roomType;
-            if(input.Id == 0)
+            if (input.Id == 0)
             {
                 if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name))
                 {
                     return $" Room Type with the same {input.Name} already exists!";
                 }
-                 roomType = new RoomType
+                roomType = new RoomType
                 {
                     Name = input.Name,
                     AddedBy = userId,
@@ -48,8 +49,8 @@ namespace DangDucThuanFinalYear.Services
                 {
                     return $" Room Type with the same {input.Name} already exists!";
                 }
-                 roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
-                if(roomType is null)
+                roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
+                if (roomType is null)
                 {
                     return $"Invalid request";
                 }
@@ -62,16 +63,16 @@ namespace DangDucThuanFinalYear.Services
                 roomType.Price = input.Price;
                 roomType.LastUpdatedBy = userId;
                 roomType.LastUpdated = DateTime.Now;
-                
-                var romTypeAmenities = await context.RoomTypeAmenitys.Where( x=> x.RoomTypeId == input.Id).ToListAsync();
+
+                var romTypeAmenities = await context.RoomTypeAmenitys.Where(x => x.RoomTypeId == input.Id).ToListAsync();
                 context.RoomTypeAmenitys.RemoveRange(romTypeAmenities);
 
 
             }
-            
+
             await context.SaveChangesAsync();
 
-            if(input.Amenities.Length>0)
+            if (input.Amenities.Length > 0)
             {
                 var roomTypeAmenities = input.Amenities.Select(x => new RoomTypeAmenity
                 {
@@ -87,7 +88,6 @@ namespace DangDucThuanFinalYear.Services
 
 
         }
-
         public async Task<SearchListRoomTypeResults[]> GetRoomForManagePageResults()
         {
             using var context = _contextFactory.CreateDbContext();
@@ -100,7 +100,6 @@ namespace DangDucThuanFinalYear.Services
                     )).ToArrayAsync();
 
         }
-
         public async Task<RoomTypeCreateUpDateDTO> GetRoomTypeEditAsync(short id)
         {
             using var context = _contextFactory.CreateDbContext();
@@ -120,6 +119,61 @@ namespace DangDucThuanFinalYear.Services
                                               Amenities = x.RoomTypeAmenitys.Select(x => new RoomTypeCreateUpDateDTO.RoomTypeAmenityCreateDTO(x.AmenityId, x.Unit)).ToArray()
                                           }).FirstOrDefaultAsync();
             return roomType;
+        }
+
+        public async Task<Data.Entities.Room[]> GetRoomsAllAsync(short roomTypeId)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Rooms.Where(x => x.RoomTypeId == roomTypeId && x.IsDeleted == false).ToArrayAsync();
+        }
+
+        public async Task<HotelResult<Data.Entities.Room>> SaveRoomAsync(Data.Entities.Room room)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                if (room.Id == 0)
+                {
+                    await context.Rooms.AddAsync(room);
+                }
+                else
+                {
+                    var Room = await context.Rooms.AsTracking().FirstOrDefaultAsync(x => x.Id == room.Id && x.IsDeleted == false);
+                    if (Room is null)
+                    {
+                        return "Invaild Request";
+                    }
+                    Room.IsAvaiable = room.IsAvaiable;
+                }
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception : {ex.Message}");
+            }
+            return room;
+
+
+        }
+
+        public async Task<HotelResult> DeleteRoomAsync(int roomId)
+        {
+            try
+            {
+                using var context = _contextFactory.CreateDbContext();
+                var Room = await context.Rooms.AsTracking().FirstOrDefaultAsync(x => x.Id == roomId);
+                if (Room is null)
+                {
+                    return "Invaild Request";
+                }
+                Room.IsDeleted = true;
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception : {ex.Message}");
+            }
+            return true;
         }
     }
 }

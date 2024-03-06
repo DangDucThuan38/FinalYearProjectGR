@@ -222,8 +222,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlQW1ldGl0aWVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageRoom.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlUm9vbS5yYXpvcg==
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageRooms.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlUm9vbXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageRoomType.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlUm9vbVR5cGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/_Import.razor]

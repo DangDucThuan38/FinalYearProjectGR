@@ -199,6 +199,9 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<bool>("IsAvaiable")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("RoomNumber")
                         .IsRequired()
                         .HasMaxLength(25)
@@ -208,6 +211,9 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasColumnType("smallint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoomNumber")
+                        .IsUnique();
 
                     b.HasIndex("RoomTypeId");
 
