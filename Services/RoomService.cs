@@ -18,7 +18,7 @@ namespace DangDucThuanFinalYear.Services
             _contextFactory = contextFactory;
         }
 
-        public async Task<HotelResult<short>> CreateRoomAsync(RoomCreateDTO input,string userId)
+        public async Task<HotelResult<short>> CreateRoomAsync(RoomTypeCreateDTO input,string userId)
         {
             using var context = _contextFactory.CreateDbContext();
             if( await context.RoomTypes.AnyAsync(x=> x.Name == input.Name) ) 
@@ -56,11 +56,11 @@ namespace DangDucThuanFinalYear.Services
 
         }
 
-        public async Task<SearchListRoomResults[]> GetRoomForManagePageResults()
+        public async Task<SearchListRoomTypeResults[]> GetRoomForManagePageResults()
         {
             using var context = _contextFactory.CreateDbContext();
             return await context.RoomTypes
-                .Select(x => new SearchListRoomResults(
+                .Select(x => new SearchListRoomTypeResults(
                     x.Id,
                     x.Name,
                     x.ImageUrl,

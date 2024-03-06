@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace DangDucThuanFinalYear.HotelDTO
 {
-    public class RoomCreateDTO
+    public class RoomTypeCreateDTO
     {
         public short Id { get; set; }
 
