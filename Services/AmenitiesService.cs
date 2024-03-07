@@ -30,13 +30,17 @@ namespace DangDucThuanFinalYear.Services
             return false;
         }
 
+        #region Function Lấy all danh sách các tiện ích của khách sạn
         public async Task<Amenity[]> GetAmenitiesAsync()
         {
             using var context = _contextFactory.CreateDbContext();
-            return await context.Amenitys.Where(a=>a.IsDeleted == false).ToArrayAsync();
+            return await context.Amenitys.Where(a => a.IsDeleted == false).ToArrayAsync();
 
 
         }
+
+        #endregion 
+
 
         public async Task<HotelResult<Amenity>> SaveAmenityAsync(Amenity amenity)
         {
