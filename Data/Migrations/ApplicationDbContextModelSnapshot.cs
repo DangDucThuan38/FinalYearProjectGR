@@ -188,6 +188,48 @@ namespace DangDucThuanFinalYear.Migrations
                     b.ToTable("Boookings");
                 });
 
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Finances", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AddByUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AddedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Money")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeFinance")
+                        .HasColumnType("int");
+
+                    b.HasKey("Code");
+
+                    b.HasIndex("AddByUserId");
+
+                    b.ToTable("Finances");
+                });
+
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
@@ -446,6 +488,15 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Navigation("Guest");
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Finances", b =>
+                {
+                    b.HasOne("DangDucThuanFinalYear.Data.ApplicationUser", "AddByUser")
+                        .WithMany()
+                        .HasForeignKey("AddByUserId");
+
+                    b.Navigation("AddByUser");
                 });
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>

@@ -45,9 +45,6 @@ builder.Services.AddTransient<SeedServices>()
 
 
 
-
-
-
 var app = builder.Build();
 await InitializeAdminUser(app.Services);
 

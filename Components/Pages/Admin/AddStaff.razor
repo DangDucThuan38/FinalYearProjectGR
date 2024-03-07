@@ -1,12 +1,13 @@
 ﻿@page "/admin-/manage-staff/new"
 @page "/admin-/manage-staff/{id:int}/edit"
+@using DangDucThuanFinalYear.Components.Account.Shared
 @using DangDucThuanFinalYear.HotelDTO
 
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
         <StatusMessage Message="@_message" />
-        <EditForm Model="_model"  method="post" OnValidSubmit="RegisterUserAsync" FormName="register">
+        <EditForm Model="_model"  method="post"  FormName="register">
             <DataAnnotationsValidator />
            <h2 style ="margin-top: 88px; text-align: center;">
                 <i class="fas fa-hotel"></i>Create a new account.
@@ -15,40 +16,40 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-floating mb-3">
-                        <InputText @bind-Value="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
+                        <InputText @bind-Value="_model.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
                         <label for="email">FirstName</label>
-                        <ValidationMessage For="() => Input.FirstName" class="text-danger" />
+                        <ValidationMessage For="() => _model.FirstName" class="text-danger" />
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-floating mb-3">
-                        <InputText @bind-Value="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
+                        <InputText @bind-Value="_model.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
                         <label for="email">LastName</label>
-                        <ValidationMessage For="() => Input.LastName" class="text-danger" />
+                        <ValidationMessage For="() => _model.LastName" class="text-danger" />
                     </div>
                 </div>
 
 
             </div>
             <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <InputText @bind-Value="_model.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                 <label for="email">Email</label>
-                <ValidationMessage For="() => Input.Email" class="text-danger" />
+                <ValidationMessage For="() => _model.Email" class="text-danger" />
             </div>
             <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number"  />
+                <InputText @bind-Value="_model.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number" />
                 <label for="email">ContactNumber</label>
-                <ValidationMessage For="() => Input.ContactNumber" class="text-danger" />
+                <ValidationMessage For="() => _model.ContactNumber" class="text-danger" />
             </div>
             <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <InputText type="password" @bind-Value="_model.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label for="password">Password</label>
-                <ValidationMessage For="() => Input.Password" class="text-danger" />
+                <ValidationMessage For="() => _model.Password" class="text-danger" />
             </div>
             <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <InputText type="password" @bind-Value="_model.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label for="confirm-password">Confirm Password</label>
-                <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
+                <ValidationMessage For="() => _model.ConfirmPassword" class="text-danger" />
             </div>
             <button type="submit" class="w-100 btn btn-lg btn-primary">Create Staff Member</button>
         </EditForm>
@@ -60,9 +61,9 @@
 
     private string? _message = null;
 
-    private Task RegisterUserAsync()
-    {
+    // private Task RegisterUserAsync()
+    // {
         
-    }
+    // }
 
 }
