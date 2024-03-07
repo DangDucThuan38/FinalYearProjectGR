@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KMYik23erpdyL5/7truZaQxhiJbynLayEb6FwputtUg=",
+  "Hash": "6Mbbr9Ev4k7h9keSBI0Ajma4axYJC7dSHJjfk4jB3Ec=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DangDucThuanFinalYear\\wwwroot",
       "Source": "DangDucThuanFinalYear",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DangDucThuanFinalYear.styles.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DangDucThuanFinalYear.styles.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Computed",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "DangDucThuanFinalYear.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DangDucThuanFinalYear.styles.css"
+      "OriginalItemSpec": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DangDucThuanFinalYear.styles.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Computed",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "DangDucThuanFinalYear.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css"
+      "OriginalItemSpec": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\app.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\app.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\css\\bootstrap.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\css\\bootstrap.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "css/bootstrap.min.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\css\\style.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\css\\style.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\favicon.png",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\favicon.png",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img1715d612-547b-42da-9da8-239d94b56c93.jpg",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
       "AssetKind": "All",
@@ -340,10 +340,29 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg"
+    },
+    {
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
       "AssetKind": "All",
@@ -359,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "images/room/room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg",
       "AssetKind": "All",
@@ -378,10 +397,29 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-1.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg"
+    },
+    {
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-1.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/about-1.jpg",
       "AssetKind": "All",
@@ -397,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\img\\about-1.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/about-2.jpg",
       "AssetKind": "All",
@@ -416,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\img\\about-2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-3.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-3.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/about-3.jpg",
       "AssetKind": "All",
@@ -435,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\img\\about-3.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-4.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-4.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/about-4.jpg",
       "AssetKind": "All",
@@ -454,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\img\\about-4.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-1.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\carousel-1.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/carousel-1.jpg",
       "AssetKind": "All",
@@ -473,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\img\\carousel-1.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\carousel-2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/carousel-2.jpg",
       "AssetKind": "All",
@@ -492,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\img\\carousel-2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jmw2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jmw2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/jmw2.jpg",
       "AssetKind": "All",
@@ -511,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\img\\jmw2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwm.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwm.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/jwm.jpg",
       "AssetKind": "All",
@@ -530,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\img\\jwm.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwm2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwm2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/jwm2.jpg",
       "AssetKind": "All",
@@ -549,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\img\\jwm2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwmabout.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwmabout.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/jwmabout.jpg",
       "AssetKind": "All",
@@ -568,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\img\\jwmabout.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\mariot.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\mariot.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/mariot.jpg",
       "AssetKind": "All",
@@ -587,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\img\\mariot.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-1.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-1.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/room-1.jpg",
       "AssetKind": "All",
@@ -606,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\img\\room-1.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/room-2.jpg",
       "AssetKind": "All",
@@ -625,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\img\\room-2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-3.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-3.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/room-3.jpg",
       "AssetKind": "All",
@@ -644,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\img\\room-3.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-1.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-1.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/team-1.jpg",
       "AssetKind": "All",
@@ -663,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\img\\team-1.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/team-2.jpg",
       "AssetKind": "All",
@@ -682,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\img\\team-2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-3.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-3.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/team-3.jpg",
       "AssetKind": "All",
@@ -701,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\img\\team-3.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-4.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-4.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/team-4.jpg",
       "AssetKind": "All",
@@ -720,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\img\\team-4.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-1.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-1.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/testimonial-1.jpg",
       "AssetKind": "All",
@@ -739,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\img\\testimonial-1.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-2.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/testimonial-2.jpg",
       "AssetKind": "All",
@@ -758,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\img\\testimonial-2.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-3.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-3.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/testimonial-3.jpg",
       "AssetKind": "All",
@@ -777,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\img\\testimonial-3.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-4.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-4.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/testimonial-4.jpg",
       "AssetKind": "All",
@@ -796,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\img\\testimonial-4.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\video.jpg",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\video.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "img/video.jpg",
       "AssetKind": "All",
@@ -815,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\img\\video.jpg"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\common.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\js\\common.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "js/common.js",
       "AssetKind": "All",
@@ -834,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\js\\common.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\main.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\js\\main.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "js/main.js",
       "AssetKind": "All",
@@ -853,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\js\\main.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\animate\\animate.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\animate\\animate.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/animate/animate.css",
       "AssetKind": "All",
@@ -872,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\animate\\animate.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\animate\\animate.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\animate\\animate.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/animate/animate.min.css",
       "AssetKind": "All",
@@ -891,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\animate\\animate.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\counterup\\counterup.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\counterup\\counterup.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/counterup/counterup.min.js",
       "AssetKind": "All",
@@ -910,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\counterup\\counterup.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\easing\\easing.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\easing\\easing.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/easing/easing.js",
       "AssetKind": "All",
@@ -929,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\easing\\easing.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\easing\\easing.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\easing\\easing.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/easing/easing.min.js",
       "AssetKind": "All",
@@ -948,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\easing\\easing.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/ajax-loader.gif",
       "AssetKind": "All",
@@ -967,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.carousel.css",
       "AssetKind": "All",
@@ -986,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.carousel.min.css",
       "AssetKind": "All",
@@ -1005,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.default.css",
       "AssetKind": "All",
@@ -1024,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.default.min.css",
       "AssetKind": "All",
@@ -1043,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.green.css",
       "AssetKind": "All",
@@ -1062,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.theme.green.min.css",
       "AssetKind": "All",
@@ -1081,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/assets/owl.video.play.png",
       "AssetKind": "All",
@@ -1100,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\LICENSE",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/LICENSE",
       "AssetKind": "All",
@@ -1119,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\LICENSE"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/owl.carousel.js",
       "AssetKind": "All",
@@ -1138,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\owl.carousel.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/owlcarousel/owl.carousel.min.js",
       "AssetKind": "All",
@@ -1157,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\owlcarousel\\owl.carousel.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/css/tempusdominus-bootstrap-4.css",
       "AssetKind": "All",
@@ -1176,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css",
       "AssetKind": "All",
@@ -1195,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/js/moment.min.js",
       "AssetKind": "All",
@@ -1214,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\js\\moment.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/js/moment-timezone.min.js",
       "AssetKind": "All",
@@ -1233,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/js/tempusdominus-bootstrap-4.js",
       "AssetKind": "All",
@@ -1252,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js",
       "AssetKind": "All",
@@ -1271,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\waypoints\\links.php",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\waypoints\\links.php",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/waypoints/links.php",
       "AssetKind": "All",
@@ -1290,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\waypoints\\links.php"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\waypoints\\waypoints.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/waypoints/waypoints.min.js",
       "AssetKind": "All",
@@ -1309,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\waypoints\\waypoints.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\wow\\wow.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\wow\\wow.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/wow/wow.js",
       "AssetKind": "All",
@@ -1328,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\wow\\wow.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\wow\\wow.min.js",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\wow\\wow.min.js",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "lib/wow/wow.min.js",
       "AssetKind": "All",
@@ -1347,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\wow\\wow.min.js"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap.scss",
       "AssetKind": "All",
@@ -1366,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_accordion.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_accordion.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_accordion.scss",
       "AssetKind": "All",
@@ -1385,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_accordion.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_alert.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_alert.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_alert.scss",
       "AssetKind": "All",
@@ -1404,10 +1442,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_alert.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_badge.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_badge.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_badge.scss",
       "AssetKind": "All",
@@ -1423,10 +1461,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_badge.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_breadcrumb.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_breadcrumb.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_breadcrumb.scss",
       "AssetKind": "All",
@@ -1442,10 +1480,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_breadcrumb.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_button-group.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_button-group.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_button-group.scss",
       "AssetKind": "All",
@@ -1461,10 +1499,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_button-group.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_buttons.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_buttons.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_buttons.scss",
       "AssetKind": "All",
@@ -1480,10 +1518,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_buttons.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_card.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_card.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_card.scss",
       "AssetKind": "All",
@@ -1499,10 +1537,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_card.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_carousel.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_carousel.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_carousel.scss",
       "AssetKind": "All",
@@ -1518,10 +1556,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_carousel.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_close.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_close.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_close.scss",
       "AssetKind": "All",
@@ -1537,10 +1575,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_close.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_containers.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_containers.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_containers.scss",
       "AssetKind": "All",
@@ -1556,10 +1594,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_containers.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_dropdown.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_dropdown.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_dropdown.scss",
       "AssetKind": "All",
@@ -1575,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_dropdown.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_forms.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_forms.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_forms.scss",
       "AssetKind": "All",
@@ -1594,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_forms.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_functions.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_functions.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_functions.scss",
       "AssetKind": "All",
@@ -1613,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_functions.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_grid.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_grid.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_grid.scss",
       "AssetKind": "All",
@@ -1632,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_grid.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_helpers.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_helpers.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_helpers.scss",
       "AssetKind": "All",
@@ -1651,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_helpers.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_images.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_images.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_images.scss",
       "AssetKind": "All",
@@ -1670,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_images.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_list-group.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_list-group.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_list-group.scss",
       "AssetKind": "All",
@@ -1689,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_list-group.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_mixins.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_mixins.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_mixins.scss",
       "AssetKind": "All",
@@ -1708,10 +1746,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_mixins.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_modal.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_modal.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_modal.scss",
       "AssetKind": "All",
@@ -1727,10 +1765,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_modal.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_nav.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_nav.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_nav.scss",
       "AssetKind": "All",
@@ -1746,10 +1784,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_nav.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_navbar.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_navbar.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_navbar.scss",
       "AssetKind": "All",
@@ -1765,10 +1803,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_navbar.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_offcanvas.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_offcanvas.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_offcanvas.scss",
       "AssetKind": "All",
@@ -1784,10 +1822,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_offcanvas.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_pagination.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_pagination.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_pagination.scss",
       "AssetKind": "All",
@@ -1803,10 +1841,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_pagination.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_popover.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_popover.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_popover.scss",
       "AssetKind": "All",
@@ -1822,10 +1860,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_popover.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_progress.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_progress.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_progress.scss",
       "AssetKind": "All",
@@ -1841,10 +1879,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_progress.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_reboot.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_reboot.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_reboot.scss",
       "AssetKind": "All",
@@ -1860,10 +1898,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_reboot.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_root.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_root.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_root.scss",
       "AssetKind": "All",
@@ -1879,10 +1917,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_root.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_spinners.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_spinners.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_spinners.scss",
       "AssetKind": "All",
@@ -1898,10 +1936,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_spinners.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_tables.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_tables.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_tables.scss",
       "AssetKind": "All",
@@ -1917,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_tables.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_toasts.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_toasts.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_toasts.scss",
       "AssetKind": "All",
@@ -1936,10 +1974,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_toasts.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_tooltip.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_tooltip.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_tooltip.scss",
       "AssetKind": "All",
@@ -1955,10 +1993,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_tooltip.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_transitions.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_transitions.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_transitions.scss",
       "AssetKind": "All",
@@ -1974,10 +2012,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_transitions.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_type.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_type.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_type.scss",
       "AssetKind": "All",
@@ -1993,10 +2031,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_type.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_utilities.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_utilities.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_utilities.scss",
       "AssetKind": "All",
@@ -2012,10 +2050,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_utilities.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_variables.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_variables.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/_variables.scss",
       "AssetKind": "All",
@@ -2031,10 +2069,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\_variables.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/bootstrap.scss",
       "AssetKind": "All",
@@ -2050,10 +2088,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\bootstrap.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/bootstrap-grid.scss",
       "AssetKind": "All",
@@ -2069,10 +2107,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\bootstrap-grid.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/bootstrap-reboot.scss",
       "AssetKind": "All",
@@ -2088,10 +2126,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\bootstrap-reboot.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/bootstrap-utilities.scss",
       "AssetKind": "All",
@@ -2107,10 +2145,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\bootstrap-utilities.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_floating-labels.scss",
       "AssetKind": "All",
@@ -2126,10 +2164,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_form-check.scss",
       "AssetKind": "All",
@@ -2145,10 +2183,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_form-check.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_form-control.scss",
       "AssetKind": "All",
@@ -2164,10 +2202,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_form-control.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_form-range.scss",
       "AssetKind": "All",
@@ -2183,10 +2221,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_form-range.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_form-select.scss",
       "AssetKind": "All",
@@ -2202,10 +2240,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_form-select.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_form-text.scss",
       "AssetKind": "All",
@@ -2221,10 +2259,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_form-text.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_input-group.scss",
       "AssetKind": "All",
@@ -2240,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_input-group.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_labels.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_labels.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_labels.scss",
       "AssetKind": "All",
@@ -2259,10 +2297,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_labels.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_validation.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_validation.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/forms/_validation.scss",
       "AssetKind": "All",
@@ -2278,10 +2316,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\forms\\_validation.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_clearfix.scss",
       "AssetKind": "All",
@@ -2297,10 +2335,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_colored-links.scss",
       "AssetKind": "All",
@@ -2316,10 +2354,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_position.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_position.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_position.scss",
       "AssetKind": "All",
@@ -2335,10 +2373,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_position.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_ratio.scss",
       "AssetKind": "All",
@@ -2354,10 +2392,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_ratio.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_stretched-link.scss",
       "AssetKind": "All",
@@ -2373,10 +2411,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_text-truncation.scss",
       "AssetKind": "All",
@@ -2392,10 +2430,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/helpers/_visually-hidden.scss",
       "AssetKind": "All",
@@ -2411,10 +2449,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_alert.scss",
       "AssetKind": "All",
@@ -2430,10 +2468,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_alert.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_border-radius.scss",
       "AssetKind": "All",
@@ -2449,10 +2487,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_box-shadow.scss",
       "AssetKind": "All",
@@ -2468,10 +2506,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_breakpoints.scss",
       "AssetKind": "All",
@@ -2487,10 +2525,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_buttons.scss",
       "AssetKind": "All",
@@ -2506,10 +2544,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_buttons.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_caret.scss",
       "AssetKind": "All",
@@ -2525,10 +2563,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_caret.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_clearfix.scss",
       "AssetKind": "All",
@@ -2544,10 +2582,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_color-scheme.scss",
       "AssetKind": "All",
@@ -2563,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_container.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_container.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_container.scss",
       "AssetKind": "All",
@@ -2582,10 +2620,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_container.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_deprecate.scss",
       "AssetKind": "All",
@@ -2601,10 +2639,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_forms.scss",
       "AssetKind": "All",
@@ -2620,10 +2658,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_forms.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_gradients.scss",
       "AssetKind": "All",
@@ -2639,10 +2677,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_gradients.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_grid.scss",
       "AssetKind": "All",
@@ -2658,10 +2696,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_grid.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_image.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_image.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_image.scss",
       "AssetKind": "All",
@@ -2677,10 +2715,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_image.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_list-group.scss",
       "AssetKind": "All",
@@ -2696,10 +2734,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_list-group.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_lists.scss",
       "AssetKind": "All",
@@ -2715,10 +2753,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_lists.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_pagination.scss",
       "AssetKind": "All",
@@ -2734,10 +2772,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_pagination.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_reset-text.scss",
       "AssetKind": "All",
@@ -2753,10 +2791,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_resize.scss",
       "AssetKind": "All",
@@ -2772,10 +2810,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_resize.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_table-variants.scss",
       "AssetKind": "All",
@@ -2791,10 +2829,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_text-truncate.scss",
       "AssetKind": "All",
@@ -2810,10 +2848,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_transition.scss",
       "AssetKind": "All",
@@ -2829,10 +2867,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_transition.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_utilities.scss",
       "AssetKind": "All",
@@ -2848,10 +2886,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_utilities.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/mixins/_visually-hidden.scss",
       "AssetKind": "All",
@@ -2867,10 +2905,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\utilities\\_api.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\utilities\\_api.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/utilities/_api.scss",
       "AssetKind": "All",
@@ -2886,10 +2924,10 @@
       "OriginalItemSpec": "wwwroot\\scss\\bootstrap\\scss\\utilities\\_api.scss"
     },
     {
-      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "Identity": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "ContentRoot": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\",
       "BasePath": "_content/DangDucThuanFinalYear",
       "RelativePath": "scss/bootstrap/scss/vendor/_rfs.scss",
       "AssetKind": "All",
