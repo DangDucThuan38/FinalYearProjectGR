@@ -58,7 +58,7 @@
         <button class="btn btn-danger btn-sm" @onclick="CloseRoomModal">X</button>
     </div>
     <hr />
-    <EditForm Model="ModelRoom" OnInvalidSubmit="CreateRoomAsync">
+    <EditForm Model="ModelRoom" OnSubmit="CreateRoomAsync">
         <DataAnnotationsValidator/>
             <div class="mb-3">
                 <label class="form-label">Room Number: </label>

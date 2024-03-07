@@ -21,7 +21,7 @@
         <h1 style="color: orange;">@(RoomTypeId.HasValue ? "Update" : "Create") Room Type</h1>
         <hr />
     </div>
-    <EditForm Model="Model"  OnInvalidSubmit="SaveRoomTypeAsnyc">
+    <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc">
         <DataAnnotationsValidator/>
         <div class="row">
              <div class="col-sm-6">
