@@ -1,6 +1,6 @@
 ﻿namespace DangDucThuanFinalYear.ApplicationHotel;
 
-
+// Xử lí các trạng thái trả về chung của dự án
 public readonly record struct HotelResult(bool IsSuccess, string? ErrorMessage)
 {
     public static HotelResult Success() => new(true, null);
