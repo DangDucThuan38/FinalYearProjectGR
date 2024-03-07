@@ -1,615 +1,615 @@
 {
   "Files": [
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DangDucThuanFinalYear.bundle.scp.css",
       "PackagePath": "staticwebassets\\DangDucThuanFinalYear.bundle.scp.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\app.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\css\\style.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\favicon.png",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img1715d612-547b-42da-9da8-239d94b56c93.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgdfed7d43-b5fe-4a5c-9331-12b5bf11083e.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgf4b3c624-f037-4ee8-83fe-3d74a65cba7d.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-1.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-1.jpg",
       "PackagePath": "staticwebassets\\img\\about-1.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-2.jpg",
       "PackagePath": "staticwebassets\\img\\about-2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-3.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-3.jpg",
       "PackagePath": "staticwebassets\\img\\about-3.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\about-4.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-4.jpg",
       "PackagePath": "staticwebassets\\img\\about-4.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\carousel-1.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-1.jpg",
       "PackagePath": "staticwebassets\\img\\carousel-1.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\carousel-2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-2.jpg",
       "PackagePath": "staticwebassets\\img\\carousel-2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jmw2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jmw2.jpg",
       "PackagePath": "staticwebassets\\img\\jmw2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwm.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwm.jpg",
       "PackagePath": "staticwebassets\\img\\jwm.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwm2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwm2.jpg",
       "PackagePath": "staticwebassets\\img\\jwm2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\jwmabout.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\jwmabout.jpg",
       "PackagePath": "staticwebassets\\img\\jwmabout.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\mariot.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\mariot.jpg",
       "PackagePath": "staticwebassets\\img\\mariot.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-1.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-1.jpg",
       "PackagePath": "staticwebassets\\img\\room-1.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-2.jpg",
       "PackagePath": "staticwebassets\\img\\room-2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\room-3.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-3.jpg",
       "PackagePath": "staticwebassets\\img\\room-3.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-1.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-1.jpg",
       "PackagePath": "staticwebassets\\img\\team-1.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-2.jpg",
       "PackagePath": "staticwebassets\\img\\team-2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-3.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-3.jpg",
       "PackagePath": "staticwebassets\\img\\team-3.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\team-4.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\team-4.jpg",
       "PackagePath": "staticwebassets\\img\\team-4.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-1.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-1.jpg",
       "PackagePath": "staticwebassets\\img\\testimonial-1.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-2.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-2.jpg",
       "PackagePath": "staticwebassets\\img\\testimonial-2.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-3.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-3.jpg",
       "PackagePath": "staticwebassets\\img\\testimonial-3.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\testimonial-4.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\testimonial-4.jpg",
       "PackagePath": "staticwebassets\\img\\testimonial-4.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\img\\video.jpg",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\video.jpg",
       "PackagePath": "staticwebassets\\img\\video.jpg"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\js\\common.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\common.js",
       "PackagePath": "staticwebassets\\js\\common.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\js\\main.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\animate\\animate.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\animate\\animate.css",
       "PackagePath": "staticwebassets\\lib\\animate\\animate.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\animate\\animate.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\animate\\animate.min.css",
       "PackagePath": "staticwebassets\\lib\\animate\\animate.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\counterup\\counterup.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\counterup\\counterup.min.js",
       "PackagePath": "staticwebassets\\lib\\counterup\\counterup.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\easing\\easing.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\easing\\easing.js",
       "PackagePath": "staticwebassets\\lib\\easing\\easing.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\easing\\easing.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\easing\\easing.min.js",
       "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\owlcarousel"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\moment-timezone.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\moment.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
       "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\waypoints\\links.php",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\waypoints\\links.php",
       "PackagePath": "staticwebassets\\lib\\waypoints\\links.php"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\waypoints\\waypoints.min.js",
       "PackagePath": "staticwebassets\\lib\\waypoints\\waypoints.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\wow\\wow.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\wow\\wow.js",
       "PackagePath": "staticwebassets\\lib\\wow\\wow.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\lib\\wow\\wow.min.js",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\lib\\wow\\wow.min.js",
       "PackagePath": "staticwebassets\\lib\\wow\\wow.min.js"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_accordion.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_accordion.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_accordion.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_alert.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_alert.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_alert.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_badge.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_badge.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_badge.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_breadcrumb.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_breadcrumb.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_breadcrumb.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_button-group.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_button-group.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_button-group.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_buttons.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_buttons.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_buttons.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_card.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_card.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_card.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_carousel.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_carousel.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_carousel.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_close.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_close.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_close.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_containers.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_containers.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_containers.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_dropdown.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_dropdown.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_dropdown.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_forms.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_forms.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_forms.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_functions.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_functions.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_functions.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_grid.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_grid.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_grid.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_helpers.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_helpers.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_helpers.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_images.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_images.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_images.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_list-group.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_list-group.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_list-group.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_mixins.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_mixins.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_mixins.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_modal.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_modal.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_modal.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_nav.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_nav.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_nav.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_navbar.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_navbar.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_navbar.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_offcanvas.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_offcanvas.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_offcanvas.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_pagination.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_pagination.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_pagination.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_popover.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_popover.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_popover.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_progress.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_progress.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_progress.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_reboot.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_reboot.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_reboot.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_root.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_root.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_root.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_spinners.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_spinners.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_spinners.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_tables.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_tables.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_tables.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_toasts.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_toasts.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_toasts.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_tooltip.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_tooltip.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_tooltip.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_transitions.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_transitions.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_transitions.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_type.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_type.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_type.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_utilities.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_utilities.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_utilities.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\_variables.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\_variables.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\_variables.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-grid.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\bootstrap-grid.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-reboot.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\bootstrap-reboot.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap-utilities.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\bootstrap-utilities.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\bootstrap.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\bootstrap.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\bootstrap.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_floating-labels.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-check.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_form-check.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-control.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_form-control.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-range.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_form-range.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-select.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_form-select.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_form-text.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_form-text.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_input-group.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_input-group.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_labels.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_labels.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_labels.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\forms\\_validation.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\forms\\_validation.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\forms\\_validation.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_clearfix.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_colored-links.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_position.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_position.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_position.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_ratio.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_ratio.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_stretched-link.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_text-truncation.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\helpers\\_visually-hidden.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_alert.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_alert.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_border-radius.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_box-shadow.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_breakpoints.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_buttons.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_buttons.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_caret.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_caret.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_clearfix.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_color-scheme.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_container.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_container.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_container.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_deprecate.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_forms.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_forms.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_gradients.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_gradients.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_grid.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_grid.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_image.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_image.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_image.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_list-group.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_list-group.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_lists.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_lists.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_pagination.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_pagination.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_reset-text.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_resize.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_resize.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_table-variants.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_text-truncate.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_transition.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_transition.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_utilities.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_utilities.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\mixins\\_visually-hidden.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\utilities\\_api.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\utilities\\_api.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\utilities\\_api.scss"
     },
     {
-      "Id": "D:\\DangDucThuan\\FinalYearProjectGR\\wwwroot\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\scss\\bootstrap\\scss\\vendor\\_rfs.scss",
       "PackagePath": "staticwebassets\\scss\\bootstrap\\scss\\vendor\\_rfs.scss"
     },
     {

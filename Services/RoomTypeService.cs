@@ -134,6 +134,10 @@ namespace DangDucThuanFinalYear.Services
                 using var context = _contextFactory.CreateDbContext();
                 if (room.Id == 0)
                 {
+                    if(await context.Rooms.AnyAsync(x=>x.RoomNumber == room.RoomNumber))
+                    {
+                        return "Room number exists alredy.Please try again!";
+                    }
                     await context.Rooms.AddAsync(room);
                 }
                 else

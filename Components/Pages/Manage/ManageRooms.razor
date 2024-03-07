@@ -9,8 +9,20 @@
 @inject IJSRuntime JsRuntime
 
 <div class="container">
+
     <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
-        <h1 style="color: orange;">Manage Rooms</h1>
+        <h1 style="color: orange; display: flex; align-items: center; font-size: 1.5rem;">
+            <NavLink href="staff-admin/manage-room-types" class="me-2 btn btn-sm btn-default">  
+                <i class="fas fa-arrow-left"></i>
+            </NavLink>
+
+            <span style="display: inline-flex; align-items: center;">
+                <span style="margin-right: 5px;">Manage Rooms</span>
+                <small style="color: red; font-weight: bold;">[@Name]</small>
+            </span>
+        </h1>
+
+
         <button type="button" @onclick="OpenCreateRoomModal" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</button>
     </div>
 
@@ -37,10 +49,39 @@
                 @foreach(var room in _rooms)
                 {
                     <tr>
-                        <td>@room.RoomNumber</td>
-                        <td>@room.IsAvaiable</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-danger">
+                            @if (room.IsAvaiable == true)
+                            {
+                                <span class="text-success">
+                                    @room.RoomNumber
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger" style="text-decoration: line-through;">
+                                    @room.RoomNumber
+                                </span>
+                            }
+
+                        </td>
+                        <td>
+                            <lable>
+                                @if (room.IsAvaiable == true)
+                                {
+                                    <input type="checkbox" checked @onchange="()=> HandleInheritability(room)" />
+                                    <span class="text-success">Yes</span>
+                                }
+                                else
+                                {
+                                    <input type="checkbox" @onchange="()=> HandleInheritability(room)" />
+                                    <span class="text-danger">No</span>
+                                }
+
+                            </lable>
+                         
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger" @onclick="()=> DeleteAsnyc(room.Id)">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>
@@ -52,7 +93,7 @@
     </div>
 </div>
 
-<dialog id="@DialogId" style=" min-width:300px">
+<dialog id="@DialogId" style=" min-width:300px" >
     <div class="d-flex justify-content-between align-items-center">
         <h4> Create Room</h4>
         <button class="btn btn-danger btn-sm" @onclick="CloseRoomModal">X</button>
@@ -94,6 +135,9 @@
     private Room ModelRoom = new();
     private short _romTypeId = 0;
 
+    [SupplyParameterFromQuery]
+    public string Name { get; set; } = "";
+
     private const string DialogId ="create-room";
 
 
@@ -117,7 +161,10 @@
             _rooms = [.. _rooms, result.Data];
             ModelRoom = new();
             await CloseRoomModal();
+            return;
         }
+        await JsRuntime.InvokeVoidAsync("window.alert", result.ErrorMessage ?? "Error in save room.Please try agian! ");
+
 
     }
 
@@ -125,6 +172,26 @@
     private async Task OpenCreateRoomModal() => await JsRuntime.InvokeVoidAsync("window.showModal", DialogId);
 
 
+    private async Task HandleInheritability(Room room)
+    {
+        room.IsAvaiable = !room.IsAvaiable;
+        var result = await RoomTypeService.SaveRoomAsync(room);
+        if (!result.IsSuccess)
+        {
+            room.IsAvaiable = !room.IsAvaiable;
+            await JsRuntime.InvokeVoidAsync("window.alert", result.ErrorMessage ?? "Error in changing room.Please try agian! ");
 
+        }
+    }
+    private async Task DeleteAsnyc(int id)
+    {
+        var result = await RoomTypeService.DeleteRoomAsync(id);
+        if(result.IsSuccess)
+        {
+            _rooms = _rooms.Where(x => x.Id != id && x.IsDeleted == false).ToArray();
+        }
+        await JsRuntime.InvokeVoidAsync("window.alert", result.ErrorMessage ?? "Error in changing room.Please try agian! ");
+
+    }
 
 }
