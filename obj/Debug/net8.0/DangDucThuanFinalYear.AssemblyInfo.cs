@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DangDucThuanFinalYear")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a2476b8df03f2bb9b2f4e9ce8d1be382fcd2fbe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1ee735ea7e7c4859360b9ce7b7a04162f9669e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DangDucThuanFinalYear")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DangDucThuanFinalYear")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

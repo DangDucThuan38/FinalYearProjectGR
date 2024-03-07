@@ -1,0 +1,68 @@
+﻿@page "/admin-/manage-staff/new"
+@page "/admin-/manage-staff/{id:int}/edit"
+@using DangDucThuanFinalYear.HotelDTO
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <StatusMessage Message="@_message" />
+        <EditForm Model="_model"  method="post" OnValidSubmit="RegisterUserAsync" FormName="register">
+            <DataAnnotationsValidator />
+           <h2 style ="margin-top: 88px; text-align: center;">
+                <i class="fas fa-hotel"></i>Create a new account.
+            </h2>
+            <hr />
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-floating mb-3">
+                        <InputText @bind-Value="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
+                        <label for="email">FirstName</label>
+                        <ValidationMessage For="() => Input.FirstName" class="text-danger" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-floating mb-3">
+                        <InputText @bind-Value="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
+                        <label for="email">LastName</label>
+                        <ValidationMessage For="() => Input.LastName" class="text-danger" />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label for="email">Email</label>
+                <ValidationMessage For="() => Input.Email" class="text-danger" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number"  />
+                <label for="email">ContactNumber</label>
+                <ValidationMessage For="() => Input.ContactNumber" class="text-danger" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label for="password">Password</label>
+                <ValidationMessage For="() => Input.Password" class="text-danger" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputText type="password" @bind-Value="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label for="confirm-password">Confirm Password</label>
+                <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Create Staff Member</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private RegisterUserModelDTO _model = new();
+
+    private string? _message = null;
+
+    private Task RegisterUserAsync()
+    {
+        
+    }
+
+}

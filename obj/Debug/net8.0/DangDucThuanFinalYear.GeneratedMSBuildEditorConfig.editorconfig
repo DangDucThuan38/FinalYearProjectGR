@@ -190,6 +190,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/AddStaff.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxBZGRTdGFmZi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/ManagerStaff.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxNYW5hZ2VyU3RhZmYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/_ImportAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxfSW1wb3J0QWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Auth.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -256,6 +268,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/BookingHotel.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxCb29raW5nSG90ZWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/CreateUserForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxDcmVhdGVVc2VyRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Footer.razor]
