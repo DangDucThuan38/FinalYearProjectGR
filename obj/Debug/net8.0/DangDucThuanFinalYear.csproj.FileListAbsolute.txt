@@ -284,3 +284,10 @@ D:\DangDucThuan\FinalYearProjectGR\obj\Debug\net8.0\refint\DangDucThuanFinalYear
 D:\DangDucThuan\FinalYearProjectGR\obj\Debug\net8.0\DangDucThuanFinalYear.pdb
 D:\DangDucThuan\FinalYearProjectGR\obj\Debug\net8.0\DangDucThuanFinalYear.genruntimeconfig.cache
 D:\DangDucThuan\FinalYearProjectGR\obj\Debug\net8.0\ref\DangDucThuanFinalYear.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.JSInterop.dll

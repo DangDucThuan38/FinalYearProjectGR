@@ -10,13 +10,7 @@
 @using Microsoft.AspNetCore.WebUtilities
 @using DangDucThuanFinalYear.Data
 
-@* @inject UserManager<ApplicationUser> UserManager
-@inject IUserStore<ApplicationUser> UserStore *@
 
-@inject SignInManager<ApplicationUser> SignInManager
-@inject IEmailSender<ApplicationUser> EmailSender
-@inject ILogger<Register> Logger
-@inject NavigationManager NavigationManager
 @inject IdentityRedirectManager RedirectManager
 
 
@@ -26,135 +20,14 @@
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-        <StatusMessage Message="@_message" />
-        <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterUser" FormName="register">
-            <DataAnnotationsValidator />
-           <h2 style ="margin-top: 88px; text-align: center;">
-                <i class="fas fa-hotel"></i>Create a new account.
-            </h2>
-            <hr />
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-floating mb-3">
-                        <InputText @bind-Value="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
-                        <label for="email">FirstName</label>
-                        <ValidationMessage For="() => Input.FirstName" class="text-danger" />
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-floating mb-3">
-                        <InputText @bind-Value="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
-                        <label for="email">LastName</label>
-                        <ValidationMessage For="() => Input.LastName" class="text-danger" />
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label for="email">Email</label>
-                <ValidationMessage For="() => Input.Email" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number"  />
-                <label for="email">ContactNumber</label>
-                <ValidationMessage For="() => Input.ContactNumber" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label for="password">Password</label>
-                <ValidationMessage For="() => Input.Password" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label for="confirm-password">Confirm Password</label>
-                <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger" />
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-           <div class="mt-3">
-                <p>
-                    <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Login", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Already have an account? Login</a>
-                </p>
-           </div>
-            
-        </EditForm>
+        <CreateUserForm OnSuccess="HandleRegisterSuccess" />
     </div>
 </div>
 
 @code {
-
-    [SupplyParameterFromForm]
-    private RegisterUserModelDTO Input { get; set; } = new();
-
-    [SupplyParameterFromQuery]
-    private string? ReturnUrl { get; set; }
-
-    private string? _message = null; /* => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}"; */
-
-    public async Task RegisterUser(EditContext editContext)
-    {
-        var user = CreateUser();
-        user.FirstName = Input.FirstName;
-        user.LastName = Input.LastName;
-        user.LastName = Input.LastName;
-        user.ContactNumber = Input.ContactNumber;
-        user.RoleName = RoleType.Guest.ToString();
+    private async Task HandleRegisterSuccess() => RedirectManager.RedirectTo("Account/Login");
 
 
-        // await UserStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-        // var emailStore = GetEmailStore();
-        // await emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-        // var result = await UserManager.CreateAsync(user, Input.Password);
-
-        // if (!result.Succeeded)
-        // {
-        //     identityErrors = result.Errors;
-        //     return;
-        // }
-
-        // result = await UserManager.AddToRoleAsync(user, RoleType.Guest.ToString());
-        // if (!result.Succeeded)
-        // {
-        //     identityErrors = result.Errors;
-        //     return;
-        // }
-
-        var result = await UserService.CreateUserAsnyc(user, Input.Email, Input.Password);
-        if (!result.IsSuccess)
-        {
-            _message = result.ErrorMessage;
-            return;
-        }
-
-        Logger.LogInformation("User created a new account with password.");
-
-
-
-        RedirectManager.RedirectTo("Account/Login");
-    }
-
-    private ApplicationUser CreateUser()
-    {
-        try
-        {
-            return Activator.CreateInstance<ApplicationUser>();
-        }
-        catch
-        {
-            throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
-                $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor.");
-        }
-    }
-
-    // private IUserEmailStore<ApplicationUser> GetEmailStore()
-    // {
-    //     if (!UserManager.SupportsUserEmail)
-    //     {
-    //         throw new NotSupportedException("The default UI requires a user store with email support.");
-    //     }
-    //     return (IUserEmailStore<ApplicationUser>)UserStore;
-    // }
 
     
 }

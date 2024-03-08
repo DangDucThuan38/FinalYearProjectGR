@@ -1,69 +1,38 @@
-﻿@page "/admin-/manage-staff/new"
-@page "/admin-/manage-staff/{id:int}/edit"
+﻿@page "/admin/manage-staff/new"
+@page "/admin/manage-staff/{id:int}/edit"
 @using DangDucThuanFinalYear.Components.Account.Shared
 @using DangDucThuanFinalYear.HotelDTO
 
-
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-        <StatusMessage Message="@_message" />
-        <EditForm Model="_model"  method="post"  FormName="register">
-            <DataAnnotationsValidator />
-           <h2 style ="margin-top: 88px; text-align: center;">
-                <i class="fas fa-hotel"></i>Create a new account.
-            </h2>
-            <hr />
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-floating mb-3">
-                        <InputText @bind-Value="_model.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
-                        <label for="email">FirstName</label>
-                        <ValidationMessage For="() => _model.FirstName" class="text-danger" />
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-floating mb-3">
-                        <InputText @bind-Value="_model.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
-                        <label for="email">LastName</label>
-                        <ValidationMessage For="() => _model.LastName" class="text-danger" />
-                    </div>
-                </div>
+@inject NavigationManager NavigationManager
 
 
+<div class="container">
+    <div class="d-flex  flex-column  align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange; display: flex; align-items: center; font-size: 1.5rem;">
+            <NavLink href="admin/manage-staff" class="me-2 btn btn-sm btn-default">
+                <i class="fas fa-arrow-left"></i>
+            </NavLink>
+
+            <span style="display: inline-flex; align-items: center;">
+                <span style="margin-right: 5px;">Create new Staff Member</span>
+            </span>
+        </h1>
+        <div class="row d-flex justify-content-center" style="margin-bottom:20px">
+            <div class="col-sm-15">
+                        <CreateUserForm Role="@RoleType.Staff" 
+                        OnSuccess = "HandleRegisterSuccess" />
             </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="_model.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label for="email">Email</label>
-                <ValidationMessage For="() => _model.Email" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="_model.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number" />
-                <label for="email">ContactNumber</label>
-                <ValidationMessage For="() => _model.ContactNumber" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="_model.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label for="password">Password</label>
-                <ValidationMessage For="() => _model.Password" class="text-danger" />
-            </div>
-            <div class="form-floating mb-3">
-                <InputText type="password" @bind-Value="_model.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label for="confirm-password">Confirm Password</label>
-                <ValidationMessage For="() => _model.ConfirmPassword" class="text-danger" />
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Create Staff Member</button>
-        </EditForm>
+
+        </div>
+
     </div>
 </div>
 
 @code {
-    private RegisterUserModelDTO _model = new();
+    [Parameter]
+    public string? Id { get; set; }
 
-    private string? _message = null;
+    private async Task HandleRegisterSuccess() => NavigationManager.NavigateTo("admin/manage-staff");
 
-    // private Task RegisterUserAsync()
-    // {
-        
-    // }
 
 }

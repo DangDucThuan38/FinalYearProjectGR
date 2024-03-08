@@ -1,7 +1,28 @@
-﻿@page "/admin-/manage-staff"
+﻿@page "/admin/manage-staff"
 @using DangDucThuanFinalYear.HotelDTO
 
+@inject NavigationManager NavigationManager
+
 <h3>ManagerStaff</h3>
+<div class="container">
+    <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange; display: flex; align-items: center; font-size: 1.5rem;">
+            <NavLink href="/" class="me-2 btn btn-sm btn-default">
+                <i class="fas fa-arrow-left"></i>
+            </NavLink>
+
+            <span style="display: inline-flex; align-items: center;">
+                <span style="margin-right: 5px;">Manage Staff</span>
+            </span>
+        </h1>
+        <NavLink href="admin/manage-staff/new" class="btn btn-sm btn-primary mt-3">+ Add new Staff</NavLink>
+
+    </div>
+    <hr/>
+    <UserList Role="RoleType.Guest"/>
+</div>
+
+
 
 @code {
     private RegisterUserModelDTO _model = new();
