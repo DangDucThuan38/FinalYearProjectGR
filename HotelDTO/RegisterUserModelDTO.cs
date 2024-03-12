@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DangDucThuanFinalYear.HotelDTO
 {
-    public class RegisterUserModelDTO
+    public class RegisterUserModelDTO 
     {
         [Required, MaxLength(15)]
         public string FirstName { get; set; } = "";
@@ -29,6 +29,7 @@ namespace DangDucThuanFinalYear.HotelDTO
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; } = "";
+
         [MaxLength(50), Unicode(false)]
         public string? Desgination { get; set; }
     }

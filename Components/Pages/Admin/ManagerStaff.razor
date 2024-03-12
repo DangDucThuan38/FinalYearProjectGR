@@ -17,30 +17,11 @@
         </h1>
         <NavLink href="admin/manage-staff/new" class="btn btn-sm btn-primary mt-3">+ Add new Staff</NavLink>
 
-        <!-- Search input -->
-        <input type="text" placeholder="Search..." onchange="filterUsers()" class="form-control mt-3" />
     </div>
     <hr />
-    <UserList Role="RoleType.Guest" />
+    <UserList Role="RoleType.Staff" />
 </div>
 
-<script>
-    function filterUsers() {
-        var searchTerm = document.querySelector('input[type="text"]').value.toLowerCase();
-        var users = document.querySelectorAll('.userItem');
-
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            var userName = user.getAttribute('data-username').toLowerCase();
-
-            if (userName.includes(searchTerm)) {
-                user.style.display = 'table-row'; // or 'block' depending on your HTML structure
-            } else {
-                user.style.display = 'none';
-            }
-        }
-    }
-</script>
 @code {
     private RegisterUserModelDTO _model = new();
 }
