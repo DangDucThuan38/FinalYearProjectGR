@@ -40,7 +40,7 @@
 
 <QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-striped">
     <PropertyColumn Property="x=> x.Id"/>
-    <PropertyColumn Property="x=> x.Name" />
+    <PropertyColumn Property="x=> x.Name"  />
     <PropertyColumn Property="x=> x.RoleName" Title="Role"/>
     <PropertyColumn Property="x=> x.Email" />
     <PropertyColumn Property="x=> x.ContactNumber" Title="Contact Number"/>
@@ -55,7 +55,10 @@
     }
    
 </QuickGrid>
-<Paginator State="_pagination"/>
+    @if (_pagination.TotalItemCount > 10)
+    {
+        <Paginator State="_pagination" />
+    }
 </div>
 
 @code {
