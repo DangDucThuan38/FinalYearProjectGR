@@ -12,6 +12,7 @@ namespace DangDucThuanFinalYear.Data
         public DbSet<Entities.Amenity> Amenitys { get; set; }
         public DbSet<Entities.RoomTypeAmenity> RoomTypeAmenitys { get; set; }
         public DbSet<Entities.Boooking> Boookings { get; set; }
+        public DbSet<Entities.Finances> Finances { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -8,6 +8,6 @@ namespace DangDucThuanFinalYear.IServices
     public interface IUserService
     {
         Task<HotelResult<ApplicationUser>> CreateUserAsnyc(ApplicationUser user, string email, string passowrd);
-        Task<UserInformation[]> GetUserInformationAsnyc(RoleType? roleType = null);
+        Task<PageResult<UserInformation>> GetUserInformationAsnyc(int startIndex, int PageSize, RoleType? roleType = null);
     }
 }

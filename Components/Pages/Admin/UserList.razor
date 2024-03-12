@@ -1,0 +1,92 @@
+﻿@using DangDucThuanFinalYear.HotelDTO
+@using Microsoft.AspNetCore.Components.QuickGrid
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+
+@inject IUserService UserService
+<style>
+    /* Customize pagination styles */
+    .custom-pagination .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        justify-content: center;
+    }
+
+        .custom-pagination .pagination li {
+            margin: 0 5px;
+        }
+
+        .custom-pagination .pagination a {
+            text-decoration: none;
+            color: #007bff;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+            .custom-pagination .pagination a:hover {
+                background-color: #d1e2ff;
+            }
+
+        .custom-pagination .pagination .active a {
+            background-color: #007bff;
+            color: #fff;
+        }
+</style>
+
+<div class="custom-pagination">
+
+<QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-striped">
+    <PropertyColumn Property="x=> x.Id"/>
+    <PropertyColumn Property="x=> x.Name"  />
+    <PropertyColumn Property="x=> x.RoleName" Title="Role"/>
+    <PropertyColumn Property="x=> x.Email" />
+    <PropertyColumn Property="x=> x.ContactNumber" Title="Contact Number"/>
+    @if(Role != RoleType.Guest)
+    {
+         <PropertyColumn Property="x=> x.Designation" />
+        <TemplateColumn>
+            <a href="admin-/manage-staff/@context.Id/edit" class="btn btn-sm btn-primary">
+                <i class="fa fa-edit"></i>
+            </a>
+        </TemplateColumn>
+    }
+   
+</QuickGrid>
+    @if (_pagination.TotalItemCount > 10)
+    {
+        <Paginator State="_pagination" />
+    }
+</div>
+
+@code {
+
+ 
+
+    [Parameter,EditorRequired]
+    public RoleType Role { get; set; }
+
+    private const int PageSize = 10;
+
+
+    private GridItemsProvider<UserInformation> _userProvider;
+
+    private PaginationState _pagination = new() { ItemsPerPage = PageSize };
+
+    protected override  void OnInitialized()
+    {
+        // _users = await UserService.GetUserAsync(Role);
+        _userProvider = UserProvideAsync;
+    }
+
+    private async ValueTask<GridItemsProviderResult<UserInformation>> UserProvideAsync(GridItemsProviderRequest<UserInformation> request)
+    {
+        var pageResult = await UserService.GetUserInformationAsnyc(request.StartIndex, request.Count ?? PageSize, Role);
+        {
+            return GridItemsProviderResult.From(pageResult.Records, pageResult.TotalCount);
+        }
+    }
+
+}

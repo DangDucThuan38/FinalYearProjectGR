@@ -47,14 +47,20 @@ namespace DangDucThuanFinalYear.Services
 
 
 
-        public async Task<UserInformation[]> GetUserInformationAsnyc(RoleType? roleType = null)
+        public async Task<PageResult<UserInformation>> GetUserInformationAsnyc(int startIndex, int PageSize, RoleType? roleType = null)
         {
             var query = _userManage.Users;
             if(roleType is not null)
             {
                 query = query.Where(x => x.RoleName == roleType.ToString());
             }
-            return await query.Select(x => new UserInformation(x.Id, x.FullName, x.Email, x.RoleName,x.ContactNumber,x.Desgination)).ToArrayAsync();
+            var total = await query.CountAsync();
+            var recors = await query.Select(x => new UserInformation(x.Id, x.FullName, x.Email, x.RoleName,x.ContactNumber,x.Desgination))
+                .Skip(startIndex)
+                .Take(PageSize)
+                .ToArrayAsync();
+
+            return new PageResult<UserInformation>(total, recors);
             
         }
 
