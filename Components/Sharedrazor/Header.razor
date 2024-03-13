@@ -46,14 +46,7 @@
                         <NavLink href="abouthotel" class="nav-item nav-link">About</NavLink>
                         <NavLink href="services" class="nav-item nav-link">Services</NavLink>
                         <NavLink href="room" class="nav-item nav-link">Room </NavLink>
-                      @*   <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <NavLink href="bookings" class="dropdown-item">Booking</NavLink>
-                                <NavLink href="team" class="dropdown-item">Our Team</NavLink>
-                                <NavLink href="testimonial" class="dropdown-item">Testimonial</NavLink>
-                            </div>
-                        </div> *@
+                   
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
 
                         <AuthorizeView>
@@ -61,7 +54,7 @@
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <NavLink href="booking" class="dropdown-item">My Profile</NavLink>
+                                        <NavLink href="my-profile" class="dropdown-item">My Profile</NavLink>
                                         <AuthorizeView Roles="@RoleType.Guest.ToString()" Context="guestContext">
                                             <NavLink href="booking" class="dropdown-item">My Booking</NavLink>
                                         </AuthorizeView>
