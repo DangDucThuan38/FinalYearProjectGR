@@ -41,7 +41,9 @@ builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSe
 builder.Services.AddTransient<SeedServices>()
                 .AddTransient<IAmenititesService, AmenitiesService>()
                 .AddTransient<IRoomTypeService, RoomTypeService>()
-                .AddTransient<IUserService, UserService>();
+                .AddTransient<IUserService, UserService>()
+                .AddTransient<IFinanceService, FinanceService>();
+
 
 
 

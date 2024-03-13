@@ -1,0 +1,72 @@
+﻿@page "/staff-admin/manage-finances"
+@using DangDucThuanFinalYear.HotelDTO
+
+@inject IFinanceService FinanceService
+<div class="concontainer">
+    <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange;">Manage Rooms Type</h1>
+        <NavLink href="staff-admin/manage-room-types/new" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</NavLink>
+    </div>
+    <hr />
+    <div class="row">
+        @if (_finances.Length == 0)
+        {
+            <p>There is no rooms type created yet</p>
+        }
+        else
+        {
+            <div class="col-sm-9">
+                <div class="" style="max-height:75vh; overflow-y: scroll">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Creation Time</th>
+                                <th>TypeFinance</th>
+                                <th>Reason</th>
+                                <th>Money</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (_finances.Length == 0)
+                            {
+                                <tr>
+                                    <td colspan="6">
+                                        <h4 class="text-danger">No amenities </h4>
+                                    </td>
+                                </tr>
+                            }
+                            @foreach (var x in _finances)
+                            {
+                                <tr>
+                                    <th> @x.Code</th>
+                                    <th>@x.CreationTime</th>
+                                    <th>@x.TypeFinance</th>
+                                    <th>@x.Reason</th>
+                                    <th>@x.Money</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            }
+        }
+    </div>
+
+</div>
+
+
+@code {
+    private SearchListFinaces[] _finances = [];
+    protected override async Task OnInitializedAsync()
+    {
+        _finances = await FinanceService.GetFinancesAsync();
+    }
+
+}

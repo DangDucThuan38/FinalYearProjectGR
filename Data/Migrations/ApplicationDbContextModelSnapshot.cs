@@ -190,13 +190,20 @@ namespace DangDucThuanFinalYear.Migrations
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Finances", b =>
                 {
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AddByUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AddedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -206,6 +213,9 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("LastUpdated")
                         .HasColumnType("datetime2");
@@ -223,7 +233,7 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<int>("TypeFinance")
                         .HasColumnType("int");
 
-                    b.HasKey("Code");
+                    b.HasKey("Id");
 
                     b.HasIndex("AddByUserId");
 
