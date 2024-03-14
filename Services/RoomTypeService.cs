@@ -36,7 +36,7 @@ namespace DangDucThuanFinalYear.Services
                     CreationTime = DateTime.Now,
                     Descripcion = input.Descripcion,
                     ImageUrl = input.ImageUrl,
-                    IsActive = input.IsActive,
+                    IsActive = true,
                     MaxAults = input.MaxAults,
                     MaxChildren = input.MaxChildren,
                     Price = input.Price,
