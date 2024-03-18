@@ -29,7 +29,7 @@ namespace DangDucThuanFinalYear.Data.Entities
 
         [ForeignKey(nameof(AddedBy))]
         public virtual ApplicationUser AddByUser { get; set; }
-        public virtual ICollection<RoomTypeAmenity> RoomTypeAmenitys { get; set; }
+        public virtual ICollection<RoomTypeAmenity> RoomTypeAmenitys { get; set; }= new List<RoomTypeAmenity>();
         public virtual ICollection<Room> Rooms { get; set; }
 
 

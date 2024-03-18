@@ -174,6 +174,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Layout/AddminStaff.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQWRkbWluU3RhZmYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Layout/AdminLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQWRtaW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -192,6 +196,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/AddStaff.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxBZGRTdGFmZi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/AdminHome.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxBZG1pbkhvbWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/ManageGuest.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxNYW5hZ2VHdWVzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/ManagerStaff.razor]
@@ -230,12 +242,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/AddFinances.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcQWRkRmluYW5jZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/AddRoomType.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcQWRkUm9vbVR5cGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageAmetities.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlQW1ldGl0aWVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageFinances.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlRmluYW5jZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageRooms.razor]
@@ -256,6 +276,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Services.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZXJ2aWNlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/UserProfile/ChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUHJvZmlsZVxDaGFuZ2VQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/UserProfile/MyProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUHJvZmlsZVxNeVByb2ZpbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/UserProfile/_Import.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyUHJvZmlsZVxfSW1wb3J0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Weather.razor]
@@ -308,6 +340,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Testimonial.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxUZXN0aW1vbmlhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/UpdateStaffForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxVcGRhdGVTdGFmZkZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Video.razor]

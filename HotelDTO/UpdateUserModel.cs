@@ -1,11 +1,15 @@
-﻿namespace DangDucThuanFinalYear.HotelDTO
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace DangDucThuanFinalYear.HotelDTO
 {
     public class UdateUserModel
     {
-        [Required, MaxLength(15)]
+        public string Id {  get; set; }
+        [Required, MaxLength(50)]
         public string FirstName { get; set; } = "";
 
-        [MaxLength(15)]
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         [Required]
