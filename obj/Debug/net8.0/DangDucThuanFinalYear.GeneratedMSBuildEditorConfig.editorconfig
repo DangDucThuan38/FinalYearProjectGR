@@ -302,12 +302,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxBYm91dEhvdGVsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/BookingHotel.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxCb29raW5nSG90ZWwucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/CreateUserForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxDcmVhdGVVc2VyRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/FilterSection.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxGaWx0ZXJTZWN0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Footer.razor]
@@ -342,8 +342,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxUZXN0aW1vbmlhbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/UpdateStaffForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxVcGRhdGVTdGFmZkZvcm0ucmF6b3I=
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/UpdateProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxVcGRhdGVQcm9maWxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Video.razor]

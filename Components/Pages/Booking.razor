@@ -1,9 +1,14 @@
 ﻿@page "/booking"
 @layout InnerLayoutPage
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IRoomServices RoomsService
+
 <Microsoft.AspNetCore.Components.Sections.SectionContent SectionName="PageName">
     Booking Now
 </Microsoft.AspNetCore.Components.Sections.SectionContent>
 
+//start booking room
 
 <div class="container-xxl py-5">
     <div class="container">
@@ -31,71 +36,136 @@
             <div class="col-lg-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
                     <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                        <EditForm Model="_model">
+                            <DataAnnotationsValidator/>
+                            <div class="row g-3">
+
+                                @if (_isAuthenticated)
+                                {
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText @bind-Value="_model.FirstName" class="form-control" id="name" placeholder="Frist Name" />
+                                            <label for="name">First Name</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.FirstName" class="text-danger" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText @bind-Value="_model.LastName" class="form-control" id="last-name" placeholder="Last Name" />
+                                            <label for="name">Last Name</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.LastName" class="text-danger" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText @bind-Value="_model.Email" class="form-control" id="email" placeholder="Email" />
+                                            <label for="name">Your Email</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.Email" class="text-danger" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText @bind-Value="_model.ContactNumber" class="form-control" id="contact-number" placeholder="Contact Number" />
+                                            <label for="name">Contact Number</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.ContactNumber" class="text-danger" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText type="password" @bind-Value="_model.Password" class="form-control" id="password" placeholder="Password" />
+                                            <label for="name">Password</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.Password" class="text-danger" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <InputText type="password" @bind-Value="_model.ConfirmPassword" class="form-control" id="confirm-password" placeholder="Confirm Password" />
+                                            <label for="name">Confirm Password</label>
+                                        </div>
+                                        <ValidationMessage For="()=>_model.ConfirmPassword" class="text-danger" />
+                                    </div>
+                                }
+
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        <InputDate @bind-Value="_model.CheckInDate" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                        <label for="checkin">Check In</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.CheckInDate" class="text-danger" />
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date4" data-target-input="nearest">
+                                        <InputDate @bind-Value="_model.CheckOutDate" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
+                                        <label for="checkout">Check Out</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.CheckOutDate" class="text-danger" />
+
+                                </div>
+
+
+
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <InputSelect @bind-Value="_model.Audlts" class="form-select" id="select1">
+                                            @for (int i = 1; i <= 6; i++)
+                                            {
+                                                <option value="@i">@i Adult(s)</option>
+                                            }
+                                        </InputSelect>
+                                        <label for="select1">Select Adult</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.Audlts" class="text-danger" />
+
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+
+                                        <InputSelect @bind-Value="_model.Children" class="form-select" id="select2">
+                                            @for (int i = 1; i <= 6; i++)
+                                            {
+                                                <option value="@i">@i @(i > 1 ? "Children" : "Child")</option>
+                                            }
+                                        </InputSelect>
+                                        <label for="select2">Select Child</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.Children" class="text-danger" />
+
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <InputSelect @bind-Value="_model.RoomTypeId" class="form-select" id="select3">
+                                            <option value="0">Select Room</option>
+                                            @foreach (var roomType in _roomTypes)
+                                            {
+                                                <option value="@roomType.Id">@roomType.name</option>
+                                            }
+                                        </InputSelect>
+                                        <label for="select3">Select A Room</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.RoomTypeId" class="text-danger" />
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <InputTextArea @bind-Value="_model.SpecialRequest" class="form-control" placeholder="Special Request" id="message" style="height: 100px">
+                                        </InputTextArea>
+                                        <label for="message">Special Request</label>
+                                    </div>
+                                    <ValidationMessage For="()=>_model.SpecialRequest" class="text-danger" />
+
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
-                                    <label for="checkin">Check In</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating date" id="date4" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
-                                    <label for="checkout">Check Out</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select class="form-select" id="select1">
-                                        <option value="1">Adult 1</option>
-                                        <option value="2">Adult 2</option>
-                                        <option value="3">Adult 3</option>
-                                    </select>
-                                    <label for="select1">Select Adult</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select class="form-select" id="select2">
-                                        <option value="1">Child 1</option>
-                                        <option value="2">Child 2</option>
-                                        <option value="3">Child 3</option>
-                                    </select>
-                                    <label for="select2">Select Child</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <select class="form-select" id="select3">
-                                        <option value="1">Room 1</option>
-                                        <option value="2">Room 2</option>
-                                        <option value="3">Room 3</option>
-                                    </select>
-                                    <label for="select3">Select A Room</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                    <label for="message">Special Request</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                            </div>
-                        </div>
+
+                        </EditForm>
+                       
                     </form>
                 </div>
             </div>
@@ -104,5 +174,37 @@
 </div>
 
 @code {
+    [SupplyParameterFromQuery(Name = "room-type")]
+    public string? SelectedRoomType { get; set; } 
+    private BookingModel _model = new();
+    private bool _isAuthenticated;
+    private LookupModel<short>[] _roomTypes = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+        var roomTypeTask = RoomsService.GetRoomTypeLookupAsnyc();
+        if(authSate.User.Identity?.IsAuthenticated==true)
+        {
+            // user is logged in
+            // fetch use deatails from AuthState claims
+            _isAuthenticated = true;
+            _model.SetDummyValues();
+
+        }
+        _roomTypes = await roomTypeTask;
+
+
+        if (!string.IsNullOrWhiteSpace(SelectedRoomType) 
+                    && short.TryParse(SelectedRoomType, out short _roomTypeId )
+                    && _roomTypeId >0)
+        {
+            _model.RoomTypeId = _roomTypeId;
+        }
+
+
+    }
+
+
 
 }

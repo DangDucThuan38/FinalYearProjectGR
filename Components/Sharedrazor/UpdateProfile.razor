@@ -1,0 +1,104 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using DangDucThuanFinalYear.Components.Account.Shared
+@using DangDucThuanFinalYear.HotelDTO
+
+@inject ILogger<UpdateProfile> Logger
+@inject IUserService UserService
+
+
+
+<StatusMessage Message="@_message" />
+<EditForm Model="Input" method="post" OnSubmit="EditProfileAsnyc" FormName="update-profile">
+    <DataAnnotationsValidator />
+    <hr />
+    <input type="hidden" value="@Input.Id" name ="Input.Id"/>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name" />
+                <label for="email">FirstName</label>
+                <ValidationMessage For="() => Input.FirstName" class="text-danger" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Last Name" />
+                <label for="email">LastName</label>
+                <ValidationMessage For="() => Input.LastName" class="text-danger" />
+            </div>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <label for="email">Email</label>
+        <ValidationMessage For="() => Input.Email" class="text-danger" />
+    </div>
+    <div class="form-floating mb-3">
+        <InputText @bind-Value="Input.ContactNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number" />
+        <label for="email">ContactNumber</label>
+        <ValidationMessage For="() => Input.ContactNumber" class="text-danger" />
+    </div>
+    @if (Role.HasValue && Role != RoleType.Guest)
+    {
+        <div class="form-floating mb-3">
+            <InputText @bind-Value="Input.Desgination" class="form-control" aria-required="true" placeholder="Desgination" />
+            <label for="desgination">Desgination</label>
+            <ValidationMessage For="() => Input.Desgination" class="text-danger" />
+        </div>
+    }else
+    {
+        <input type="hidden" value="@Input.Desgination" class="text-danger"/>
+    }
+
+
+    <button type="submit" class="w-100 btn btn-lg btn-primary">Update Prodfile</button>
+</EditForm>
+
+
+@code {
+
+    [CascadingParameter]
+    public HttpContext HttpContext { get; set; } 
+
+    [Parameter]
+    public EventCallback OnSuccess { get; set; }
+
+    [Parameter, EditorRequired]
+    public string UserId { get; set; }
+    [Parameter]
+    public RoleType? Role { get; set; }
+
+    [SupplyParameterFromForm]
+    private MyProfileModel Input { get; set; } = new();
+
+    private string? _message = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(HttpMethods.IsGet(HttpContext.Request.Method))
+        {
+            var model = await UserService.GetProfileDetailsAsync(UserId);
+            if (model is null)
+            {
+                _message = "User Member not Found. Please Try Again!";
+                return;
+            }
+            Input = model;
+        }
+      
+    }
+
+    public async Task EditProfileAsnyc(EditContext editContext)
+    {
+        var result = await UserService.UpdateProfileAsnyc(Input, Role);
+        if (!result.IsSuccess)
+        {
+            _message = result.ErrorMessage;
+            return;
+        }
+
+        Logger.LogInformation("User details Updated");
+
+        await OnSuccess.InvokeAsync();
+    }
+}
