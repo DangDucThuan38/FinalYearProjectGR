@@ -10,9 +10,9 @@ namespace DangDucThuanFinalYear.IServices
         Task<HotelResult<ApplicationUser>> CreateUserAsnyc(ApplicationUser user, string email, string passowrd);
         Task<PageResult<UserInformation>> GetUserInformationAsnyc(int startIndex, int PageSize, RoleType? roleType = null);
 
-        Task<UdateUserModel?> GetStaffMemberAsync(string staffId);
+        Task<MyProfileModel?> GetProfileDetailsAsync(string userId);
 
-        Task<HotelResult> UpdateStaffAsnyc(UdateUserModel input);
+        Task<HotelResult> UpdateProfileAsnyc(MyProfileModel input,RoleType? roleType = null);
 
     }
 }

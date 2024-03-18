@@ -342,8 +342,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxUZXN0aW1vbmlhbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/UpdateStaffForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxVcGRhdGVTdGFmZkZvcm0ucmF6b3I=
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/UpdateProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxVcGRhdGVQcm9maWxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/Video.razor]

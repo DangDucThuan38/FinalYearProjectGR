@@ -1,5 +1,8 @@
 ﻿@page "/booking"
 @layout InnerLayoutPage
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject AuthenticationStateProvider AuthStateProvider
+
 <Microsoft.AspNetCore.Components.Sections.SectionContent SectionName="PageName">
     Booking Now
 </Microsoft.AspNetCore.Components.Sections.SectionContent>
@@ -105,5 +108,20 @@
 </div>
 
 @code {
+    private BookingModel _model = new();
+    private bool _isAuthenticated;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+        if(authSate.User.Identity?.IsAuthenticated==true)
+        {
+            // user is logged in
+            // fetch use deatails from AuthState claims
+            _isAuthenticated = true;
+        }
+    }
+
+
 
 }

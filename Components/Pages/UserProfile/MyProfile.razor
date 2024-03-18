@@ -1,7 +1,53 @@
 ﻿@page "/my-profile"
+@using System.Security.Claims
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthStateProvider
 
-<h3>MyProfile</h3>
+
+<div class="container">
+    <div class="d-flex  flex-column  align-items-center" style="margin-top: 50px">
+        <h1 style="color: orange; display: flex; align-items: center; font-size: 1.5rem;">
+           My Profile
+        </h1>
+        <div class="row d-flex justify-content-center" style="margin-bottom:20px">
+            <div class="col-sm-15">
+                @if(!string.IsNullOrWhiteSpace(_message))
+                {
+                    <p class="bg-success">
+                        @_message
+                    </p>
+                    <hr/>
+                }
+                @if (_userId is not null)
+                {
+                    <UpdateProfile UserId="@_userId" 
+                                   OnSuccess="HandleSuccess" />
+                }
+               
+                
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 @code {
+    private string? _message;
+    private string? _userId;
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authState is null || authState.User.Identity is null 
+            || !authState.User.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/");
+            return;
+        }
+        _userId = authState.User.GetUserId()!;
+    }
+
+    private async Task HandleSuccess() => _message ="Profile Update succesfully!";
+
 
 }
