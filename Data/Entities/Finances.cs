@@ -6,6 +6,7 @@ namespace DangDucThuanFinalYear.Data.Entities
     public class Finances
     {
         [Key]
+        public int Id { get; set; }
         public string Code { get; set; }
         public TypeFinance TypeFinance { get; set; }
         public string Reason { get;set; }
@@ -16,6 +17,6 @@ namespace DangDucThuanFinalYear.Data.Entities
         public DateTime LastUpdated { get; set; }
         public string? LastUpdatedBy { get; set; }
         public virtual ApplicationUser AddByUser { get; set; }
-
+        public bool IsDeleted { get;  set; }
     }
 }

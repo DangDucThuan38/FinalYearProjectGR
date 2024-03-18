@@ -177,7 +177,7 @@
         try
         {
             _erroMessage = null;
-            if (_image is null)
+            if (Model.Id == 0 && _image is null)
             {
                 _erroMessage = "Image is required";
                 return;
@@ -196,13 +196,19 @@
             var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
             try
             {
-                var _existingImageUrl = Model.ImageUrl;
-                var imageUrl = await SaveImageAsync();
-                if (imageUrl is null)
+                string? _existingImageUrl = null;
+                if(_image is not null)
                 {
-                    return;
+                     _existingImageUrl = Model.ImageUrl;
+                    var imageUrl = await SaveImageAsync();
+                    if (imageUrl is null)
+                    {
+                        return;
+                    }
+                    Model.ImageUrl = imageUrl;
                 }
-                Model.ImageUrl = imageUrl;
+
+        
                 var newRoom = await RoomTypeService.CreateRoomAsync(Model, userId);
                 if (newRoom.IsSuccess)
                 {

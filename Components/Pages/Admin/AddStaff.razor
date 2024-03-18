@@ -1,5 +1,5 @@
 ﻿@page "/admin/manage-staff/new"
-@page "/admin/manage-staff/{id:int}/edit"
+@page "/admin/manage-staff/{id}/edit"
 @using DangDucThuanFinalYear.Components.Account.Shared
 @using DangDucThuanFinalYear.HotelDTO
 
@@ -14,13 +14,24 @@
             </NavLink>
 
             <span style="display: inline-flex; align-items: center;">
-                <span style="margin-right: 5px;">Create new Staff Member</span>
+                <span style="margin-right: 5px;">
+                @(!string.IsNullOrWhiteSpace(Id) ? "Update":"Create")    
+                    Staff Member
+                </span>
             </span>
         </h1>
         <div class="row d-flex justify-content-center" style="margin-bottom:20px">
             <div class="col-sm-15">
-                        <CreateUserForm Role="@RoleType.Staff" 
-                        OnSuccess = "HandleRegisterSuccess" />
+                @if (string.IsNullOrWhiteSpace(Id))
+                {
+                    <CreateUserForm Role="@RoleType.Staff"
+                    OnSuccess="HandleRegisterSuccess" />
+                }
+                else
+                {
+                    <UpdateStaffForm StaffId="@Id" OnSuccess="HandleRegisterSuccess" />
+                }
+
             </div>
 
         </div>
