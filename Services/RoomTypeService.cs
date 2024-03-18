@@ -19,6 +19,7 @@ namespace DangDucThuanFinalYear.Services
             _contextFactory = contextFactory;
         }
 
+
         public async Task<HotelResult<short>> CreateRoomAsync(RoomTypeCreateUpDateDTO input, string userId)
         {
             using var context = _contextFactory.CreateDbContext();
@@ -85,7 +86,7 @@ namespace DangDucThuanFinalYear.Services
 
             }
             return roomType.Id;
-
+            
 
         }
         public async Task<SearchListRoomTypeResults[]> GetRoomForManagePageResults()
