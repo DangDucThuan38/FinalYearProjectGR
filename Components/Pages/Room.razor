@@ -13,10 +13,24 @@
 <Testimonial />
 <!-- Room End -->
 @code {
+
+    [SupplyParameterFromQuery]
+    public DateOnly? CheckInDate { get; set; } 
+    [SupplyParameterFromQuery]
+
+    public DateOnly? CheckOutDate { get; set; } 
+    [SupplyParameterFromQuery]
+
+    public int? Audlts { get; set; } = 0;
+    [SupplyParameterFromQuery]
+
+    public int? Children { get; set; } = 0;
+
     private RoomTyePublic[] _rooms = [];
     protected override async Task OnInitializedAsync()
     {
-        _rooms = await RoomServices.GetRoomTypeAsnyc();
+        var filterModel =  FilterModel.GetFilterModel(CheckInDate, CheckOutDate, Audlts, Children);
+        _rooms = await RoomServices.GetRoomTypeAsnyc(filterModel: filterModel);
     }
 
 }

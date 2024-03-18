@@ -71,9 +71,9 @@ namespace DangDucThuanFinalYear.Services
             return (IUserEmailStore<ApplicationUser>)_userStore;
         }
 
-        public async Task<UdateUserModel?> GetStaffMemberAsync(string staffId) =>
-            await GetStaff(staffId)
-                            .Select(x => new UdateUserModel
+        public async Task<MyProfileModel?> GetProfileDetailsAsync(string userId) =>
+            await GetUser(userId)
+                            .Select(x => new MyProfileModel
                             {
                                 Id = x.Id,
                                 ContactNumber = x.ContactNumber,
@@ -85,36 +85,50 @@ namespace DangDucThuanFinalYear.Services
                             }).FirstOrDefaultAsync();
 
 
-        private IQueryable<ApplicationUser> GetStaff(string staffId) =>
-            _userManage.Users.Where(x => x.Id == staffId && x.RoleName == RoleType.Staff.ToString());
-
-
-        public async Task<HotelResult> UpdateStaffAsnyc(UdateUserModel input)
+        private IQueryable<ApplicationUser> GetUser(string userId, RoleType? roleType=null)
         {
-            var staffmodel = await GetStaff(input.Id).FirstOrDefaultAsync();
-            if(staffmodel is null)
+            var query = _userManage.Users.Where(x => x.Id == userId);
+
+            if (roleType is not null)
+            {
+                query = query.Where(x=> x.RoleName == RoleType.Staff.ToString());
+            }
+            return query;
+            
+
+        }
+
+
+        public async Task<HotelResult> UpdateProfileAsnyc(MyProfileModel input, RoleType? roleType = null)
+        {
+            var user = await GetUser(input.Id,roleType)
+                    .FirstOrDefaultAsync();
+            if(user is null)
             {
                 return "Invalid Request.Please Try Agian!!!";
             }
 
-            staffmodel.FirstName = input.FirstName;
-            staffmodel.LastName = input.LastName;
-            staffmodel.Desgination = input.Desgination;
-            staffmodel.ContactNumber = input.ContactNumber;
+            user.FirstName = input.FirstName;
+            user.LastName = input.LastName;
+            if (input.Desgination != null)
+            {
+                user.Desgination = input.Desgination;
+            }
+            user.ContactNumber = input.ContactNumber;
 
-            var result = await _userManage.UpdateAsync(staffmodel);
+            var result = await _userManage.UpdateAsync(user);
             if (!result.Succeeded)
             {
                 return $"Error: {string.Join(", ", result.Errors.Select(error => error.Description))}";
             }
-            if(staffmodel.Email.Equals(input.Email, StringComparison.OrdinalIgnoreCase))
+            if(user.Email.Equals(input.Email, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
 
-           var token = await _userManage.GenerateChangeEmailTokenAsync(staffmodel, input.Email);
+           var token = await _userManage.GenerateChangeEmailTokenAsync(user, input.Email);
 
-           result = await _userManage.ChangeEmailAsync(staffmodel, input.Email, token);
+           result = await _userManage.ChangeEmailAsync(user, input.Email, token);
             if (!result.Succeeded)
             {
                 return $"Error: {string.Join(", ", result.Errors.Select(error => error.Description))}";

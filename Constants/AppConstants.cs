@@ -9,8 +9,10 @@
             public const string Designation = "Designation";
             public const string Image = "Image";
             public const string Email = "Email";
+            public const string ContactNumber = "ContactNumber";
+
         }
-       
+
 
     }
 }
