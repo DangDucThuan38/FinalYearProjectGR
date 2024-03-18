@@ -51,5 +51,17 @@ namespace DangDucThuanFinalYear.Services
                                             .ToArray()
                                     )).ToArrayAsync();
         }
+
+        public async Task<LookupModel<short>[]> GetRoomTypeLookupAsnyc()
+        {
+            using var context = _contextFactory.CreateDbContext();
+        
+             return await context.RoomTypes
+                .Where(x=>x.IsActive)
+                .Select(a=> new LookupModel<short> (a.Id,a.Name))
+                .ToArrayAsync();
+        }
+
+
     }
 }

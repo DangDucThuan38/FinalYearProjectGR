@@ -1,6 +1,4 @@
-﻿using DangDucThuanFinalYear.Constants;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DangDucThuanFinalYear.HotelDTO
 {
@@ -36,18 +34,36 @@ namespace DangDucThuanFinalYear.HotelDTO
         public int? Audlts { get; set; } = 0;
         public int? Children { get; set; } = 0;
 
-        [Range(1,100, ErrorMessage ="Please Select Room Type")]
+        [Range(1, 100, ErrorMessage = "Please Select Room Type")]
         public short RoomTypeId { get; set; }
+        [MaxLength(250)]
+        public string? SpecialRequest { get; set; }
 
+        public void SetDummyValues()
+        {
+            Email = "dangducthuan999@gmail.com";
+            ContactNumber = "0965996180";
+            FirstName = "Dang";
+            LastName = "DucThuan";
+            Password = ConfirmPassword = "P@ss1234"; //
+        }
 
+        /*        public void SetValuesClaimsPrincipal(ClaimsPrincipal principal)
+                {
+                    if(principal?.Identity?.IsAuthenticated ==true )
+                    {
+                        var fullname = principal.FindFirstValue(AppConstants.CustomClaimTypes.FullName);
+                        var roleName = principal.FindFirstValue(AppConstants.CustomClaimTypes.RoleName);
+                         Email = principal.FindFirstValue(AppConstants.CustomClaimTypes.Email);
+                        var userId = principal.GetUserId();
+                         ContactNumber = principal.FindFirstValue(AppConstants.CustomClaimTypes.ContactNumber);
 
-        //public void SetValuesClaimsPrincipal(ClaimsPr principal)
-        //{
-        //    var fullname = principal.FindFirstValue(AppConstants.CustomClaimTypes.FullName);
-        //    var roleName = principal.FindFirstValue(AppConstants.CustomClaimTypes.RoleName);
-        //    var email = principal.FindFirstValue(AppConstants.CustomClaimTypes.Email);
-        //    var userId = principal.
-        //}
+                        var parts = fullname.Split(' ');
+                        FirstName = parts[0];
+                        LastName = parts.Length > 1 ? parts[1] : null;
 
+                        Password = ConfirmPassword = "P@ss1234"; //
+                    }
+                }*/
     }
 }

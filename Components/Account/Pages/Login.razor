@@ -102,6 +102,8 @@
             new Claim(AppConstants.CustomClaimTypes.Image, user.Image ??""),
             new Claim(AppConstants.CustomClaimTypes.Email, user.Email ?? user.UserName!),
             new Claim(AppConstants.CustomClaimTypes.Designation, user.Desgination ??""),
+            new Claim(AppConstants.CustomClaimTypes.ContactNumber, user.ContactNumber ?? ""),
+
         ];
         await SignInManager.SignInWithClaimsAsync(user, Input.RememberMe, additionalClaims);
         Logger.LogInformation("User login Succefully");
