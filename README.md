@@ -5,25 +5,25 @@
 -Databse : SQL
 ## 2. Main Function with Role
 - Role Admin:
- + Staff Management
- + Room Management
- + Room Type Management
+ + Staff Management (done)
+ + Room Management (done)
+ + Room Type Management (done)
  + Income and Expenditure Management
- + Account Management
+ + Account Management (done)
  + Booking Management
- + Vew Profile
+ + Vew Profile (done)
 - Role Staff:
- + Room Management
- + Room Type Management
+ + Room Management (done)
+ + Room Type Management (done)
  + Booking Management
  + Payment Management
- + View Profile
+ + View Profile (done)
 - Role Guest(Customer):
-  + View Home Page
-  + View Room of Hotel
-  + Booking Hotel
+  + View Home Page (done)
+  + View Room of Hotel (done)
+  + Request Booking Hotel (done)
   + Payment
-  + View Profile
+  + View Profile (done)
 ## Template: 
 -https://htmlcodex.com/hotel-html-template/
 ## Author : Đặng Đức Thuần 
