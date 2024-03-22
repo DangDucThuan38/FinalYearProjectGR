@@ -74,7 +74,6 @@ namespace DangDucThuanFinalYear.Services
                 client.Send(message);
                 client.Disconnect(true);
             }
-
             Console.WriteLine("Email đã được gửi thành công!");
             return true;
         }

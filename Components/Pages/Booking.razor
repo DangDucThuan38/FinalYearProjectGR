@@ -1,4 +1,6 @@
 ﻿@page "/booking"
+@using DangDucThuanFinalYear.Components.Account
+
 @layout InnerLayoutPage
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject AuthenticationStateProvider AuthStateProvider
@@ -6,6 +8,12 @@
 @inject IUserService UsersService
 @inject IBookingServices BookingServices
 @inject IMailServices MailsServices
+@inject IPaymentServices PaymentsServices
+@inject IJSRuntime JSRuntime
+@inject IdentityRedirectManager RedirectManager
+@inject NavigationManager NavigationManager
+
+
 
 <Microsoft.AspNetCore.Components.Sections.SectionContent SectionName="PageName">
     Booking Now
@@ -274,11 +282,21 @@
         {
             return;
         }
-        var sendMail = await SenMailBooking(userId!);
+        await MakePaymentAsync(bookingId.Value);
+        // var sendMail = await SenMailBooking(userId!);
 
-        // Redirect user to Stripe Payment Page
-        await PayNowAsnyc();
+        // // Redirect user to Stripe Payment Page
+
+        // await PayNowAsnyc();
     }
+    private async Task MakePaymentAsync(long bookingId)
+    {
+            _model.Amount = TotalAmout;
+            var result = await PaymentsServices.VNPayPayment(bookingId, _model);
+            NavigationManager.NavigateTo(result);
+    }
+
+
     private async Task<string?> ResgisterUserAsnyc()
     {
         var user = new Data.ApplicationUser();

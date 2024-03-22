@@ -1,0 +1,74 @@
+﻿@page "/VnPayReturn"
+@using Microsoft.AspNetCore.WebUtilities
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IMailServices MailsServices
+
+
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+    private Dictionary<string, string[]> QueryParameters { get; set; } = new Dictionary<string, string[]>();
+    private bool _isAuthenticated;
+    private string? _userId;
+
+
+
+    protected override void OnInitialized()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        QueryParameters = QueryHelpers.ParseQuery(uri.Query)
+                            .ToDictionary(kv => kv.Key, kv => kv.Value.ToArray());
+    }
+    private async void ConfirmInformation()
+    {
+        // string? userId = _userId;
+        // var result = await MailsServices.SendEmail(userId,);
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authSate.User.Identity?.IsAuthenticated == true)
+        {
+            // user is logged in
+            // fetch use deatails from AuthState claims
+            _isAuthenticated = true;
+            _userId = authSate.User.GetUserId();
+        }
+    }
+
+     
+}
+
+
+@if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
+{
+    <h3>Thanh toán thất bại</h3>
+}
+else
+{
+    <h3>Thanh toán thành công</h3>
+}
+
+@if (QueryParameters.Any())
+{
+    <div>
+        <h4>Thông tin trả về từ VnPay:</h4>
+        <ul>
+            @foreach (var param in QueryParameters)
+            {
+                <li>@param.Key: @string.Join(",", param.Value)</li>
+            }
+        </ul>
+        <div class="col-12">
+            <button class="btn btn-primary w-100 py-3" type="button" @onclick="ConfirmInformation">Xác nhận</button>
+        </div>
+    </div>
+}
+else
+{
+    <p>Không có thông tin trả về từ VnPay.</p>
+}
