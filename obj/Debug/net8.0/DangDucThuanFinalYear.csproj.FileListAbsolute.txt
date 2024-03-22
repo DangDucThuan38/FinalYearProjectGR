@@ -291,3 +291,6 @@ F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Compone
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.JSInterop.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\MailKit.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\MimeKit.dll

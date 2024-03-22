@@ -5,7 +5,7 @@
 @inject IRoomServices RoomsService
 @inject IUserService UsersService
 @inject IBookingServices BookingServices
-
+@inject IMailServices MailsServices
 
 <Microsoft.AspNetCore.Components.Sections.SectionContent SectionName="PageName">
     Booking Now
@@ -42,7 +42,7 @@
                             <DataAnnotationsValidator/>
                             <div class="row g-3">
 
-                                @if (_isAuthenticated)
+                                @if (!_isAuthenticated)
                                 {
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -274,6 +274,8 @@
         {
             return;
         }
+        var sendMail = await SenMailBooking(userId!);
+
         // Redirect user to Stripe Payment Page
         await PayNowAsnyc();
     }
@@ -309,6 +311,11 @@
     {
         
     }
-
+    private async Task<bool> SenMailBooking(string userId)
+    {
+        _model.Amount = TotalAmout;
+        var result = await MailsServices.SendEmail(_model, userId);
+        return true;
+    }
 
 }

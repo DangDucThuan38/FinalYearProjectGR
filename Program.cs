@@ -44,7 +44,8 @@ builder.Services.AddTransient<SeedServices>()
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<IFinanceService, FinanceService>()
                 .AddTransient<IRoomServices, RoomServices>()
-                .AddTransient<IBookingServices, BookingServices>();
+                .AddTransient<IBookingServices, BookingServices>()
+                .AddTransient<IMailServices, MailServices>();
 
 
 
