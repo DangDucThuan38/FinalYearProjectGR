@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jvejjzCG45trttlRC7mTfOTUIOjcIVzt+ZlNtQc3VHHZ1UXWORWu7U9teaNqXHweeyL7vHFnfMdzG+KVUbBgJw==",
+  "dgSpecHash": "p7Cz5Uivya0mFNUV/Plr2OUl01qnUDzLVsijQoxw6wZpdOzSvK0/TYXEOXjL1VIKfM/PS1o6gDoc4dRACC/jkg==",
   "success": true,
   "projectFilePath": "F:\\GCH200729\\DangDucThuanFinalYear\\DangDucThuanFinalYear.csproj",
   "expectedPackageFiles": [
@@ -96,7 +96,8 @@
     "C:\\Users\\dangd\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\dangd\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\dangd\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\zxing.net\\0.16.9\\zxing.net.0.16.9.nupkg.sha512"
   ],
   "logs": []
 }

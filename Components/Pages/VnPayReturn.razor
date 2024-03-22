@@ -4,6 +4,7 @@
 @inject IMailServices MailsServices
 @inject IPaymentServices PaymentsServices
 
+
 @if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
 {
     <div class="alert alert-danger" role="alert">
