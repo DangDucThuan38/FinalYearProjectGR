@@ -3,6 +3,7 @@ using DangDucThuanFinalYear.Constants;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.HotelDTO;
 using DangDucThuanFinalYear.IServices;
+using DangDucThuanFinalYear.Migrations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,12 @@ namespace DangDucThuanFinalYear.Services
 
         public async Task<HotelResult<ApplicationUser>> CreateUserAsnyc(ApplicationUser user,string email,string passowrd)
         {
+            var exsitigUsers =  await _userManage.FindByEmailAsync(email);
+            if(exsitigUsers is not null)
+            {
+                return new HotelResult<ApplicationUser>(false,"Email already exists", exsitigUsers);
+            }
+
             await _userStore.SetUserNameAsync(user, email, CancellationToken.None);
             var emailStore = GetEmailStore();
             await emailStore.SetEmailAsync(user, email, CancellationToken.None);

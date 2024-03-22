@@ -32,6 +32,10 @@ namespace DangDucThuanFinalYear.Data
             builder.Entity<Entities.Room>()
                 .HasIndex(r => r.RoomNumber)
                 .IsUnique();
+            builder.Entity<Entities.Boooking>()
+               .HasOne(r => r.RoomType)
+               .WithMany()
+               .OnDelete(DeleteBehavior.NoAction);
 
         }
     }
