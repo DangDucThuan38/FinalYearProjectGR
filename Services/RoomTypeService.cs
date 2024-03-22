@@ -20,6 +20,8 @@ namespace DangDucThuanFinalYear.Services
         }
 
 
+
+
         public async Task<HotelResult<short>> CreateRoomAsync(RoomTypeCreateUpDateDTO input, string userId)
         {
             using var context = _contextFactory.CreateDbContext();

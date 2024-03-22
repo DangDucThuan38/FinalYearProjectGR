@@ -108,16 +108,16 @@
         await SignInManager.SignInWithClaimsAsync(user, Input.RememberMe, additionalClaims);
         Logger.LogInformation("User login Succefully");
         
-        //if (user.RoleName == "Admin" || user.RoleName == "Staff")
-        //{
-           // RedirectManager.RedirectTo("/staff-admin/home");
-        //    RedirectManager.RedirectTo(ReturnUrl);
+        if (user.RoleName == "Admin" || user.RoleName == "Staff")
+        {
+           RedirectManager.RedirectTo("/staff-admin/home");
+          // RedirectManager.RedirectTo(ReturnUrl);
 
-       // }
-        //else
-        //{
+        }
+        else
+        {
             RedirectManager.RedirectTo(ReturnUrl);
-       // }
+        }
     }
 
     private sealed class InputModel
