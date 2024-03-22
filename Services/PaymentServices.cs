@@ -1,10 +1,12 @@
 ﻿using ASPNetCoreAPIDemo;
 using Azure;
 using DangDucThuanFinalYear.Components.Pages;
+using DangDucThuanFinalYear.Constants;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.Data.Entities;
 using DangDucThuanFinalYear.HotelDTO;
 using DangDucThuanFinalYear.IServices;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
@@ -17,13 +19,15 @@ namespace DangDucThuanFinalYear.Services
     {
         private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
         private IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> _userManage;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public PaymentServices(IDbContextFactory<ApplicationDbContext> contextFactory, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
+        public PaymentServices(IDbContextFactory<ApplicationDbContext> contextFactory, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManage)
         {
             _contextFactory = contextFactory;
             _configuration = configuration;
             _httpContextAccessor = httpContextAccessor;
+            _userManage = userManage;
         }
 
         public Task MakPayment(BookingModel model, string userId)
@@ -101,7 +105,6 @@ namespace DangDucThuanFinalYear.Services
             string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
             return Task.FromResult(paymentUrl);
         }
-
 
         public VNPay VnPayReturn()
         {
@@ -230,5 +233,42 @@ namespace DangDucThuanFinalYear.Services
 
 
         }
+
+        public async Task<string> PaymentWithVNPay(long? transactionRef, string userId,BookingStatus bookingStatus, string? statusPayment)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            var exsitigUsers = await _userManage.FindByIdAsync(userId);
+            var booking = await context.Boookings.FirstOrDefaultAsync(a => a.Id == transactionRef);
+            var idroom = booking.RoomTypeId;
+            var room = context.RoomTypes.FirstOrDefault(a => a.Id == idroom);
+            //Update Status Booking
+            booking.BookingStatus = bookingStatus;
+            context.UpdateRange(booking);
+            await context.SaveChangesAsync();
+            try
+            {
+                var payment = new Payment
+                {
+                    BookingId = booking.Id,
+                    Name = exsitigUsers.FirstName + " " + exsitigUsers.LastName,
+                    AdditinoalInfo = "VNPAY QR BANKING",
+                    Status = statusPayment,
+                    CreatedAt = DateTime.Now,
+                };
+                await context.Payments.AddAsync(payment);
+                await context.SaveChangesAsync();
+                return "Payment";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            throw new NotImplementedException();
+        }
+
+
+
     }
 }

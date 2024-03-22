@@ -2,8 +2,73 @@
 @using Microsoft.AspNetCore.WebUtilities
 @inject AuthenticationStateProvider AuthStateProvider
 @inject IMailServices MailsServices
+@inject IPaymentServices PaymentsServices
 
+@if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Thanh toán thất bại!</h4>
+        <p>Xin lỗi, thanh toán của bạn không thành công.</p>
+        <hr>
+        <p class="mb-0">Vui lòng thử lại hoặc liên hệ với chúng tôi để được hỗ trợ.</p>
+    </div>
+}
+else
+{
+    <EditForm Model="FormModel" OnValidSubmit="ConfirmInformation" FormName="MyForm">
+    <div class="alert alert-success " role="alert">
+        <h4 class="alert-heading">Thanh toán thành công!</h4>
+        <p>Cảm ơn bạn đã thực hiện thanh toán thành công.</p>
+        <hr>
+        <p class="mb-0">Dưới đây là thông tin chi tiết về giao dịch:</p>
+        @if (QueryParameters.Any())
+        {
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-8">
+                    <table class="table">
+                        <tbody>
+                            @foreach (var param in QueryParameters)
+                            {
+                                var parameterName = param.Key switch
+                                {
+                                    "vnp_Amount" => "Số tiền",
+                                    "vnp_BankCode" => "Mã ngân hàng",
+                                    "vnp_CardType" => "Loại thẻ",
+                                    "vnp_OrderInfo" => "Thông tin đơn hàng",
+                                    "vnp_PayDate" => "Ngày thanh toán",
+                                    "vnp_ResponseCode" => "Mã phản hồi",
+                                    "vnp_TmnCode" => "Mã Tmn",
+                                    "vnp_TransactionNo" => "Số giao dịch",
+                                    "vnp_TransactionStatus" => "Trạng thái giao dịch",
+                                    "vnp_TxnRef" => "Mã giao dịch",
+                                    "vnp_SecureHash" => "Mã bảo mật",
+                                    _ => param.Key
+                                };
 
+                                @if (!param.Key.Equals("vnp_SecureHash", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <tr>
+                                        <td>@parameterName</td>
+                                        <td>@string.Join(",", param.Value)</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+            <button class="btn btn-primary mt-3" type="submit"style="
+    margin-left: 500px">
+                Cancel
+            </button>
+            <button class="btn btn-primary mt-3" type="submit" >
+                Xác nhận
+            </button>
+    </div>
+    </EditForm>
+
+}
 
 @code {
     [Inject]
@@ -12,7 +77,14 @@
     private bool _isAuthenticated;
     private string? _userId;
 
+    // Define a ViewModel to hold form data
+    private class FormData
+    {
+        // Define properties for each form field
+        public long? TransactionRef { get; set; }
+    }
 
+    private FormData FormModel { get; set; } = new FormData();
 
     protected override void OnInitialized()
     {
@@ -20,55 +92,70 @@
         QueryParameters = QueryHelpers.ParseQuery(uri.Query)
                             .ToDictionary(kv => kv.Key, kv => kv.Value.ToArray());
     }
-    private async void ConfirmInformation()
+
+    private async Task ConfirmInformation()
     {
-        // string? userId = _userId;
-        // var result = await MailsServices.SendEmail(userId,);
+        long TransactionRef = 0;
+        // Access form data from the FormModel
+        if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+        {
+            if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+            {
+                TransactionRef = tempTransactionRef;
+                string? userId = _userId;
+
+                var result = await MailsServices.SendEmail(TransactionRef, userId);
+            }
+            else
+            {
+            }
+        }
     }
-
-
 
     protected override async Task OnInitializedAsync()
     {
-        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
-        if (authSate.User.Identity?.IsAuthenticated == true)
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authState.User.Identity?.IsAuthenticated == true)
         {
             // user is logged in
             // fetch use deatails from AuthState claims
             _isAuthenticated = true;
-            _userId = authSate.User.GetUserId();
+            _userId = authState.User.GetUserId();
+        }
+        long TransactionRef = 0;
+        BookingStatus statusBooking;
+        string statusPayment;
+
+        @if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
+        {
+            if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+            {
+               
+                if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+                {
+                    TransactionRef = tempTransactionRef;
+                    string? userId = _userId;
+                    statusBooking = BookingStatus.PaymentDone;
+                    statusPayment = "Success";
+                    var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
+
+                }
+            }
+        }
+        else
+        {
+            if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+            {
+                if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+                {
+                    TransactionRef = tempTransactionRef;
+                    string? userId = _userId;
+                    statusBooking = BookingStatus.PaymentDone;
+                    statusPayment = "Success";
+                    var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
+                }
+            }
+
         }
     }
-
-     
-}
-
-
-@if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
-{
-    <h3>Thanh toán thất bại</h3>
-}
-else
-{
-    <h3>Thanh toán thành công</h3>
-}
-
-@if (QueryParameters.Any())
-{
-    <div>
-        <h4>Thông tin trả về từ VnPay:</h4>
-        <ul>
-            @foreach (var param in QueryParameters)
-            {
-                <li>@param.Key: @string.Join(",", param.Value)</li>
-            }
-        </ul>
-        <div class="col-12">
-            <button class="btn btn-primary w-100 py-3" type="button" @onclick="ConfirmInformation">Xác nhận</button>
-        </div>
-    </div>
-}
-else
-{
-    <p>Không có thông tin trả về từ VnPay.</p>
 }

@@ -4,7 +4,7 @@ namespace DangDucThuanFinalYear.IServices
 {
     public interface IMailServices
     {
-        Task<bool> SendEmail(BookingModel model,string userId);
+        Task<bool> SendEmail(long? transactionRef, string userId);
 
     }
 }

@@ -48,6 +48,7 @@
                         <NavLink href="room" class="nav-item nav-link">Room </NavLink>
                         <NavLink href="booking" class="nav-item nav-link">Book A Room </NavLink>
 
+
                    
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
 
@@ -64,7 +65,7 @@
                                         
                                         <AuthorizeView Roles="Staff,Admin" Context="staffContext">
                                             <NavLink href="staff-admin/manage-guest" class="dropdown-item">Manage Guest</NavLink>
-                                            <NavLink href="booking" class="dropdown-item">Manage Bookings</NavLink>
+                                            <NavLink href="staff-admin/manage-booking" class="dropdown-item">Manage Bookings</NavLink>
                                             <NavLink href="staff-admin/manage-finances" class="dropdown-item">Manage Finances</NavLink>
                                             <NavLink href="staff-admin/manage-room-types" Match="NavLinkMatch.All" class="dropdown-item">Manage Rooms</NavLink>
                                             <NavLink href="staff-admin/manage-room-types/new" class="dropdown-item">   + Add Room Type</NavLink>

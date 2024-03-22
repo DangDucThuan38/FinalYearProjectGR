@@ -253,6 +253,35 @@ namespace DangDucThuanFinalYear.Migrations
                     b.ToTable("Finances");
                 });
 
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AdditinoalInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("BookingId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
@@ -526,6 +555,17 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasForeignKey("AddByUserId");
 
                     b.Navigation("AddByUser");
+                });
+
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Payment", b =>
+                {
+                    b.HasOne("DangDucThuanFinalYear.Data.Entities.Boooking", "Booking")
+                        .WithMany()
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
                 });
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>

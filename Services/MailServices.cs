@@ -30,12 +30,14 @@ namespace DangDucThuanFinalYear.Services
             _userManage = userManage;
             _userStore = userStore;
         }
-        public async Task<bool> SendEmail(BookingModel model, string userId)
+        public async Task<bool> SendEmail(long? transactionRef, string userId)
         {
             using var context = _contextFactory.CreateDbContext();
 
             var exsitigUsers = await _userManage.FindByIdAsync(userId);
-            var room = context.RoomTypes.FirstOrDefault(a => a.Id == model.RoomTypeId);
+            var booking = await context.Boookings.FirstOrDefaultAsync(a => a.Id == transactionRef);
+            var idroom = booking.RoomTypeId;
+            var room = context.RoomTypes.FirstOrDefault(a => a.Id == idroom);
             if (exsitigUsers == null)
             {
                 return false;
@@ -52,17 +54,31 @@ namespace DangDucThuanFinalYear.Services
             // Thêm nội dung email
             var bodyBuilder = new BodyBuilder();
             bodyBuilder.HtmlBody = $@"
-                <div style='font-family: Arial, sans-serif;'>
-                    <h2 style='color: #0066cc;'>Bạn đã đặt phòng thành công!</h2>
-                    <p><strong>Name Booking:</strong> {model.LastName}</p>
-                    <p><strong>Loại phòng:</strong> {room.Name}</p>
-                    <p><strong>Tổng tiền:</strong> {model.Amount}</p>
-                    <p><strong>Ngày check-in:</strong> {model.CheckInDate}</p>
-                    <p><strong>Ngày check-out:</strong> {model.CheckOutDate}</p>
-                    <p><strong>Giờ đặt:</strong> {DateTime.Now}</p>
-                    <p>Nhân viên của chúng tôi sẽ xác nhận và phản hồi sớm nhất.</p>
-                    <br/>
-                    <p style='color: #666;'>Email này được gửi từ một địa chỉ tự động và không thể nhận email phản hồi. Vui lòng không phản hồi lại email này.</p>
+                           <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                    <div style='text-align: center; margin-bottom: 20px;'>
+                        <h2 style='color: #0066cc; margin-bottom: 20px;'>MAIHOTEL</h2>
+                    </div>
+                    <div style='background-color: #f4f4f4; padding: 20px; border-radius: 10px;'>
+                        <h2 style='color: #0066cc; margin-bottom: 20px; text-align: center;'>Đặt phòng thành công!</h2>
+                        <div style='background-color: #ffffff; padding: 20px; border-radius: 10px;'>
+                            <p><strong>Khách hàng:</strong> {exsitigUsers.FirstName} {exsitigUsers.LastName}</p>
+                            <p><strong>Loại phòng:</strong> {room.Name}</p>
+                            <p><strong>Tổng tiền:</strong> {booking.TotalAmount}</p>
+                            <p><strong>Hình Thức Thanh Toán:</strong> VNPAY BANKING</p>
+                            <p><strong>Ngày check-in:</strong> {booking.CheckInDateTime}</p>
+                            <p><strong>Ngày check-out:</strong> {booking.CheckOutDateTime}</p>
+                            <p><strong>Thời điểm đặt:</strong> {DateTime.Now}</p>
+                        </div>
+                        <p style='text-align: center; margin-top: 20px; color: #666;'>Nhân viên của chúng tôi sẽ xác nhận và phản hồi sớm nhất.</p>
+                        <p style='text-align: center; color: #666;'>Email này được gửi từ một địa chỉ tự động và không thể nhận email phản hồi. Vui lòng không phản hồi lại email này.</p>
+                    </div>
+                    <div style='margin-top: 20px; background-color: #f4f4f4; padding: 20px; border-radius: 10px;'>
+                        <p style='text-align: center; margin-bottom: 10px; font-weight: bold;'>Liên hệ:</p>
+                        <p style='text-align: center; margin-bottom: 5px;'>No. 2 Pham Van Bach, Yen Hoa Ward,</p>
+                        <p style='text-align: center; margin-bottom: 5px;'>Cau Giay District, Hanoi City</p>
+                        <p style='text-align: center; margin-bottom: 5px;'>Điện thoại: <a href='tel:0965996180'>0965996180</a></p>
+                        <p style='text-align: center;'>Email: <a href='mailto:thuanddgch200729@fpt.edu.vn'>thuanddgch200729@fpt.edu.vn</a></p>
+                    </div>
                 </div>
             ";
             message.Body = bodyBuilder.ToMessageBody();

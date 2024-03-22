@@ -157,7 +157,6 @@
                                             ValueChanged="(short id)=> HandleRoomTypeChange(id)"
                                             class="form-select" 
                                             id="select3">
-                                            <option value="0">Select Room</option>
                                             @foreach (var roomType in _roomTypes)
                                             {
                                                 <option value="@roomType.Id">@roomType.name - @roomType.AdditionalData</option>
@@ -165,7 +164,6 @@
                                         </InputSelect>
                                         <label for="select3">Select A Room</label>
                                     </div>
-                                    <ValidationMessage For="()=>_model.RoomTypeId" class="text-danger" />
                                 </div>
 
                                 <div class="col-12">
@@ -329,11 +327,11 @@
     {
         
     }
-    private async Task<bool> SenMailBooking(string userId)
-    {
-        _model.Amount = TotalAmout;
-        var result = await MailsServices.SendEmail(_model, userId);
-        return true;
-    }
+    // private async Task<bool> SenMailBooking(string userId)
+    // {
+    //     _model.Amount = TotalAmout;
+    //     var result = await MailsServices.SendEmail(_model, userId);
+    //     return true;
+    // }
 
 }
