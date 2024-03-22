@@ -30,10 +30,6 @@ namespace DangDucThuanFinalYear.Services
             _userManage = userManage;
             _userStore = userStore;
         }
-
-
-
-
         public async Task<bool> SendEmail(BookingModel model, string userId)
         {
             using var context = _contextFactory.CreateDbContext();
