@@ -196,9 +196,26 @@ namespace DangDucThuanFinalYear.Services
                 return  "This room is not avaibale";
             }
 
+            // Kiểm tra xem booking có tồn tại hay không và trong booking phòng được chọn đã được book chưa và Thời gian checkin và checkout không trùng vào khoảng
+            // thời gian book thì vẫn cho book phòng đó nếu thời gian checkin và checkout trùng với thời gian book thì không cho book phòng đó
             var booking = await context.Boookings
                                         .AsTracking()
                                         .FirstOrDefaultAsync(x => x.Id == bookingId);
+            //if (booking is not null)
+            //{
+            //    if (!await context.Boookings.AnyAsync(b => b.RoomId == booking.RoomId &&
+            //                                  b.CheckInDateTime > booking.CheckInDateTime &&
+            //                                  b.CheckOutDateTime < booking.CheckOutDateTime &&
+            //                                  b.Id != bookingId))
+            //    {
+            //        booking.RoomId = roomId;
+            //    }
+            //    else
+            //    {
+            //        return "Invaild Request";
+
+            //    }
+            //}
             if (booking is null)
                 return  "Invaild Request";
             if(booking.RoomId.HasValue)
@@ -210,6 +227,7 @@ namespace DangDucThuanFinalYear.Services
                     roomchange.IsAvaiable = true;
                 }    
             }
+            //if (booking.CheckInDateTime == DateOnly.FromDateTime(DateTime.Now))
             roomasgin.IsAvaiable = false;
             context.Rooms.Update(roomasgin);
             booking.RoomId = roomId;
