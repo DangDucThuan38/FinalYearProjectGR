@@ -49,5 +49,38 @@ namespace DangDucThuanFinalYear.Services
         }
 
 
+
+        public async Task<PageResult<BookingDisplayModel>> GetBookingAsync(int pageIndex, int pageSize)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var query = context.Boookings;
+
+            var totalCount = await query.CountAsync();
+            var bookings = await query.OrderByDescending(x=>x.CheckInDateTime)
+                .Select( x=> new BookingDisplayModel
+                {
+                    Id = x.Id,
+                    Adults = x.Adults,
+                    BookedOn = x.BookedOn,
+                    CheckInDateTime = x.CheckInDateTime,
+                    CheckOutDateTime = x.CheckOutDateTime,
+                    Children = x.Children,
+                    GuestId = x.GuestId,
+                    RoomId = x.RoomId,
+                    RoomTypeId = x.RoomTypeId,
+                    SpecialRequest = x.SpecialRequest,
+                    TotalAmount = x.TotalAmount,
+                    BookingStatus = x.BookingStatus,
+                    RoomNumber = x.RoomId== null?"":x.Room.RoomNumber,
+                    RoomTypeName = x.RoomType.Name,
+                    GuestName = x.Guest.FullName,
+                    Remarks = x.Remarks
+                })
+                .Skip(pageIndex)
+                .Take(pageSize)
+                .ToArrayAsync();
+            return new PageResult<BookingDisplayModel>(totalCount, bookings);
+        }
+
     }
 }

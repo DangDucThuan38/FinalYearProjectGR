@@ -23,7 +23,7 @@
         </h1>
 
 
-        <button type="button" @onclick="OpenCreateRoomModal" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</button>
+        <button type="button" @onclick="()=> _showCreateRoomDialog=true" class="btn btn-sm btn-primary mt-3">+ Add new Rooms</button>
     </div>
 
     <div class="table-responsive">
@@ -93,12 +93,7 @@
     </div>
 </div>
 
-<dialog id="@DialogId" style=" min-width:300px" >
-    <div class="d-flex justify-content-between align-items-center">
-        <h4> Create Room</h4>
-        <button class="btn btn-danger btn-sm" @onclick="CloseRoomModal">X</button>
-    </div>
-    <hr />
+<DialogCompanent Title="Create Room" DialogId="@DialogId" Show="_showCreateRoomDialog" OnCloseModal="()=> _showCreateRoomDialog=false">
     <EditForm Model="ModelRoom" OnSubmit="CreateRoomAsync">
         <DataAnnotationsValidator/>
             <div class="mb-3">
@@ -118,16 +113,11 @@
             </button>
         </div>
     </EditForm>
-</dialog>
+</DialogCompanent>
 
 
 
 
-<style>
-    ::backdrop{
-        background-color: revert-layer;
-    }
-</style>
 @code {
     [Parameter]
     public int RoomTypeId { get; set; }
@@ -139,6 +129,8 @@
     public string Name { get; set; } = "";
 
     private const string DialogId ="create-room";
+
+    private bool _showCreateRoomDialog;
 
 
     protected override async Task OnInitializedAsync()
@@ -160,16 +152,13 @@
         {
             _rooms = [.. _rooms, result.Data];
             ModelRoom = new();
-            await CloseRoomModal();
+            _showCreateRoomDialog = false;
             return;
         }
         await JsRuntime.InvokeVoidAsync("window.alert", result.ErrorMessage ?? "Error in save room.Please try agian! ");
 
 
     }
-
-    private async Task CloseRoomModal() => await JsRuntime.InvokeVoidAsync("window.closeModal", DialogId);
-    private async Task OpenCreateRoomModal() => await JsRuntime.InvokeVoidAsync("window.showModal", DialogId);
 
 
     private async Task HandleInheritability(Room room)
