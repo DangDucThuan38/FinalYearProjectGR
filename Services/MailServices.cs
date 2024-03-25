@@ -59,13 +59,13 @@ namespace DangDucThuanFinalYear.Services
         <h2 style='color: #6aacee; margin-bottom: 20px; text-align: center;'>MAIHOTEL</h2>
         <h2 style='color: #0066cc; margin-bottom: 20px; text-align: center;'>Xác nhận thanh toán đặt phòng thành công!</h2>
        <div style='background-color: #ffffff; padding: 20px; border-radius: 10px; position: relative;'>
-    <p><strong>Khách hàng:</strong> {{exsitigUsers.FirstName}} {{exsitigUsers.LastName}}</p>
-    <p><strong>Loại phòng:</strong> {{room.Name}}</p>
-    <p><strong>Tổng tiền:</strong> {{booking.TotalAmount}}</p>
+    <p><strong>Khách hàng:</strong> {exsitigUsers.FirstName} {exsitigUsers.LastName}</p>
+    <p><strong>Loại phòng:</strong> {room.Name}</p>
+    <p><strong>Tổng tiền:</strong> {booking.TotalAmount}</p>
     <p><strong>Hình Thức Thanh Toán:</strong> VNPAY BANKING</p>
-    <p><strong>Ngày Check-In:</strong> {{booking.CheckInDateTime}}</p>
-    <p><strong>Ngày Check-Out:</strong> {{booking.CheckOutDateTime}}</p>
-    <p><strong>Thời Điểm Đặt:</strong> {{DateTime.Now}}</p>
+    <p><strong>Ngày Check-In:</strong> {booking.CheckInDateTime}</p>
+    <p><strong>Ngày Check-Out:</strong> {booking.CheckOutDateTime}</p>
+    <p><strong>Thời Điểm Đặt:</strong> {DateTime.Now}</p>
     <!-- Thay thế biểu tượng bằng chữ -->
     <span style=""color: red;  font-style: italic; position: absolute; top: 5px; right: 5px;"">Đã xác minh</span>
 

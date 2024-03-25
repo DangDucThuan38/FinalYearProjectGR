@@ -1,17 +1,23 @@
 ﻿@page "/VnPayReturn"
+@using DangDucThuanFinalYear.Components.Account
 @using Microsoft.AspNetCore.WebUtilities
 @inject AuthenticationStateProvider AuthStateProvider
 @inject IMailServices MailsServices
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject IPaymentServices PaymentsServices
+@inject IdentityRedirectManager RedirectManager
+
 
 
 @if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
 {
     <div class="alert alert-danger" role="alert">
         <h4 class="alert-heading">Thanh toán thất bại!</h4>
-        <p>Xin lỗi, thanh toán của bạn không thành công.</p>
+        <p>Xin lỗi, thanh toán của bạn không thành công hoặc bị hủy.</p>
         <hr>
         <p class="mb-0">Vui lòng thử lại hoặc liên hệ với chúng tôi để được hỗ trợ.</p>
+        <p class="mb-0">Hotline: 0965996180</p>
+        <p class="mb-0">Email: thuaddgch200729@fpt.edu.vn</p>
     </div>
 }
 else
@@ -59,10 +65,6 @@ else
                 </div>
             </div>
         }
-            <button class="btn btn-primary mt-3" type="submit"style="
-    margin-left: 500px">
-                Cancel
-            </button>
             <button class="btn btn-primary mt-3" type="submit" >
                 Xác nhận
             </button>
@@ -107,9 +109,8 @@ else
 
                 var result = await MailsServices.SendEmail(TransactionRef, userId);
             }
-            else
-            {
-            }
+            NavigationManager.NavigateTo("/");
+
         }
     }
 
