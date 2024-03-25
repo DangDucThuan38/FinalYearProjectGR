@@ -22,5 +22,8 @@ namespace DangDucThuanFinalYear.IServices
         // Xóa phòng 
         Task<HotelResult> DeleteRoomAsync(int roomId);
 
+        // Assgin Room to User
+        Task<HotelResult> AssignRoomToUserAsync(long bookingId,short roomTypeId, int roomId);
+
     }
 }

@@ -314,6 +314,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxDcmVhdGVVc2VyRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/DialogCompanent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxEaWFsb2dDb21wYW5lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Sharedrazor/FilterSection.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRyYXpvclxGaWx0ZXJTZWN0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

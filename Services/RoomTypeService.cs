@@ -183,7 +183,38 @@ namespace DangDucThuanFinalYear.Services
             return true;
         }
 
+        public async Task<HotelResult> AssignRoomToUserAsync(long bookingId, short roomTypeId, int roomId)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var room = await context.Rooms.FirstOrDefaultAsync(x => x.Id == roomId &&!x.IsDeleted);
+            if (room is null)
+            {
+                return "Invalid Request";
+            }
+            if(room.IsAvaiable)
+            {
+                return  "This room is not avaibale";
+            }
 
+            var booking = await context.Boookings
+                                        .AsTracking()
+                                        .FirstOrDefaultAsync(x => x.Id == bookingId);
+            if (booking is null)
+                return  "Invaild Request";
+            if(booking.RoomId.HasValue)
+            {
+                var roomb = await context.Rooms
+                    .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
+                if(roomb is not null)
+                {
+                    roomb.IsAvaiable = true;
+                }    
+            }
+            booking.RoomId = roomId;
+            await context.SaveChangesAsync();
+            return true;
 
+        }
     }
+    
 }
