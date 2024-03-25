@@ -183,15 +183,15 @@ namespace DangDucThuanFinalYear.Services
             return true;
         }
 
-        public async Task<HotelResult> AssignRoomToUserAsync(long bookingId, short roomTypeId, int roomId)
+        public async Task<HotelResult> AssignRoomToUserAsync(long bookingId, int roomId)
         {
             using var context = _contextFactory.CreateDbContext();
-            var room = await context.Rooms.FirstOrDefaultAsync(x => x.Id == roomId &&!x.IsDeleted);
-            if (room is null)
+            var roomasgin = await context.Rooms.FirstOrDefaultAsync(x => x.Id == roomId &&!x.IsDeleted);
+            if (roomasgin is null)
             {
                 return "Invalid Request";
             }
-            if(room.IsAvaiable)
+            if(roomasgin.IsAvaiable == false)
             {
                 return  "This room is not avaibale";
             }
@@ -203,15 +203,19 @@ namespace DangDucThuanFinalYear.Services
                 return  "Invaild Request";
             if(booking.RoomId.HasValue)
             {
-                var roomb = await context.Rooms
+                var roomchange = await context.Rooms
                     .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
-                if(roomb is not null)
+                if(roomchange is not null)
                 {
-                    roomb.IsAvaiable = true;
+                    roomchange.IsAvaiable = true;
                 }    
             }
+            roomasgin.IsAvaiable = false;
+            context.Rooms.Update(roomasgin);
             booking.RoomId = roomId;
+            context.Boookings.Update(booking);
             await context.SaveChangesAsync();
+
             return true;
 
         }

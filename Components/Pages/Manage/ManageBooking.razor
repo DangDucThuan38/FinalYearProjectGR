@@ -1,10 +1,12 @@
 ﻿@page "/staff-admin/manage-booking"
+@using DangDucThuanFinalYear.Data.Entities
 @using Microsoft.AspNetCore.Components.QuickGrid
-
-@inject IBookingServices BookingServices
 
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 
+@inject IBookingServices BookingServices
+@inject IRoomTypeService RoomTypeService
+@inject IJSRuntime JsRuntime
 
 <div class="container-fluid">
         <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
@@ -12,7 +14,7 @@
     </div>
     <hr />
     <div class="table-responsive">
-        <QuickGrid ItemsProvider="_bookingsProviders" Pagination="_paginationState" class="table table-striped">
+        <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-striped">
             <PropertyColumn Property="b=>b.Id"/>
             <PropertyColumn Property="b=>b.RoomTypeName"  Title="Room Type"/>
             <TemplateColumn Title="Room Number">
@@ -21,7 +23,7 @@
                     <label class="d-block">No Room Assigned</label>
                     @if(context.IsRoomNumberAssignable)
                     {
-                        <button type="button" class="btn btn-sm btn-primary">Assign Room</button>
+                        <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">Assign Room</button>
                     }
                     else
                     {
@@ -30,7 +32,7 @@
                 }
                 else
                 {
-                    <button type="button" class="btn btn-sm btn-primary">@context.RoomNumber</button>
+                    <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">@context.RoomNumber</button>
 
                 }
             </TemplateColumn>
@@ -59,13 +61,30 @@
 {
     <Loader LoadingText="Fetching bookings" />
 }
+<DialogCompanent DialogId="assign-room-to-booking" Show="_booking is not null" 
+    Title="Assign/Change Room to Booking" OnCloseModal="HandleAssignRoomModalClose">
+    <div>
+        <select @bind="_slectedRoomId" class="form-control">
+            <option value="0">Select Room</option>
+            @foreach(var room in _rooms)
+            {
+                <option value="@room.Id">@room.RoomNumber</option>
+            }"
+        </select>
+        <button type="button" class="btn btn-primary" @onclick="AssignRoomAsync">Assign</button>
+    </div>
+</DialogCompanent>
 
 
 @code {
     private bool _isLoading;
+    private QuickGrid<BookingDisplayModel> _bookingGrid;
     private GridItemsProvider<BookingDisplayModel>? _bookingsProviders;
     private const int PageSize = 10;
     private PaginationState _paginationState = new PaginationState{ItemsPerPage = PageSize};
+    private Room[] _rooms = [];
+    private int _slectedRoomId;
+    private BookingDisplayModel? _booking;
 
 
     protected override void OnInitialized()
@@ -84,6 +103,49 @@
 
             return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
         };
+    }
+
+    private async Task OpenAssignRoomModalAsync(BookingDisplayModel booking)
+    {
+        var rooms = await RoomTypeService.GetRoomsAllAsync(booking.RoomTypeId);
+        if(rooms is null ||rooms.Length == 0)
+        {
+            await AlertAsync("No rooms available for this room type");
+            return;
+        }
+        if(!rooms.Any(x => x.IsAvaiable))
+        {
+            await AlertAsync("No rooms available for this room type");
+            return;
+        }
+        _rooms = rooms.Where(x=> x.IsAvaiable == true).ToArray();
+        _booking = booking;
+
+
+    }
+    private async Task AlertAsync(string message) =>
+    await JsRuntime.InvokeVoidAsync("window.alert", message);
+
+    private void HandleAssignRoomModalClose()
+    {
+        _booking = null;
+        _rooms = [];
+        _slectedRoomId = 0;
+    }
+
+    private async Task AssignRoomAsync()
+    {
+        if(_booking is not null  && _slectedRoomId > 0)
+        {
+            var result = await RoomTypeService.AssignRoomToUserAsync(_booking.Id, _slectedRoomId);
+            if(!result.IsSuccess)
+            {
+                await AlertAsync($"Error in Assigning/changing room ");
+                return;
+            }
+             HandleAssignRoomModalClose();
+             await _bookingGrid.RefreshDataAsync();
+        }
     }
 
 
