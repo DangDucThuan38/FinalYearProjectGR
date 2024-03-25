@@ -1,20 +1,90 @@
 ﻿@page "/staff-admin/manage-booking"
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+@inject IBookingServices BookingServices
+
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 
-
-<div class="container">
+<div class="container-fluid">
         <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
             <h1 style="color: orange;">Manage Booking</h1>
     </div>
     <hr />
     <div class="table-responsive">
+        <QuickGrid ItemsProvider="_bookingsProviders" Pagination="_paginationState" class="table table-striped">
+            <PropertyColumn Property="b=>b.Id"/>
+            <PropertyColumn Property="b=>b.RoomTypeName"  Title="Room Type"/>
+            <TemplateColumn Title="Room Number">
+                @if(context.RoomId is null)
+                {
+                    <label class="d-block">No Room Assigned</label>
+                    @if(context.IsRoomNumberAssignable)
+                    {
+                        <button type="button" class="btn btn-sm btn-primary">Assign Room</button>
+                    }
+                    else
+                    {
+                        <small>Can be assigned only after payment</small>
+                    }
+                }
+                else
+                {
+                    <button type="button" class="btn btn-sm btn-primary">@context.RoomNumber</button>
 
+                }
+            </TemplateColumn>
+            <PropertyColumn Property="b=>b.GuestName" Title="Guest"/>
+            <PropertyColumn Property="b=>b.BookedOn" Title="Boked On" Format="dd-MMM-yyyy hh:mm:ss" />
+            <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check_In" Format="dd-MMM-yyyy"/>
+            <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check_Out" Format="dd-MMM-yyyy" />
+            <PropertyColumn Property="b=>b.Adults" />
+            <PropertyColumn Property="b=>b.Children" />
+            <PropertyColumn Property="b=>b.SpecialRequest" Title="Special Request" />
+            <PropertyColumn Property="b=>b.BookingStatus" />
+            <PropertyColumn Property="b=>b.Remarks" />
+                <TemplateColumn>
+                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)">Approve</button>
+                    <button type="button" class="btn btn-sm btn-danger" disabled ="@(!context.CanBeCancelled)">Cancel</button>
+
+                </TemplateColumn>
+
+
+        </QuickGrid>
     </div>
+    <Paginator State="_paginationState"/>
 
 </div>
+@if(_isLoading)
+{
+    <Loader LoadingText="Fetching bookings" />
+}
 
 
 @code {
+    private bool _isLoading;
+    private GridItemsProvider<BookingDisplayModel>? _bookingsProviders;
+    private const int PageSize = 10;
+    private PaginationState _paginationState = new PaginationState{ItemsPerPage = PageSize};
+
+
+    protected override void OnInitialized()
+    {
+        _bookingsProviders = async (GridItemsProviderRequest<BookingDisplayModel> request) =>
+        {
+            _isLoading = true;
+            StateHasChanged();
+
+            //Load Data booking
+            var result = await BookingServices.GetBookingAsync(request.StartIndex, request.Count ?? PageSize);
+
+
+            _isLoading = false;
+            StateHasChanged();
+
+            return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
+        };
+    }
+
 
 }
