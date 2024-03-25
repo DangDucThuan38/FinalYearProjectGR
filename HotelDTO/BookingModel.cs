@@ -39,6 +39,8 @@ namespace DangDucThuanFinalYear.HotelDTO
         [MaxLength(250)]
         public string? SpecialRequest { get; set; }
 
+
+        public decimal Amount { get; set; }
         public void SetDummyValues()
         {
             Email = "dangducthuan999@gmail.com";
@@ -64,6 +66,6 @@ namespace DangDucThuanFinalYear.HotelDTO
 
                         Password = ConfirmPassword = "P@ss1234"; //
                     }
-                }*/
+         }*/
     }
 }

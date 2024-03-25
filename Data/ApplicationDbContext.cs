@@ -13,6 +13,7 @@ namespace DangDucThuanFinalYear.Data
         public DbSet<Entities.RoomTypeAmenity> RoomTypeAmenitys { get; set; }
         public DbSet<Entities.Boooking> Boookings { get; set; }
         public DbSet<Entities.Finances> Finances { get; set; }
+        public DbSet<Entities.Payment> Payments { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,6 +33,15 @@ namespace DangDucThuanFinalYear.Data
             builder.Entity<Entities.Room>()
                 .HasIndex(r => r.RoomNumber)
                 .IsUnique();
+            builder.Entity<Entities.Boooking>()
+               .HasOne(r => r.RoomType)
+               .WithMany()
+               .OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Entities.Payment>()
+               .HasOne(r => r.Booking)
+               .WithMany()
+               .OnDelete(DeleteBehavior.NoAction);
+
 
         }
     }

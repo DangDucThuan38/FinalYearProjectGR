@@ -1,0 +1,163 @@
+﻿@page "/VnPayReturn"
+@using DangDucThuanFinalYear.Components.Account
+@using Microsoft.AspNetCore.WebUtilities
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IMailServices MailsServices
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject IPaymentServices PaymentsServices
+@inject IdentityRedirectManager RedirectManager
+
+
+
+@if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Thanh toán thất bại!</h4>
+        <p>Xin lỗi, thanh toán của bạn không thành công hoặc bị hủy.</p>
+        <hr>
+        <p class="mb-0">Vui lòng thử lại hoặc liên hệ với chúng tôi để được hỗ trợ.</p>
+        <p class="mb-0">Hotline: 0965996180</p>
+        <p class="mb-0">Email: thuaddgch200729@fpt.edu.vn</p>
+    </div>
+}
+else
+{
+    <EditForm Model="FormModel" OnValidSubmit="ConfirmInformation" FormName="MyForm">
+    <div class="alert alert-success " role="alert">
+        <h4 class="alert-heading">Thanh toán thành công!</h4>
+        <p>Cảm ơn bạn đã thực hiện thanh toán thành công.</p>
+        <hr>
+        <p class="mb-0">Dưới đây là thông tin chi tiết về giao dịch:</p>
+        @if (QueryParameters.Any())
+        {
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-8">
+                    <table class="table">
+                        <tbody>
+                            @foreach (var param in QueryParameters)
+                            {
+                                var parameterName = param.Key switch
+                                {
+                                    "vnp_Amount" => "Số tiền",
+                                    "vnp_BankCode" => "Mã ngân hàng",
+                                    "vnp_CardType" => "Loại thẻ",
+                                    "vnp_OrderInfo" => "Thông tin đơn hàng",
+                                    "vnp_PayDate" => "Ngày thanh toán",
+                                    "vnp_ResponseCode" => "Mã phản hồi",
+                                    "vnp_TmnCode" => "Mã Tmn",
+                                    "vnp_TransactionNo" => "Số giao dịch",
+                                    "vnp_TransactionStatus" => "Trạng thái giao dịch",
+                                    "vnp_TxnRef" => "Mã giao dịch",
+                                    "vnp_SecureHash" => "Mã bảo mật",
+                                    _ => param.Key
+                                };
+
+                                @if (!param.Key.Equals("vnp_SecureHash", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <tr>
+                                        <td>@parameterName</td>
+                                        <td>@string.Join(",", param.Value)</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+            <button class="btn btn-primary mt-3" type="submit" >
+                Xác nhận
+            </button>
+    </div>
+    </EditForm>
+
+}
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+    private Dictionary<string, string[]> QueryParameters { get; set; } = new Dictionary<string, string[]>();
+    private bool _isAuthenticated;
+    private string? _userId;
+
+    // Define a ViewModel to hold form data
+    private class FormData
+    {
+        // Define properties for each form field
+        public long? TransactionRef { get; set; }
+    }
+
+    private FormData FormModel { get; set; } = new FormData();
+
+    protected override void OnInitialized()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        QueryParameters = QueryHelpers.ParseQuery(uri.Query)
+                            .ToDictionary(kv => kv.Key, kv => kv.Value.ToArray());
+    }
+
+    private async Task ConfirmInformation()
+    {
+        long TransactionRef = 0;
+        // Access form data from the FormModel
+        if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+        {
+            if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+            {
+                TransactionRef = tempTransactionRef;
+                string? userId = _userId;
+
+                var result = await MailsServices.SendEmail(TransactionRef, userId);
+            }
+            NavigationManager.NavigateTo("/");
+
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authState.User.Identity?.IsAuthenticated == true)
+        {
+            // user is logged in
+            // fetch use deatails from AuthState claims
+            _isAuthenticated = true;
+            _userId = authState.User.GetUserId();
+        }
+        long TransactionRef = 0;
+        BookingStatus statusBooking;
+        string statusPayment;
+
+        @if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
+        {
+            if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+            {
+               
+                if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+                {
+                    TransactionRef = tempTransactionRef;
+                    string? userId = _userId;
+                    statusBooking = BookingStatus.PaymentDone;
+                    statusPayment = "Success";
+                    var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
+
+                }
+            }
+        }
+        else
+        {
+            if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
+            {
+                if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
+                {
+                    TransactionRef = tempTransactionRef;
+                    string? userId = _userId;
+                    statusBooking = BookingStatus.PaymentDone;
+                    statusPayment = "Success";
+                    var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
+                }
+            }
+
+        }
+    }
+}

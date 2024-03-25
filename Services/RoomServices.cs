@@ -1,6 +1,8 @@
 ﻿using DangDucThuanFinalYear.Data;
+using DangDucThuanFinalYear.Data.Entities;
 using DangDucThuanFinalYear.HotelDTO;
 using DangDucThuanFinalYear.IServices;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace DangDucThuanFinalYear.Services
@@ -17,29 +19,13 @@ namespace DangDucThuanFinalYear.Services
         public async Task<RoomTyePublic[]> GetRoomTypeAsnyc(int count = 0, FilterModel? filterModel = null)
         {
             using var context = _contextFactory.CreateDbContext();
-            var roomTypes = context.RoomTypes
-                                .Where(x => x.IsActive);
-                               
-            if(filterModel is not null)
-            {
-                if(filterModel.Audlts>0)
-                {
-                    roomTypes = roomTypes.Where(x => x.MaxAults >= filterModel.Audlts);
-
-                }
-                if (filterModel.Children > 0)
-                {
-                    roomTypes = roomTypes.Where(x => x.MaxChildren >= filterModel.Children);
-
-                }
-
-            }    
+            var query = ApplyFilters(context.RoomTypes, filterModel);
                                
             if(count > 0 )
             {
-                roomTypes = roomTypes.Take(count);
+                query = query.Take(count);
             }    
-            return await roomTypes.Select(x =>
+            return await query.Select(x =>
                                     new RoomTyePublic(
                                         x.Id,
                                         x.Name,
@@ -52,14 +38,35 @@ namespace DangDucThuanFinalYear.Services
                                     )).ToArrayAsync();
         }
 
-        public async Task<LookupModel<short>[]> GetRoomTypeLookupAsnyc()
+        public async Task<LookupModel<short,decimal>[]> GetRoomTypeLookupAsnyc(FilterModel? filter = null)
         {
             using var context = _contextFactory.CreateDbContext();
-        
-             return await context.RoomTypes
-                .Where(x=>x.IsActive)
-                .Select(a=> new LookupModel<short> (a.Id,a.Name))
-                .ToArrayAsync();
+            var query = ApplyFilters(context.RoomTypes, filter);
+            return await query.Select(a => new LookupModel<short,decimal>(a.Id, a.Name, a.Price))
+                           .ToArrayAsync();
+        }
+
+
+        private static IQueryable<RoomType> ApplyFilters(IQueryable<RoomType> q, FilterModel? filter = null)
+        {
+            var query = q.Where(x => x.IsActive);
+
+
+            if (filter is not null)
+            {
+                if (filter.Audlts > 0)
+                {
+                    query = query.Where(x => x.MaxAults >= filter.Audlts);
+
+                }
+                if (filter.Children > 0)
+                {
+                    query = query.Where(x => x.MaxChildren >= filter.Children);
+
+                }
+
+            }
+            return query;
         }
 
 
