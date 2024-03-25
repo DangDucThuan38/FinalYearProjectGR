@@ -48,9 +48,10 @@
                             <p class="text-body mb-3">
                                 @roomType.Description.Ellipsis(200)
                             </p>
-                            <div class="d-flex justify-content-between">
-                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            <div class="d-flex justify-content-end">
+@*                                 <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+ *@                                
+                             <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/booking?room-type=@roomType.id">Book Now</a>
                             </div>
                         </div>
                     </div>

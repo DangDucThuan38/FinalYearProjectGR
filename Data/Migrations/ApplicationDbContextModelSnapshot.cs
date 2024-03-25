@@ -157,13 +157,16 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<DateTime>("BookedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CheckInDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("BookingStatus")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("CheckOutDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("CheckInDateTime")
+                        .HasColumnType("date");
 
-                    b.Property<int>("Children")
+                    b.Property<DateOnly>("CheckOutDateTime")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("Children")
                         .HasColumnType("int");
 
                     b.Property<string>("GuestId")
@@ -173,8 +176,16 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<string>("Remarks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomId")
+                    b.Property<int?>("RoomId")
                         .HasColumnType("int");
+
+                    b.Property<short>("RoomTypeId")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("SpecialRequest")
+                        .HasMaxLength(250)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(250)");
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
@@ -184,6 +195,8 @@ namespace DangDucThuanFinalYear.Migrations
                     b.HasIndex("GuestId");
 
                     b.HasIndex("RoomId");
+
+                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("Boookings");
                 });
@@ -238,6 +251,35 @@ namespace DangDucThuanFinalYear.Migrations
                     b.HasIndex("AddByUserId");
 
                     b.ToTable("Finances");
+                });
+
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AdditinoalInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("BookingId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
@@ -491,13 +533,19 @@ namespace DangDucThuanFinalYear.Migrations
 
                     b.HasOne("DangDucThuanFinalYear.Data.Entities.Room", "Room")
                         .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("DangDucThuanFinalYear.Data.Entities.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Guest");
 
                     b.Navigation("Room");
+
+                    b.Navigation("RoomType");
                 });
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Finances", b =>
@@ -507,6 +555,17 @@ namespace DangDucThuanFinalYear.Migrations
                         .HasForeignKey("AddByUserId");
 
                     b.Navigation("AddByUser");
+                });
+
+            modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Payment", b =>
+                {
+                    b.HasOne("DangDucThuanFinalYear.Data.Entities.Boooking", "Booking")
+                        .WithMany()
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
                 });
 
             modelBuilder.Entity("DangDucThuanFinalYear.Data.Entities.Room", b =>
