@@ -2,7 +2,7 @@
 using DangDucThuanFinalYear.Constants;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.Data.Entities;
-using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.FinancesDTO;
 using DangDucThuanFinalYear.IServices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

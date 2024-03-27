@@ -1,5 +1,5 @@
 ﻿using DangDucThuanFinalYear.Constants;
-using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.BookingDTO;
 
 namespace DangDucThuanFinalYear.IServices
 {

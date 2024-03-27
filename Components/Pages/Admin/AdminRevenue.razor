@@ -1,0 +1,59 @@
+﻿@page "/staff-admin/manage-totalRevenue"
+@layout AddminStaff
+@using DangDucThuanFinalYear.HotelDTO.DashboardDTO
+@inject IRevenueDashboardService DashboardService
+<style>
+    /* CSS for styling */
+    .total-info {
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+        .total-info span {
+            color: #007bff;
+        }
+
+    .icon {
+        margin-right: 5px;
+    }
+
+    .dashboard-header {
+        color: palegreen;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+<div class="dashboard-header">
+    <h4><i class="icon fas fa-chart-bar"></i>MAI HOTEL statistical report dashboard</h4>
+</div>
+<div class="content" style="margin-left: 180px; display: flex; align-items: center;">
+    <div id="booking-stats" style="flex: 1; background-color: #f9f9f9; padding: 10px; margin-top: -69px; margin-left: -90px;">
+        <div class="total-info">
+            <h3>Total Revenue : <span><i class="icon fas fa-dollar-sign"></i>@((model != null ? model.TotalRevenue : ""))</span></h3>
+        </div>
+        <div class="total-info">
+            <h3>Total Booking: <span><i class="icon fas fa-calendar-check"></i>@((model != null ? model.TotalBooking : "")) bookings</span></h3>
+        </div>
+        <div class="total-info">
+            <h3>Total Room: <span><i class="icon fas fa-bed"></i>@((model != null ? model.TotalRoom : "")) rooms</span></h3>
+        </div>
+        <div class="total-info">
+            <h3>Total Customer: <span><i class="icon fas fa-users"></i>@((model != null ? model.TotalCustomer : "")) customer</span></h3>
+        </div>
+        <div class="total-info">
+            <h3>Total Staff : <span><i class="icon fas fa-users-cog"></i>@((model != null ? model.TotalStaff : "")) staff</span></h3>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private DashboardRespon model;
+    protected override async Task OnInitializedAsync()
+    {
+        model = await DashboardService.GetRevenueDashboardAsync();
+    }
+
+}

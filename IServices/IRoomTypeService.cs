@@ -1,6 +1,6 @@
 ﻿using DangDucThuanFinalYear.ApplicationHotel;
 using DangDucThuanFinalYear.Data.Entities;
-using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO;
 
 namespace DangDucThuanFinalYear.IServices
 {
@@ -24,6 +24,8 @@ namespace DangDucThuanFinalYear.IServices
 
         // Assgin Room to User
         Task<HotelResult> AssignRoomToUserAsync(long bookingId, int roomId);
+        Task<Room[]> CheckRoomVaildAsync(short roomTypeId);
+
 
     }
 }

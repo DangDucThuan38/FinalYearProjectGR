@@ -1,6 +1,8 @@
 ﻿using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.Data.Entities;
 using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO;
+using DangDucThuanFinalYear.HotelDTO.ShowRoomPublicDTO;
 using DangDucThuanFinalYear.IServices;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;

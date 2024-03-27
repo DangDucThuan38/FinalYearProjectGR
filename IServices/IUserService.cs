@@ -2,6 +2,7 @@
 using DangDucThuanFinalYear.Constants;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.UserProFileDTO;
 
 namespace DangDucThuanFinalYear.IServices
 {
