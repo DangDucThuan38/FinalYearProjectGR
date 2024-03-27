@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore;
 using DangDucThuanFinalYear.ApplicationHotel;
-using DangDucThuanFinalYear.HotelDTO;
 using DangDucThuanFinalYear.IServices;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using DangDucThuanFinalYear.Data.Entities;
 using DangDucThuanFinalYear.Components.Pages;
+using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO;
 
 namespace DangDucThuanFinalYear.Services
 {

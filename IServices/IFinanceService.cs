@@ -1,6 +1,6 @@
 ﻿using DangDucThuanFinalYear.ApplicationHotel;
 using DangDucThuanFinalYear.Data.Entities;
-using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.FinancesDTO;
 
 namespace DangDucThuanFinalYear.IServices
 {

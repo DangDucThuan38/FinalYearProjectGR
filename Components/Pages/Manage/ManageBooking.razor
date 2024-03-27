@@ -1,9 +1,9 @@
 ﻿@page "/staff-admin/manage-booking"
+@using Microsoft.AspNetCore.Components.QuickGrid
 @layout AddminStaff
 @using DangDucThuanFinalYear.Data.Entities
-@using Microsoft.AspNetCore.Components.QuickGrid
 
-@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService

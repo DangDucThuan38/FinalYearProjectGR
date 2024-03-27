@@ -1,4 +1,6 @@
 ﻿using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO;
+using DangDucThuanFinalYear.HotelDTO.ShowRoomPublicDTO;
 
 namespace DangDucThuanFinalYear.IServices
 {

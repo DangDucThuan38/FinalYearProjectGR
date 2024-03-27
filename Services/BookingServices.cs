@@ -4,6 +4,7 @@ using DangDucThuanFinalYear.IServices;
 using Microsoft.EntityFrameworkCore;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.ApplicationHotel;
+using DangDucThuanFinalYear.HotelDTO.BookingDTO;
 
 namespace DangDucThuanFinalYear.Services
 {

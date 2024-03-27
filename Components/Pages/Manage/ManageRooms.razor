@@ -2,14 +2,16 @@
 @layout AddminStaff
 
 @using DangDucThuanFinalYear.Data.Entities
-@rendermode @(new InteractiveServerRenderMode(prerender: false)) 
 
+@attribute [StreamRendering]
+@rendermode @(new InteractiveServerRenderMode(prerender: false)) 
+ 
 
 @inject NavigationManager NavigationManager
 @inject IRoomTypeService RoomTypeService
 @inject IJSRuntime JsRuntime
 
-<div class="container">
+@* <div class="container">
 
     <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
         <h1 style="color: green; display: flex; align-items: center; font-size: 1.5rem;">
@@ -92,7 +94,84 @@
         </table>
         
     </div>
-</div>
+</div> *@
+    <div class="container">
+        <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
+            <h1 style="color: green; display: flex; align-items: center; font-size: 1.5rem;">
+                <NavLink href="staff-admin/manage-room-types" class="me-2 btn btn-sm btn-default">
+                    <i class="fas fa-arrow-left"></i>
+                </NavLink>
+
+                <span style="display: inline-flex; align-items: center;">
+                    <span style="margin-right: 5px;">Manage Rooms</span>
+                    <small style="color: red; font-weight: bold;">[@Name]</small>
+                </span>
+            </h1>
+
+            <button type="button" @onclick="()=> _showCreateRoomDialog=true" class="btn btn-sm btn-success mt-3">+ Add new Rooms</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Is Available</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (_rooms.Length == 0)
+                    {
+                        <tr>
+                            <td colspan="3">
+                                <h1 class="text-danger"> No rooms </h1>
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var room in _rooms)
+                    {
+                        <tr>
+                            <td>
+                                @if (room.IsAvaiable == true)
+                                {
+                                    <span class="text-success">
+                                        @room.RoomNumber
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger" style="text-decoration: line-through;">
+                                        @room.RoomNumber
+                                    </span>
+                                }
+                            </td>
+                            <td>
+                                <label>
+                                    @if (room.IsAvaiable == true)
+                                    {
+                                        <input type="checkbox" checked @onchange="()=> HandleInheritability(room)" />
+                                        <span class="text-success">Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" @onchange="()=> HandleInheritability(room)" />
+                                        <span class="text-danger">No</span>
+                                    }
+                                </label>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger" @onclick="()=> DeleteAsnyc(room.Id)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
 <DialogCompanent Title="Create Room" DialogId="@DialogId" Show="_showCreateRoomDialog" OnCloseModal="()=> _showCreateRoomDialog=false">
     <EditForm Model="ModelRoom" OnSubmit="CreateRoomAsync">

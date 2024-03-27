@@ -120,10 +120,11 @@
                     }
 
         .content {
-            margin-left: 250px;
             padding: 20px;
             padding-top: 70px;
-            width: calc(100% - 250px); /* Chiều rộng mặc định, giả sử thanh sidebar chiếm 250px */
+            width: calc(100% - 250px); /* Subtracting the width of the sidebar */
+            margin-left: 250px; /* Move content to the right to accommodate the sidebar */
+            box-sizing: border-box; /* Include padding in the width calculation */
         }
 
         table {
