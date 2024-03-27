@@ -142,6 +142,50 @@
         th {
             background-color: #f2faf5; /* Màu nền xanh lá nhạt */
         }
+
+        #booking-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Cài đặt kích thước tối thiểu và tối đa cho mỗi ô */
+            grid-gap: 40px; /* Khoảng cách giữa các ô */
+        }
+
+            #booking-stats > * {
+                background-color: #ffffff; /* Màu nền trắng */
+                padding: 18px; /* Khoảng cách bên trong các ô */
+                border-radius: -9px; /* Bo góc */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+            }
+
+            #booking-stats h3 {
+                margin-top: 0;
+                font-size: 16px; /* Kích thước chữ lớn hơn */
+                color: #2E8B57; /* Màu xanh lá */
+            }
+
+        #room-bookings {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px; /* Khoảng cách giữa tiêu đề và nội dung */
+        }
+
+            #room-bookings li {
+                margin-bottom: 10px; /* Khoảng cách giữa các mục */
+                color: #555555; /* Màu chữ xám */
+                font-size: 20px; /* Kích thước chữ lớn hơn */
+            }
+
+                #room-bookings li::before {
+                    content: "•";
+                    margin-right: 10px;
+                    color: #2E8B57; /* Màu xanh lá */
+                }
+
+        #revenue-last,
+        #total-revenue {
+            font-weight: bold;
+            font-size: 20px; /* Kích thước chữ lớn hơn */
+            color: #555555; /* Màu chữ xám */
+        }
     </style>
 </head>
 <body>

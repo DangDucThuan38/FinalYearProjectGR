@@ -24,6 +24,8 @@ namespace DangDucThuanFinalYear.IServices
 
         // Assgin Room to User
         Task<HotelResult> AssignRoomToUserAsync(long bookingId, int roomId);
+        Task<Room[]> CheckRoomVaildAsync(short roomTypeId);
+
 
     }
 }

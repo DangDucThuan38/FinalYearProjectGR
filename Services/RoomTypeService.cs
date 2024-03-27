@@ -137,6 +137,41 @@ namespace DangDucThuanFinalYear.Services
             using var context = _contextFactory.CreateDbContext();
             return await context.Rooms.Where(x => x.RoomTypeId == roomTypeId && x.IsDeleted == false).ToArrayAsync();
         }
+        public async Task<Data.Entities.Room[]> CheckRoomVaildAsync(short roomTypeId)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var booking = await context.Boookings.Where(x => x.RoomTypeId == roomTypeId).ToArrayAsync();
+            var room = await context.Rooms.Where(x => x.RoomTypeId == roomTypeId && x.IsDeleted == false).ToArrayAsync();
+            DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+            var bookedRoomsToday = booking
+                .Where(b => b.CheckInDateTime <= today && b.CheckOutDateTime >= today)
+                .Select(b => b.RoomId)
+                .ToList(); // Chuyển sang List để sử dụng phương thức Contains
+
+            var availableRoomsToday = room
+                .Where(r => !bookedRoomsToday.Contains(r.Id)) 
+                .ToArray();
+            var notavailableRoomsToday = room
+              .Where(r => bookedRoomsToday.Contains(r.Id))
+              .ToArray();
+            foreach (var item in availableRoomsToday)
+            {
+                item.IsAvaiable = true;
+                context.Update(item);
+            }
+            foreach (var item in notavailableRoomsToday)
+            {
+                item.IsAvaiable = false;
+                context.Update(item);
+            }
+            await context.SaveChangesAsync();
+            var updatedRooms = await context.Rooms
+                .Where(x => x.RoomTypeId == roomTypeId && x.IsDeleted == false)
+                .ToArrayAsync();
+
+
+            return updatedRooms;
+        }
 
         public async Task<HotelResult<Data.Entities.Room>> SaveRoomAsync(Data.Entities.Room room)
         {
@@ -206,11 +241,14 @@ namespace DangDucThuanFinalYear.Services
                 return "Invaild Request";
             if (booking is not null)
             {
-                var bookingcheck = await context.Boookings.Where(b => b.RoomId == roomId &&
-                                                 b.Id != bookingId &&
-                                                 b.CheckInDateTime >= booking.CheckInDateTime &&
-                                                 b.CheckOutDateTime <= booking.CheckOutDateTime).ToArrayAsync();
-               var count = bookingcheck.Count();
+                var bookingcheck = await context.Boookings
+                                       .Where(b => b.RoomId == roomId &&
+                                                   b.Id != bookingId &&
+                                                   ((b.CheckInDateTime >= booking.CheckInDateTime && b.CheckInDateTime < booking.CheckOutDateTime) ||
+                                                   (b.CheckOutDateTime > booking.CheckInDateTime && b.CheckOutDateTime <= booking.CheckOutDateTime) ||
+                                                   (b.CheckInDateTime <= booking.CheckInDateTime && b.CheckOutDateTime >= booking.CheckOutDateTime)))
+                                       .ToArrayAsync();
+                var count = bookingcheck.Count();
                 if (count > 0)
                 {
                     return "Please slect room other.Room booked!";

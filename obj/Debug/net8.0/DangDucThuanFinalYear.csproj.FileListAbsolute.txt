@@ -295,3 +295,6 @@ F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\BouncyCastle.Cryptography.dl
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\MailKit.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\MimeKit.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\zxing.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\System.IO.Packaging.dll

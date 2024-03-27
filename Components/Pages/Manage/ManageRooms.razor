@@ -221,7 +221,8 @@
             return;
         }
         _romTypeId = roomTypeId;
-        _rooms = await RoomTypeService.GetRoomsAllAsync(roomTypeId);
+        _rooms = await RoomTypeService.CheckRoomVaildAsync(roomTypeId);
+
 
     }
     public async Task CreateRoomAsync()

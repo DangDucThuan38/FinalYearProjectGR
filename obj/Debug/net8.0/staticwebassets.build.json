@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mw34S+jHBVPXgrW69/eVya6pSEliu96TYSte7qjuwR0=",
+  "Hash": "Epwpvg38J3MMdKr/EbYqGrMDkWcVJ4TieHIFTpuDTuM=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -870,6 +870,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\mariot.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\me1.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "img/me1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\me1.jpg"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\room-1.jpg",
