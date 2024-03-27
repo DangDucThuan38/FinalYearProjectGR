@@ -2,6 +2,7 @@
 using DangDucThuanFinalYear.Constants;
 using DangDucThuanFinalYear.Data;
 using DangDucThuanFinalYear.HotelDTO;
+using DangDucThuanFinalYear.HotelDTO.UserProFileDTO;
 using DangDucThuanFinalYear.IServices;
 using DangDucThuanFinalYear.Migrations;
 using Microsoft.AspNetCore.Identity;
