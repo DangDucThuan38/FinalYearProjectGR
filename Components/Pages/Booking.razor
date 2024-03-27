@@ -98,7 +98,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <InputDate @bind-Value="_model.CheckInDate" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                        <InputDate @bind-Value="_model.CheckInDate" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
                                         <label for="checkin">Check In</label>
                                     </div>
                                     <ValidationMessage For="()=>_model.CheckInDate" class="text-danger" />
@@ -106,16 +106,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date4" data-target-input="nearest">
-                                        <InputDate @bind-Value="_model.CheckOutDate" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
+                                        <InputDate @bind-Value="_model.CheckOutDate" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
                                         <label for="checkout">Check Out</label>
                                     </div>
                                     <ValidationMessage For="()=>_model.CheckOutDate" class="text-danger" />
 
                                 </div>
-
-
-
-
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <InputSelect 

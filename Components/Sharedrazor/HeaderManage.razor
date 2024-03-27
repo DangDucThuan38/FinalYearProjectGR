@@ -1,0 +1,70 @@
+﻿@implements IDisposable
+@inject NavigationManager NavigationManager
+<header style="margin-left: -85px; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; background-color: #f2faf5; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h2></h2>
+    <div class="logout-profile-icons">
+        <AuthorizeView>
+            <Authorized>
+                <a class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;"><i class="fas fa-user"></i>@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value )</a>
+
+                <form action="Account/Logout" method="post">
+                    <AntiforgeryToken />
+                    <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                    <button type="submit" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;">
+                        Logout<i class="fa fa-arrow-right ms-3"></i>
+                    </button>
+                </form>
+            </Authorized>
+            <NotAuthorized>
+                <a href="account/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;">Login<i class="fa fa-arrow-right ms-3"></i></a>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+</header>
+
+<div class="sidebar">
+    <h2>MAI HOTEL</h2>
+    <ul>
+        <AuthorizeView>
+            <Authorized>
+                <AuthorizeView Roles="Admin" Context="adminContext">
+                    <li><a href="admin/manage-staff"><i class="fas fa-tasks"></i> Manage Staff</a></li>
+                    <li><a href="staff-admin/manage-finances"><i class="fas fa-tasks"></i> Manage Finances</a></li>
+                </AuthorizeView>
+                <AuthorizeView Roles="Staff,Admin" Context="staffContext">
+                    <li><a href="staff-admin/manage-guest"><i class="fas fa-tasks"></i> Manage Guest</a></li>
+                    <li><a href="staff-admin/manage-room-types"><i class="fas fa-tasks"></i> Manage Rooms</a></li>
+                    <li><a href="staff-admin/manage-booking"><i class="fas fa-tasks"></i> Manage Booking</a></li>
+                    <li><a href="staff-admin/manage-amenitites"><i class="fas fa-tasks"></i> Manage Amenities</a></li>
+                    <li><a href="manage/my-profile"><i class="fas fa-tasks"></i> My Profile</a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Change Password </a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Log Out </a></li>
+                </AuthorizeView>
+            </Authorized>
+        </AuthorizeView>
+       
+
+
+    </ul>
+</div>
+
+@code {
+    private string? currentUrl;
+
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}

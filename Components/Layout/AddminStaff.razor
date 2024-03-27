@@ -7,31 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin && Staff</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-xxxxxx" crossorigin="anonymous">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <link rel="icon" type="image/png" href="favicon.png" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,7 +19,7 @@
         header {
             background-color: #f2faf5; /* Màu xanh lá */
             color: green;
-            padding: 18px;
+            padding: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
             position: fixed; /* Header cố định ở trên cùng */
             width: 100%;
@@ -52,7 +27,6 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            margin-right:30px;
         }
 
         .admin-title {
@@ -79,23 +53,23 @@
         footer {
             background-color: #f1f7f4; /* Màu xanh lá */
             color: green;
-            padding: 9px; /* Để tránh chạm vào nội dung */
+            padding: 10px; /* Để tránh chạm vào nội dung */
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
-
         }
 
         .sidebar {
-            height: 100%;
+            height: calc(100vh - 60px); /* Chiều cao bằng chiều cao của màn hình trừ đi chiều cao của header */
             width: 250px;
             position: fixed;
             top: 60px; /* Làm mất phần chồng lên của header */
             left: 0;
             background-color: #2E8B57; /* Màu xanh lá */
             padding-top: 20px;
+            overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
         }
 
             .sidebar h2 {
@@ -137,6 +111,8 @@
                     top: 0;
                     left: 100%; /* Hiển thị sub-menu bên phải tác vụ cha */
                     width: 200px; /* Điều chỉnh chiều rộng của sub-menu */
+                    overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
+                    max-height: calc(100vh - 60px); /* Giới hạn chiều cao của sub-menu để không vượt quá kích thước màn hình */
                 }
 
                     .sidebar ul .sub-menu li {
@@ -147,6 +123,7 @@
             margin-left: 250px;
             padding: 20px;
             padding-top: 70px;
+            width: calc(100% - 250px); /* Chiều rộng mặc định, giả sử thanh sidebar chiếm 250px */
         }
 
         table {
@@ -167,57 +144,26 @@
     </style>
 </head>
 <body>
-    <header style="margin-left: -85px">
-                <h2></h2>
-        <div class="logout-profile-icons">
-            <i class="fas fa-sign-out-alt"></i>
-            <i class="fas fa-user"></i>
-        </div>
-    </header>
-
+    
+@* 
     <div class="sidebar">
         <h2>MAI HOTEL</h2>
         <ul>
-            <li><a href="admin/manage-staff"><i class="fas fa-tasks"></i> Manage Staff</a></li>
-            <li><a href="staff-admin/manage-guest"><i class="fas fa-tasks"></i> Manage Guest</a></li>
-            <li><a href="staff-admin/manage-room-types"><i class="fas fa-tasks"></i> Manage Rooms</a></li>
-            <li><a href="booking"><i class="fas fa-tasks"></i> Manage Booking</a></li>
-            <li><a href="staff-admin/manage-amenitites"><i class="fas fa-tasks"></i> Manage Amenities</a></li>
-            <li><a href="staff-admin/manage-finances"><i class="fas fa-tasks"></i> Manage Finances</a></li>
-            <li><a href="my-profile"><i class="fas fa-tasks"></i> My Profile</a></li>
-            <li><a href="#"><i class="fas fa-tasks"></i> Change Password </a></li>
-            <li><a href="#"><i class="fas fa-tasks"></i> Log Out </a></li>
 
             <!-- Thêm các tác vụ và tác vụ con khác vào đây -->
         </ul>
-    </div>
+    </div> *@
+
+        <HeaderManage />
 
     <div class="content">
        @Body
     </div>
 
-    <footer style="margin-left: -85px">
+    <footer style="margin-left: -85px;height:40px">
         <p>MAI HOTEL version 1.0.0 &copy; 2024 Đặng Đức Thuần</p>
     </footer>
 
-    <script>
-        // JavaScript để xử lý sự kiện khi nhấp vào tác vụ 1 và mở tác vụ con
-        const menuItems = document.querySelectorAll('.sidebar ul li');
-        menuItems.forEach(item => {
-            item.addEventListener('click', function () {
-                const subMenu = this.querySelector('.sub-menu');
-                if (subMenu) {
-                    if (subMenu.style.display === 'block') {
-                        subMenu.style.display = 'none';
-                    } else {
-                        subMenu.style.display = 'block';
-                    }
-                }
-            });
-        });
-
-
-    </script>
 
     <script src="_framework/blazor.web.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

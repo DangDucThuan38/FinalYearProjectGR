@@ -26,68 +26,76 @@ namespace DangDucThuanFinalYear.Services
         {
             using var context = _contextFactory.CreateDbContext();
             RoomType? roomType;
-            if (input.Id == 0)
+            try
             {
-                if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name))
+                if (input.Id == 0)
                 {
-                    return $" Room Type with the same {input.Name} already exists!";
+                    if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name))
+                    {
+                        return $" Room Type with the same {input.Name} already exists!";
+                    }
+                    roomType = new RoomType
+                    {
+                        Name = input.Name,
+                        AddedBy = userId,
+                        CreationTime = DateTime.Now,
+                        Descripcion = input.Descripcion,
+                        ImageUrl = input.ImageUrl,
+                        IsActive = true,
+                        MaxAults = input.MaxAults,
+                        MaxChildren = input.MaxChildren,
+                        Price = input.Price,
+                    };
+                    await context.RoomTypes.AddAsync(roomType);
                 }
-                roomType = new RoomType
+                else
                 {
-                    Name = input.Name,
-                    AddedBy = userId,
-                    CreationTime = DateTime.Now,
-                    Descripcion = input.Descripcion,
-                    ImageUrl = input.ImageUrl,
-                    IsActive = true,
-                    MaxAults = input.MaxAults,
-                    MaxChildren = input.MaxChildren,
-                    Price = input.Price,
-                };
-                await context.RoomTypes.AddAsync(roomType);
-            }
-            else
-            {
-                if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name && x.Id != input.Id))
-                {
-                    return $" Room Type with the same {input.Name} already exists!";
+                    if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name && x.Id != input.Id))
+                    {
+                        return $" Room Type with the same {input.Name} already exists!";
+                    }
+                    roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
+                    if (roomType is null)
+                    {
+                        return $"Invalid request";
+                    }
+                    roomType.Name = input.Name;
+                    roomType.Descripcion = input.Descripcion;
+                    roomType.ImageUrl = input.ImageUrl;
+                    roomType.IsActive = input.IsActive;
+                    roomType.MaxAults = input.MaxAults;
+                    roomType.MaxChildren = input.MaxChildren;
+                    roomType.Price = input.Price;
+                    roomType.LastUpdatedBy = userId;
+                    roomType.LastUpdated = DateTime.Now;
+
+                    var romTypeAmenities = await context.RoomTypeAmenitys.Where(x => x.RoomTypeId == input.Id).ToListAsync();
+                    context.RoomTypeAmenitys.RemoveRange(romTypeAmenities);
+
+
                 }
-                roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
-                if (roomType is null)
-                {
-                    return $"Invalid request";
-                }
-                roomType.Name = input.Name;
-                roomType.Descripcion = input.Descripcion;
-                roomType.ImageUrl = input.ImageUrl;
-                roomType.IsActive = input.IsActive;
-                roomType.MaxAults = input.MaxAults;
-                roomType.MaxChildren = input.MaxChildren;
-                roomType.Price = input.Price;
-                roomType.LastUpdatedBy = userId;
-                roomType.LastUpdated = DateTime.Now;
-
-                var romTypeAmenities = await context.RoomTypeAmenitys.Where(x => x.RoomTypeId == input.Id).ToListAsync();
-                context.RoomTypeAmenitys.RemoveRange(romTypeAmenities);
-
-
-            }
-
-            await context.SaveChangesAsync();
-
-            if (input.Amenities.Length > 0)
-            {
-                var roomTypeAmenities = input.Amenities.Select(x => new RoomTypeAmenity
-                {
-                    AmenityId = x.Id,
-                    RoomTypeId = roomType.Id,
-                    Unit = x.Id
-                });
-                await context.RoomTypeAmenitys.AddRangeAsync(roomTypeAmenities);
                 await context.SaveChangesAsync();
 
+                if (input.Amenities.Length > 0)
+                {
+                    var roomTypeAmenities = input.Amenities.Select(x => new RoomTypeAmenity
+                    {
+                        AmenityId = x.Id,
+                        RoomTypeId = roomType.Id,
+                        Unit = x.Unit,
+                    });
+                    await context.RoomTypeAmenitys.AddRangeAsync(roomTypeAmenities);
+                    await context.SaveChangesAsync();
+
+                }
+                return roomType.Id;
+
             }
-            return roomType.Id;
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
+          
             
 
         }
@@ -191,16 +199,38 @@ namespace DangDucThuanFinalYear.Services
             {
                 return "Invalid Request";
             }
-            if(roomasgin.IsAvaiable == false)
-            {
-                return  "This room is not avaibale";
-            }
-
-            // Kiểm tra xem booking có tồn tại hay không và trong booking phòng được chọn đã được book chưa và Thời gian checkin và checkout không trùng vào khoảng
-            // thời gian book thì vẫn cho book phòng đó nếu thời gian checkin và checkout trùng với thời gian book thì không cho book phòng đó
             var booking = await context.Boookings
                                         .AsTracking()
                                         .FirstOrDefaultAsync(x => x.Id == bookingId);
+            if (booking is null)
+                return "Invaild Request";
+            if (booking is not null)
+            {
+                var bookingcheck = await context.Boookings.Where(b => b.RoomId == roomId &&
+                                                 b.Id != bookingId &&
+                                                 b.CheckInDateTime >= booking.CheckInDateTime &&
+                                                 b.CheckOutDateTime <= booking.CheckOutDateTime).ToArrayAsync();
+               var count = bookingcheck.Count();
+                if (count > 0)
+                {
+                    return "Please slect room other.Room booked!";
+                }
+                else
+                {
+                    booking.RoomId = roomId;
+                    context.Boookings.Update(booking);
+                    await context.SaveChangesAsync();
+                }    
+
+            }
+            return true;
+
+
+
+
+            // Kiểm tra xem booking có tồn tại hay không và trong booking phòng được chọn đã được book chưa và Thời gian checkin và checkout không trùng vào khoảng
+            // thời gian book thì vẫn cho book phòng đó nếu thời gian checkin và checkout trùng với thời gian book thì không cho book phòng đó
+
             //if (booking is not null)
             //{
             //    if (!await context.Boookings.AnyAsync(b => b.RoomId == booking.RoomId &&
@@ -208,7 +238,7 @@ namespace DangDucThuanFinalYear.Services
             //                                  b.CheckOutDateTime < booking.CheckOutDateTime &&
             //                                  b.Id != bookingId))
             //    {
-            //        booking.RoomId = roomId;
+            //       
             //    }
             //    else
             //    {
@@ -216,25 +246,23 @@ namespace DangDucThuanFinalYear.Services
 
             //    }
             //}
-            if (booking is null)
-                return  "Invaild Request";
-            if(booking.RoomId.HasValue)
-            {
-                var roomchange = await context.Rooms
-                    .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
-                if(roomchange is not null)
-                {
-                    roomchange.IsAvaiable = true;
-                }    
-            }
-            //if (booking.CheckInDateTime == DateOnly.FromDateTime(DateTime.Now))
-            roomasgin.IsAvaiable = false;
-            context.Rooms.Update(roomasgin);
-            booking.RoomId = roomId;
-            context.Boookings.Update(booking);
-            await context.SaveChangesAsync();
 
-            return true;
+            //if (booking.RoomId.HasValue)
+            //{
+            //    var roomchange = await context.Rooms
+            //        .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
+            //    if(roomchange is not null)
+            //    {
+            //        roomchange.IsAvaiable = true;
+            //    }    
+            //}
+            ////if (booking.CheckInDateTime == DateOnly.FromDateTime(DateTime.Now))
+            //roomasgin.IsAvaiable = false;
+            //context.Rooms.Update(roomasgin);
+            //booking.RoomId = roomId;
+
+
+
 
         }
     }

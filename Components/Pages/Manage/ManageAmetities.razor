@@ -1,4 +1,5 @@
 ﻿@page "/staff-admin/manage-amenitites"
+@layout AddminStaff
 @using DangDucThuanFinalYear.Data.Entities
 @using Microsoft.AspNetCore.Antiforgery
 
@@ -8,7 +9,7 @@
 @inject NavigationManager NavigationManager
 
 <div class="container">
-    <h1 style=" text-align:center; color:#fea116;">Manage Amenities</h1>
+    <h1 style=" text-align:center; color:green;">Manage Amenities</h1>
     <hr />
     <div class="row">
         <div class="col-sm-3">
@@ -83,8 +84,8 @@
                                     <span>@a.Icon</span>
                                 </td>
                                 <td>
-                                    
-                                    <a href="staff-admin/manage-amenitites?id=@a.Id" class="btn btn-sm btn-primary">
+
+                                    <a href="staff-admin/manage-amenitites?id=@a.Id" class="btn btn-sm btn-succe">
                                         Edit
                                     </a>
                                 </td>
