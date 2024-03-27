@@ -1,6 +1,6 @@
 ﻿@using DangDucThuanFinalYear.HotelDTO
 @using Microsoft.AspNetCore.Components.QuickGrid
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 
 @inject IUserService UserService
@@ -18,7 +18,7 @@
     {
          <PropertyColumn Property="x=> x.Designation" />
         <TemplateColumn>
-            <a href="admin/manage-staff/@context.Id/edit" class="btn btn-sm btn-primary">
+                <a href="admin/manage-staff/@context.Id/edit" class="btn btn-sm btn-success">
                 <i class="fa fa-edit"></i>
             </a>
         </TemplateColumn>

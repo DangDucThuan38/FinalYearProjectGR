@@ -191,16 +191,38 @@ namespace DangDucThuanFinalYear.Services
             {
                 return "Invalid Request";
             }
-            if(roomasgin.IsAvaiable == false)
-            {
-                return  "This room is not avaibale";
-            }
-
-            // Kiểm tra xem booking có tồn tại hay không và trong booking phòng được chọn đã được book chưa và Thời gian checkin và checkout không trùng vào khoảng
-            // thời gian book thì vẫn cho book phòng đó nếu thời gian checkin và checkout trùng với thời gian book thì không cho book phòng đó
             var booking = await context.Boookings
                                         .AsTracking()
                                         .FirstOrDefaultAsync(x => x.Id == bookingId);
+            if (booking is null)
+                return "Invaild Request";
+            if (booking is not null)
+            {
+                var bookingcheck = await context.Boookings.Where(b => b.RoomId == roomId &&
+                                                 b.Id != bookingId &&
+                                                 b.CheckInDateTime >= booking.CheckInDateTime &&
+                                                 b.CheckOutDateTime <= booking.CheckOutDateTime).ToArrayAsync();
+               var count = bookingcheck.Count();
+                if (count > 0)
+                {
+                    return "Please slect room other.Room booked!";
+                }
+                else
+                {
+                    booking.RoomId = roomId;
+                    context.Boookings.Update(booking);
+                    await context.SaveChangesAsync();
+                }    
+
+            }
+            return true;
+
+
+
+
+            // Kiểm tra xem booking có tồn tại hay không và trong booking phòng được chọn đã được book chưa và Thời gian checkin và checkout không trùng vào khoảng
+            // thời gian book thì vẫn cho book phòng đó nếu thời gian checkin và checkout trùng với thời gian book thì không cho book phòng đó
+
             //if (booking is not null)
             //{
             //    if (!await context.Boookings.AnyAsync(b => b.RoomId == booking.RoomId &&
@@ -208,7 +230,7 @@ namespace DangDucThuanFinalYear.Services
             //                                  b.CheckOutDateTime < booking.CheckOutDateTime &&
             //                                  b.Id != bookingId))
             //    {
-            //        booking.RoomId = roomId;
+            //       
             //    }
             //    else
             //    {
@@ -216,25 +238,23 @@ namespace DangDucThuanFinalYear.Services
 
             //    }
             //}
-            if (booking is null)
-                return  "Invaild Request";
-            if(booking.RoomId.HasValue)
-            {
-                var roomchange = await context.Rooms
-                    .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
-                if(roomchange is not null)
-                {
-                    roomchange.IsAvaiable = true;
-                }    
-            }
-            //if (booking.CheckInDateTime == DateOnly.FromDateTime(DateTime.Now))
-            roomasgin.IsAvaiable = false;
-            context.Rooms.Update(roomasgin);
-            booking.RoomId = roomId;
-            context.Boookings.Update(booking);
-            await context.SaveChangesAsync();
 
-            return true;
+            //if (booking.RoomId.HasValue)
+            //{
+            //    var roomchange = await context.Rooms
+            //        .AsTracking().FirstOrDefaultAsync(x => x.Id == booking.RoomId.Value);
+            //    if(roomchange is not null)
+            //    {
+            //        roomchange.IsAvaiable = true;
+            //    }    
+            //}
+            ////if (booking.CheckInDateTime == DateOnly.FromDateTime(DateTime.Now))
+            //roomasgin.IsAvaiable = false;
+            //context.Rooms.Update(roomasgin);
+            //booking.RoomId = roomId;
+
+
+
 
         }
     }

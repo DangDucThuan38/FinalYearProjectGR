@@ -1,16 +1,17 @@
 ﻿@page "/staff-admin/manage-booking"
+@layout AddminStaff
 @using DangDucThuanFinalYear.Data.Entities
 @using Microsoft.AspNetCore.Components.QuickGrid
 
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService
 @inject IJSRuntime JsRuntime
 
 <div class="container-fluid">
-        <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
-            <h1 style="color: orange;">Manage Booking</h1>
+        <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
+            <h1 style="color: green;">Manage Booking</h1>
     </div>
     <hr />
     <div class="table-responsive">
@@ -118,10 +119,8 @@
             await AlertAsync("No rooms available for this room type");
             return;
         }
-        _rooms = rooms.Where(x=> x.IsAvaiable == true).ToArray();
+        _rooms = rooms.ToArray();
         _booking = booking;
-
-
     }
     private async Task AlertAsync(string message) =>
     await JsRuntime.InvokeVoidAsync("window.alert", message);

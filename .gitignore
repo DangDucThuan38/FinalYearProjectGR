@@ -1,0 +1,7 @@
+obj/
+*appsettings.Development
+*appsettings
+*DangDucThuanFinalYear.csproj
+*DangDucThuanFinalYear.csproj.user
+*DangDucThuanFinalYear.sln
+*Program.cs
