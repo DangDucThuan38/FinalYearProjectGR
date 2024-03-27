@@ -7,7 +7,7 @@
 @using DangDucThuanFinalYear.HotelDTO
 @using System.Security.Claims
 @using System.IO
-@* @rendermode @(new InteractiveServerRenderMode(prerender: false))  *@
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @inject IWebHostEnvironment WebHostEnviroment
 @inject NavigationManager NavigationManager
@@ -22,7 +22,7 @@
         <h1 style="color: green;">@(RoomTypeId.HasValue ? "Update" : "Create") Room Type</h1>
         <hr />
     </div>
-    <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc">
+    <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc" FormName="roomTypeForm">
         <DataAnnotationsValidator/>
         <div class="row">
              <div class="col-sm-6">

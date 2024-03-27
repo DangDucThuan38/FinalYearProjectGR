@@ -26,68 +26,76 @@ namespace DangDucThuanFinalYear.Services
         {
             using var context = _contextFactory.CreateDbContext();
             RoomType? roomType;
-            if (input.Id == 0)
+            try
             {
-                if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name))
+                if (input.Id == 0)
                 {
-                    return $" Room Type with the same {input.Name} already exists!";
+                    if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name))
+                    {
+                        return $" Room Type with the same {input.Name} already exists!";
+                    }
+                    roomType = new RoomType
+                    {
+                        Name = input.Name,
+                        AddedBy = userId,
+                        CreationTime = DateTime.Now,
+                        Descripcion = input.Descripcion,
+                        ImageUrl = input.ImageUrl,
+                        IsActive = true,
+                        MaxAults = input.MaxAults,
+                        MaxChildren = input.MaxChildren,
+                        Price = input.Price,
+                    };
+                    await context.RoomTypes.AddAsync(roomType);
                 }
-                roomType = new RoomType
+                else
                 {
-                    Name = input.Name,
-                    AddedBy = userId,
-                    CreationTime = DateTime.Now,
-                    Descripcion = input.Descripcion,
-                    ImageUrl = input.ImageUrl,
-                    IsActive = true,
-                    MaxAults = input.MaxAults,
-                    MaxChildren = input.MaxChildren,
-                    Price = input.Price,
-                };
-                await context.RoomTypes.AddAsync(roomType);
-            }
-            else
-            {
-                if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name && x.Id != input.Id))
-                {
-                    return $" Room Type with the same {input.Name} already exists!";
+                    if (await context.RoomTypes.AnyAsync(x => x.Name == input.Name && x.Id != input.Id))
+                    {
+                        return $" Room Type with the same {input.Name} already exists!";
+                    }
+                    roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
+                    if (roomType is null)
+                    {
+                        return $"Invalid request";
+                    }
+                    roomType.Name = input.Name;
+                    roomType.Descripcion = input.Descripcion;
+                    roomType.ImageUrl = input.ImageUrl;
+                    roomType.IsActive = input.IsActive;
+                    roomType.MaxAults = input.MaxAults;
+                    roomType.MaxChildren = input.MaxChildren;
+                    roomType.Price = input.Price;
+                    roomType.LastUpdatedBy = userId;
+                    roomType.LastUpdated = DateTime.Now;
+
+                    var romTypeAmenities = await context.RoomTypeAmenitys.Where(x => x.RoomTypeId == input.Id).ToListAsync();
+                    context.RoomTypeAmenitys.RemoveRange(romTypeAmenities);
+
+
                 }
-                roomType = await context.RoomTypes.AsTracking().FirstOrDefaultAsync(x => x.Id == input.Id);
-                if (roomType is null)
-                {
-                    return $"Invalid request";
-                }
-                roomType.Name = input.Name;
-                roomType.Descripcion = input.Descripcion;
-                roomType.ImageUrl = input.ImageUrl;
-                roomType.IsActive = input.IsActive;
-                roomType.MaxAults = input.MaxAults;
-                roomType.MaxChildren = input.MaxChildren;
-                roomType.Price = input.Price;
-                roomType.LastUpdatedBy = userId;
-                roomType.LastUpdated = DateTime.Now;
-
-                var romTypeAmenities = await context.RoomTypeAmenitys.Where(x => x.RoomTypeId == input.Id).ToListAsync();
-                context.RoomTypeAmenitys.RemoveRange(romTypeAmenities);
-
-
-            }
-
-            await context.SaveChangesAsync();
-
-            if (input.Amenities.Length > 0)
-            {
-                var roomTypeAmenities = input.Amenities.Select(x => new RoomTypeAmenity
-                {
-                    AmenityId = x.Id,
-                    RoomTypeId = roomType.Id,
-                    Unit = x.Id
-                });
-                await context.RoomTypeAmenitys.AddRangeAsync(roomTypeAmenities);
                 await context.SaveChangesAsync();
 
+                if (input.Amenities.Length > 0)
+                {
+                    var roomTypeAmenities = input.Amenities.Select(x => new RoomTypeAmenity
+                    {
+                        AmenityId = x.Id,
+                        RoomTypeId = roomType.Id,
+                        Unit = x.Unit,
+                    });
+                    await context.RoomTypeAmenitys.AddRangeAsync(roomTypeAmenities);
+                    await context.SaveChangesAsync();
+
+                }
+                return roomType.Id;
+
             }
-            return roomType.Id;
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
+          
             
 
         }

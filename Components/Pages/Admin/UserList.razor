@@ -6,10 +6,10 @@
 @inject IUserService UserService
 <div class="grid">
 <QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-striped">
-     @if(Role != RoleType.Guest)
+   @*   @if(Role != RoleType.Guest)
     {
         <PropertyColumn Property="x=> x.Id"/>
-    }
+    } *@
     <PropertyColumn Property="x=> x.Name"  />
     <PropertyColumn Property="x=> x.RoleName" Title="Role"/>
     <PropertyColumn Property="x=> x.Email" />

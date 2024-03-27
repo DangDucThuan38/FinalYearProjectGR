@@ -55,14 +55,14 @@
                         <AuthorizeView>
                             <Authorized>
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value</a>
+                                    <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value)</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <NavLink href="my-profile" class="dropdown-item">My Profile</NavLink>
                                         <AuthorizeView Roles="@RoleType.Guest.ToString()" Context="guestContext">
                                             <NavLink href="booking" class="dropdown-item">My Booking</NavLink>
                                         </AuthorizeView>
 
-                                        
+                                       @*  
                                         <AuthorizeView Roles="Staff,Admin" Context="staffContext">
                                             <NavLink href="staff-admin/manage-guest" class="dropdown-item">Manage Guest</NavLink>
                                             <NavLink href="staff-admin/manage-booking" class="dropdown-item">Manage Bookings</NavLink>
@@ -76,7 +76,7 @@
                                             <NavLink href="admin/manage-staff" class="dropdown-item">Manage Staff</NavLink>
                                             <NavLink href="admin/manage-staff/new" class="dropdown-item">  + Add new Staff</NavLink>
 
-                                        </AuthorizeView>
+                                        </AuthorizeView> *@
                                         <NavLink href="change-password" class="dropdown-item">Change Password</NavLink>
 
                                     </div>
