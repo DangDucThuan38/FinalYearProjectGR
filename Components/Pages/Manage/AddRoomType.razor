@@ -1,12 +1,13 @@
 ﻿@page "/staff-admin/manage-room-types/new"
 @page "/staff-admin/manage-room-types/{RoomTypeIdRaw:int?}/edit"
+@layout AddminStaff
 
 
 @using DangDucThuanFinalYear.Data.Entities
 @using DangDucThuanFinalYear.HotelDTO
 @using System.Security.Claims
 @using System.IO
-@rendermode @(new InteractiveServerRenderMode(prerender: false)) 
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @inject IWebHostEnvironment WebHostEnviroment
 @inject NavigationManager NavigationManager
@@ -17,11 +18,11 @@
 
 
 <div class ="container">
-    <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
-        <h1 style="color: orange;">@(RoomTypeId.HasValue ? "Update" : "Create") Room Type</h1>
+    <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
+        <h1 style="color: green;">@(RoomTypeId.HasValue ? "Update" : "Create") Room Type</h1>
         <hr />
     </div>
-    <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc">
+    <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc" FormName="roomTypeForm">
         <DataAnnotationsValidator/>
         <div class="row">
              <div class="col-sm-6">

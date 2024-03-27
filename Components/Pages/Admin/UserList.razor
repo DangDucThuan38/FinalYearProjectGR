@@ -1,15 +1,15 @@
 ﻿@using DangDucThuanFinalYear.HotelDTO
 @using Microsoft.AspNetCore.Components.QuickGrid
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 
 @inject IUserService UserService
 <div class="grid">
 <QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-striped">
-     @if(Role != RoleType.Guest)
+   @*   @if(Role != RoleType.Guest)
     {
         <PropertyColumn Property="x=> x.Id"/>
-    }
+    } *@
     <PropertyColumn Property="x=> x.Name"  />
     <PropertyColumn Property="x=> x.RoleName" Title="Role"/>
     <PropertyColumn Property="x=> x.Email" />
@@ -18,7 +18,7 @@
     {
          <PropertyColumn Property="x=> x.Designation" />
         <TemplateColumn>
-            <a href="admin/manage-staff/@context.Id/edit" class="btn btn-sm btn-primary">
+                <a href="admin/manage-staff/@context.Id/edit" class="btn btn-sm btn-success">
                 <i class="fa fa-edit"></i>
             </a>
         </TemplateColumn>

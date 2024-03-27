@@ -1,16 +1,17 @@
 ﻿@page "/staff-admin/manage-booking"
+@layout AddminStaff
 @using DangDucThuanFinalYear.Data.Entities
 @using Microsoft.AspNetCore.Components.QuickGrid
 
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService
 @inject IJSRuntime JsRuntime
 
 <div class="container-fluid">
-        <div class="d-flex flex-column align-items-center" style="margin-top: 50px">
-            <h1 style="color: orange;">Manage Booking</h1>
+        <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
+            <h1 style="color: green;">Manage Booking</h1>
     </div>
     <hr />
     <div class="table-responsive">
@@ -37,7 +38,7 @@
                 }
             </TemplateColumn>
             <PropertyColumn Property="b=>b.GuestName" Title="Guest"/>
-            <PropertyColumn Property="b=>b.BookedOn" Title="Boked On" Format="dd-MMM-yyyy hh:mm:ss" />
+            <PropertyColumn Property="b=>b.BookedOn" Title="Boked On" Format="hh:mm:ss dd-MMM-yyyy " />
             <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check_In" Format="dd-MMM-yyyy"/>
             <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check_Out" Format="dd-MMM-yyyy" />
             <PropertyColumn Property="b=>b.Adults" />
@@ -118,10 +119,8 @@
             await AlertAsync("No rooms available for this room type");
             return;
         }
-        _rooms = rooms.Where(x=> x.IsAvaiable == true).ToArray();
+        _rooms = rooms.ToArray();
         _booking = booking;
-
-
     }
     private async Task AlertAsync(string message) =>
     await JsRuntime.InvokeVoidAsync("window.alert", message);
