@@ -43,8 +43,8 @@ namespace DangDucThuanFinalYear.Services
             }
             var mailUser = exsitigUsers.Email;
             string header = "[MAIHOTEL] XÁC NHẬN THANH TOÁN PHÒNG THÀNH CÔNG";
-            string senderEmail = "dangquocphongbni98@gmail.com";
-            string senderPassword = "wrmbdzmlnqhxjdzb";
+            string senderEmail = "dangducthuan999@gmail.com";
+            string senderPassword = "cxsgusvpapbbnnpn";
             string recipientEmail = mailUser;
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(senderEmail, senderEmail));
