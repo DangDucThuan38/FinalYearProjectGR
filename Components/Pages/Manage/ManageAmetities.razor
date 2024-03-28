@@ -50,6 +50,10 @@
                 </div>
             </EditForm>
         </div>
+
+
+
+
         <div class="col-sm-9">
             <div class="" style="max-height:75vh; overflow-y: scroll" >
                 <table class="table">
@@ -84,7 +88,6 @@
                                     <span>@a.Icon</span>
                                 </td>
                                 <td>
-
                                     <a href="staff-admin/manage-amenitites?id=@a.Id" class="btn btn-sm btn-succe">
                                         Edit
                                     </a>
@@ -115,11 +118,13 @@
     private Amenity[] _amenities = [];
     public string? _error;
 
+
     private bool _isSave;
     protected override async Task OnInitializedAsync()
     {
         AmenityId = HttpContext.Request.Query.TryGetValue("Id", out var amenityId) && int.TryParse(amenityId, out var value) ? value : 0;
         _amenities = await AmenitiesService.GetAmenitiesAsync();
+
         if(AmenityId > 0)
         {
             if (HttpMethods.IsGet(HttpContext.Request.Method))

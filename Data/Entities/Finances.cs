@@ -8,7 +8,7 @@ namespace DangDucThuanFinalYear.Data.Entities
         [Key]
         public int Id { get; set; }
         public string Code { get; set; }
-        public TypeFinance TypeFinance { get; set; }
+        public string NameFinance { get; set; }
         public string Reason { get;set; }
         public decimal Money { get; set; }
         public string Descripcion { get; set; }
@@ -18,5 +18,7 @@ namespace DangDucThuanFinalYear.Data.Entities
         public string? LastUpdatedBy { get; set; }
         public virtual ApplicationUser AddByUser { get; set; }
         public bool IsDeleted { get;  set; }
+        public Finances Clone() => (MemberwiseClone() as Finances)!;
+
     }
 }

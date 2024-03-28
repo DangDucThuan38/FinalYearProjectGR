@@ -239,12 +239,13 @@ namespace DangDucThuanFinalYear.Migrations
                     b.Property<decimal>("Money")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Reason")
+                    b.Property<string>("NameFinance")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TypeFinance")
-                        .HasColumnType("int");
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

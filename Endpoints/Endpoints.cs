@@ -18,7 +18,16 @@ namespace DangDucThuanFinalYear.Endpoints
                     await amenitiesService.DeleteAmenitityAsyns(amenityId);
                     return TypedResults.LocalRedirect("~/staff-admin/manage-amenitites");
                 });
-              return builder;
+
+            staffAdminGroup.MapPost("/manage-finances/delete/{financeId:int}",
+               async (int financeId, IFinanceService financeService) =>
+               {
+                   await financeService.DeleteAmenitityAsyns(financeId);
+                   return TypedResults.LocalRedirect("~/staff-admin/manage-finances");
+               });
+            return builder;
+
+
         }
 
     }
