@@ -37,13 +37,20 @@ namespace DangDucThuanFinalYear.Services
             }
             return false;
         }
+
+        public async Task<Finances[]> GetFinancesAllAsync()
+        {
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Finances.Where(a => a.IsDeleted == false).ToArrayAsync();
+        }
+
         public async Task<SearchListFinaces[]> GetFinancesAsync()
         {
             using var context = _contextFactory.CreateDbContext();
             return await context.Finances
                 .Select(x => new SearchListFinaces(
                     x.Code,
-                    x.TypeFinance,
+                    x.NameFinance,
                     x.Reason,
                     x.Money,
                     x.CreationTime
@@ -53,9 +60,14 @@ namespace DangDucThuanFinalYear.Services
         public async Task<HotelResult<Finances>> SaveFinanceAsync(Finances input, string userId)
         {
             using var context = _contextFactory.CreateDbContext();
+             var exsitigUsers = await _userManage.FindByIdAsync(userId);
+            var addBY = exsitigUsers.FullName;
             Finances? finances;
             if (input.Id == 0)
             {
+                int existingCount = await context.Finances.CountAsync();
+                string uniqueCode = $"PTC{existingCount + 1}";
+
                 //Create new
                 if (await context.Finances.AnyAsync(a => a.Code == input.Code && a.IsDeleted == false))
                 {
@@ -64,35 +76,37 @@ namespace DangDucThuanFinalYear.Services
                 finances = new Finances
                 {
                     Id = input.Id,
-                    Code = input.Code,
-                    TypeFinance = input.TypeFinance,
+                    Code = uniqueCode,
+                    NameFinance = input.NameFinance,
                     Reason = input.Reason,
                     Money = input.Money,
                     Descripcion = input.Descripcion,
                     CreationTime = DateTime.Now,
-                    AddedBy = userId,
+                    AddedBy = addBY
                 };
                 await context.Finances.AddAsync(finances);
             }
             else
             {
-                if (await context.Finances.AnyAsync(a => a.Code == input.Code && a.Id != input.Id))
-                {
-                    return "Finances not Found";
-                }
+                //if (await context.Finances.AnyAsync(a => a.Id != input.Id))
+                //{
+                //    return "Finances not Found";
+                //}
                 var dbFinances = await context.Finances
                     .AsTracking()
                     .FirstOrDefaultAsync(a => a.Id == input.Id)
                 ?? throw new InvalidOperationException("Not Found Amenity");
-                dbFinances.TypeFinance = input.TypeFinance;
+                dbFinances.NameFinance = input.NameFinance;
                 dbFinances.Reason = input.Reason;
                 dbFinances.Money = input.Money;
                 dbFinances.Descripcion = input.Descripcion;
-                dbFinances.LastUpdatedBy = userId;
+                dbFinances.LastUpdatedBy = addBY;
                 dbFinances.LastUpdated = DateTime.Now;
             }
             await context.SaveChangesAsync();
             return input;
         }
+
+
     }
 }

@@ -7,6 +7,10 @@
 
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject NavigationManager NavigationManager
+
 @inject IJSRuntime JsRuntime
 
 <div class="container-fluid">
@@ -38,7 +42,7 @@
                 }
             </TemplateColumn>
             <PropertyColumn Property="b=>b.GuestName" Title="Guest"/>
-            <PropertyColumn Property="b=>b.BookedOn" Title="Boked On" Format="hh:mm:ss dd-MMM-yyyy " />
+            <PropertyColumn Property="b=>b.BookedOn" Title="Booked On" Format="hh:mm:ss dd-MMM-yyyy " />
             <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check_In" Format="dd-MMM-yyyy"/>
             <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check_Out" Format="dd-MMM-yyyy" />
             <PropertyColumn Property="b=>b.Adults" />
@@ -46,9 +50,9 @@
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Special Request" />
             <PropertyColumn Property="b=>b.BookingStatus" />
             <PropertyColumn Property="b=>b.Remarks" />
-                <TemplateColumn>
-                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)">Approve</button>
-                    <button type="button" class="btn btn-sm btn-danger" disabled ="@(!context.CanBeCancelled)">Cancel</button>
+                <TemplateColumn Class="test">
+                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Approve</button>
+                <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
 
                 </TemplateColumn>
 
@@ -75,6 +79,12 @@
         <button type="button" class="btn btn-primary" @onclick="AssignRoomAsync">Assign</button>
     </div>
 </DialogCompanent>
+<style type="text/css" scoped>
+    .test{
+        min-width: 190px;
+    }
+
+</style>
 
 
 @code {
@@ -142,10 +152,75 @@
                 await AlertAsync($"Error in Assigning/changing room ");
                 return;
             }
-             HandleAssignRoomModalClose();
-             await _bookingGrid.RefreshDataAsync();
+            HandleAssignRoomModalClose();
+            await _bookingGrid.RefreshDataAsync();
         }
     }
 
+    private async Task<bool> ComfirmAsync(string mess)=> await JsRuntime.InvokeAsync<bool>("window.confirm", mess);
 
+    private async Task ApproveBookingAsync(BookingDisplayModel booking)
+    {
+        if(booking.CanBeApproved)
+        {
+            if(await ComfirmAsync("Are you sure ,you want to approve this booking?"))
+            {
+                var result = await BookingServices.ApproveBookingAsync(booking.Id);
+                if(!result.IsSuccess)
+                {
+                    await AlertAsync(result.ErrorMessage ?? "Error in approving booking");
+                }
+                else
+                {
+                    await _bookingGrid.RefreshDataAsync();
+                }
+
+            }
+
+        }
+
+    }
+    private async Task<string?> GetUser()
+    {
+        var AuthState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        if (AuthState.User?.Identity?.IsAuthenticated == true)
+        {
+            return AuthState.User.GetUserId();
+        }
+        NavigationManager.NavigateTo("/account/login");
+        return null;
+
+    }
+
+    private async Task CanncelBookingAsync(BookingDisplayModel booking)
+    {
+        if(booking.CanBeCancelled)
+        {
+            if(await ComfirmAsync("Are you sure ,you want to cancel this booking?"))
+            {
+                var guestId = await GetUser();
+                if (guestId is null)
+                {
+                    return ;
+                }
+                var reason = await JsRuntime.InvokeAsync<string?>("window.prompt", "Enter reason for cancellation:");
+                if (string.IsNullOrWhiteSpace(reason))
+                {
+                    await AlertAsync("Reason is required for cancellation");
+                    return;
+                }
+
+                var result = await BookingServices.CancelBookingAsync(booking.Id, reason, guestId);
+                if (!result.IsSuccess)
+                {
+                    await AlertAsync(result.ErrorMessage ?? "Error in Canncelling booking");
+                }
+                else
+                {
+                    await _bookingGrid.RefreshDataAsync();
+                }
+
+            }
+        }
+    }
 }

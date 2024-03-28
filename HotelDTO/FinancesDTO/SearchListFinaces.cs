@@ -2,5 +2,5 @@
 
 namespace DangDucThuanFinalYear.HotelDTO.FinancesDTO
 {
-    public record SearchListFinaces(string Code, TypeFinance TypeFinance, string Reason, decimal Money, DateTime CreationTime);
+    public record SearchListFinaces(string Code, string NameFinance, string Reason, decimal Money, DateTime CreationTime);
 }

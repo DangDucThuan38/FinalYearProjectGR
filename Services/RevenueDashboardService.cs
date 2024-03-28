@@ -34,23 +34,7 @@ namespace DangDucThuanFinalYear.Services
             var totalStaff = staff.Count;
             var Totalroom = await context.Rooms.Where(a => a.IsDeleted == false).ToListAsync();
             var TotalRoom = Totalroom.Count;
-            //var items = new List<RevenueByRoomType>();
-            //var distinctRoomTypeIds = booking.Select(revenue => revenue.RoomTypeId).Distinct();
-
-            //foreach (var roomTypeId in distinctRoomTypeIds)
-            //{
-            //    var roomType = await context.RoomTypes.FirstOrDefaultAsync(a => a.Id == roomTypeId);
-            //    if (roomType != null)
-            //    {
-            //        var totalAmountForRoomType = booking.Where(revenue => revenue.RoomTypeId == roomTypeId)
-            //                                            .Sum(revenue => revenue.TotalAmount);
-            //        items.Add(new RevenueByRoomType
-            //        {
-            //            NameRoomType = roomType.Name,
-            //            Revenue = totalAmountForRoomType
-            //        });
-            //    }
-            //}
+          
 
             var result = new DashboardRespon
             {

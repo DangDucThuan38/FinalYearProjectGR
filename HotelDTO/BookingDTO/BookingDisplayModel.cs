@@ -27,5 +27,11 @@ namespace DangDucThuanFinalYear.HotelDTO.BookingDTO
 
         public bool CanBeApproved => BookingStatus == Constants.BookingStatus.PaymentDone;
         public bool CanBeCancelled => BookingStatus == Constants.BookingStatus.PaymentCanneled && BookingStatus != Constants.BookingStatus.Cancelled;
+
+        public bool CanMakePayment => (BookingStatus == Constants.BookingStatus.Pendding || BookingStatus == Constants.BookingStatus.PaymentCanneled)
+                                        && CheckInDateTime >= DateOnly.FromDateTime(DateTime.Today);
+
+
+
     }
 }
