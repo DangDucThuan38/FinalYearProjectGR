@@ -56,18 +56,18 @@ namespace DangDucThuanFinalYear.Services
                    <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
 
     <div style='background-color: #f4f4f4; padding: 20px; border-radius: 10px;'>
-        <h2 style='color: #6aacee; margin-bottom: 20px; text-align: center;'>MAIHOTEL</h2>
-        <h2 style='color: #0066cc; margin-bottom: 20px; text-align: center;'>Xác nhận thanh toán đặt phòng thành công!</h2>
+        <h2 style='color: green; margin-bottom: 20px; text-align: center;'>XÁC NHẬN THANH TOÁN ĐẶT PHÒNG</h2>
        <div style='background-color: #ffffff; padding: 20px; border-radius: 10px; position: relative;'>
-    <p><strong>Khách hàng:</strong> {exsitigUsers.FirstName} {exsitigUsers.LastName}</p>
-    <p><strong>Loại phòng:</strong> {room.Name}</p>
-    <p><strong>Tổng tiền:</strong> {booking.TotalAmount}</p>
-    <p><strong>Hình Thức Thanh Toán:</strong> VNPAY BANKING</p>
-    <p><strong>Ngày Check-In:</strong> {booking.CheckInDateTime}</p>
-    <p><strong>Ngày Check-Out:</strong> {booking.CheckOutDateTime}</p>
-    <p><strong>Thời Điểm Đặt:</strong> {DateTime.Now}</p>
+        <p><strong>Khách Hàng:</strong> {exsitigUsers.FullName}</p>
+        <p><strong>Loại phòng:</strong> {room.Name}</p>
+        <P><strong>Mã Giao Dịch: MHTL{booking.Id}</strong></P>
+        <p><strong>Tổng Tiền Thanh Toán:</strong> {booking.TotalAmount} $</p>
+        <p><strong>Kênh Thanh Toán:</strong> VNPAY BANKING</p>
+        <p><strong>Ngày Check-In:</strong> {booking.CheckInDateTime}</p>
+        <p><strong>Ngày Check-Out:</strong> {booking.CheckOutDateTime}</p>
+        <p><strong>Thời Điểm Đặt:</strong> {DateTime.Now}</p>
     <!-- Thay thế biểu tượng bằng chữ -->
-    <span style=""color: red;  font-style: italic; position: absolute; top: 5px; right: 5px;"">Đã xác minh</span>
+    <span style=""color: red;  font-style: italic; position: absolute; top: 5px; right: 5px;"">MAIHOTEL Đã xác minh</span>
 
 </div>
 
@@ -76,11 +76,13 @@ namespace DangDucThuanFinalYear.Services
         <p style='text-align: center; margin-bottom: 10px; font-weight: bold;'>Liên hệ:</p>
         <p style='text-align: center; margin-bottom: 5px;'>Điện thoại: <a href='tel:0965996180'>0965996180</a></p>
         <p style='text-align: center;'>Email: <a href='mailto:thuanddgch200729@fpt.edu.vn'>thuanddgch200729@fpt.edu.vn</a></p>
-        <p style='text-align: center; margin-bottom: 5px;'>Address: No. 2 Pham Van Bach, Yen Hoa Ward,Cau Giay District, Hanoi City</p>
+        <p style='text-align: center; margin-bottom: 5px;'>Địa chỉ: No. 2 Pham Van Bach, Yen Hoa Ward, Cau Giay District, Hanoi City</p>
+        
+        <p style='text-align: center; margin-top: 20px; font-weight: bold;'>Trân trọng thông báo</p>
+        <p style='text-align: center; margin-bottom: 5px; color: green;'>.MAI HOTEL.</p>
     </div>
 
-</div>
-            ";
+</div>";
 
             message.Body = bodyBuilder.ToMessageBody();
 
