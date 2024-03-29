@@ -1,10 +1,11 @@
 ﻿@page "/booking"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
 @using DangDucThuanFinalYear.Components.Account
 @using DangDucThuanFinalYear.HotelDTO;
 @using DangDucThuanFinalYear.HotelDTO.ShowRoomPublicDTO
 
 @layout InnerLayoutPage
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject AuthenticationStateProvider AuthStateProvider
 @inject IRoomServices RoomsService
 @inject IUserService UsersService
@@ -100,7 +101,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <InputDate @bind-Value="_model.CheckInDate" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                        <InputDate @bind-Value="_model.CheckInDate" onchange="" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                      
                                         <label for="checkin">Check In</label>
                                     </div>
                                     <ValidationMessage For="()=>_model.CheckInDate" class="text-danger" />
@@ -152,12 +154,17 @@
                                     <div class="form-floating">
                                         <InputSelect 
                                             ValueExpression="() => _model.RoomTypeId"
-                                            ValueChanged="(short id)=> HandleRoomTypeChange(id)"
+                                            ValueChanged="(short id)=> HandleRoomTypeChange(id, _model)"
                                             class="form-select" 
-                                            id="select3">
+                                            id="select3"
+                                            >
+                                            <option value="0">Select Room Type</option>
                                             @foreach (var roomType in _roomTypes)
                                             {
-                                                <option value="@roomType.Id">@roomType.name - @roomType.AdditionalData</option>
+                                                <option value="@roomType.Id">@roomType.name - @roomType.AdditionalData
+                                                </option>
+
+
                                             }
                                         </InputSelect>
                                         <label for="select3">Select A Room</label>
@@ -179,7 +186,28 @@
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                    <p>
+                                        @if (RoomIsValiable == 0)
+                                        {
+                                            <strong style="color:red">The room you selected is currently sold out. Please choose a living room!</strong>
+
+                                        }else
+                                        {
+                                            <strong> Room Avaliable:@RoomIsValiable Rooms</strong>
+                                        }
+                                   </p>
+                                </div>
+
+                                <div class="col-12">
+                                     @if(_roomIsValiable == 0)
+                                    {
+                                        <button class="btn btn-primary w-100 py-3" disabled= "true" type="submit">Book Now</button>
+                                    }else
+                                    {
+                                       <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                        
+                                    }
+
                                 </div>
                             </div>
 
@@ -201,9 +229,10 @@
     private LookupModel<short,decimal>[] _roomTypes = [];
     private string? _erromessage;
     private decimal _price = 0;
+    private int _roomIsValiable = 0;
 
     private decimal TotalAmout => (_model.CheckOutDate.DayNumber - _model.CheckInDate.DayNumber) * _price;
-
+    private int RoomIsValiable => _roomIsValiable;
 
     protected override async Task OnInitializedAsync()
     {
@@ -226,7 +255,7 @@
                     && short.TryParse(SelectedRoomType, out short _roomTypeId )
                     && _roomTypeId >0)
         {
-            HandleRoomTypeChange(_roomTypeId);
+            HandleRoomTypeChange(_roomTypeId,_model);
         }
     }
     private async Task HandleAdultsChange(int? newAdults)
@@ -241,12 +270,30 @@
         _filterModel.Children = _model.Children;
         await FilterRoomTypes();
     }
-    private void HandleRoomTypeChange(short newRoomTypeId)
+    private async Task HandleRoomTypeChange(short newRoomTypeId, BookingModel model)
     {
         _model.RoomTypeId = newRoomTypeId;
         var roomType = _roomTypes.FirstOrDefault(rt => rt.Id == newRoomTypeId);
+        var room = await CheckRoomValiad(model);
+        if(room > 0)
+          _roomIsValiable = room;
+        else
+          _roomIsValiable = 0;
         _price = roomType.AdditionalData;
     }
+    private async Task<int> CheckRoomValiad(BookingModel model)
+    {
+        var room = await BookingServices.CheckAvailableRoomBooking(model);
+        if (room <= 0)
+        {
+            _erromessage = "No rooms available for this room type";
+            return 0;
+        }
+        else
+            return room;
+    }
+
+
 
 
     private FilterModel? _filterModel = new();
@@ -325,11 +372,8 @@
     {
         
     }
-    // private async Task<bool> SenMailBooking(string userId)
-    // {
-    //     _model.Amount = TotalAmout;
-    //     var result = await MailsServices.SendEmail(_model, userId);
-    //     return true;
-    // }
+
+
+
 
 }

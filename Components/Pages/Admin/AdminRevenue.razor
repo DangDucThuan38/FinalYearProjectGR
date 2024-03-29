@@ -3,32 +3,65 @@
 @using DangDucThuanFinalYear.HotelDTO.DashboardDTO
 @inject IRevenueDashboardService DashboardService
 <style>
-    /* CSS for styling */
-    .total-info {
-        color: #555;
-        margin-bottom: 15px;
+    /* CSS cho màu chữ */
+    #booking-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
     }
 
-        .total-info span {
-            color: #007bff;
+        #booking-stats > * {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-    .icon {
-        margin-right: 5px;
+        #booking-stats h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #2E8B57; /* Màu xanh lá */
+        }
+
+    #room-bookings {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
     }
 
-    .dashboard-header {
-        color: palegreen;
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 20px;
+        #room-bookings li {
+            margin-bottom: 8px;
+            color: #555555;
+            font-size: 18px;
+        }
+
+            #room-bookings li::before {
+                content: "•";
+                margin-right: 6px;
+                color: #2E8B57;
+            }
+
+    #revenue-last,
+    #total-revenue {
+        font-weight: bold;
+        font-size: 18px;
+        color: #555555;
     }
+
+    /* CSS cho màu chữ khác */
+    #total-bookings,
+    #revenue-last,
+    #total-revenue {
+        color: #007bff; /* Màu xanh lam */
+    }
+
 </style>
+
 <div class="dashboard-header">
-    <h4><i class="icon fas fa-chart-bar"></i>MAI HOTEL statistical report dashboard</h4>
+    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Statistical report dashboard</strong> </h4>
 </div>
-<div class="content" style="margin-left: 180px; display: flex; align-items: center;">
-    <div id="booking-stats" style="flex: 1; background-color: #f9f9f9; padding: 10px; margin-top: -69px; margin-left: -90px;">
+@* <div class="content" style="margin-left: 180px; display: flex; align-items: center;">
+    <div id="booking-stats" style="flex: 1; background-color: #f9f9f9; padding: 12px; margin-top: -69px; margin-left: -90px;">
         <div class="total-info">
             <h3>Total Revenue : <span><i class="icon fas fa-dollar-sign"></i>@((model != null ? model.TotalRevenue : ""))</span></h3>
         </div>
@@ -45,7 +78,54 @@
             <h3>Total Staff : <span><i class="icon fas fa-users-cog"></i>@((model != null ? model.TotalStaff : "")) staff</span></h3>
         </div>
     </div>
-</div>
+</div> *@
+<canvas id="revenueChart" style="width: 00px; height: 350px;"></canvas>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var totalRevenue = @((model != null ? model.TotalRevenue : 0));
+    var totalBooking = @((model != null ? model.TotalBooking : 0));
+    var totalRoom = @((model != null ? model.TotalRoom : 0));
+    var totalCustomer = @((model != null ? model.TotalCustomer : 0));
+    var totalStaff = @((model != null ? model.TotalStaff : 0));
+
+    var ctx = document.getElementById('revenueChart').getContext('2d');
+    var revenueChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Total Revenue', 'Total Booking', 'Total Room', 'Total Customer', 'Total Staff'],
+            datasets: [{
+                label: 'Statistics',
+                data: [totalRevenue, totalBooking, totalRoom, totalCustomer, totalStaff],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)', // Đỏ
+                    'rgba(54, 162, 235, 0.7)', // Xanh lam
+                    'rgba(255, 206, 86, 0.7)', // Vàng
+                    'rgba(75, 192, 192, 0.7)', // Cyan
+                    'rgba(153, 102, 255, 0.7)' // Tím
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
 
 
 

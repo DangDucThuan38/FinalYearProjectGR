@@ -137,10 +137,9 @@ else
                 {
                     TransactionRef = tempTransactionRef;
                     string? userId = _userId;
-                    statusBooking = BookingStatus.PaymentDone;
-                    statusPayment = "Success";
+                    statusBooking = BookingStatus.PaymentCanneled;
+                    statusPayment = "Canncel";
                     var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
-
                 }
             }
         }

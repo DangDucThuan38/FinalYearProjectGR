@@ -4,50 +4,124 @@
 @using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO
 
 @inject IRoomTypeService RoomService
+
+<style>
+    /* Table style */
+    .room-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        /* Table header style */
+        .room-table th {
+            background-color: #f5f5f5;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #ccc;
+        }
+
+        /* Table row style */
+        .room-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Table row hover effect */
+        .room-table tr:hover {
+            background-color: #f0f0f0;
+        }
+
+    /* Button style */
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        user-select: none;
+    }
+
+    /* Success button style */
+    .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+
+        /* Success button hover effect */
+        .btn-success:hover {
+            background-color: #4cae4c;
+            border-color: #398439;
+        }
+
+    /* Image style */
+    .room-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+</style>
+
 <div class="concontainer">
     <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h1 style="color: green;">Manage Rooms Type</h1>
-        <NavLink href="staff-admin/manage-room-types/new" class="btn btn-sm btn-success mt-3">+ Add new Rooms</NavLink>
+        <h3 style="color: blue;">
+            <strong>
+                Manage Rooms Type
+            </strong>
+            </h3>
+        <a href="staff-admin/manage-room-types/new" class="btn btn-success mt-3">+ Add new Rooms</a>
     </div>
     <hr />
-    <div class="row">
-        @if(_rooms.Length == 0)
-        {
-            <p>There is no rooms type created yet</p>
-        }
-        else
-        {
-            @foreach(var room in _rooms)
+    <table class="room-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (_rooms.Length == 0)
             {
-                var editLink = $"/staff-admin/manage-room-types/{room.Id}/edit";
-                var roomLink = $"/staff-admin/manage-room-types/{room.Id}/rooms?name={room.Name}";
-
-                <div class="col-sm-4 mb-4">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">@room.Name</h5>
-                            <NavLink href="@editLink" class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-pencil-alt"></i> Edit
-                            </NavLink>
-                        </div>
-                        <div class="card-body">
-                            <img src="@room.Image" class="img-fluid" alt="@room.Name Image" />
-                        </div>
-                        <div class="card-footer d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0">@room.Price.ToString("c")/night</h6>
-                            <NavLink href="@roomLink" class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-list">
-                                    <small>        Rooms</small>
-                                </i>
-                            </NavLink>
-                        </div>
-                    </div>
-                </div>
+                <tr>
+                    <td colspan="4">There is no rooms type created yet</td>
+                </tr>
             }
-        }
-    </div>
+            else
+            {
+                @foreach (var room in _rooms)
+                {
+                    var editLink = $"/staff-admin/manage-room-types/{room.Id}/edit";
+                    var roomLink = $"/staff-admin/manage-room-types/{room.Id}/rooms?name={room.Name}";
 
+                    <tr>
+                        <td>@room.Name</td>
+                        <td><img src="@room.Image" class="room-image" alt="@room.Name Image" /></td>
+                        <td>@room.Price.ToString("c")/night</td>
+                        <td>
+                            <a href="@editLink" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </a>
+                            <a href="@roomLink" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-list"></i> Rooms
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>
+
 
 
 @code {

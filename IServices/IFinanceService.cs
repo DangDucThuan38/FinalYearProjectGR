@@ -9,6 +9,8 @@ namespace DangDucThuanFinalYear.IServices
         Task<HotelResult<Finances>> SaveFinanceAsync(Finances input, string userId);
         Task<HotelResult<bool>> DeleteAmenitityAsyns(int id);
         Task<SearchListFinaces[]> GetFinancesAsync();
+        Task<Finances[]> GetFinancesAllAsync();
+
 
     }
 }

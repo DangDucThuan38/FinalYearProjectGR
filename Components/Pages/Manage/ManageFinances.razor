@@ -1,74 +1,256 @@
 ﻿@page "/staff-admin/manage-finances"
 @layout AddminStaff
+@using DangDucThuanFinalYear.Data.Entities
 @using DangDucThuanFinalYear.HotelDTO;
+@inject AuthenticationStateProvider AuthStateProvider
 @using DangDucThuanFinalYear.HotelDTO.FinancesDTO
 
 @inject IFinanceService FinanceService
+
+<style>
+    .concontainer {
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    /* Center the Save button */
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+ </style>
+
 <div class="concontainer">
-    <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h1 style="color: green;">Manage Rooms Type</h1>
-        <NavLink href="staff-admin/manage-room-types/new" class="btn btn-sm btn-success mt-3">+ Add new Rooms</NavLink>
-    </div>
+    <h3 style="text-align:center; color:blue;"><strong>Manage Finance Hotel</strong></h3>
     <hr />
     <div class="row">
-        @if (_finances.Length == 0)
-        {
-            <p>There is no rooms type created yet</p>
-        }
-        else
-        {
-            <div class="col-sm-9">
-                <div class="" style="max-height:75vh; overflow-y: scroll">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Creation Time</th>
-                                <th>TypeFinance</th>
-                                <th>Reason</th>
-                                <th>Money</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (_finances.Length == 0)
-                            {
-                                <tr>
-                                    <td colspan="6">
-                                        <h4 class="text-danger">No amenities </h4>
-                                    </td>
-                                </tr>
-                            }
-                            @foreach (var x in _finances)
-                            {
-                                <tr>
-                                    <th> @x.Code</th>
-                                    <th>@x.CreationTime</th>
-                                    <th>@x.TypeFinance</th>
-                                    <th>@x.Reason</th>
-                                    <th>@x.Money</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+        <div class="col-sm-12">
+            <EditForm Model="Model" method="post" OnValidSubmit="SaveFinancesAsync" enhance FormName="finances">
+                <DataAnnotationsValidator />
+                <input type="hidden" value="@Model.Id" name="Model.Id" />
+                @if (!string.IsNullOrWhiteSpace(_error))
+                {
+                    <div class="mb-3 text-danger">
+                        <small>@_error</small>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Name Finance:</label>
+                            <InputSelect class="form-select" @bind-Value="Model!.NameFinance">
+                                <option value="Phiếu Thu" selected>Phiếu Thu</option>
+                                <option value="Phiếu Chi">Phiếu Chi</option>
+                                <option value="Other">Other</option>
+                            </InputSelect>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Reason:</label>
+
+                            <InputSelect class="form-select" @bind-Value="Model!.Reason">
+                                <option value="Chi Tiền Điện" selected>Chi Tiền Điện</option>
+                                <option value="Chi Tiền Internet">Chi Tiền Internet</option>
+                                <option value="Chi Tiền Mạng">Chi Tiền Mạng</option>
+                                <option value="Chi Tiền Mặt Bằng">Chi Tiền Mặt Bằng</option>
+                                <option value="Chi bảo dưỡng cơ sở vật chất">Chi bảo dưỡng cơ sở vật chất </option>
+                                <option value="Chi Khác">Chi Khác</option>
+                                <option value="Thu Hội nghị,hội thảo">Thu Hội nghị,hội thảo</option>
+                                <option value="Thu Tiền Dịch Vụ">Thu Tiền Dịch Vụ</option>
+                                <option value="Thu Dịch vụ cho thuê xe">Thu Dịch vụ cho thuê xe</option>
+                                <option value="Thu bán hàng lưu niệm">Thu bán hàng lưu niệm</option>
+                                <option value="Thu Dịch vụ thể">Thu Dịch vụ thể</option>
+                                <option value="Thu Khác">Thu Khác</option>
+                            </InputSelect>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Description Finance:</label>
+                            <InputText @bind-Value="Model.Descripcion" class="form-control" placeholder="Description" />
+                            <ValidationMessage For="()=> Model.Descripcion" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Money:</label>
+                            <InputNumber @bind-Value="Model.Money" class="form-control" placeholder="Money" />
+                            <ValidationMessage For="()=> Model.Money" class="text-danger" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            }
-        }
+                <div class="row justify-content-center">
+                    <div class="col-sm-3">
+                        <div class="mb-5">
+                            <button type="submit" class="btn btn-block btn-success" disabled="@_isSave">
+                                @if (_isSave)
+                                {
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span>Save</span>
+                                }
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
     </div>
-
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="overflow-scroll" style="max-height: 75vh;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name Finances</th>
+                            <th>Reason</th>
+                            <th>Money</th>
+                            <th>Description</th>
+                            <th>Creation Time</th>
+                            <th>Added By</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (_finances.Length == 0)
+                        {
+                            <tr>
+                                <td colspan="9">
+                                    <h4 class="text-danger">No Finances HOTEL</h4>
+                                </td>
+                            </tr>
+                        }
+                        @foreach (var a in _finances)
+                        {
+                            <tr>
+                                <td>@a.Code</td>
+                                <td>@a.NameFinance</td>
+                                <td>@a.Reason</td>
+                                <td>@a.Money</td>
+                                <td>@a.Descripcion</td>
+                                <td>@a.CreationTime</td>
+                                <td>@a.AddedBy</td>
+                                <td>
+                                    <a href="staff-admin/manage-finances?id=@a.Id" class="btn btn-sm btn-success">Edit</a>
+                                </td>
+                                <td>
+                                    <form id="deleteForm" method="post" action="staff-admin/manage-finances/delete/@a.Id" onsubmit="return confirm('Are you sure delete?');">
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 
+
+
+
 @code {
-    private SearchListFinaces[] _finances = [];
+    [CascadingParameter]
+    public HttpContext HttpContext { get; set; }
+
+    [SupplyParameterFromForm]
+    private Finances Model { get; set; } = new();
+    [SupplyParameterFromForm(Name = "id")]
+    private int FinanceId { get; set; }
+    private Finances[] _finances = [];
+    public string? _error;
+    private bool _isAuthenticated;
+    private bool _isSave;
+    private string? _userId;
+
     protected override async Task OnInitializedAsync()
     {
-        _finances = await FinanceService.GetFinancesAsync();
+        FinanceId = HttpContext.Request.Query.TryGetValue("Id", out var financeId) && int.TryParse(financeId, out var value) ? value : 0;
+        _finances = await FinanceService.GetFinancesAllAsync();
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authSate.User.Identity?.IsAuthenticated == true)
+        {
+            _isAuthenticated = true;
+            _userId = authSate.User.GetUserId();
+        }
+        if (FinanceId > 0)
+        {
+            if (HttpMethods.IsGet(HttpContext.Request.Method))
+            {
+                var finance = _finances.FirstOrDefault(a => a.Id == FinanceId);
+                if (finance is not null)
+                {
+                    Model = finance;
+                }
+            }
+        }
     }
+    private async Task SaveFinancesAsync()
+    {
+        _error = null;
+        _isSave = true;
+        string? userId = _userId;
+
+        // await Task.Delay(2000);
+        HotelResult<Finances> result = await FinanceService.SaveFinanceAsync(Model.Clone(), userId);
+        if (result.IsSuccess)
+        {
+            if (Model.Id == 0)
+            {
+                _finances = [.. _finances, result.Data];
+            }
+            else
+            {
+                var finances = _finances.FirstOrDefault(a => a.Id == Model.Id);
+                finances.Id = result.Data.Id;
+                finances.NameFinance = result.Data.NameFinance;
+                finances.Descripcion = result.Data.Descripcion;
+                finances.Reason = result.Data.Reason;
+                finances.Money = result.Data.Money;
+                finances.CreationTime = result.Data.CreationTime;
+                finances.AddedBy = result.Data.AddedBy;
+            }
+            Model = new();
+
+        }
+        else
+        {
+            _error = result.ErrorMessage ?? "Error in saving Amenity";
+        }
+
+        _isSave = false;
+    }
+    private void EditFinances(Finances finances) => Model = finances;
+
+
 
 }
