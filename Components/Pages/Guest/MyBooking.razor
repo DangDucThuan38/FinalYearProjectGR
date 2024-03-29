@@ -63,9 +63,15 @@
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Special Request" />
             <PropertyColumn Property="b=>b.BookingStatus" />
             <PropertyColumn Property="b=>b.Remarks" />
+           
+        
             <TemplateColumn Class="test">
-                 <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanMakePayment)" @onclick="() => MakePaymentAsync(context)">Make Payment</button>
-                <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button> 
+                @if (context.BookingStatus != BookingStatus.PaymentDone)
+                {
+                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanMakePayment)" @onclick="() => MakePaymentAsync(context)">Make Payment</button>
+                    <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
+                }
+              
             </TemplateColumn>
 
         </QuickGrid>

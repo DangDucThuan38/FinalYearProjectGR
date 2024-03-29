@@ -6,11 +6,44 @@
 @using DangDucThuanFinalYear.HotelDTO.FinancesDTO
 
 @inject IFinanceService FinanceService
+
+<style>
+    .concontainer {
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    /* Center the Save button */
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+ </style>
+
 <div class="concontainer">
-    <h1 style=" text-align:center; color:green;">Manage Finance Hotel</h1>
+    <h3 style="text-align:center; color:blue;"><strong>Manage Finance Hotel</strong></h3>
     <hr />
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-12">
             <EditForm Model="Model" method="post" OnValidSubmit="SaveFinancesAsync" enhance FormName="finances">
                 <DataAnnotationsValidator />
                 <input type="hidden" value="@Model.Id" name="Model.Id" />
@@ -20,60 +53,77 @@
                         <small>@_error</small>
                     </div>
                 }
-                <div class="mb-3">
-                    <label class="form-label">
-                        Name Finance:
-                        <InputSelect class="form-select" @bind-Value="Model!.NameFinance">
-                            <option checked="@(Model.NameFinance == "Phiếu Thu")"
-                                    value="Phiếu Thu">
-                                Phiếu Thu
-                            </option>
-                            <option checked="@(Model!.NameFinance == "Phiếu Chi")"
-                                    value="Phiếu Chi">
-                                Phiếu Chi
-                            </option>
-                            <option checked="@(Model!.NameFinance == "Other")"
-                                    value="Other">
-                                Other
-                            </option>
-                        </InputSelect>
-                    </label>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Name Finance:</label>
+                            <InputSelect class="form-select" @bind-Value="Model!.NameFinance">
+                                <option value="Phiếu Thu" selected>Phiếu Thu</option>
+                                <option value="Phiếu Chi">Phiếu Chi</option>
+                                <option value="Other">Other</option>
+                            </InputSelect>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Reason:</label>
+
+                            <InputSelect class="form-select" @bind-Value="Model!.Reason">
+                                <option value="Chi Tiền Điện" selected>Chi Tiền Điện</option>
+                                <option value="Chi Tiền Internet">Chi Tiền Internet</option>
+                                <option value="Chi Tiền Mạng">Chi Tiền Mạng</option>
+                                <option value="Chi Tiền Mặt Bằng">Chi Tiền Mặt Bằng</option>
+                                <option value="Chi bảo dưỡng cơ sở vật chất">Chi bảo dưỡng cơ sở vật chất </option>
+                                <option value="Chi Khác">Chi Khác</option>
+                                <option value="Thu Hội nghị,hội thảo">Thu Hội nghị,hội thảo</option>
+                                <option value="Thu Tiền Dịch Vụ">Thu Tiền Dịch Vụ</option>
+                                <option value="Thu Dịch vụ cho thuê xe">Thu Dịch vụ cho thuê xe</option>
+                                <option value="Thu bán hàng lưu niệm">Thu bán hàng lưu niệm</option>
+                                <option value="Thu Dịch vụ thể">Thu Dịch vụ thể</option>
+                                <option value="Thu Khác">Thu Khác</option>
+                            </InputSelect>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Description Finance:</label>
+                            <InputText @bind-Value="Model.Descripcion" class="form-control" placeholder="Description" />
+                            <ValidationMessage For="()=> Model.Descripcion" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label class="form-label">Money:</label>
+                            <InputNumber @bind-Value="Model.Money" class="form-control" placeholder="Money" />
+                            <ValidationMessage For="()=> Model.Money" class="text-danger" />
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Reason: </label>
-                        <InputText @bind-Value="Model.Reason" class="form-control" placeholder="Reason" />
-                        <ValidationMessage For="()=> Model.Reason" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                        <label class="form-label">Descripcion Finance: </label>
-                        <InputText @bind-Value="Model.Descripcion" class="form-control" placeholder="Descripcion" />
-                        <ValidationMessage For="()=> Model.Descripcion" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                        <label class="form-label">Money: </label>
-                        <InputNumber @bind-Value="Model.Money" class="form-control" placeholder="Money" />
-                        <ValidationMessage For="()=> Model.Money" class="text-danger" />
-                </div>
-                <div class="mb-5">
-                    <button type="submit" class="btn btn-sm btn-success " disabled="@_isSave">
-                        @if (_isSave)
-                        {
-                            <div class="spinner-border spinner-border-sm" aria-hidden="true">
-                                <span role="status">Loading...</span>
-                            </div>
-                        }
-                        else
-                        {
-                            <span>
-                                Save
-                            </span>
-                        }
-                    </button>
+                <div class="row justify-content-center">
+                    <div class="col-sm-3">
+                        <div class="mb-5">
+                            <button type="submit" class="btn btn-block btn-success" disabled="@_isSave">
+                                @if (_isSave)
+                                {
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span>Save</span>
+                                }
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </EditForm>
         </div>
-        <div class="col-sm-9">
-            <div class="" style="max-height:75vh; overflow-y: scroll">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="overflow-scroll" style="max-height: 75vh;">
                 <table class="table">
                     <thead>
                         <tr>
@@ -81,8 +131,8 @@
                             <th>Name Finances</th>
                             <th>Reason</th>
                             <th>Money</th>
-                            <th>Descripcion</th>
-                            <th>CreationTime</th>
+                            <th>Description</th>
+                            <th>Creation Time</th>
                             <th>Added By</th>
                             <th></th>
                             <th></th>
@@ -92,8 +142,8 @@
                         @if (_finances.Length == 0)
                         {
                             <tr>
-                                <td colspan="69">
-                                    <h4 class="text-danger">No Finances HOTEL </h4>
+                                <td colspan="9">
+                                    <h4 class="text-danger">No Finances HOTEL</h4>
                                 </td>
                             </tr>
                         }
@@ -108,9 +158,7 @@
                                 <td>@a.CreationTime</td>
                                 <td>@a.AddedBy</td>
                                 <td>
-                                    <a href="staff-admin/manage-finances?id=@a.Id" class="btn btn-sm btn-succes">
-                                        Edit
-                                    </a>
+                                    <a href="staff-admin/manage-finances?id=@a.Id" class="btn btn-sm btn-success">Edit</a>
                                 </td>
                                 <td>
                                     <form id="deleteForm" method="post" action="staff-admin/manage-finances/delete/@a.Id" onsubmit="return confirm('Are you sure delete?');">
@@ -125,6 +173,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 
 @code {
     [CascadingParameter]

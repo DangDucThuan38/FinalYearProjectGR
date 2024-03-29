@@ -9,6 +9,18 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\app2.css",
+      "PackagePath": "staticwebassets\\app2.css"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap1\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap1\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap1\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap1\\bootstrap.min.css.map"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
@@ -73,6 +85,10 @@
       "PackagePath": "staticwebassets\\images\\room\\room-img65327a3f-c740-4ef2-be54-f24ac4dc2718.jpg"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img700c704c-5f97-49d4-bb36-bb93a3323c89.jpg",
+      "PackagePath": "staticwebassets\\images\\room\\room-img700c704c-5f97-49d4-bb36-bb93a3323c89.jpg"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg"
     },
@@ -103,6 +119,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgd00908c5-baf7-46d6-8d68-3f93abc0dc0d.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgd00908c5-baf7-46d6-8d68-3f93abc0dc0d.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgd5737361-73e1-4ae9-b484-bcfa28a72a6c.jpg",
+      "PackagePath": "staticwebassets\\images\\room\\room-imgd5737361-73e1-4ae9-b484-bcfa28a72a6c.jpg"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
@@ -139,6 +159,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\about-4.jpg",
       "PackagePath": "staticwebassets\\img\\about-4.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\img\\avatar.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-1.jpg",
