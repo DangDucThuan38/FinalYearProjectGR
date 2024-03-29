@@ -13,20 +13,47 @@
 
 @inject IJSRuntime JsRuntime
 
-<div class="container-fluid">
-        <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-            <h1 style="color: green;">Manage Booking</h1>
+<style>
+
+
+    .d-flex {
+        display: flex;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .action-buttons button {
+        margin-left: 5px;
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+
+</style>
+
+    <div class="d-flex justify-content-center align-items-center" style="margin-top: -10px;">
+    <h3 style="color: blue;"><strong>Manage Booking</strong></h3>
     </div>
     <hr />
-    <div class="table-responsive">
+    <div class="table-responsive" style="margin-top:-36px">
         <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-striped">
-            <PropertyColumn Property="b=>b.Id"/>
-            <PropertyColumn Property="b=>b.RoomTypeName"  Title="Room Type"/>
+            <PropertyColumn Property="b=>b.Id" Title="Booking ID" />
+            <PropertyColumn Property="b=>b.RoomTypeName" Title="Room Type" />
             <TemplateColumn Title="Room Number">
-                @if(context.RoomId is null)
+                @if (context.RoomId is null)
                 {
                     <label class="d-block">No Room Assigned</label>
-                    @if(context.IsRoomNumberAssignable)
+                    @if (context.IsRoomNumberAssignable)
                     {
                         <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">Assign Room</button>
                     }
@@ -38,30 +65,27 @@
                 else
                 {
                     <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">@context.RoomNumber</button>
-
                 }
             </TemplateColumn>
-            <PropertyColumn Property="b=>b.GuestName" Title="Guest"/>
+            <PropertyColumn Property="b=>b.GuestName" Title="Guest" />
             <PropertyColumn Property="b=>b.BookedOn" Title="Booked On" Format="hh:mm:ss dd-MMM-yyyy " />
-            <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check_In" Format="dd-MMM-yyyy"/>
-            <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check_Out" Format="dd-MMM-yyyy" />
-            <PropertyColumn Property="b=>b.Adults" />
-            <PropertyColumn Property="b=>b.Children" />
+            <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check-In" Format="dd-MMM-yyyy" />
+            <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check-Out" Format="dd-MMM-yyyy" />
+            <PropertyColumn Property="b=>b.Adults" Title="Adults" />
+            <PropertyColumn Property="b=>b.Children" Title="Children" />
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Special Request" />
-            <PropertyColumn Property="b=>b.BookingStatus" />
-            <PropertyColumn Property="b=>b.Remarks" />
-                <TemplateColumn Class="test">
-                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Approve</button>
+            <PropertyColumn Property="b=>b.BookingStatus" Title="Booking Status" />
+            <PropertyColumn Property="b=>b.Remarks" Title="Remarks" />
+            <TemplateColumn Class="action-buttons">
+                <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Approve</button>
+            </TemplateColumn>
+            <TemplateColumn>
                 <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
-
-                </TemplateColumn>
-
-
+            </TemplateColumn>
         </QuickGrid>
     </div>
-    <Paginator State="_paginationState"/>
+    <Paginator State="_paginationState" />
 
-</div>
 @if(_isLoading)
 {
     <Loader LoadingText="Fetching bookings" />

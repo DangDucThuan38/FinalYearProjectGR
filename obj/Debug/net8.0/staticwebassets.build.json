@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Epwpvg38J3MMdKr/EbYqGrMDkWcVJ4TieHIFTpuDTuM=",
+  "Hash": "b2mZtUPAarX0+2Eu0HQcKPS8ktvfiXHh8IKk8bNvKzQ=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\dangd\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\obj\\Debug\\net8.0\\scopedcss\\bundle\\DangDucThuanFinalYear.styles.css",
@@ -112,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\app2.css",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "app2.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app2.css"
+    },
+    {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
@@ -148,6 +167,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap1\\bootstrap.min.css",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "bootstrap1/bootstrap.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap1\\bootstrap.min.css"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\bootstrap1\\bootstrap.min.css.map",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "bootstrap1/bootstrap.min.css.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap1\\bootstrap.min.css.map"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\css\\bootstrap.min.css",
@@ -568,6 +625,25 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-imgd00908c5-baf7-46d6-8d68-3f93abc0dc0d.jpg"
     },
     {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgd5737361-73e1-4ae9-b484-bcfa28a72a6c.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-imgd5737361-73e1-4ae9-b484-bcfa28a72a6c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-imgd5737361-73e1-4ae9-b484-bcfa28a72a6c.jpg"
+    },
+    {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgddda6da0-8280-44a7-a9b4-a0ced17d3cf2.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
@@ -737,6 +813,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\about-4.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\avatar.png",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "img/avatar.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\avatar.png"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\img\\carousel-1.jpg",

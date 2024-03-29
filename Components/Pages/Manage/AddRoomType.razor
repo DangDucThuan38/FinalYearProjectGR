@@ -18,96 +18,100 @@
 
 
 
-<div class ="container">
-    <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h1 style="color: green;">@(RoomTypeId.HasValue ? "Update" : "Create") Room Type</h1>
+<div class="container">
+    <div class="d-flex flex-column align-items-center mt-0">
+        <h3 style="color: blue;"><strong>@(RoomTypeId.HasValue ? "Update" : "Create")</strong>   Room Type</h3>
         <hr />
     </div>
+
     <EditForm Model="Model" OnSubmit="SaveRoomTypeAsnyc" FormName="roomTypeForm">
-        <DataAnnotationsValidator/>
+        <DataAnnotationsValidator />
+
         <div class="row">
-             <div class="col-sm-6">
-                 <div class="mb-3">
-                     <label class="form-label">Name: </label>
-                     <InputText @bind-Value="Model.Name" class="form-control" placeholder="Room Name" />
-                     <ValidationMessage For="() => Model.Name" class="text-danger" />
-                 </div>
+            <div class="col-sm-6">
                 <div class="mb-3">
-                    <label class="form-label">Price: </label>
+                    <label class="form-label">Name:</label>
+                    <InputText @bind-Value="Model.Name" class="form-control" placeholder="Room Name" />
+                    <ValidationMessage For="() => Model.Name" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price:</label>
                     <InputNumber @bind-Value="Model.Price" class="form-control" placeholder="Price" />
                     <ValidationMessage For="() => Model.Price" class="text-danger" />
                 </div>
-             </div>
-             <div class="col-sm-6">
-               
-                 <div class="mb-3">
-                     <label class="form-label">Max Adults: </label>
-                     <InputNumber @bind-Value="Model.MaxAults" class="form-control" placeholder="Max Aults" />
-                     <ValidationMessage For="() => Model.MaxAults" class="text-danger" />
-                 </div>
-                 <div class="mb-3">
-                     <label class="form-label">Max Children: </label>
-                     <InputNumber @bind-Value="Model.MaxChildren" class="form-control" placeholder="Max Children" />
-                     <ValidationMessage For="() => Model.MaxChildren" class="text-danger" />
-                 </div>
-             </div>
+            </div>
 
-
-             <div class="col-sm-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
-                    <label class="form-label">Descripcion: </label>
-                    <textarea @bind="Model.Descripcion" class="form-control resizable" placeholder="Descripcion Room" rows="5"></textarea>
+                    <label class="form-label">Max Adults:</label>
+                    <InputNumber @bind-Value="Model.MaxAults" class="form-control" placeholder="Max Adults" />
+                    <ValidationMessage For="() => Model.MaxAults" class="text-danger" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Max Children:</label>
+                    <InputNumber @bind-Value="Model.MaxChildren" class="form-control" placeholder="Max Children" />
+                    <ValidationMessage For="() => Model.MaxChildren" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label class="form-label">Description:</label>
+                    <textarea @bind="Model.Descripcion" class="form-control resizable" placeholder="Room Description" rows="5"></textarea>
                     <ValidationMessage For="() => Model.Descripcion" class="text-danger" />
                 </div>
             </div>
-             <div class="col-sm-6">
+
+            <div class="col-sm-6">
                 @if (!string.IsNullOrWhiteSpace(_imageUrl))
                 {
                     <img src="@_imageUrl" class="img-fluid" />
                 }
                 <div class="mb-3">
-                    <label class="form-label">Image: </label>
+                    <label class="form-label">Image:</label>
                     <InputFile OnChange="OnImageSelectAsnyc" class="form-control" />
                 </div>
-               
             </div>
+        </div>
 
-            <style>
-                .resizable {
-                    resize: both; /* Enables vertical and horizontal resizing */
-                    overflow: auto; /* Allows content to be scrolled when resized */
-                }
-            </style>
-            <div class="row">
-                @foreach (var x in _amenities)
+        <div class="row">
+            @foreach (var x in _amenities)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <label class="d-flex align-items-center">
+                        <InputCheckbox @bind-Value="x.IsChecked" />
+                        <span>@x.Name</span>
+                        <InputNumber @bind-Value="@x.Unit" class="form-control col-form-sm" placeholder="Unit Value" />
+                    </label>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                @if (!string.IsNullOrWhiteSpace(_erroMessage))
                 {
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <label class="d-flex align-items-center">
-                            <InputCheckbox @bind-Value="x.IsChecked" />
-                            <span>@x.Name</span>
-                            <InputNumber @bind-Value="@x.Unit" class="form-control col-form-sm" placeholder="Unit Value" />
-                        </label>
-                    </div>
+                    <p class="text-danger">@_erroMessage</p>
                 }
-            </div>
-
-            <div class=" sol-sm-6">
-                
-                    @if (!string.IsNullOrWhiteSpace(_erroMessage))
-                    {
-                        <p class="text-danger">@_erroMessage</p>
-                    }
                 <div class="d-grid">
                     <div class="mx-auto" style="width: 200px;margin-bottom:39px">
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            Save
-                        </button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Save</button>
                     </div>
                 </div>
             </div>
         </div>
     </EditForm>
 </div>
+
+<style>
+    .resizable {
+        resize: both;
+        overflow: auto;
+    }
+</style>
+
 
 @code {
     [Parameter]

@@ -1,22 +1,22 @@
 ﻿@implements IDisposable
 @inject NavigationManager NavigationManager
-<header style="margin-left: -85px; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; background-color: #f2faf5; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<header style="margin-left: -11px; height: 59px; display: flex; justify-content: space-between; align-items: center; padding: 8px 13px; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h2></h2>
     <div class="logout-profile-icons">
         <AuthorizeView>
             <Authorized>
-                <a class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;"><i class="fas fa-user"></i>@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value )</a>
+                <a class="btn btn-primary rounded-0 py-2 px-md-2 d-none d-lg-block" style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;"><i class="fas fa-user"></i>@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value )</a>
 
                 <form action="Account/Logout" method="post">
                     <AntiforgeryToken />
                     <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                    <button type="submit" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;">
-                        Logout<i class="fa fa-arrow-right ms-3"></i>
+                    <button type="submit" class="btn btn-primary rounded-0 py-2 px-md-2 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;">
+                        <i class="fa-solid fa-right-from-bracket"></i>
                     </button>
                 </form>
             </Authorized>
             <NotAuthorized>
-                <a href="account/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 16px; color: #2E8B57; transition: color 0.3s;">Login<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="account/login" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;">Login<i class="fa fa-arrow-right ms-3"></i></a>
             </NotAuthorized>
         </AuthorizeView>
     </div>
@@ -28,18 +28,18 @@
         <AuthorizeView>
             <Authorized>
                 <AuthorizeView Roles="Admin" Context="adminContext">
-                    <li><a href="staff-admin/manage-totalRevenue"><i class="fas fa-tasks"></i> Dashboard</a></li>
-                    <li><a href="admin/manage-staff"><i class="fas fa-tasks"></i> Manage Staff</a></li>
-                    <li><a href="staff-admin/manage-finances"><i class="fas fa-tasks"></i> Manage Finances</a></li>
+                    <li><a href="staff-admin/manage-totalRevenue"><i class="fa-solid fa-gauge"></i><strong style="color:white"> Dashboard</strong></a></li>
+                    <li><a href="admin/manage-staff"><i class="fa-solid fa-person"></i><strong style="color:white">Manage Staff</strong></a></li>
+                    <li><a href="staff-admin/manage-finances"><i class="fa-solid fa-coins"></i><strong style="color:white">Manage Finances</strong> </a></li>
                 </AuthorizeView>
                 <AuthorizeView Roles="Staff,Admin" Context="staffContext">
-                    <li><a href="staff-admin/manage-guest"><i class="fas fa-tasks"></i> Manage Guest</a></li>
-                    <li><a href="staff-admin/manage-room-types"><i class="fas fa-tasks"></i> Manage Rooms</a></li>
-                    <li><a href="staff-admin/manage-booking"><i class="fas fa-tasks"></i> Manage Booking</a></li>
-                    <li><a href="staff-admin/manage-amenitites"><i class="fas fa-tasks"></i> Manage Amenities</a></li>
-                    <li><a href="manage/my-profile"><i class="fas fa-tasks"></i> My Profile</a></li>
-                    <li><a href="#"><i class="fas fa-tasks"></i> Change Password </a></li>
-                    <li><a href="#"><i class="fas fa-tasks"></i> Log Out </a></li>
+                    <li><a href="staff-admin/manage-guest"><i class="fa-solid fa-person"></i><strong style="color:white">Manage Guest</strong> </a></li>
+                    <li><a href="staff-admin/manage-room-types"><i class="fa-solid fa-house"></i><strong style="color:white">Manage Rooms</strong></a></li>
+                    <li><a href="staff-admin/manage-booking"><i class="fa-solid fa-calendar"></i><strong style="color:white">Manage Booking</strong> </a></li>
+                    <li><a href="staff-admin/manage-amenitites"><i class="fa-solid fa-toolbox"></i><strong style="color:white">Manage Amenities</strong> </a></li>
+                    <li><a href="manage/my-profile"><i class="fa-solid fa-address-card"></i><strong style="color:white">My Profile</strong> </a></li>
+                    <li><a href="#"><i class="fa-solid fa-lock"></i> <strong style="color:white">Change Password</strong> </a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> <strong style="color:white">Log Out</strong></a></li>
                 </AuthorizeView>
             </Authorized>
         </AuthorizeView>

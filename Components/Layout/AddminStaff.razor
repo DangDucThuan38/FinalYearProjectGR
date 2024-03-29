@@ -12,13 +12,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5; /* Màu nền */
+            background-color: white; /* Màu nền */
         }
 
         /* CSS cho header, sidebar, content và footer */
         header {
-            background-color: #f2faf5; /* Màu xanh lá */
-            color: green;
+            background-color: white; /* Màu xanh lá */
+            color: blue;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
             position: fixed; /* Header cố định ở trên cùng */
@@ -38,21 +38,22 @@
 
         .logout-profile-icons {
             display: flex;
-            gap: 10px;
+            gap: 0px;
             margin-right: 36px;
             align-items: center;
+
         }
 
             .logout-profile-icons .fa-sign-out-alt,
             .logout-profile-icons .fa-user {
                 font-size: 24px;
-                color: green;
+                color: blue;
                 cursor: pointer;
             }
 
         footer {
-            background-color: #f1f7f4; /* Màu xanh lá */
-            color: green;
+            background-color: white; /* Màu xanh lá */
+            color: blue;
             padding: 10px; /* Để tránh chạm vào nội dung */
             text-align: center;
             position: fixed;
@@ -67,7 +68,7 @@
             position: fixed;
             top: 60px; /* Làm mất phần chồng lên của header */
             left: 0;
-            background-color: #2E8B57; /* Màu xanh lá */
+            background-color: blue; /* Màu xanh lá */
             padding-top: 20px;
             overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
         }
@@ -97,7 +98,7 @@
                     }
 
                         .sidebar ul li a:hover {
-                            background-color: #228B22; /* Màu xanh lá nhạt khi hover */
+                            background-color: cyan; /* Màu xanh lá nhạt khi hover */
                         }
 
                         .sidebar ul li a i {
@@ -143,49 +144,7 @@
             background-color: #f2faf5; /* Màu nền xanh lá nhạt */
         }
 
-        #booking-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Cài đặt kích thước tối thiểu và tối đa cho mỗi ô */
-            grid-gap: 40px; /* Khoảng cách giữa các ô */
-        }
-
-            #booking-stats > * {
-                background-color: #ffffff; /* Màu nền trắng */
-                padding: 18px; /* Khoảng cách bên trong các ô */
-                border-radius: -9px; /* Bo góc */
-                box-shadow: 0 35px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
-            }
-
-            #booking-stats h3 {
-                margin-top: 0;
-                font-size: 16px; /* Kích thước chữ lớn hơn */
-                color: #2E8B57; /* Màu xanh lá */
-            }
-
-        #room-bookings {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 20px; /* Khoảng cách giữa tiêu đề và nội dung */
-        }
-
-            #room-bookings li {
-                margin-bottom: 10px; /* Khoảng cách giữa các mục */
-                color: #555555; /* Màu chữ xám */
-                font-size: 20px; /* Kích thước chữ lớn hơn */
-            }
-
-                #room-bookings li::before {
-                    content: "•";
-                    margin-right: 10px;
-                    color: #2E8B57; /* Màu xanh lá */
-                }
-
-        #revenue-last,
-        #total-revenue {
-            font-weight: bold;
-            font-size: 20px; /* Kích thước chữ lớn hơn */
-            color: #555555; /* Màu chữ xám */
-        }
+        
     </style>
 </head>
 <body>
@@ -205,9 +164,9 @@
        @Body
     </div>
 
-    <footer style="margin-left: -85px;height:40px">
+@*     <footer style="margin-left: -12px;height:40px; background-color: white;">
         <p>MAI HOTEL version 1.0.0 &copy; 2024 Đặng Đức Thuần</p>
-    </footer>
+    </footer> *@
 
 
     <script src="_framework/blazor.web.js"></script>

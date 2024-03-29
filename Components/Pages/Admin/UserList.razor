@@ -1,6 +1,7 @@
 ﻿@using DangDucThuanFinalYear.HotelDTO
 @using DangDucThuanFinalYear.HotelDTO.UserProFileDTO
 @using Microsoft.AspNetCore.Components.QuickGrid
+
 @* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 
@@ -27,7 +28,8 @@
 </QuickGrid>
 </div>
 
- <Paginator State="@_pagination" />
+<Paginator State="@_pagination" />
+
 
 @code {
 
@@ -46,7 +48,6 @@
         // _users = await UserService.GetUserAsync(Role);
         _userProvider = UserProvideAsync;
     }
-
     private async ValueTask<GridItemsProviderResult<UserInformation>> UserProvideAsync(GridItemsProviderRequest<UserInformation> request)
     {
         var pageResult = await UserService.GetUserInformationAsnyc(request.StartIndex, request.Count ?? PageSize, Role);

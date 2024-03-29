@@ -4,17 +4,42 @@
 @using DangDucThuanFinalYear.HotelDTO.UserProFileDTO
 
 @inject NavigationManager NavigationManager
+<style>
+    .container {
+        padding: 20px;
+    }
+
+        .container h1 {
+            color: green;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+            .container h1 span {
+                margin-right: 5px;
+            }
+
+        .container .btn {
+            margin-top: 10px; /* Thêm khoảng cách giữa tiêu đề và nút */
+        }
+
+        .container hr {
+            margin-top: 20px; /* Thêm khoảng cách giữa nội dung và đường kẻ ngang */
+        }
+
+</style>
 
 <div class="container">
     <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h1 style="color: green; display: flex; align-items: center; font-size: 1.5rem;">
+        <h3 style="color: blue; display: flex; align-items: center; font-size: 1.5rem;">
           @*   <NavLink href="/" class="me-2 btn btn-sm btn-default">
                 <i class="fas fa-arrow-left"></i>
             </NavLink> *@
             <span style="display: inline-flex; align-items: center;">
-                <span style="margin-right: 5px;">Manage Staff</span>
+                <strong style="margin-right: 5px;">Manage Staff</strong>
             </span>
-        </h1>
+        </h3>
         <NavLink href="admin/manage-staff/new" class="btn btn-sm btn-success mt-3">+ Add new Staff</NavLink>
 
     </div>

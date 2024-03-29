@@ -50,9 +50,6 @@ namespace DangDucThuanFinalYear.Services
            
 
         }
-
-
-
         public async Task<PageResult<BookingDisplayModel>> GetBookingAsync(int pageIndex, int pageSize)
         {
             using var context = _contextFactory.CreateDbContext();
@@ -151,6 +148,18 @@ namespace DangDucThuanFinalYear.Services
             return new PageResult<BookingDisplayModel>(totalCount, bookings);
         }
 
+        public async Task<int> CheckAvailableRoomBooking(BookingModel model)
+        {
+            var checkIn = (model.CheckInDate);
+            var checkOut = (model.CheckOutDate);
+            using var context = _contextFactory.CreateDbContext();
+            var room = await context.Rooms.Where(x => x.RoomTypeId == model.RoomTypeId).CountAsync();
+            var booking = await context.Boookings
+                .Where(x => x.RoomTypeId == model.RoomTypeId && x.CheckInDateTime <= checkOut && x.CheckOutDateTime >= checkIn)
+                .CountAsync();
+            var roomAvaliable = room - booking;
+            return roomAvaliable;
+        }
 
         private static Expression<Func<Boooking, BookingDisplayModel>> BookingDisplayModelSelector = 
             x => new BookingDisplayModel
@@ -172,5 +181,8 @@ namespace DangDucThuanFinalYear.Services
             GuestName = x.Guest.FullName,
             Remarks = x.Remarks
         };
+
+
+
     }
 }
