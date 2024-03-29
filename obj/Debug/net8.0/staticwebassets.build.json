@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b2mZtUPAarX0+2Eu0HQcKPS8ktvfiXHh8IKk8bNvKzQ=",
+  "Hash": "a6UiDbEgy4ro2tw2xfzuhdEpxopRWk6KaIlb1spS8UI=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -471,6 +471,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img65327a3f-c740-4ef2-be54-f24ac4dc2718.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img700c704c-5f97-49d4-bb36-bb93a3323c89.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-img700c704c-5f97-49d4-bb36-bb93a3323c89.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-img700c704c-5f97-49d4-bb36-bb93a3323c89.jpg"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",

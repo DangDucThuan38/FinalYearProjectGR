@@ -22,7 +22,8 @@
     private RoomTyePublic[] _rooms = [];
     protected override async Task OnInitializedAsync()
     {
-        _rooms = await RoomServices.GetRoomTypeAsnyc(2);
+        // Số 3 truyền vào để lấy 3 loại phòng ra trang chủ
+        _rooms = await RoomServices.GetRoomTypeAsnyc(3);
     }
 
 }

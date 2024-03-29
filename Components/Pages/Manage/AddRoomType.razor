@@ -221,6 +221,7 @@
                     {
                         DeleteImage(_existingImageUrl);
                     }
+                   
                     NavigationManager.NavigateTo("staff-admin/manage-room-types");
                     return;
                 }
@@ -270,7 +271,6 @@
         }
     }
 
-
     private class AmenitySelectionReposen
     {
         public AmenitySelectionReposen(int id, string name, bool isChecked, int? unit) =>
@@ -282,9 +282,4 @@
         public int? Unit { get; set; }
     }
     
-
-
-
-
-
 }
