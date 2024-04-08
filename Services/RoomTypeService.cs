@@ -303,8 +303,20 @@ namespace DangDucThuanFinalYear.Services
 
 
         }
-    
-      
+
+        public async Task<string?> GetRoomTypeName(short roomTypeId)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var roomtye = await context.RoomTypes.FirstOrDefaultAsync(x => x.Id == roomTypeId);
+            if (roomtye is not null)
+            {
+                return await Task.FromResult(roomtye.Name);
+            }
+            else
+            {
+                return await Task.FromResult<string?>(null);
+            }
+        }
     }
     
 }

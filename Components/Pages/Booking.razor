@@ -205,14 +205,10 @@
                                     }else
                                     {
                                        <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                                        
                                     }
-
                                 </div>
                             </div>
-
                         </EditForm>
-                       
                     </form>
                 </div>
             </div>
@@ -319,13 +315,17 @@
         {
 
         }
+
+        var confirmationUrl = $"/bookingconfirmation?firstname={_model.FirstName}&lastname={_model.LastName}&email={_model.Email}&contactnumber={_model.ContactNumber}&password={_model.Password}&comfirmpassword={_model.ConfirmPassword}&checkin={_model.CheckInDate}&checkout={_model.CheckOutDate}&roomtype={_model.RoomTypeId}&Audlts={_model.Audlts}&children={_model.Children}&TotalAmout={TotalAmout}&specialRequest={_model.SpecialRequest}&amount={_model.Amount}";
+         NavigationManager.NavigateTo(confirmationUrl, true);
+
         //Make booking here
-        var bookingId =  await MakeBookingAsync(userId!);
-        if(bookingId is null)
-        {
-            return;
-        }
-        await MakePaymentAsync(bookingId.Value);
+        // var bookingId =  await MakeBookingAsync(userId!);
+        // if(bookingId is null)
+        // {
+        //     return;
+        // }
+        // await MakePaymentAsync(bookingId.Value);
         // var sendMail = await SenMailBooking(userId!);
 
         // // Redirect user to Stripe Payment Page

@@ -79,8 +79,8 @@
         </div>
     </div>
 </div> *@
-<canvas id="revenueChart" style="width: 00px; height: 350px;"></canvas>
-
+<canvas id="revenueChart" style="width: 400px; height: 350px;"></canvas>
+<canvas id="bookingPieChart" style="width: 400px; height: 350px;"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -90,6 +90,7 @@
     var totalCustomer = @((model != null ? model.TotalCustomer : 0));
     var totalStaff = @((model != null ? model.TotalStaff : 0));
 
+    // Bar Chart
     var ctx = document.getElementById('revenueChart').getContext('2d');
     var revenueChart = new Chart(ctx, {
         type: 'bar',
@@ -99,11 +100,11 @@
                 label: 'Statistics',
                 data: [totalRevenue, totalBooking, totalRoom, totalCustomer, totalStaff],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.7)', // Đỏ
-                    'rgba(54, 162, 235, 0.7)', // Xanh lam
-                    'rgba(255, 206, 86, 0.7)', // Vàng
+                    'rgba(255, 99, 132, 0.7)', // Red
+                    'rgba(54, 162, 235, 0.7)', // Blue
+                    'rgba(255, 206, 86, 0.7)', // Yellow
                     'rgba(75, 192, 192, 0.7)', // Cyan
-                    'rgba(153, 102, 255, 0.7)' // Tím
+                    'rgba(153, 102, 255, 0.7)' // Purple
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -125,8 +126,46 @@
             }
         }
     });
-</script>
 
+    // Pie Chart
+    var pieCtx = document.getElementById('bookingPieChart').getContext('2d');
+    var bookingPieChart = new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Total Revenue', 'Total Booking', 'Total Room', 'Total Customer', 'Total Staff'],
+            datasets: [{
+                label: 'Statistics',
+                data: [totalRevenue, totalBooking, totalRoom, totalCustomer, totalStaff],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)', // Red
+                    'rgba(54, 162, 235, 0.7)', // Blue
+                    'rgba(255, 206, 86, 0.7)', // Yellow
+                    'rgba(75, 192, 192, 0.7)', // Cyan
+                    'rgba(153, 102, 255, 0.7)' // Purple
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                position: 'right'
+            },
+            title: {
+                display: true,
+                text: 'Booking Statistics'
+            }
+        }
+    });
+</script>
 
 
 @code {

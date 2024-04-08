@@ -300,3 +300,5 @@ F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.genrun
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\ref\DangDucThuanFinalYear.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Blazored.Modal.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll

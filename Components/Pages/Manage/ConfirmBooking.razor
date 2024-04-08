@@ -1,0 +1,176 @@
+﻿<!-- BookingConfirmation.razor -->
+@page "/bookingconfirmation"
+
+<h3>Booking Confirmation</h3>
+@inject IRoomTypeService RoomsTypeService
+@inject AuthenticationStateProvider AuthStateProvider
+
+<style>
+    .booking-details {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+        /* CSS for booking details list */
+        .booking-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .booking-details ul li {
+                margin-bottom: 10px;
+            }
+
+    /* CSS for buttons container */
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* CSS for cancel button */
+    .cancel-button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .cancel-button:hover {
+            background-color: #c82333;
+        }
+
+    /* CSS for confirm button */
+    .confirm-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .confirm-button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+
+@if (_bookingModel != null)
+{
+    <div class="booking-details">
+        <p>Thank you for your booking! Here are your booking details:</p>
+        <ul>
+            <li>Room Type: @_roomTypeName</li>
+            @if (_bookingModel.FirstName == "" || _bookingModel.LastName == "" || _bookingModel.Email == "")
+            {
+                <li>First Name: @_bookingModel.FirstName</li>
+                <li>Last Name: @_bookingModel.LastName</li>
+                <li>Email: @_bookingModel.Email</li>
+            }
+            <li>Adults: @_bookingModel.Audlts</li>
+            <li>Children: @_bookingModel.Children</li>
+            <li>Room Rates: @_bookingModel.Amount</li>
+            <li>Check-in Date: @_bookingModel.CheckInDate.ToShortDateString()</li>
+            <li>Check-out Date: @_bookingModel.CheckOutDate.ToShortDateString()</li>
+            <li>Total Amount:(@_bookingModel.CheckOutDate.DayNumber - @_bookingModel.CheckInDate.DayNumber) @_bookingModel.Amount</li>
+
+            @if (_bookingModel.SpecialRequest != null)
+            {
+                <li>Special Request: @_bookingModel.SpecialRequest</li>
+            }
+        </ul>
+
+        <div class="buttons">
+            <button class="cancel-button">Cancel</button>
+            <button class="confirm-button">Confirm</button>
+        </div>
+    </div>
+}
+else
+{
+    <p>No booking information found.</p>
+}
+
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    private BookingModel _bookingModel = new();
+    private string? _roomTypeName { get; set; }
+    private decimal _totalAmount { get; set; }
+    private string? _userId { get; set; }
+    private bool _isAuthenticated;
+    private string _fullname { get; set; }
+
+
+    protected override async void OnInitialized()
+    {
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authSate.User.Identity?.IsAuthenticated == true)
+        {
+            _isAuthenticated = true;
+            _userId = authSate.User.GetUserId();            
+            _bookingModel.SetDummyValues();
+        }
+
+        // Lấy thông tin đặt phòng từ query string
+        var uri = new Uri(NavigationManager.Uri);
+        var query = uri.Query;
+        var queryDictionary = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(query);
+
+        if (queryDictionary.ContainsKey("checkin") && queryDictionary.ContainsKey("checkout") && queryDictionary.ContainsKey("roomtype"))
+        {
+            var firstname = queryDictionary["firstname"];
+            var lastname = queryDictionary["lastname"];
+            var email = queryDictionary["email"];
+            var contactNumber = queryDictionary["contactnumber"];
+            var checkInDate = queryDictionary["checkin"];
+            var checkOutDate = queryDictionary["checkout"];
+            var adults = queryDictionary["Audlts"];
+            var children = queryDictionary["children"];
+            var roomTypeId = queryDictionary["roomtype"];
+            var amount = queryDictionary["amount"];
+            var totalAmount = queryDictionary["TotalAmout"];
+            var specialRequest = queryDictionary["specialRequest"];
+
+            var password = queryDictionary["password"];
+            var confirmPassword = queryDictionary["comfirmpassword"];
+        
+            // Parse và hiển thị thông tin đặt phòng
+            _bookingModel = new BookingModel
+                {
+                    CheckInDate = DateOnly.Parse(checkInDate),
+                    CheckOutDate = DateOnly.Parse(checkInDate),
+                    RoomTypeId =  short.Parse(roomTypeId),
+                    FirstName = firstname,
+                    LastName = lastname,
+                    Email = email,
+                    ContactNumber = contactNumber,
+                    Audlts = int.Parse(adults),
+                    Children = int.Parse(children),
+                    Amount = decimal.Parse(amount),
+                    SpecialRequest = specialRequest
+
+                };
+            _totalAmount = decimal.Parse(totalAmount);
+
+            _roomTypeName = await RoomsTypeService.GetRoomTypeName(short.Parse(roomTypeId));
+
+        }
+        else
+        {
+            // Xử lý trường hợp không tìm thấy thông tin đặt phòng trong query string
+            // Ví dụ: Redirect hoặc hiển thị thông báo lỗi
+        }
+    }
+
+}

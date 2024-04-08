@@ -262,6 +262,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcQWRkUm9vbVR5cGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ConfirmBooking.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcQ29uZmlybUJvb2tpbmcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Manage/ManageAmetities.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VcTWFuYWdlQW1ldGl0aWVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
