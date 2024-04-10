@@ -3,12 +3,13 @@
 @layout AddminStaff
 @using DangDucThuanFinalYear.Data.Entities
 
-@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
 
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
+@attribute [StreamRendering]
+@rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 
 @inject IJSRuntime JsRuntime

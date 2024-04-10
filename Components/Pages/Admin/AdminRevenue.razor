@@ -58,29 +58,17 @@
 </style>
 
 <div class="dashboard-header">
-    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Statistical report dashboard</strong> </h4>
+    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Hotel revenue statistical report</strong> </h4>
 </div>
-@* <div class="content" style="margin-left: 180px; display: flex; align-items: center;">
-    <div id="booking-stats" style="flex: 1; background-color: #f9f9f9; padding: 12px; margin-top: -69px; margin-left: -90px;">
-        <div class="total-info">
-            <h3>Total Revenue : <span><i class="icon fas fa-dollar-sign"></i>@((model != null ? model.TotalRevenue : ""))</span></h3>
-        </div>
-        <div class="total-info">
-            <h3>Total Booking: <span><i class="icon fas fa-calendar-check"></i>@((model != null ? model.TotalBooking : "")) bookings</span></h3>
-        </div>
-        <div class="total-info">
-            <h3>Total Room: <span><i class="icon fas fa-bed"></i>@((model != null ? model.TotalRoom : "")) rooms</span></h3>
-        </div>
-        <div class="total-info">
-            <h3>Total Customer: <span><i class="icon fas fa-users"></i>@((model != null ? model.TotalCustomer : "")) customer</span></h3>
-        </div>
-        <div class="total-info">
-            <h3>Total Staff : <span><i class="icon fas fa-users-cog"></i>@((model != null ? model.TotalStaff : "")) staff</span></h3>
-        </div>
-    </div>
-</div> *@
-<canvas id="revenueChart" style="width: 00px; height: 350px;"></canvas>
 
+<div >
+    <canvas id="revenueChart1" style="width: 00px; height: 80px;"></canvas>
+    <div class="dashboard-header">
+        <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Report booking statistics and other statistics</strong> </h4>
+    </div>
+
+    <canvas id="revenueChart2" style="width: 00px; height: 80px;"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -89,24 +77,57 @@
     var totalRoom = @((model != null ? model.TotalRoom : 0));
     var totalCustomer = @((model != null ? model.TotalCustomer : 0));
     var totalStaff = @((model != null ? model.TotalStaff : 0));
+    var totalThu = @((model != null ? model.TotalThu : 0));
+    var totalChi = @((model != null ? model.TotalChi : 0));
 
-    var ctx = document.getElementById('revenueChart').getContext('2d');
-    var revenueChart = new Chart(ctx, {
+    var ctx1 = document.getElementById('revenueChart1').getContext('2d');
+    var ctx2 = document.getElementById('revenueChart2').getContext('2d');
+
+    var revenueChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
-            labels: ['Total Revenue', 'Total Booking', 'Total Room', 'Total Customer', 'Total Staff'],
+            labels: ['Total Revenue', 'Total Hotel Expenses', 'Total Hotel Receipts'],
             datasets: [{
-                label: 'Statistics',
-                data: [totalRevenue, totalBooking, totalRoom, totalCustomer, totalStaff],
+                label: 'Total Revenue',
+                data: [totalRevenue,totalChi,totalThu],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.7)', // Đỏ
-                    'rgba(54, 162, 235, 0.7)', // Xanh lam
-                    'rgba(255, 206, 86, 0.7)', // Vàng
+                    'rgba(255, 99, 132, 0.7)', // Red
+                    'rgba(255, 206, 86, 0.7)', // Yellow
                     'rgba(75, 192, 192, 0.7)', // Cyan
-                    'rgba(153, 102, 255, 0.7)' // Tím
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var revenueChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Total Booking', 'Total Room', 'Total Customer', 'Total Staff'],
+            datasets: [{
+                label: 'Statistics',
+                data: [totalBooking, totalRoom, totalCustomer, totalStaff],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.7)', // Blue
+                    'rgba(255, 206, 86, 0.7)', // Yellow
+                    'rgba(75, 192, 192, 0.7)', // Cyan
+                    'rgba(153, 102, 255, 0.7)' // Purple
+                ],
+                borderColor: [
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
@@ -126,8 +147,6 @@
         }
     });
 </script>
-
-
 
 @code {
     private DashboardRespon model;

@@ -6,12 +6,36 @@
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject IPaymentServices PaymentsServices
 @inject IdentityRedirectManager RedirectManager
+<style>
+    .alert h4 {
+        font-size: 24px;
+    }
 
+    .alert p {
+        font-size: 18px;
+    }
 
+    .alert hr {
+        margin: 15px 0;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+        .table td {
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+    .btn {
+        font-size: 18px;
+    }
+</style>
 
 @if (QueryParameters.ContainsKey("vnp_TransactionStatus") && QueryParameters["vnp_TransactionStatus"][0] == "02")
 {
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Thanh toán thất bại!</h4>
         <p>Xin lỗi, thanh toán của bạn không thành công hoặc bị hủy.</p>
         <hr>
@@ -19,58 +43,64 @@
         <p class="mb-0">Hotline: 0965996180</p>
         <p class="mb-0">Email: thuaddgch200729@fpt.edu.vn</p>
     </div>
+    <div class="text-center">
+        <button class="btn btn-primary mt-3" type="submit">
+            Xác nhận
+        </button>
+    </div>
 }
 else
 {
     <EditForm Model="FormModel" OnValidSubmit="ConfirmInformation" FormName="MyForm">
-    <div class="alert alert-success " role="alert">
-        <h4 class="alert-heading">Thanh toán thành công!</h4>
-        <p>Cảm ơn bạn đã thực hiện thanh toán thành công.</p>
-        <hr>
-        <p class="mb-0">Dưới đây là thông tin chi tiết về giao dịch:</p>
-        @if (QueryParameters.Any())
-        {
-            <div class="row mt-4 justify-content-center">
-                <div class="col-md-8">
-                    <table class="table">
-                        <tbody>
-                            @foreach (var param in QueryParameters)
-                            {
-                                var parameterName = param.Key switch
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading" style="text-align:center"><strong>Thanh toán thành công!</strong></h4>
+            <p style="text-align:center">Cảm ơn bạn đã thực hiện thanh toán thành công.</p>
+            <hr>
+            <p class="mb-0" style="text-align:center">Dưới đây là thông tin chi tiết về giao dịch</p>
+            @if (QueryParameters.Any())
+            {
+                <div class="row mt-4 justify-content-center">
+                    <div class="col-md-8">
+                        <table class="table table-striped">
+                            <tbody>
+                                @foreach (var param in QueryParameters)
                                 {
-                                    "vnp_Amount" => "Số tiền",
-                                    "vnp_BankCode" => "Mã ngân hàng",
-                                    "vnp_CardType" => "Loại thẻ",
-                                    "vnp_OrderInfo" => "Thông tin đơn hàng",
-                                    "vnp_PayDate" => "Ngày thanh toán",
-                                    "vnp_ResponseCode" => "Mã phản hồi",
-                                    "vnp_TmnCode" => "Mã Tmn",
-                                    "vnp_TransactionNo" => "Số giao dịch",
-                                    "vnp_TransactionStatus" => "Trạng thái giao dịch",
-                                    "vnp_TxnRef" => "Mã giao dịch",
-                                    "vnp_SecureHash" => "Mã bảo mật",
-                                    _ => param.Key
-                                };
+                                    var parameterName = param.Key switch
+                                    {
+                                        "vnp_Amount" => "Số tiền",
+                                        "vnp_BankCode" => "Mã ngân hàng",
+                                        "vnp_CardType" => "Loại thẻ",
+                                        "vnp_OrderInfo" => "Thông tin đơn hàng",
+                                        "vnp_PayDate" => "Ngày thanh toán",
+                                        "vnp_ResponseCode" => "Mã phản hồi",
+                                        "vnp_TmnCode" => "Mã Tmn",
+                                        "vnp_TransactionNo" => "Số giao dịch",
+                                        "vnp_TransactionStatus" => "Trạng thái giao dịch",
+                                        "vnp_TxnRef" => "Mã giao dịch",
+                                        "vnp_SecureHash" => "Mã bảo mật",
+                                        _ => param.Key
+                                    };
 
-                                @if (!param.Key.Equals("vnp_SecureHash", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    <tr>
-                                        <td>@parameterName</td>
-                                        <td>@string.Join(",", param.Value)</td>
-                                    </tr>
+                                    @if (!param.Key.Equals("vnp_SecureHash", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <tr>
+                                            <td>@parameterName</td>
+                                            <td>@string.Join(",", param.Value)</td>
+                                        </tr>
+                                    }
                                 }
-                            }
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            }
+            <div class="text-center">
+                <button class="btn btn-primary mt-3" type="submit">
+                    Xác nhận
+                </button>
             </div>
-        }
-            <button class="btn btn-primary mt-3" type="submit" >
-                Xác nhận
-            </button>
-    </div>
+        </div>
     </EditForm>
-
 }
 
 @code {
@@ -80,7 +110,6 @@ else
     private bool _isAuthenticated;
     private string? _userId;
 
-    // Define a ViewModel to hold form data
     private class FormData
     {
         // Define properties for each form field
@@ -98,20 +127,7 @@ else
 
     private async Task ConfirmInformation()
     {
-        long TransactionRef = 0;
-        // Access form data from the FormModel
-        if (QueryParameters.TryGetValue("vnp_TxnRef", out var txnRefValues))
-        {
-            if (long.TryParse(txnRefValues.FirstOrDefault(), out long tempTransactionRef))
-            {
-                TransactionRef = tempTransactionRef;
-                string? userId = _userId;
-
-                var result = await MailsServices.SendEmail(TransactionRef, userId);
-            }
-            NavigationManager.NavigateTo("/");
-
-        }
+       NavigationManager.NavigateTo("/");
     }
 
     protected override async Task OnInitializedAsync()
@@ -154,6 +170,8 @@ else
                     statusBooking = BookingStatus.PaymentDone;
                     statusPayment = "Success";
                     var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
+                    var result = await MailsServices.SendEmail(TransactionRef, userId);
+
                 }
             }
 
