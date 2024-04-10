@@ -15,6 +15,7 @@
 @inject IJSRuntime JSRuntime
 @inject IdentityRedirectManager RedirectManager
 @inject NavigationManager NavigationManager
+@inject IRoomTypeService RoomsTypeService
 
 
 
@@ -52,7 +53,7 @@
                         <EditForm Model="_model" OnValidSubmit="BookRoomAsnyc">
                             <DataAnnotationsValidator/>
                             <div class="row g-3">
-
+                                
                                 @if (!_isAuthenticated)
                                 {
                                     <div class="col-md-6">
@@ -161,6 +162,7 @@
                                             <option value="0">Select Room Type</option>
                                             @foreach (var roomType in _roomTypes)
                                             {
+                                                NameRooom = roomType.name;
                                                 <option value="@roomType.Id">@roomType.name - @roomType.AdditionalData
                                                 </option>
 
@@ -226,6 +228,7 @@
     private string? _erromessage;
     private decimal _price = 0;
     private int _roomIsValiable = 0;
+    private string NameRooom { get; set; }
 
     private decimal TotalAmout => (_model.CheckOutDate.DayNumber - _model.CheckInDate.DayNumber) * _price;
     private int RoomIsValiable => _roomIsValiable;
@@ -301,22 +304,23 @@
 
     private async Task BookRoomAsnyc()
     {
-        string? userId = _userId;
-        if(!_isAuthenticated)
-        {
-            // Register this user as guest
-            userId = await ResgisterUserAsnyc();
-            if(userId is null)
-            {
-                return;
-            }
+    //     string? userId = _userId;
+    //     if(!_isAuthenticated)
+    //     {
+    //         // Register this user as guest
+    //         userId = await ResgisterUserAsnyc();
+    //         if(userId is null)
+    //         {
+    //             return;
+    //         }
 
-        }else
-        {
+    //     }else
+    //     {
 
-        }
+    //     }
+        NameRooom = await RoomsTypeService.GetRoomTypeName(_model.RoomTypeId);
 
-        var confirmationUrl = $"/bookingconfirmation?firstname={_model.FirstName}&lastname={_model.LastName}&email={_model.Email}&contactnumber={_model.ContactNumber}&password={_model.Password}&comfirmpassword={_model.ConfirmPassword}&checkin={_model.CheckInDate}&checkout={_model.CheckOutDate}&roomtype={_model.RoomTypeId}&Audlts={_model.Audlts}&children={_model.Children}&TotalAmout={TotalAmout}&specialRequest={_model.SpecialRequest}&amount={_model.Amount}";
+        var confirmationUrl = $"/bookingconfirmation?NameRoomType={NameRooom}&firstname={_model.FirstName}&lastname={_model.LastName}&email={_model.Email}&contactnumber={_model.ContactNumber}&password={_model.Password}&comfirmpassword={_model.ConfirmPassword}&checkin={_model.CheckInDate}&checkout={_model.CheckOutDate}&roomtype={_model.RoomTypeId}&Audlts={_model.Audlts}&children={_model.Children}&TotalAmout={TotalAmout}&specialRequest={_model.SpecialRequest}&amount={_model.Amount}";
          NavigationManager.NavigateTo(confirmationUrl, true);
 
         //Make booking here
@@ -332,46 +336,46 @@
 
         // await PayNowAsnyc();
     }
-    private async Task MakePaymentAsync(long bookingId)
-    {
-            _model.Amount = TotalAmout;
-            var result = await PaymentsServices.VNPayPayment(bookingId, _model);
-            NavigationManager.NavigateTo(result);
-    }
+    // private async Task MakePaymentAsync(long bookingId)
+    // {
+    //         _model.Amount = TotalAmout;
+    //         var result = await PaymentsServices.VNPayPayment(bookingId, _model);
+    //         NavigationManager.NavigateTo(result);
+    // }
 
 
-    private async Task<string?> ResgisterUserAsnyc()
-    {
-        var user = new Data.ApplicationUser();
-        user.FirstName = _model.FirstName;
-        user.LastName = _model.LastName;
-        user.ContactNumber = _model.ContactNumber;
-        user.RoleName = RoleType.Guest.ToString();
+    // private async Task<string?> ResgisterUserAsnyc()
+    // {
+    //     var user = new Data.ApplicationUser();
+    //     user.FirstName = _model.FirstName;
+    //     user.LastName = _model.LastName;
+    //     user.ContactNumber = _model.ContactNumber;
+    //     user.RoleName = RoleType.Guest.ToString();
 
-        var result = await UsersService.CreateUserAsnyc(user, _model.Email, _model.Password);
-        if (!result.IsSuccess && (result.Data is null || string.IsNullOrWhiteSpace(result.Data.Id)))
-        {
-            _erromessage = result.ErrorMessage;
-            return null;
-        }
-        return result.Data.Id;
-    }
+    //     var result = await UsersService.CreateUserAsnyc(user, _model.Email, _model.Password);
+    //     if (!result.IsSuccess && (result.Data is null || string.IsNullOrWhiteSpace(result.Data.Id)))
+    //     {
+    //         _erromessage = result.ErrorMessage;
+    //         return null;
+    //     }
+    //     return result.Data.Id;
+    // }
 
-    private async Task<long?> MakeBookingAsync(string userId)
-    {
-        _model.Amount = TotalAmout;
-        var result = await BookingServices.MakeBookingAsync(_model, userId);
-        if(!result.IsSuccess)
-        {
-            _erromessage = result.ErrorMessage;
-            return null;
-        }
-            return result.Data;
-    }
-    private async Task PayNowAsnyc()
-    {
+    // private async Task<long?> MakeBookingAsync(string userId)
+    // {
+    //     _model.Amount = TotalAmout;
+    //     var result = await BookingServices.MakeBookingAsync(_model, userId);
+    //     if(!result.IsSuccess)
+    //     {
+    //         _erromessage = result.ErrorMessage;
+    //         return null;
+    //     }
+    //         return result.Data;
+    // }
+    // private async Task PayNowAsnyc()
+    // {
         
-    }
+    // }
 
 
 

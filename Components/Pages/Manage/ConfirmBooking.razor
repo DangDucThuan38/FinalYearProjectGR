@@ -1,12 +1,23 @@
 ﻿<!-- BookingConfirmation.razor -->
 @page "/bookingconfirmation"
 
-<h3>Booking Confirmation</h3>
+<h3 style="text-align: center;"><strong>Booking Confirmation</strong></h3>
 @inject IRoomTypeService RoomsTypeService
 @inject AuthenticationStateProvider AuthStateProvider
+@inject IJSRuntime JSRuntime
+@inject IUserService UsersService
+@inject IBookingServices BookingServices
+@inject IPaymentServices PaymentsServices
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false))
+ *@
+
+
 
 <style>
-    .booking-details {
+    /* CSS for booking details container */
+    .booking-details-container {
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 5px;
@@ -15,15 +26,15 @@
         max-width: 600px;
     }
 
-        /* CSS for booking details list */
-        .booking-details ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    /* CSS for booking details list */
+    .booking-details ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-            .booking-details ul li {
-                margin-bottom: 10px;
-            }
+        .booking-details ul li {
+            margin-bottom: 10px;
+        }
 
     /* CSS for buttons container */
     .buttons {
@@ -32,65 +43,67 @@
     }
 
     /* CSS for cancel button */
-    .cancel-button {
-        background-color: #dc3545;
+    .cancel-button,
+    .confirm-button {
+        background-color: transparent;
         color: #fff;
-        border: none;
+        border: 2px solid transparent;
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+        .cancel-button:hover,
+        .confirm-button:hover {
+            color: #fff;
+        }
+
+    /* CSS for cancel button */
+    .cancel-button {
+        background-color: #dc3545;
+        border-color: #dc3545;
     }
 
         .cancel-button:hover {
             background-color: #c82333;
+            border-color: #c82333;
         }
 
     /* CSS for confirm button */
     .confirm-button {
         background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        border-color: #007bff;
     }
 
         .confirm-button:hover {
             background-color: #0056b3;
+            border-color: #0056b3;
         }
 </style>
 
-
 @if (_bookingModel != null)
 {
-    <div class="booking-details">
+    <div class="booking-details-container">
         <p>Thank you for your booking! Here are your booking details:</p>
         <ul>
-            <li>Room Type: @_roomTypeName</li>
-            @if (_bookingModel.FirstName == "" || _bookingModel.LastName == "" || _bookingModel.Email == "")
-            {
-                <li>First Name: @_bookingModel.FirstName</li>
-                <li>Last Name: @_bookingModel.LastName</li>
-                <li>Email: @_bookingModel.Email</li>
-            }
-            <li>Adults: @_bookingModel.Audlts</li>
-            <li>Children: @_bookingModel.Children</li>
-            <li>Room Rates: @_bookingModel.Amount</li>
-            <li>Check-in Date: @_bookingModel.CheckInDate.ToShortDateString()</li>
-            <li>Check-out Date: @_bookingModel.CheckOutDate.ToShortDateString()</li>
-            <li>Total Amount:(@_bookingModel.CheckOutDate.DayNumber - @_bookingModel.CheckInDate.DayNumber) @_bookingModel.Amount</li>
+            <li><strong>Room Type:</strong> @_roomTypeName</li>
+            <li><strong>Adults:</strong> @_bookingModel.Audlts</li>
+            <li><strong>Children:</strong> @_bookingModel.Children</li>
+            <li><strong>Check-in Date:</strong> @_bookingModel.CheckInDate.ToShortDateString()</li>
+            <li><strong>Check-out Date:</strong> @_bookingModel.CheckOutDate.ToShortDateString()</li>
+            <li><strong>Booking Time:</strong> @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</li>
+            <li><strong>Total Amount:</strong> @_totalAmount $</li>
 
-            @if (_bookingModel.SpecialRequest != null)
+            @if (!string.IsNullOrEmpty(_bookingModel.SpecialRequest))
             {
-                <li>Special Request: @_bookingModel.SpecialRequest</li>
+                <li><strong>Special Request:</strong> @_bookingModel.SpecialRequest</li>
             }
         </ul>
-
+        
         <div class="buttons">
-            <button class="cancel-button">Cancel</button>
-            <button class="confirm-button">Confirm</button>
+            <button class="cancel-button" @onclick="CancelFunction">Cancel</button>
+            <button class="confirm-button" @onclick="ConfirmFunction">Confirm</button>
         </div>
     </div>
 }
@@ -100,29 +113,32 @@ else
 }
 
 
+
 @code {
     [Inject]
     private NavigationManager NavigationManager { get; set; }
 
     private BookingModel _bookingModel = new();
-    private string? _roomTypeName { get; set; }
+    private string _roomTypeName { get; set; }
     private decimal _totalAmount { get; set; }
-    private string? _userId { get; set; }
+    private string _userId { get; set; }
     private bool _isAuthenticated;
     private string _fullname { get; set; }
+    private string? _erromessage;
 
 
-    protected override async void OnInitialized()
+
+    protected override async Task OnInitializedAsync()
     {
-        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
-        if (authSate.User.Identity?.IsAuthenticated == true)
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authState.User.Identity?.IsAuthenticated == true)
         {
             _isAuthenticated = true;
-            _userId = authSate.User.GetUserId();            
+            _userId = authState.User.GetUserId();
             _bookingModel.SetDummyValues();
         }
 
-        // Lấy thông tin đặt phòng từ query string
+        // Get booking information from query string
         var uri = new Uri(NavigationManager.Uri);
         var query = uri.Query;
         var queryDictionary = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(query);
@@ -141,36 +157,91 @@ else
             var amount = queryDictionary["amount"];
             var totalAmount = queryDictionary["TotalAmout"];
             var specialRequest = queryDictionary["specialRequest"];
+            var nameRoomType = queryDictionary["nameRoomType"];
 
-            var password = queryDictionary["password"];
-            var confirmPassword = queryDictionary["comfirmpassword"];
-        
-            // Parse và hiển thị thông tin đặt phòng
             _bookingModel = new BookingModel
                 {
                     CheckInDate = DateOnly.Parse(checkInDate),
-                    CheckOutDate = DateOnly.Parse(checkInDate),
-                    RoomTypeId =  short.Parse(roomTypeId),
+                    CheckOutDate = DateOnly.Parse(checkOutDate),
+                    RoomTypeId = short.Parse(roomTypeId),
                     FirstName = firstname,
                     LastName = lastname,
                     Email = email,
                     ContactNumber = contactNumber,
                     Audlts = int.Parse(adults),
                     Children = int.Parse(children),
-                    Amount = decimal.Parse(amount),
+                    Amount = decimal.Parse(totalAmount),
                     SpecialRequest = specialRequest
-
                 };
             _totalAmount = decimal.Parse(totalAmount);
 
             _roomTypeName = await RoomsTypeService.GetRoomTypeName(short.Parse(roomTypeId));
 
         }
-        else
-        {
-            // Xử lý trường hợp không tìm thấy thông tin đặt phòng trong query string
-            // Ví dụ: Redirect hoặc hiển thị thông báo lỗi
-        }
     }
 
+
+
+
+    private async Task<string?> ResgisterUserAsnyc()
+    {
+        var user = new Data.ApplicationUser();
+        user.FirstName = _bookingModel.FirstName;
+        user.LastName = _bookingModel.LastName;
+        user.ContactNumber = _bookingModel.ContactNumber;
+        user.RoleName = RoleType.Guest.ToString();
+
+        var result = await UsersService.CreateUserAsnyc(user, _bookingModel.Email, _bookingModel.Password);
+        if (!result.IsSuccess && (result.Data is null || string.IsNullOrWhiteSpace(result.Data.Id)))
+        {
+            _erromessage = result.ErrorMessage;
+            return null;
+        }
+        return result.Data.Id;
+    }
+
+    private async Task<long?> MakeBookingAsync(string userId)
+    {
+        var result = await BookingServices.MakeBookingAsync(_bookingModel, userId);
+        if (!result.IsSuccess)
+        {
+            _erromessage = result.ErrorMessage;
+            return null;
+        }
+        return result.Data;
+    }
+    private async Task MakePaymentAsync(long bookingId)
+    {
+        var result = await PaymentsServices.VNPayPayment(bookingId, _bookingModel);
+        NavigationManager.NavigateTo(result);
+    }
+
+
+
+
+    private async Task CancelFunction(MouseEventArgs e)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("window.confirm", "Are you sure you want to cancel this booking?"))
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    private async Task ConfirmFunction(MouseEventArgs e)
+    {
+        string? userId = _userId;
+        if (!_isAuthenticated)
+        {
+            userId = await ResgisterUserAsnyc();
+            if (userId is null)
+            {
+                return;
+            }
+        }
+        var bookingId = await MakeBookingAsync(userId!);
+        if (bookingId is null)
+        {
+            return;
+        }
+        await MakePaymentAsync(bookingId.Value);
+    }
 }

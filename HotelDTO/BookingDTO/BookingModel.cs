@@ -38,6 +38,8 @@ namespace DangDucThuanFinalYear.HotelDTO.BookingDTO
         public short RoomTypeId { get; set; }
         [MaxLength(250)]
         public string? SpecialRequest { get; set; }
+       
+
 
 
         public decimal Amount { get; set; }
