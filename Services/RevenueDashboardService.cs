@@ -25,27 +25,43 @@ namespace DangDucThuanFinalYear.Services
         public async Task<DashboardRespon> GetRevenueDashboardAsync()
         {
             using var context = _contextFactory.CreateDbContext();
-            var booking = await context.Boookings.Where(a => a.BookingStatus == Constants.BookingStatus.PaymentDone ).ToListAsync();
-            var totalRevenue = booking.Sum(a => a.TotalAmount);
-            var totalBooking = booking.Count;
-            var query = await _userManage.Users.Where(x=>x.RoleName == RoleType.Guest.ToString()).ToListAsync();
-            var totalGuest = query.Count;
-            var staff = await _userManage.Users.Where(x => x.RoleName == RoleType.Staff.ToString()).ToListAsync();
-            var totalStaff = staff.Count;
-            var Totalroom = await context.Rooms.Where(a => a.IsDeleted == false).ToListAsync();
-            var TotalRoom = Totalroom.Count;
-          
 
+            // Truy vấn booking và tính tổng doanh thu
+            var bookingQuery = context.Boookings.Where(a => a.BookingStatus == Constants.BookingStatus.PaymentDone);
+            var totalRevenue = await bookingQuery.SumAsync(a => a.TotalAmount);
+
+            // Truy vấn và tính tổng các phiếu chi
+            var totalChi = await context.Finances
+                                         .Where(a => a.NameFinance == "Phiếu Chi" && !a.IsDeleted)
+                                         .SumAsync(a => a.Money);
+
+            // Truy vấn và tính tổng các phiếu thu
+            var totalThu = await context.Finances
+                                         .Where(a => a.NameFinance == "Phiếu Thu" && !a.IsDeleted)
+                                         .SumAsync(a => a.Money);
+
+            // Tính tổng thu
+            var thu = totalThu - totalChi;
+
+            // Truy vấn và tính số lượng booking, khách hàng, nhân viên, phòng
+            var totalBooking = await bookingQuery.CountAsync();
+            var totalGuest = await _userManage.Users.Where(x => x.RoleName == RoleType.Guest.ToString()).CountAsync();
+            var totalStaff = await _userManage.Users.Where(x => x.RoleName == RoleType.Staff.ToString()).CountAsync();
+            var totalRoom = await context.Rooms.Where(a => !a.IsDeleted).CountAsync();
+
+            // Tạo đối tượng DashboardRespon và trả về
             var result = new DashboardRespon
             {
-                TotalRevenue = totalRevenue,
+                TotalRevenue = totalRevenue + thu,
                 TotalBooking = totalBooking,
                 TotalCustomer = totalGuest,
                 TotalStaff = totalStaff,
-                TotalRoom = TotalRoom
-                
+                TotalRoom = totalRoom,
+                TotalChi = totalChi,
+                TotalThu = totalThu
             };
             return result;
         }
+
     }
 }

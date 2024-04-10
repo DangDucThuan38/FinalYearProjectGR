@@ -1,0 +1,247 @@
+﻿<!-- BookingConfirmation.razor -->
+@page "/bookingconfirmation"
+
+<h3 style="text-align: center;"><strong>Booking Confirmation</strong></h3>
+@inject IRoomTypeService RoomsTypeService
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IJSRuntime JSRuntime
+@inject IUserService UsersService
+@inject IBookingServices BookingServices
+@inject IPaymentServices PaymentsServices
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false))
+ *@
+
+
+
+<style>
+    /* CSS for booking details container */
+    .booking-details-container {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    /* CSS for booking details list */
+    .booking-details ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .booking-details ul li {
+            margin-bottom: 10px;
+        }
+
+    /* CSS for buttons container */
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* CSS for cancel button */
+    .cancel-button,
+    .confirm-button {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid transparent;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+        .cancel-button:hover,
+        .confirm-button:hover {
+            color: #fff;
+        }
+
+    /* CSS for cancel button */
+    .cancel-button {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .cancel-button:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+
+    /* CSS for confirm button */
+    .confirm-button {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .confirm-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+
+@if (_bookingModel != null)
+{
+    <div class="booking-details-container">
+        <p>Thank you for your booking! Here are your booking details:</p>
+        <ul>
+            <li><strong>Room Type:</strong> @_roomTypeName</li>
+            <li><strong>Adults:</strong> @_bookingModel.Audlts</li>
+            <li><strong>Children:</strong> @_bookingModel.Children</li>
+            <li><strong>Check-in Date:</strong> @_bookingModel.CheckInDate.ToShortDateString()</li>
+            <li><strong>Check-out Date:</strong> @_bookingModel.CheckOutDate.ToShortDateString()</li>
+            <li><strong>Booking Time:</strong> @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</li>
+            <li><strong>Total Amount:</strong> @_totalAmount $</li>
+
+            @if (!string.IsNullOrEmpty(_bookingModel.SpecialRequest))
+            {
+                <li><strong>Special Request:</strong> @_bookingModel.SpecialRequest</li>
+            }
+        </ul>
+        
+        <div class="buttons">
+            <button class="cancel-button" @onclick="CancelFunction">Cancel</button>
+            <button class="confirm-button" @onclick="ConfirmFunction">Confirm</button>
+        </div>
+    </div>
+}
+else
+{
+    <p>No booking information found.</p>
+}
+
+
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    private BookingModel _bookingModel = new();
+    private string _roomTypeName { get; set; }
+    private decimal _totalAmount { get; set; }
+    private string _userId { get; set; }
+    private bool _isAuthenticated;
+    private string _fullname { get; set; }
+    private string? _erromessage;
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if (authState.User.Identity?.IsAuthenticated == true)
+        {
+            _isAuthenticated = true;
+            _userId = authState.User.GetUserId();
+            _bookingModel.SetDummyValues();
+        }
+
+        // Get booking information from query string
+        var uri = new Uri(NavigationManager.Uri);
+        var query = uri.Query;
+        var queryDictionary = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(query);
+
+        if (queryDictionary.ContainsKey("checkin") && queryDictionary.ContainsKey("checkout") && queryDictionary.ContainsKey("roomtype"))
+        {
+            var firstname = queryDictionary["firstname"];
+            var lastname = queryDictionary["lastname"];
+            var email = queryDictionary["email"];
+            var contactNumber = queryDictionary["contactnumber"];
+            var checkInDate = queryDictionary["checkin"];
+            var checkOutDate = queryDictionary["checkout"];
+            var adults = queryDictionary["Audlts"];
+            var children = queryDictionary["children"];
+            var roomTypeId = queryDictionary["roomtype"];
+            var amount = queryDictionary["amount"];
+            var totalAmount = queryDictionary["TotalAmout"];
+            var specialRequest = queryDictionary["specialRequest"];
+            var nameRoomType = queryDictionary["nameRoomType"];
+
+            _bookingModel = new BookingModel
+                {
+                    CheckInDate = DateOnly.Parse(checkInDate),
+                    CheckOutDate = DateOnly.Parse(checkOutDate),
+                    RoomTypeId = short.Parse(roomTypeId),
+                    FirstName = firstname,
+                    LastName = lastname,
+                    Email = email,
+                    ContactNumber = contactNumber,
+                    Audlts = int.Parse(adults),
+                    Children = int.Parse(children),
+                    Amount = decimal.Parse(totalAmount),
+                    SpecialRequest = specialRequest
+                };
+            _totalAmount = decimal.Parse(totalAmount);
+
+            _roomTypeName = await RoomsTypeService.GetRoomTypeName(short.Parse(roomTypeId));
+
+        }
+    }
+
+
+
+
+    private async Task<string?> ResgisterUserAsnyc()
+    {
+        var user = new Data.ApplicationUser();
+        user.FirstName = _bookingModel.FirstName;
+        user.LastName = _bookingModel.LastName;
+        user.ContactNumber = _bookingModel.ContactNumber;
+        user.RoleName = RoleType.Guest.ToString();
+
+        var result = await UsersService.CreateUserAsnyc(user, _bookingModel.Email, _bookingModel.Password);
+        if (!result.IsSuccess && (result.Data is null || string.IsNullOrWhiteSpace(result.Data.Id)))
+        {
+            _erromessage = result.ErrorMessage;
+            return null;
+        }
+        return result.Data.Id;
+    }
+
+    private async Task<long?> MakeBookingAsync(string userId)
+    {
+        var result = await BookingServices.MakeBookingAsync(_bookingModel, userId);
+        if (!result.IsSuccess)
+        {
+            _erromessage = result.ErrorMessage;
+            return null;
+        }
+        return result.Data;
+    }
+    private async Task MakePaymentAsync(long bookingId)
+    {
+        var result = await PaymentsServices.VNPayPayment(bookingId, _bookingModel);
+        NavigationManager.NavigateTo(result);
+    }
+
+
+
+
+    private async Task CancelFunction(MouseEventArgs e)
+    {
+        if (await JSRuntime.InvokeAsync<bool>("window.confirm", "Are you sure you want to cancel this booking?"))
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    private async Task ConfirmFunction(MouseEventArgs e)
+    {
+        string? userId = _userId;
+        if (!_isAuthenticated)
+        {
+            userId = await ResgisterUserAsnyc();
+            if (userId is null)
+            {
+                return;
+            }
+        }
+        var bookingId = await MakeBookingAsync(userId!);
+        if (bookingId is null)
+        {
+            return;
+        }
+        await MakePaymentAsync(bookingId.Value);
+    }
+}
