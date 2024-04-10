@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EPfLKIOqINfXoIBovryEaR3kdAQpOUjaX8cU8Y/PQVM=",
+  "Hash": "+Es7DWd37IHVttckxkDzq4Pg6h9NQgU6dje8Uuczfk8=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -397,6 +397,25 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img25b85abd-50d6-4c37-aebb-d95ae8e9e02d.jpg"
     },
     {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img286bd22e-3228-4d52-bfe1-f46fdab6f061.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-img286bd22e-3228-4d52-bfe1-f46fdab6f061.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-img286bd22e-3228-4d52-bfe1-f46fdab6f061.jpg"
+    },
+    {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img2fc2b475-b161-4a30-8522-7f8aee8c391e.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
@@ -587,6 +606,25 @@
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img970c1da2-b606-4248-8e3e-b974d77f3d85.jpg"
     },
     {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imga1f9fae4-5cb2-4e48-aa04-b2b8d12ac2f5.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-imga1f9fae4-5cb2-4e48-aa04-b2b8d12ac2f5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-imga1f9fae4-5cb2-4e48-aa04-b2b8d12ac2f5.jpg"
+    },
+    {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imga2fa660b-7434-46af-b2f3-774d41d2f0f6.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
@@ -604,6 +642,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\room\\room-imga2fa660b-7434-46af-b2f3-774d41d2f0f6.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imga39cf1fa-26f9-48b0-ac75-748163a386f1.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-imga39cf1fa-26f9-48b0-ac75-748163a386f1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-imga39cf1fa-26f9-48b0-ac75-748163a386f1.jpg"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgaa1602fb-0801-49bf-9d15-6d01a2ac8b6e.jpg",
