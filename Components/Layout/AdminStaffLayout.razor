@@ -1,0 +1,150 @@
+﻿@inherits LayoutComponentBase
+@layout AdminMainLayout
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin && Staff</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; /* Màu nền */
+        }
+
+        /* CSS cho header, sidebar, content và footer */
+        header {
+            background-color: white; /* Màu xanh lá */
+            color: green;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
+            position: fixed; /* Header cố định ở trên cùng */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .admin-title {
+            margin: 0;
+            font-size: 24px; /* Kích thước lớn hơn */
+            font-weight: bold; /* Đậm */
+            color: #2E8B57; /* Màu xanh lá */
+        }
+
+        .logout-profile-icons {
+            display: flex;
+            gap: 0px;
+            margin-right: 36px;
+            align-items: center;
+        }
+
+            .logout-profile-icons .fa-sign-out-alt,
+            .logout-profile-icons .fa-user {
+                font-size: 24px;
+                color: green;
+                cursor: pointer;
+            }
+
+        footer {
+            background-color: white; /* Màu xanh lá */
+            color: blue;
+            padding: 10px; /* Để tránh chạm vào nội dung */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
+        }
+
+        .sidebar {
+            height: calc(100vh - 60px); /* Chiều cao bằng chiều cao của màn hình trừ đi chiều cao của header */
+            width: 250px;
+            position: fixed;
+            top: 60px; /* Làm mất phần chồng lên của header */
+            left: 0;
+            background-color: blue; /* Màu xanh lá */
+            padding-top: 20px;
+            overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
+        }
+
+            .sidebar h2 {
+                color: white;
+                text-align: center;
+                margin-top: 0;
+            }
+
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+                .sidebar ul li {
+                    padding: 10px;
+                }
+
+                    .sidebar ul li a {
+                        display: flex;
+                        align-items: center; /* Căn chỉnh icon và text theo chiều ngang */
+                        color: white;
+                        padding: 10px;
+                        text-decoration: none;
+                        position: relative; /* Tạo không gian cho biểu tượng mở rộng */
+                    }
+
+                        .sidebar ul li a:hover {
+                            background-color: cyan; /* Màu xanh lá nhạt khi hover */
+                        }
+
+                        .sidebar ul li a i {
+                            margin-right: 10px;
+                        }
+
+                .sidebar ul .sub-menu {
+                    display: none;
+                    background-color: #4CAF50; /* Màu xanh lá */
+                    position: absolute; /* Tạo vị trí tuyệt đối */
+                    top: 0;
+                    left: 100%; /* Hiển thị sub-menu bên phải tác vụ cha */
+                    width: 200px; /* Điều chỉnh chiều rộng của sub-menu */
+                    overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
+                    max-height: calc(100vh - 60px); /* Giới hạn chiều cao của sub-menu để không vượt quá kích thước màn hình */
+                }
+
+                    .sidebar ul .sub-menu li {
+                        padding-left: 20px;
+                    }
+
+        .content {
+            padding: 20px;
+            padding-top: 70px;
+            width: calc(100% - 250px); /* Subtracting the width of the sidebar */
+            margin-left: 250px; /* Move content to the right to accommodate the sidebar */
+            box-sizing: border-box; /* Include padding in the width calculation */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2faf5; /* Màu nền xanh lá nhạt */
+        }
+
+    </style>
+</head>
+
+<HeaderManage />
+<div class="content">
+    @Body
+</div>
