@@ -1,10 +1,16 @@
 ﻿@page "/staff-admin/manage-room-types/{RoomTypeId:int?}/rooms"
-@layout AddminStaff
-
+@* @layout AddminStaff
+ *@
 @using DangDucThuanFinalYear.Data.Entities
 
-@attribute [StreamRendering]
-@rendermode InteractiveServer
+@* @attribute [StreamRendering]
+@rendermode InteractiveServer *@
+
+
+@layout AdminStaffLayout
+
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
 
 @inject NavigationManager NavigationManager
 @inject IRoomTypeService RoomTypeService
