@@ -1,0 +1,113 @@
+﻿@page "/staff-admin/manage-roomtypedt"
+@layout AddminStaff
+@using System.Text.Json
+@using DangDucThuanFinalYear.HotelDTO.DashboardDTO
+@inject IRevenueDashboardService DashboardService
+@inject JSRuntime JSRuntime
+
+<h3>ReportByRoom</h3>
+
+<style>
+    /* CSS cho màu chữ */
+    #booking-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+    }
+
+        #booking-stats > * {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #booking-stats h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #2E8B57; /* Màu xanh lá */
+        }
+
+    #room-bookings {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+        #room-bookings li {
+            margin-bottom: 8px;
+            color: #555555;
+            font-size: 18px;
+        }
+
+            #room-bookings li::before {
+                content: "•";
+                margin-right: 6px;
+                color: #2E8B57;
+            }
+
+    #revenue-last,
+    #total-revenue {
+        font-weight: bold;
+        font-size: 18px;
+        color: #555555;
+    }
+
+    /* CSS cho màu chữ khác */
+    #total-bookings,
+    #revenue-last,
+    #total-revenue {
+        color: #007bff; /* Màu xanh lam */
+    }
+</style>
+
+<div class="dashboard-header">
+    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Hotel revenue statistical report</strong></h4>
+</div>
+
+<canvas id="roomTypeChart" style="max-width: 600px; margin: auto;"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    window.drawChart = (model) => {
+        var ctx = document.getElementById('roomTypeChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: model.map(item => item.NameRoomType),
+                datasets: [{
+                    label: 'Revenue',
+                    data: model.map(item => item.Revenue),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    };
+</script>
+
+
+
+@code {
+    public List<DashboardResponByRoomType> model = new List<DashboardResponByRoomType>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await DashboardService.GetRevenueDashboardRoomTypeAsync();
+        await DrawChart();
+    }
+
+    private async Task DrawChart()
+    {
+        await JSRuntime.InvokeVoidAsync("drawChart", model);
+    }
+}

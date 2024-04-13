@@ -14,7 +14,7 @@
         public decimal TotalBooking { get; set; }
         //public List<RevenueByRoomType> Items { get; set; }
     }
-    public class RevenueByRoomType
+    public class DashboardResponByRoomType
     {
         public string NameRoomType { get; set; }
         public decimal Revenue { get; set; }
