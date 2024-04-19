@@ -7,7 +7,7 @@
 
 @inject IUserService UserService
 <div class="grid">
-<QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-striped">
+<QuickGrid ItemsProvider="_userProvider" Pagination="_pagination" class="table table-responsive-lg">
    @*   @if(Role != RoleType.Guest)
     {
         <PropertyColumn Property="x=> x.Id"/>

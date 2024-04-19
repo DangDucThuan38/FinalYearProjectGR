@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\ikr.notificatio.css",
+      "PackagePath": "staticwebassets\\ikr.notificatio.css"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg"
     },
@@ -75,6 +79,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg",
+      "PackagePath": "staticwebassets\\images\\room\\room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img4643f3e7-3638-435d-8b6f-2aa3bb062be5.jpg",

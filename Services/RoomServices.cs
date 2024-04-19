@@ -40,6 +40,38 @@ namespace DangDucThuanFinalYear.Services
                                     )).ToArrayAsync();
         }
 
+
+        public async Task<RoomTyePublicDetalis> GetRoomTypeDetailsAsnyc(short id)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            var roomType = await context.RoomTypes
+                                        .Include(rt => rt.RoomTypeAmenitys)
+                                            .ThenInclude(rta => rta.Amenity)
+                                        .FirstOrDefaultAsync(rt => rt.Id == id);
+
+            if (roomType != null)
+            {
+                return new RoomTyePublicDetalis(
+                    roomType.Id,
+                    roomType.Name,
+                    roomType.ImageUrl,
+                    roomType.Descripcion,
+                    roomType.Price,
+                    roomType.MaxAults,
+                    roomType.MaxChildren,
+                    roomType.RoomTypeAmenitys
+                        .Select(a => new RoomTypeAmenityModel(a.Amenity.Name, a.Amenity.Icon, a.Unit))
+                        .ToArray()
+                );
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public async Task<LookupModel<short,decimal>[]> GetRoomTypeLookupAsnyc(FilterModel? filter = null)
         {
             using var context = _contextFactory.CreateDbContext();

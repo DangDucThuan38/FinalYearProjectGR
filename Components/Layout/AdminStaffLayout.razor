@@ -16,7 +16,7 @@
         /* CSS cho header, sidebar, content và footer */
         header {
             background-color: white; /* Màu xanh lá */
-            color: green;
+            color: #2E8B57;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Đổ bóng */
             position: fixed; /* Header cố định ở trên cùng */
@@ -31,7 +31,7 @@
             margin: 0;
             font-size: 24px; /* Kích thước lớn hơn */
             font-weight: bold; /* Đậm */
-            color: #2E8B57; /* Màu xanh lá */
+            color: #666666; /* Màu xanh lá */
         }
 
         .logout-profile-icons {
@@ -44,13 +44,13 @@
             .logout-profile-icons .fa-sign-out-alt,
             .logout-profile-icons .fa-user {
                 font-size: 24px;
-                color: green;
+                color: #2E8B57;
                 cursor: pointer;
             }
 
         footer {
             background-color: white; /* Màu xanh lá */
-            color: blue;
+            color: white;
             padding: 10px; /* Để tránh chạm vào nội dung */
             text-align: center;
             position: fixed;
@@ -63,9 +63,9 @@
             height: calc(100vh - 60px); /* Chiều cao bằng chiều cao của màn hình trừ đi chiều cao của header */
             width: 250px;
             position: fixed;
-            top: 60px; /* Làm mất phần chồng lên của header */
+            top: 78px; /* Làm mất phần chồng lên của header */
             left: 0;
-            background-color: blue; /* Màu xanh lá */
+            background-color: white; /* Màu xanh lá */
             padding-top: 20px;
             overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá chiều cao */
         }
@@ -83,6 +83,7 @@
 
                 .sidebar ul li {
                     padding: 10px;
+                    margin-bottom: 5px;
                 }
 
                     .sidebar ul li a {
@@ -95,27 +96,37 @@
                     }
 
                         .sidebar ul li a:hover {
-                            background-color: cyan; /* Màu xanh lá nhạt khi hover */
+                            background-color: mintcream;
+                            /* Màu xanh lá nhạt khi hover */
+                            color: white !important; /* Chữ màu trắng khi hover */
                         }
 
-                        .sidebar ul li a i {
-                            margin-right: 10px;
-                        }
+        .icon-green a:hover {
+            color: white;
+        }
 
-                .sidebar ul .sub-menu {
-                    display: none;
-                    background-color: #4CAF50; /* Màu xanh lá */
-                    position: absolute; /* Tạo vị trí tuyệt đối */
-                    top: 0;
-                    left: 100%; /* Hiển thị sub-menu bên phải tác vụ cha */
-                    width: 200px; /* Điều chỉnh chiều rộng của sub-menu */
-                    overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
-                    max-height: calc(100vh - 60px); /* Giới hạn chiều cao của sub-menu để không vượt quá kích thước màn hình */
-                }
+        .fa-solid fa-perso a:hover {
+            color: white;
+        }
 
-                    .sidebar ul .sub-menu li {
-                        padding-left: 20px;
-                    }
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar ul .sub-menu {
+            display: none;
+            background-color: #4CAF50; /* Màu xanh lá */
+            position: absolute; /* Tạo vị trí tuyệt đối */
+            top: 0;
+            left: 100%; /* Hiển thị sub-menu bên phải tác vụ cha */
+            width: 200px; /* Điều chỉnh chiều rộng của sub-menu */
+            overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
+            max-height: calc(100vh - 60px); /* Giới hạn chiều cao của sub-menu để không vượt quá kích thước màn hình */
+        }
+
+            .sidebar ul .sub-menu li {
+                padding-left: 20px;
+            }
 
         .content {
             padding: 20px;

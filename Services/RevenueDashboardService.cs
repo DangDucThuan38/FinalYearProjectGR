@@ -27,7 +27,7 @@ namespace DangDucThuanFinalYear.Services
             using var context = _contextFactory.CreateDbContext();
 
             // Truy vấn booking và tính tổng doanh thu
-            var bookingQuery = context.Boookings.Where(a => a.BookingStatus == Constants.BookingStatus.PaymentDone || a.BookingStatus == Constants.BookingStatus.Booked);
+            var bookingQuery = context.Boookings.Where(a => a.BookingStatus == Constants.BookingStatus.Paid || a.BookingStatus == Constants.BookingStatus.Booked);
             var totalRevenue = await bookingQuery.SumAsync(a => a.TotalAmount);
 
             // Truy vấn và tính tổng các phiếu chi
@@ -70,7 +70,7 @@ namespace DangDucThuanFinalYear.Services
             using var context = _contextFactory.CreateDbContext();
 
             var bookingQuery = context.Boookings
-                .Where(a => a.BookingStatus == Constants.BookingStatus.PaymentDone || a.BookingStatus == Constants.BookingStatus.Booked)
+                .Where(a => a.BookingStatus == Constants.BookingStatus.Paid || a.BookingStatus == Constants.BookingStatus.Booked)
                 .Include(b => b.RoomType); // Assuming RoomType is a navigation property in Booking
 
             var revenueByRoomType = await bookingQuery

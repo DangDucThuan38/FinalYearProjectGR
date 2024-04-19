@@ -23,12 +23,12 @@ namespace DangDucThuanFinalYear.HotelDTO.BookingDTO
         public string? Remarks { get; set; }
         public string? SpecialRequest { get; set; }
         public BookingStatus? BookingStatus { get; set; }
-        public bool IsRoomNumberAssignable => BookingStatus == Constants.BookingStatus.PaymentDone || BookingStatus == Constants.BookingStatus.Booked;
+        public bool IsRoomNumberAssignable => BookingStatus == Constants.BookingStatus.Paid || BookingStatus == Constants.BookingStatus.Booked;
 
-        public bool CanBeApproved => BookingStatus == Constants.BookingStatus.PaymentDone;
-        public bool CanBeCancelled => BookingStatus == Constants.BookingStatus.PaymentCanneled && BookingStatus != Constants.BookingStatus.Cancelled;
+        public bool CanBeApproved => BookingStatus == Constants.BookingStatus.Paid;
+        public bool CanBeCancelled => BookingStatus == Constants.BookingStatus.Unpaid && BookingStatus != Constants.BookingStatus.Cancelled;
 
-        public bool CanMakePayment => (BookingStatus == Constants.BookingStatus.Pendding || BookingStatus == Constants.BookingStatus.PaymentCanneled)
+        public bool CanMakePayment => (BookingStatus == Constants.BookingStatus.Pendding || BookingStatus == Constants.BookingStatus.Unpaid)
                                         && CheckInDateTime >= DateOnly.FromDateTime(DateTime.Today);
 
 

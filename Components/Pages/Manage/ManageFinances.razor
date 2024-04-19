@@ -40,7 +40,7 @@
  </style>
 
 <div class="concontainer">
-    <h3 style="text-align:center; color:blue;"><strong>Manage Finance Hotel</strong></h3>
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-caret-right" aria-hidden="true"></i>MANAGE FINANCE HOTEL</p>
     <hr />
     <div class="row">
         <div class="col-sm-12">
@@ -103,7 +103,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-3">
                         <div class="mb-5">
-                            <button type="submit" class="btn btn-block btn-success" disabled="@_isSave">
+                            <button type="submit" class="btn btn-block btn-success" style="background-color: #131B26;" disabled="@_isSave">
                                 @if (_isSave)
                                 {
                                     <div class="spinner-border spinner-border-sm" role="status">
@@ -121,6 +121,7 @@
             </EditForm>
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-sm-12">
             <div class="overflow-scroll" style="max-height: 75vh;">
@@ -153,7 +154,7 @@
                                 <td>@a.Code</td>
                                 <td>@a.NameFinance</td>
                                 <td>@a.Reason</td>
-                                <td>@a.Money</td>
+                                <td>@a.Money.ToString("#,##0") VNĐ</td>
                                 <td>@a.Descripcion</td>
                                 <td>@a.CreationTime</td>
                                 <td>@a.AddedBy</td>

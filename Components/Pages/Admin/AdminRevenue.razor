@@ -20,7 +20,7 @@
         #booking-stats h3 {
             margin-top: 0;
             font-size: 22px;
-            color: #2E8B57; /* Màu xanh lá */
+            color: #12131A; /* Màu xanh lá */
         }
 
     #room-bookings {
@@ -84,36 +84,42 @@
         /* CSS cho nội dung trong ô vuông */
         #booking-stats p {
             margin: 5px 0;
-            font-size: 16px;
+            font-size: 18px;
             color: #555555;
         }
 </style>
 
 
-<div class="dashboard-header">
-    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Hotel statistical report</strong> </h4>
+<div class="dashboard-header" style="margin-top: 35px;">
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> HOTEL REPORT</p>
+
 </div>
 
 <div id="booking-stats" style="margin-bottom: 48px;">
     <div>
-        <h3>Total Booking</h3>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL BOOKING</h4>
+
         <p><strong>@((model != null ? model.TotalBooking : ""))</strong></p>
     </div>
     <div>
-        <h3>Total Customer Hotel</h3>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL CUSTOMER</h4>
+
         <p><strong>@((model != null ? model.TotalCustomer : ""))</strong></p>
     </div>
     <div>
-        <h3>Total Staff Hotel</h3>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL STAFF</h4>
+
         <p><strong>@((model != null ? model.TotalStaff : ""))</strong></p>
     </div>
     <div>
-        <h3>Total Room Hotel</h3>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL ROOM</h4>
+
         <p><strong>@((model != null ? model.TotalRoom : ""))</strong></p>
     </div>
 </div>
 <div class="dashboard-header">
-    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Hotel revenue report</strong> </h4>
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-bar-chart" aria-hidden="true"></i>HOTEL REPORT REVENUE</p>
+
 </div>
 
 <div >
@@ -153,15 +159,28 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        callback: function (value, index, values) {
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
+                        }
                     }
                 }]
+            },
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: function (value, context) {
+                        return value + ' VND';
+                    }
+                }
             }
         }
     });
 
-  
+
 </script>
+
 
 @code {
     private DashboardRespon model;
