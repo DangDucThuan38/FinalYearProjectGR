@@ -20,7 +20,7 @@
         #booking-stats h3 {
             margin-top: 0;
             font-size: 22px;
-            color: #2E8B57; /* Màu xanh lá */
+            color: #12131A; /* Màu xanh lá */
         }
 
     #room-bookings {
@@ -55,41 +55,93 @@
         color: #007bff; /* Màu xanh lam */
     }
 
+
+    /* CSS cho container chứa các ô vuông */
+    #booking-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Canh giữa các ô */
+        gap: 20px; /* Khoảng cách giữa các ô */
+    }
+
+        /* CSS cho ô vuông */
+        #booking-stats > div {
+            flex: 1; /* Ô vuông co giãn theo chiều ngang */
+            min-width: 200px; /* Chiều rộng tối thiểu của ô vuông */
+            background-color: #ffffff; /* Màu nền */
+            padding: 20px; /* Khoảng cách bên trong ô vuông */
+            border-radius: 10px; /* Bo tròn các góc */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+        }
+
+        /* CSS cho tiêu đề trong ô vuông */
+        #booking-stats h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #2E8B57; /* Màu xanh lá */
+        }
+
+        /* CSS cho nội dung trong ô vuông */
+        #booking-stats p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #555555;
+        }
 </style>
 
+
+<div class="dashboard-header" style="margin-top: 35px;">
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> HOTEL REPORT</p>
+
+</div>
+
+<div id="booking-stats" style="margin-bottom: 48px;">
+    <div>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL BOOKING</h4>
+
+        <p><strong>@((model != null ? model.TotalBooking : ""))</strong></p>
+    </div>
+    <div>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL CUSTOMER</h4>
+
+        <p><strong>@((model != null ? model.TotalCustomer : ""))</strong></p>
+    </div>
+    <div>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL STAFF</h4>
+
+        <p><strong>@((model != null ? model.TotalStaff : ""))</strong></p>
+    </div>
+    <div>
+        <h4 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> TOTAL ROOM</h4>
+
+        <p><strong>@((model != null ? model.TotalRoom : ""))</strong></p>
+    </div>
+</div>
 <div class="dashboard-header">
-    <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Hotel revenue statistical report</strong> </h4>
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-bar-chart" aria-hidden="true"></i>HOTEL REPORT REVENUE</p>
+
 </div>
 
 <div >
-    <canvas id="revenueChart1" style="width: 00px; height: 80px;"></canvas>
-    <div class="dashboard-header">
-        <h4><i class="icon fas fa-chart-bar" style="color:blue"></i><strong>Report booking statistics and other statistics</strong> </h4>
-    </div>
-
-    <canvas id="revenueChart2" style="width: 00px; height: 80px;"></canvas>
+    <canvas id="revenueChart1" style="width: 00px; height: 250px;"></canvas>
+   
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var totalRevenue = @((model != null ? model.TotalRevenue : 0));
-    var totalBooking = @((model != null ? model.TotalBooking : 0));
-    var totalRoom = @((model != null ? model.TotalRoom : 0));
-    var totalCustomer = @((model != null ? model.TotalCustomer : 0));
-    var totalStaff = @((model != null ? model.TotalStaff : 0));
+    var totalProfit = @((model != null ? model.TotalRevenue : 0));
     var totalThu = @((model != null ? model.TotalThu : 0));
     var totalChi = @((model != null ? model.TotalChi : 0));
 
     var ctx1 = document.getElementById('revenueChart1').getContext('2d');
-    var ctx2 = document.getElementById('revenueChart2').getContext('2d');
 
     var revenueChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
-            labels: ['Total Revenue', 'Total Hotel Expenses', 'Total Hotel Receipts'],
+            labels: ['Total Profit', 'Total Expenses', 'Total Revenue'],
             datasets: [{
-                label: 'Total Revenue',
-                data: [totalRevenue,totalChi,totalThu],
+                label: 'Statistics',
+                data: [totalProfit, totalChi, totalThu],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.7)', // Red
                     'rgba(255, 206, 86, 0.7)', // Yellow
@@ -107,52 +159,36 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        callback: function (value, index, values) {
+                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND';
+                        }
                     }
                 }]
+            },
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: function (value, context) {
+                        return value + ' VND';
+                    }
+                }
             }
         }
     });
 
-    var revenueChart2 = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Total Booking', 'Total Room', 'Total Customer', 'Total Staff'],
-            datasets: [{
-                label: 'Statistics',
-                data: [totalBooking, totalRoom, totalCustomer, totalStaff],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.7)', // Blue
-                    'rgba(255, 206, 86, 0.7)', // Yellow
-                    'rgba(75, 192, 192, 0.7)', // Cyan
-                    'rgba(153, 102, 255, 0.7)' // Purple
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+
 </script>
+
 
 @code {
     private DashboardRespon model;
     protected override async Task OnInitializedAsync()
     {
+        StateHasChanged();
         model = await DashboardService.GetRevenueDashboardAsync();
+        StateHasChanged();
     }
 
 }

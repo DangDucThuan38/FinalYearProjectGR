@@ -97,7 +97,7 @@ namespace DangDucThuanFinalYear.Services
                     return "Booking already approved";
                 case Constants.BookingStatus.Cancelled:
                     return "Booking already cancelled";
-                case Constants.BookingStatus.PaymentDone:
+                case Constants.BookingStatus.Paid:
                     bookingApprove.BookingStatus = Constants.BookingStatus.Booked;
                     break;
                 default:

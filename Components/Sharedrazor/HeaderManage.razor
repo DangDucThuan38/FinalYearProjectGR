@@ -1,17 +1,28 @@
 ﻿@implements IDisposable
 @inject NavigationManager NavigationManager
-<header style="margin-left: -11px; height: 59px; display: flex; justify-content: space-between; align-items: center; padding: 8px 13px; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <h2></h2>
+
+<style>
+    .icon-green {
+        color: #666666;
+    }
+
+    .fa-solid fa-perso{
+        color: #666666;
+    }
+</style>
+
+<header style="margin-left: -11px; height: 73px; display: flex; justify-content: space-between; align-items: center; padding: 8px 13px; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer;  color: #27314A; transition: color 0.3s;"><i class="fas fa-hotel"></i>MAI HOTEL</h3>
     <div class="logout-profile-icons">
         <AuthorizeView>
             <Authorized>
-                <a class="btn btn-primary rounded-0 py-2 px-md-2 d-none d-lg-block" style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;"><i class="fas fa-user"></i>@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value )</a>
+                <a class="btn btn-primary rounded-0 py-2 px-md-2 d-none d-lg-block" style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;"><i class="fas fa-user  icon-green"></i>@context.User.FindFirst(AppConstants.CustomClaimTypes.FullName)?.Value (@context.User.FindFirst(AppConstants.CustomClaimTypes.RoleName)?.Value )</a>
 
                 <form action="Account/Logout" method="post">
                     <AntiforgeryToken />
                     <input type="hidden" name="ReturnUrl" value="@currentUrl" />
                     <button type="submit" class="btn btn-primary rounded-0 py-2 px-md-2 d-none d-lg-block" style="background-color: transparent; border: none; cursor: pointer; font-size: 13px; color: #2E8B57; transition: color 0.3s;">
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i class="fa-solid fa-right-from-bracket  icon-green"></i>
                     </button>
                 </form>
             </Authorized>
@@ -21,36 +32,31 @@
         </AuthorizeView>
     </div>
 </header>
-
 <div class="sidebar">
-    <h2> <i class="fas fa-hotel"></i>MAI HOTEL</h2>
     <ul>
         <AuthorizeView>
             <Authorized>
                 <AuthorizeView Roles="Admin" Context="adminContext">
-                    <li><a href="staff-admin/manage-totalRevenue"><i class="fa-solid fa-gauge"></i><strong style="color:white"> Dashboard</strong></a></li>
-                    <li><a href="admin/manage-staff"><i class="fa-solid fa-person"></i><strong style="color:white">Manage Staff</strong></a></li>
-                    <li><a href="staff-admin/manage-finances"><i class="fa-solid fa-coins"></i><strong style="color:white">Manage Finances</strong> </a></li>
+                    <li><a href="staff-admin/manage-totalRevenue"><i class="fa-solid fa-gauge icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;"> Dashboard Revenue</span></a></li>
+                    <li><a href="admin/manage-staff"><i class="fa-solid fa-person icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Staff</span></a></li>
+                    <li><a href="staff-admin/manage-finances"><i class="fa-solid fa-coins icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Finances</span></a></li>
                 </AuthorizeView>
                 <AuthorizeView Roles="Staff,Admin" Context="staffContext">
-                    <li><a href="staff-admin/manage-guest"><i class="fa-solid fa-person"></i><strong style="color:white">Manage Guest</strong> </a></li>
-                    <li><a href="staff-admin/manage-room-types"><i class="fa-solid fa-house"></i><strong style="color:white">Manage Rooms</strong></a></li>
-                    <li><a href="staff-admin/manage-booking"><i class="fa-solid fa-calendar"></i><strong style="color:white">Manage Booking</strong> </a></li>
-                    <li><a href="staff-admin/manage-amenitites"><i class="fa-solid fa-toolbox"></i><strong style="color:white">Manage Amenities</strong> </a></li>
-                    <li><a href="manage/my-profile"><i class="fa-solid fa-address-card"></i><strong style="color:white">My Profile</strong> </a></li>
-                    <li><a href="#"><i class="fa-solid fa-lock"></i> <strong style="color:white">Change Password</strong> </a></li>
+                    <li><a href="staff-admin/manage-guest"><i class="fa-solid fa-person icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Guest</span></a></li>
+                    <li><a href="staff-admin/manage-booking"><i class="fa-solid fa-person icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Booking </span></a></li>
 
-
-@*                     <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> <strong style="color:white">Log Out</strong></a></li>
- *@                
+                    <li><a href="staff-admin/manage-room-types"><i class="fa-solid fa-house icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Rooms</span></a></li>
+@*                     <li><a href="staff-admin/manage-booking"><i class="fa-solid fa-toolbox icon-green"></i><span style="color: #666666; font-size: 16px; font-family: Roboto;">Manage Booking</span></a></li>
+                    *@
+                    <li><a href="staff-admin/manage-amenitites"><i class="fa-solid fa-toolbox icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Manage Amenities</span></a></li>
+                    <li><a href="manage/my-profile"><i class="fa-solid fa-address-card  icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">My Profile</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-lock icon-green"></i><span style="color: #666666; font-size: 18px; font-family: Roboto;">Change Password</span></a></li>
                 </AuthorizeView>
             </Authorized>
         </AuthorizeView>
-       
-
-
     </ul>
 </div>
+
 
 @code {
     private string? currentUrl;

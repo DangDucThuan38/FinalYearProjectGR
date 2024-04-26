@@ -62,8 +62,9 @@ namespace DangDucThuanFinalYear.Services
             vnpay.AddRequestData("vnp_Version", "2.1.0");
             vnpay.AddRequestData("vnp_Command", "pay");
             vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode);
-            decimal exchangeRateUSDToVND = 23000;
-            decimal amountInVND = model.Amount * exchangeRateUSDToVND * 100;
+            //decimal exchangeRateUSDToVND = 23000;
+            //decimal amountInVND = model.Amount * exchangeRateUSDToVND * 100;
+            decimal amountInVND = model.Amount * 100 ;
             vnpay.AddRequestData("vnp_Amount", amountInVND.ToString("F0", CultureInfo.InvariantCulture));
             //Số tiền thanh toán. Số tiền không mang các ký tự phân tách thập phân, phần nghìn, ký tự tiền tệ. Để gửi số tiền thanh toán là 100,000 VND (một trăm nghìn VNĐ) thì merchant cần nhân thêm 100 lần (khử phần thập phân), sau đó gửi sang VNPAY là: 10000000
 

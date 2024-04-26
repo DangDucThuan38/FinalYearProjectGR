@@ -66,7 +66,7 @@
            
         
             <TemplateColumn Class="test">
-                @if (context.BookingStatus != BookingStatus.PaymentDone)
+                @if (context.BookingStatus != BookingStatus.Paid)
                 {
                     <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanMakePayment)" @onclick="() => MakePaymentAsync(context)">Make Payment</button>
                     <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>

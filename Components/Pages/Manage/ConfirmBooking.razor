@@ -179,10 +179,6 @@ else
 
         }
     }
-
-
-
-
     private async Task<string?> ResgisterUserAsnyc()
     {
         var user = new Data.ApplicationUser();
@@ -215,10 +211,6 @@ else
         var result = await PaymentsServices.VNPayPayment(bookingId, _bookingModel);
         NavigationManager.NavigateTo(result);
     }
-
-
-
-
     private async Task CancelFunction(MouseEventArgs e)
     {
         if (await JSRuntime.InvokeAsync<bool>("window.confirm", "Are you sure you want to cancel this booking?"))

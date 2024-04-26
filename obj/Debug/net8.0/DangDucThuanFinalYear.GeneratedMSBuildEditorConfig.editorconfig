@@ -222,6 +222,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxNYW5hZ2VyU3RhZmYucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/Noti.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxOb3RpLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/ReportByRoom.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxSZXBvcnRCeVJvb20ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Admin/UserList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxVc2VyTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -248,6 +256,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Guest/DetailsRoom.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHdWVzdFxEZXRhaWxzUm9vbS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GCH200729/DangDucThuanFinalYear/Components/Pages/Guest/MyBooking.razor]

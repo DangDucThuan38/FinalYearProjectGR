@@ -1,8 +1,17 @@
 ﻿@implements IDisposable
 @inject NavigationManager NavigationManager
 
+
+<style>
+    .bg-dark{
+        "background-color: #FEA116";
+    }
+
+</style>
+
+
 <!-- Header Start -->
-<div class="container-fluid bg-light px-0">
+<div class="container-fluid bg-light px-0" style="background-color:#FEA116">
     <div class="row gx-0">
         <div class="col-lg-3 bg-dark d-none d-lg-block">
             <NavLink Match="NavLinkMatch.All" href="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
@@ -50,7 +59,7 @@
 
 
                    
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contact" class="nav-item nav-link">Contact</a>
 
                         <AuthorizeView>
                             <Authorized>

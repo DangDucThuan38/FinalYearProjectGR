@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+Es7DWd37IHVttckxkDzq4Pg6h9NQgU6dje8Uuczfk8=",
+  "Hash": "r9wVe1mIp5m1nMkKZvWcCqiHAQBXnp65DiFF3lht34g=",
   "Source": "DangDucThuanFinalYear",
   "BasePath": "_content/DangDucThuanFinalYear",
   "Mode": "Default",
@@ -302,6 +302,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\ikr.notificatio.css",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "ikr.notificatio.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ikr.notificatio.css"
+    },
+    {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "SourceId": "DangDucThuanFinalYear",
       "SourceType": "Discovered",
@@ -471,6 +490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg"
+    },
+    {
+      "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg",
+      "SourceId": "DangDucThuanFinalYear",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\",
+      "BasePath": "_content/DangDucThuanFinalYear",
+      "RelativePath": "images/room/room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\room\\room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg"
     },
     {
       "Identity": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img4643f3e7-3638-435d-8b6f-2aa3bb062be5.jpg",

@@ -2,6 +2,15 @@
 @using DangDucThuanFinalYear.HotelDTO;
 @using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO
 
+@inject NavigationManager NavigationManager
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+<style>
+    .room-image {
+        width: 100%;
+        height: auto; /* This will maintain the aspect ratio of the image */
+    }
+</style>
    <!-- Room Start -->
 <div class="container-xxl py-5">
     <div class="container">
@@ -15,8 +24,8 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid" src="@roomType.Image" alt="">
-                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">@roomType.Price.ToString("c")/Night</small>
+                            <img class="img-fluid room-image" src="@roomType.Image" @onclick="() => NavigateToBookingConfirmation(roomType.id)" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">@roomType.Price.ToString("#,##0") VND/Night</small>
                         </div>
                         <div class="p-4 mt-2">
                             <div class="d-flex justify-content-between mb-3">
@@ -42,7 +51,7 @@
 
                             </div>
                             <p class="text-body mb-3">
-                                @roomType.Description.Ellipsis(200)
+                                @roomType.Description.Ellipsis(100)
                             </p>
                             <div class="d-flex justify-content-end">                                
                              <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/booking?room-type=@roomType.id">Book Now</a>
@@ -64,6 +73,10 @@
     [Parameter, EditorRequired]
     public RoomTyePublic[] RoomType { get; set; } = [];
 
-
+    private void NavigateToBookingConfirmation(short roomId)
+    {
+        var confirmationUrl = $"/guest/details-room?IdRoom={roomId}";
+        NavigationManager.NavigateTo(confirmationUrl, true);
+    }
 
 }
