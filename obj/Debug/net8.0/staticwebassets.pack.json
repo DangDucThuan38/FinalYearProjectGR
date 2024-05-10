@@ -45,12 +45,24 @@
       "PackagePath": "staticwebassets\\ikr.notificatio.css"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img012a42b3-1350-4ed3-8d71-b12c7dd61539.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img012a42b3-1350-4ed3-8d71-b12c7dd61539.png"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0cf32618-22bc-4508-91d5-b1c48b13d6fa.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img0cf32618-22bc-4508-91d5-b1c48b13d6fa.png"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img0d0dc9b4-b3bb-47a4-af07-fcf83f01d652.jpg"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img107705e2-fd0e-4332-b1d1-ecd7c5ab0d9e.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img11f3d2f1-2459-46f1-8344-4458b62599e4.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img11f3d2f1-2459-46f1-8344-4458b62599e4.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img13f9c187-8397-4d20-a9a1-3f8d220b610d.jpg",
@@ -77,8 +89,16 @@
       "PackagePath": "staticwebassets\\images\\room\\room-img35c1ae36-57c7-4a6a-8029-6e42beaca46b.jpg"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3c19fcc5-0313-4994-8e59-38a22ffb91fb.jpg",
+      "PackagePath": "staticwebassets\\images\\room\\room-img3c19fcc5-0313-4994-8e59-38a22ffb91fb.jpg"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img3ceb6c09-6aea-48c8-8e2a-10057ff51528.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img3d7a113a-ecdf-4a31-8011-92285acb6b71.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img3d7a113a-ecdf-4a31-8011-92285acb6b71.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img42fbc312-353d-4412-8e09-9c8f680c31ff.jpg",
@@ -87,6 +107,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img4643f3e7-3638-435d-8b6f-2aa3bb062be5.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img4643f3e7-3638-435d-8b6f-2aa3bb062be5.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img5416b87c-b955-4a20-a5cd-899e226dcf62.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img5416b87c-b955-4a20-a5cd-899e226dcf62.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img5f8c2e3c-a027-40ac-944d-140e0cea5dba.jpg",
@@ -103,6 +127,10 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-img7a73fb00-18ea-4c22-9ace-b142f55265ac.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img81e940ec-5033-4244-83ab-fd08023d8628.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-img81e940ec-5033-4244-83ab-fd08023d8628.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-img9034e9fb-3700-43ec-8336-6d713ca80625.jpg",
@@ -133,6 +161,10 @@
       "PackagePath": "staticwebassets\\images\\room\\room-imgadba7276-9466-4224-9a34-9c31739ac376.jpg"
     },
     {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgb4d64568-c1be-4ca9-9395-a277ec2b786f.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-imgb4d64568-c1be-4ca9-9395-a277ec2b786f.png"
+    },
+    {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgb9c2657f-e493-407c-88d4-c44bcf1d8d1c.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgb9c2657f-e493-407c-88d4-c44bcf1d8d1c.jpg"
     },
@@ -159,6 +191,14 @@
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg",
       "PackagePath": "staticwebassets\\images\\room\\room-imgf5c37258-6087-4b7a-a0c7-7c2847c6c99b.jpg"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgf9ebfada-4521-4f5b-9159-a9e3e0d42de6.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-imgf9ebfada-4521-4f5b-9159-a9e3e0d42de6.png"
+    },
+    {
+      "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgff55ebc2-cad1-408e-9550-b3e5f5b81547.png",
+      "PackagePath": "staticwebassets\\images\\room\\room-imgff55ebc2-cad1-408e-9550-b3e5f5b81547.png"
     },
     {
       "Id": "F:\\GCH200729\\DangDucThuanFinalYear\\wwwroot\\images\\room\\room-imgff8597cd-72b1-4561-839e-f38efac152a9.jpg",

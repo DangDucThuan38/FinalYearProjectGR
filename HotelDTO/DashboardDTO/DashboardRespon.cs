@@ -18,6 +18,7 @@
     {
         public string NameRoomType { get; set; }
         public decimal Revenue { get; set; }
+        public int BookingCount { get; set; }
     }
     public class Revenue
     {

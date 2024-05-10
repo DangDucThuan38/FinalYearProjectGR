@@ -93,7 +93,7 @@
             <li><strong>Check-in Date:</strong> @_bookingModel.CheckInDate.ToShortDateString()</li>
             <li><strong>Check-out Date:</strong> @_bookingModel.CheckOutDate.ToShortDateString()</li>
             <li><strong>Booking Time:</strong> @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</li>
-            <li><strong>Total Amount:</strong> @_totalAmount $</li>
+            <li><strong>Total Amount:</strong> @_totalAmount.ToString("#,##0") VNĐ</li>
 
             @if (!string.IsNullOrEmpty(_bookingModel.SpecialRequest))
             {

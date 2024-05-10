@@ -46,6 +46,7 @@ namespace DangDucThuanFinalYear.Services
             string header = "[MAIHOTEL] XÁC NHẬN THANH TOÁN PHÒNG THÀNH CÔNG";
             string senderEmail = "dangducthuan999@gmail.com";
             string senderPassword = "cxsgusvpapbbnnpn";
+            var total = booking.TotalAmount.ToString("#,##0");
             string recipientEmail = mailUser;
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(senderEmail, senderEmail));
@@ -62,7 +63,7 @@ namespace DangDucThuanFinalYear.Services
         <p><strong>Khách Hàng:</strong> {exsitigUsers.FullName}</p>
         <p><strong>Loại phòng:</strong> {room.Name}</p>
         <P><strong>Mã Giao Dịch: MHTL{booking.Id}</strong></P>
-        <p><strong>Tổng Tiền Thanh Toán:</strong> {booking.TotalAmount} $</p>
+        <p><strong>Tổng Tiền Thanh Toán:</strong> {total} VNĐ</p>
         <p><strong>Kênh Thanh Toán:</strong> VNPAY BANKING</p>
         <p><strong>Ngày Check-In:</strong> {booking.CheckInDateTime}</p>
         <p><strong>Ngày Check-Out:</strong> {booking.CheckOutDateTime}</p>

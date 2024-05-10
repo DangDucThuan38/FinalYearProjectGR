@@ -3,7 +3,7 @@
 
 @layout AdminStaffLayout
 @inject IMailServices MailsServices
-@attribute [StreamRendering]
+
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @using DangDucThuanFinalYear.Data.Entities
 
@@ -16,16 +16,12 @@
 @inject IJSRuntime JsRuntime
 
 <style>
-
-
     .d-flex {
         display: flex;
     }
-
     .align-items-center {
         align-items: center;
     }
-
     .table-responsive {
         overflow-x: auto;
     }
@@ -33,7 +29,6 @@
     .table-striped tbody tr:nth-of-type(odd) {
         background-color: #f9f9f9;
     }
-
     .action-buttons button {
         margin-left: 5px;
         padding: 5px 10px;
@@ -47,9 +42,6 @@
         .date-time-column time {
             display: inline-block;
         }
-
-
-
 </style>
 
 <div class="d-flex " style="margin-top: 30px;">
@@ -59,14 +51,16 @@
     </div>
     <hr />
     <div class="table-responsive" style="margin-top:-36px">
+    <div class="mb-3 input-group">
+        <input type="text" @bind="searchQuery" class="form-control" placeholder="Enter search query" />
+        <button class="btn btn-primary" @onclick="SearchAsnyc">Search</button>
+    </div>
     <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-responsive-lg">
             <PropertyColumn Property="b=>b.Id" Title="Booking ID" />
             <PropertyColumn Property="b=>b.RoomTypeName" Title="Room Type" />
             <TemplateColumn Title="Room">
                 @if (context.RoomId is null)
-                {
-@*                     <label class="d-block">No Room Assigned</label>
- *@                    
+                {                    
                     @if (context.IsRoomNumberAssignable)
                     {
                     <button type="button" style="width: 63px;background-color:#12131A" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">Assign</button>
@@ -85,8 +79,6 @@
             <PropertyColumn Property="b=>b.BookedOn" Title="Booking Time" Format="hh:mm dd-MM-yyyy " Class="date-time-column" />
             <PropertyColumn Property="b=>b.CheckInDateTime" Title="CheckIn Time" Format="dd-MM-yyyy" />
             <PropertyColumn Property="b=>b.CheckOutDateTime" Title="CheckOut Time" Format="dd-MM-yyyy" />
-         @*    <PropertyColumn Property="b=>b.Adults" Title="Adults" />
-            <PropertyColumn Property="b=>b.Children" Title="Children" /> *@
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Note Request" />
             <PropertyColumn Property="b=>b.BookingStatus" Title="Booking Status" />
             <PropertyColumn Property="b=>b.Remarks" Title="Remarks" />
@@ -94,7 +86,8 @@
             <button type="button" style="width: 63px;" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Agree</button>
             </TemplateColumn>
             <TemplateColumn>
-            <button type="button" style="width: 63px;" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
+            @* disabled="@(!context.CanBeCancelled)" *@
+            <button type="button" style="width: 63px;" class="btn btn-sm btn-danger"  @onclick="() => CanncelBookingAsync(context)">Cancel</button>
             </TemplateColumn>
         </QuickGrid>
     </div>
@@ -135,6 +128,7 @@
     private Room[] _rooms = [];
     private int _slectedRoomId;
     private BookingDisplayModel? _booking;
+    private string searchQuery  = "";
 
 
     protected override void OnInitialized()
@@ -154,6 +148,26 @@
             return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
         };
     }
+
+    private async Task SearchAsnyc(MouseEventArgs args)
+    {
+        _bookingsProviders = async (GridItemsProviderRequest<BookingDisplayModel> request) =>
+              {
+                  _isLoading = true;
+                  StateHasChanged();
+
+                  //Load Data booking
+                  var result = await BookingServices.SearchBookingAsync(request.StartIndex, request.Count ?? PageSize, searchQuery);
+
+
+                  _isLoading = false;
+                  StateHasChanged();
+
+                  return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
+              };
+    }
+
+
 
     private async Task OpenAssignRoomModalAsync(BookingDisplayModel booking)
     {

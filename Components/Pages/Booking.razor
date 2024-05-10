@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date4" data-target-input="nearest">
-                                        <InputDate @bind-Value="_model.CheckOutDate" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
+                                        <InputDate @bind-Value="_model.CheckOutDate" Format="dd/MM/yyyy" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" @onchange="(e) => HandleCheckOutDateChange(e)"/>
                                         <label for="checkout">Check Out</label>
                                     </div>
                                     <ValidationMessage For="()=>_model.CheckOutDate" class="text-danger" />
@@ -154,6 +154,7 @@
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <InputSelect 
+                                            Value="@_model.RoomTypeId"
                                             ValueExpression="() => _model.RoomTypeId"
                                             ValueChanged="(short id)=> HandleRoomTypeChange(id, _model)"
                                             class="form-select" 
@@ -163,7 +164,8 @@
                                             @foreach (var roomType in _roomTypes)
                                             {
                                                 NameRooom = roomType.name;
-                                                <option value="@roomType.Id">@roomType.name - @roomType.AdditionalData
+                                                <option value="@roomType.Id">
+                                                    @roomType.name - @roomType.AdditionalData.ToString("#,##0") VNĐ/Night
                                                 </option>
 
 
@@ -255,6 +257,8 @@
                     && _roomTypeId >0)
         {
             HandleRoomTypeChange(_roomTypeId,_model);
+            StateHasChanged();
+            // Khi HandleRoomTypeChange thực hiện update dữ liệu để hiển thị
         }
     }
     private async Task HandleAdultsChange(int? newAdults)
@@ -262,12 +266,14 @@
         _model.Audlts = newAdults;
         _filterModel.Audlts = _model.Audlts;
         await FilterRoomTypes();
+        StateHasChanged();
     }
     private async Task HandleChildrenChange(int? newChildrens)
     {
         _model.Children = newChildrens;
         _filterModel.Children = _model.Children;
         await FilterRoomTypes();
+        StateHasChanged();
     }
     private async Task HandleRoomTypeChange(short newRoomTypeId, BookingModel model)
     {
@@ -275,10 +281,11 @@
         var roomType = _roomTypes.FirstOrDefault(rt => rt.Id == newRoomTypeId);
         var room = await CheckRoomValiad(model);
         if(room > 0)
-          _roomIsValiable = room;
+            _roomIsValiable = room;
         else
-          _roomIsValiable = 0;
+            _roomIsValiable = 0;
         _price = roomType.AdditionalData;
+        StateHasChanged();
     }
     private async Task<int> CheckRoomValiad(BookingModel model)
     {
@@ -304,80 +311,22 @@
 
     private async Task BookRoomAsnyc()
     {
-    //     string? userId = _userId;
-    //     if(!_isAuthenticated)
-    //     {
-    //         // Register this user as guest
-    //         userId = await ResgisterUserAsnyc();
-    //         if(userId is null)
-    //         {
-    //             return;
-    //         }
 
-    //     }else
-    //     {
-
-    //     }
         NameRooom = await RoomsTypeService.GetRoomTypeName(_model.RoomTypeId);
 
         var confirmationUrl = $"/bookingconfirmation?NameRoomType={NameRooom}&firstname={_model.FirstName}&lastname={_model.LastName}&email={_model.Email}&contactnumber={_model.ContactNumber}&password={_model.Password}&comfirmpassword={_model.ConfirmPassword}&checkin={_model.CheckInDate}&checkout={_model.CheckOutDate}&roomtype={_model.RoomTypeId}&Audlts={_model.Audlts}&children={_model.Children}&TotalAmout={TotalAmout}&specialRequest={_model.SpecialRequest}&amount={_model.Amount}";
-         NavigationManager.NavigateTo(confirmationUrl, true);
+        NavigationManager.NavigateTo(confirmationUrl, true);
 
-        //Make booking here
-        // var bookingId =  await MakeBookingAsync(userId!);
-        // if(bookingId is null)
-        // {
-        //     return;
-        // }
-        // await MakePaymentAsync(bookingId.Value);
-        // var sendMail = await SenMailBooking(userId!);
-
-        // // Redirect user to Stripe Payment Page
-
-        // await PayNowAsnyc();
     }
-    // private async Task MakePaymentAsync(long bookingId)
-    // {
-    //         _model.Amount = TotalAmout;
-    //         var result = await PaymentsServices.VNPayPayment(bookingId, _model);
-    //         NavigationManager.NavigateTo(result);
-    // }
 
+    private async Task HandleCheckOutDateChange(ChangeEventArgs e)
+    {
+        var room = await CheckRoomValiad(_model);
+        if (room > 0)
+            _roomIsValiable = room;
+        else
+            _roomIsValiable = 0;
+        StateHasChanged();
 
-    // private async Task<string?> ResgisterUserAsnyc()
-    // {
-    //     var user = new Data.ApplicationUser();
-    //     user.FirstName = _model.FirstName;
-    //     user.LastName = _model.LastName;
-    //     user.ContactNumber = _model.ContactNumber;
-    //     user.RoleName = RoleType.Guest.ToString();
-
-    //     var result = await UsersService.CreateUserAsnyc(user, _model.Email, _model.Password);
-    //     if (!result.IsSuccess && (result.Data is null || string.IsNullOrWhiteSpace(result.Data.Id)))
-    //     {
-    //         _erromessage = result.ErrorMessage;
-    //         return null;
-    //     }
-    //     return result.Data.Id;
-    // }
-
-    // private async Task<long?> MakeBookingAsync(string userId)
-    // {
-    //     _model.Amount = TotalAmout;
-    //     var result = await BookingServices.MakeBookingAsync(_model, userId);
-    //     if(!result.IsSuccess)
-    //     {
-    //         _erromessage = result.ErrorMessage;
-    //         return null;
-    //     }
-    //         return result.Data;
-    // }
-    // private async Task PayNowAsnyc()
-    // {
-        
-    // }
-
-
-
-
+    }
 }

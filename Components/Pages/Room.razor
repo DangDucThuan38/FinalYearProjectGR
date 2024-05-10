@@ -15,6 +15,10 @@
 
     [SupplyParameterFromQuery]
     public DateOnly? CheckInDate { get; set; } 
+
+
+    [SupplyParameterFromQuery]
+    public string? Name { get; set; }
     [SupplyParameterFromQuery]
 
     public DateOnly? CheckOutDate { get; set; } 
@@ -28,7 +32,7 @@
     private RoomTyePublic[] _rooms = [];
     protected override async Task OnInitializedAsync()
     {
-        var filterModel =  FilterModel.GetFilterModel(CheckInDate, CheckOutDate, Audlts, Children);
+        var filterModel =  FilterModel.GetFilterModel(Name, Audlts, Children);
         _rooms = await RoomServices.GetRoomTypeAsnyc(filterModel: filterModel);
     }
 

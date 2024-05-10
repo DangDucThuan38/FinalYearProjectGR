@@ -23,6 +23,7 @@ namespace DangDucThuanFinalYear.HotelDTO.BookingDTO
         public string? Remarks { get; set; }
         public string? SpecialRequest { get; set; }
         public BookingStatus? BookingStatus { get; set; }
+        public string? FullName { get; set; }
         public bool IsRoomNumberAssignable => BookingStatus == Constants.BookingStatus.Paid || BookingStatus == Constants.BookingStatus.Booked;
 
         public bool CanBeApproved => BookingStatus == Constants.BookingStatus.Paid;

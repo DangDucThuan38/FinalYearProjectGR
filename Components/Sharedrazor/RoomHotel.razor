@@ -1,14 +1,19 @@
 ﻿@using DangDucThuanFinalYear.Extensions
 @using DangDucThuanFinalYear.HotelDTO;
 @using DangDucThuanFinalYear.HotelDTO.RoomTypeDTO
-
+@layout AdminLayout
 @inject NavigationManager NavigationManager
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false))
+ *@
+
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IJSRuntime JSRuntime
 
 <style>
     .room-image {
         width: 100%;
-        height: auto; /* This will maintain the aspect ratio of the image */
+        height: 200px; /* Điều chỉnh độ cao của ảnh tùy theo nhu cầu */
+        object-fit: cover; /* Đảm bảo ảnh được hiển thị mà không bị méo hoặc kéo dài */
     }
 </style>
    <!-- Room Start -->
@@ -24,7 +29,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="room-item shadow rounded overflow-hidden">
                         <div class="position-relative">
-                            <img class="img-fluid room-image" src="@roomType.Image" @onclick="() => NavigateToBookingConfirmation(roomType.id)" alt="">
+                            <img class="img-fluid room-image" src="@roomType.Image" alt="Image Decriptions">
                             <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">@roomType.Price.ToString("#,##0") VND/Night</small>
                         </div>
                         <div class="p-4 mt-2">
@@ -36,7 +41,8 @@
                             <div class="d-flex mb-3">
                                 @if (roomType.Amenities?.Length > 0 )
                                 {
-                                    var count = roomType.Amenities.Length;
+                                    @* var count = roomType.Amenities.Length;
+                                    var amenitiesToShow = roomType.Amenities.Take(4);
                                     for (int i =0 ; i < count;i++)
                                     {
                                         var amenity = roomType.Amenities[i];
@@ -46,6 +52,15 @@
 
                                             </i>@amenity.Unit @amenity.name
                                             </small>
+                                    } *@
+
+
+                                    var amenitiesToShow = roomType.Amenities.Take(4); // Take the first four amenities
+                                    foreach (var amenity in amenitiesToShow)
+                                    {
+                                        <small class="border-end me-3 pe-3">
+                                            <i class="@amenity.Icon text-primary me-2"></i>@amenity.Unit @amenity.name
+                                        </small>
                                     }
                                 }
 
@@ -53,17 +68,21 @@
                             <p class="text-body mb-3">
                                 @roomType.Description.Ellipsis(100)
                             </p>
-                            <div class="d-flex justify-content-end">                                
-                             <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/booking?room-type=@roomType.id">Book Now</a>
+                            <p class="text-body mb-3" style="color:coral">
+                                <i class="fas fa-eye"></i> @roomType.view Views
+                                <span style="margin-right: 150px;"></span> <!-- Add some space between the elements -->
+                                <img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/event-accepted.png" alt="event-accepted" /> @roomType.count Bookings
+                            </p>
+                         
+
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/guest/details-room?IdRoom=@roomType.id">View Details</a>
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/booking?room-type=@roomType.id">Book Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             }
-
-
-
-
         </div>
     </div>
 </div>
@@ -72,6 +91,11 @@
 @code {
     [Parameter, EditorRequired]
     public RoomTyePublic[] RoomType { get; set; } = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authSate = await AuthStateProvider.GetAuthenticationStateAsync();
+    }
 
     private void NavigateToBookingConfirmation(short roomId)
     {

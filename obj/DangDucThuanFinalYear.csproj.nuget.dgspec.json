@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "Syncfusion.Blazor": {
+              "target": "Package",
+              "version": "[25.1.41, )"
+            },
             "ZXing.Net": {
               "target": "Package",
               "version": "[0.16.9, )"

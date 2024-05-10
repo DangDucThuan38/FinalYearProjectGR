@@ -12,8 +12,8 @@ namespace DangDucThuanFinalYear.IServices
         Task<PageResult<UserInformation>> GetUserInformationAsnyc(int startIndex, int PageSize, RoleType? roleType = null);
 
         Task<MyProfileModel?> GetProfileDetailsAsync(string userId);
-
         Task<HotelResult> UpdateProfileAsnyc(MyProfileModel input,RoleType? roleType = null);
+        Task<HotelResult> ChangePasswordAsnyc(ChangePasswordDTO input, string userId);
 
     }
 }
