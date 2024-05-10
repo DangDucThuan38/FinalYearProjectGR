@@ -302,3 +302,8 @@ F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\refint\DangDucThuanFinalYear
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.pdb
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\DangDucThuanFinalYear.genruntimeconfig.cache
 F:\GCH200729\DangDucThuanFinalYear\obj\Debug\net8.0\ref\DangDucThuanFinalYear.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Syncfusion.Blazor.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Syncfusion.ExcelExport.Net.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Syncfusion.Licensing.dll
+F:\GCH200729\DangDucThuanFinalYear\bin\Debug\net8.0\Syncfusion.PdfExport.Net.dll

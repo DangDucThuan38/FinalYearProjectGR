@@ -153,7 +153,7 @@ else
                 {
                     TransactionRef = tempTransactionRef;
                     string? userId = _userId;
-                    statusBooking = BookingStatus.Paid;
+                    statusBooking = BookingStatus.Unpaid;
                     statusPayment = "Canncel";
                     var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
                 }

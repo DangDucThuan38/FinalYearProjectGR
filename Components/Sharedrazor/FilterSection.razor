@@ -1,5 +1,14 @@
 ﻿@using DangDucThuanFinalYear.HotelDTO
+
+@inject AuthenticationStateProvider AuthStateProvider
+@inject IRoomServices RoomsService
+@inject IUserService UsersService
+@inject IBookingServices BookingServices
+@inject IMailServices MailsServices
+@inject IPaymentServices PaymentsServices
+@inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
+@inject IRoomTypeService RoomsTypeService
 
 <EditForm Model="Model" Enhance FormName="filter_form" OnSubmit="HandleFilter">
     <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -10,18 +19,18 @@
                         <div class="row g-2">
                             <div class="col-md-3">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                     <InputDate @bind-Value="Model.CheckInDate"  class="form-control datetimepicker-input"
-                                                placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+                                     <InputText @bind-Value="Model.Name"  class="form-control "
+                                                placeholder="Name RoomType" data-target="name" />
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                          @*   <div class="col-md-3">
                                 <div class="date" id="date2" data-target-input="nearest">
                                      <InputDate @bind-Value="Model.CheckOutDate" class="form-control datetimepicker-input"
                                                 placeholder="Check out" data-target="#date2" data-toggle="datetimepicker" />
 
                                      
                                 </div>
-                            </div>
+                            </div> *@
                             <div class="col-md-3">
                                  <InputSelect @bind-Value="Model.Audlts" class="form-select">
                                      @for(int i= 1;i<=6;i++)
@@ -42,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="margin-left: -251px;">
                         <button class="btn btn-primary w-100">Search</button>
                     </div>
                 </div>
@@ -53,11 +62,14 @@
 </EditForm>
 
 @code {
-    [SupplyParameterFromForm]
+    [SupplyParameterFromForm(FormName = "filter_form")]
     public FilterModel Model { get; set; } = new();
 
     [SupplyParameterFromQuery]
     public DateOnly? CheckInDate { get; set; } 
+    [SupplyParameterFromQuery]
+    public string? Name { get; set; }
+
     [SupplyParameterFromQuery]
 
     public DateOnly? CheckOutDate { get; set; } 
@@ -75,8 +87,8 @@
     {
         if (HttpMethods.IsGet(HttpContext.Request.Method))
         {
-            Model.CheckInDate = CheckInDate;
-            Model.CheckOutDate = CheckOutDate;
+            Model.Name = Name;
+            // Model.CheckOutDate = CheckOutDate;
             Model.Audlts = Audlts;
             Model.Children = Children;
 
@@ -84,7 +96,7 @@
     }
     public void HandleFilter()
     {
-        var roompageUri = NavigationManager.GetUriWithQueryParameters("/room",Model.ToDictionary());
+        var roompageUri = NavigationManager.GetUriWithQueryParameters("/room", Model.ToDictionary());
         NavigationManager.NavigateTo(roompageUri);
     }
 

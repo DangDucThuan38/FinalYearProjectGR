@@ -15,7 +15,7 @@ namespace DangDucThuanFinalYear.Data.Entities
         [Required, Range(1, double.MaxValue)]
         public decimal Price { get; set; }
 
-        [Required, MaxLength(200)]
+        [Required, MaxLength(900000)]
         public string Descripcion { get; set; }
         public int MaxAults { get; set; }
         public int MaxChildren { get; set; }
@@ -26,6 +26,7 @@ namespace DangDucThuanFinalYear.Data.Entities
         public string AddedBy { get; set; }
         public DateTime LastUpdated { get; set; }
         public string? LastUpdatedBy { get; set; }
+        public int View { get; set; }
 
         [ForeignKey(nameof(AddedBy))]
         public virtual ApplicationUser AddByUser { get; set; }

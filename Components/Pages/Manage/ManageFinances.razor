@@ -1,9 +1,10 @@
 ﻿@page "/staff-admin/manage-finances"
-@layout AddminStaff
+@layout AdminStaffLayout
 @using DangDucThuanFinalYear.Data.Entities
 @using DangDucThuanFinalYear.HotelDTO;
 @inject AuthenticationStateProvider AuthStateProvider
 @using DangDucThuanFinalYear.HotelDTO.FinancesDTO
+@attribute [StreamRendering]
 
 @inject IFinanceService FinanceService
 
@@ -76,10 +77,10 @@
                                 <option value="Chi bảo dưỡng cơ sở vật chất">Chi bảo dưỡng cơ sở vật chất </option>
                                 <option value="Chi Khác">Chi Khác</option>
                                 <option value="Thu Hội nghị,hội thảo">Thu Hội nghị,hội thảo</option>
-                                <option value="Thu Tiền Dịch Vụ">Thu Tiền Dịch Vụ</option>
+                                <option value="Thu Tiền Dịch vụ">Thu Tiền dịch vụ</option>
                                 <option value="Thu Dịch vụ cho thuê xe">Thu Dịch vụ cho thuê xe</option>
                                 <option value="Thu bán hàng lưu niệm">Thu bán hàng lưu niệm</option>
-                                <option value="Thu Dịch vụ thể">Thu Dịch vụ thể</option>
+                                <option value="Thu Dịch vụ thể thao">Thu Dịch vụ thể thao</option>
                                 <option value="Thu Khác">Thu Khác</option>
                             </InputSelect>
                             
@@ -118,10 +119,16 @@
                         </div>
                     </div>
                 </div>
+                
             </EditForm>
         </div>
     </div>
     <hr>
+@*     <div class="mb-3 input-group">
+        <input type="text" @bind="searchQuery" class="form-control" placeholder="Enter search query" />
+        <button class="btn btn-primary" @onclick="@(async () => await SearchAsync())">Search</button>
+    </div> *@
+
     <div class="row">
         <div class="col-sm-12">
             <div class="overflow-scroll" style="max-height: 75vh;">
@@ -162,8 +169,8 @@
                                     <a href="staff-admin/manage-finances?id=@a.Id" class="btn btn-sm btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <form id="deleteForm" method="post" action="staff-admin/manage-finances/delete/@a.Id" onsubmit="return confirm('Are you sure delete?');">
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    <form id="deleteForm" method="post" action="staff-admin/manage-finances/delete/@a.Id" onclick="return confirm('Are you sure to delete ?')";>
+                                        <button type="submit" class="btn btn-sm btn-danger" >Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -192,6 +199,7 @@
     private bool _isAuthenticated;
     private bool _isSave;
     private string? _userId;
+    private string searchQuery = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -249,6 +257,13 @@
         }
 
         _isSave = false;
+    }
+
+
+    private async Task SearchAsync()
+    {
+        _finances = await FinanceService.GetFinancesSearchAsync(searchQuery);
+
     }
     private void EditFinances(Finances finances) => Model = finances;
 

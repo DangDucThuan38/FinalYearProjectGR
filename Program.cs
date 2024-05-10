@@ -48,7 +48,8 @@ builder.Services.AddTransient<SeedServices>()
                 .AddTransient<IBookingServices, BookingServices>()
                 .AddTransient<IMailServices, MailServices>()
                 .AddTransient<IPaymentServices, PaymentServices>()
-                .AddTransient<IRevenueDashboardService, RevenueDashboardService>();
+                .AddTransient<IRevenueDashboardService, RevenueDashboardService>()
+                .AddTransient<IContactService, ContactService>();
 
 
 
