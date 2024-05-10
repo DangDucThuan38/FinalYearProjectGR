@@ -144,5 +144,18 @@ namespace DangDucThuanFinalYear.Services
             return true;
 
         }
+
+        public async Task<HotelResult> ChangePasswordAsnyc(ChangePasswordDTO input, string userId)
+        {
+            var user = await _userManage.FindByIdAsync(userId);
+            if (user is null)
+                return "Invalid request";
+            var result = await _userManage.ChangePasswordAsync(user, input.CurrentPasswords, input.NewPassword);
+            if(!result.Succeeded)
+            {
+                return $"Error: {string.Join(", ", result.Errors.Select(error => error.Description))}";
+            }
+            return true;
+        }
     }
 }

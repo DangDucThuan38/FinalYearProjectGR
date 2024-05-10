@@ -41,7 +41,7 @@
         {
            <h3 class="text-center"> No Bookings Found</h3>
         }
-        <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-striped">
+        <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-responsive-lg">
            
             <PropertyColumn Property="b=>b.Id" />
             <PropertyColumn Property="b=>b.RoomTypeName" Title="Room Type" />
@@ -55,24 +55,30 @@
                     <label class="d-block">@context.RoomNumber</label>
                 }
             </TemplateColumn>
-            <PropertyColumn Property="b=>b.BookedOn" Title="Booked On" Format="hh:mm:ss dd-MMM-yyyy " />
-            <PropertyColumn Property="b=>b.CheckInDateTime" Title="Check_In" Format="dd-MMM-yyyy" />
-            <PropertyColumn Property="b=>b.CheckOutDateTime" Title="Check_Out" Format="dd-MMM-yyyy" />
-            <PropertyColumn Property="b=>b.Adults" />
-            <PropertyColumn Property="b=>b.Children" />
+            <PropertyColumn Property="b=>b.BookedOn" Title="Booking" Format="hh:mm dd-MM-yyyy " Class="date-time-column" />
+            <PropertyColumn Property="b=>b.CheckInDateTime" Title="CheckIn" Format="dd-MM-yyyy" />
+            <PropertyColumn Property="b=>b.CheckOutDateTime" Title="CheckOut" Format="dd-MM-yyyy" />
+       @*      <PropertyColumn Property="b=>b.Adults" />
+            <PropertyColumn Property="b=>b.Children" /> *@
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Special Request" />
             <PropertyColumn Property="b=>b.BookingStatus" />
             <PropertyColumn Property="b=>b.Remarks" />
-           
         
             <TemplateColumn Class="test">
-                @if (context.BookingStatus != BookingStatus.PaymentDone)
+                @if (context.BookingStatus != BookingStatus.Paid)
                 {
-                    <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanMakePayment)" @onclick="() => MakePaymentAsync(context)">Make Payment</button>
-                    <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
+                    <button type="button" style="width: 70px;" class="btn btn-sm btn-success" disabled="@(!context.CanMakePayment)" @onclick="() => MakePaymentAsync(context)">Payment</button>
                 }
               
             </TemplateColumn>
+            <TemplateColumn Class="test">
+                @if (context.BookingStatus != BookingStatus.Paid)
+                {
+                    <button type="button" style="width: 70px;" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
+                }
+
+            </TemplateColumn>
+
 
         </QuickGrid>
     </div>

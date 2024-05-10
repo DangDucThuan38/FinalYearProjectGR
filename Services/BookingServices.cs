@@ -7,22 +7,30 @@ using DangDucThuanFinalYear.ApplicationHotel;
 using DangDucThuanFinalYear.HotelDTO.BookingDTO;
 using DangDucThuanFinalYear.Constants;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Identity;
 
 namespace DangDucThuanFinalYear.Services
 {
     public class BookingServices : IBookingServices
     {
         private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
+        private readonly UserManager<ApplicationUser> _userManage;
 
-        public BookingServices(IDbContextFactory<ApplicationDbContext> contextFactory)
+        public BookingServices(IDbContextFactory<ApplicationDbContext> contextFactory,
+                                       UserManager<ApplicationUser> userManage
+)
         {
             _contextFactory = contextFactory;
+            _userManage = userManage;
+
         }
 
         public async Task<HotelResult<long>> MakeBookingAsync(BookingModel model,string userId)
         {
             try
             {
+                var exsitigUsers = await _userManage.FindByIdAsync(userId);
+                var fullName = exsitigUsers.FullName;
                 var booking = new Boooking
                 {
                     Adults = model.Audlts ?? 0,
@@ -34,7 +42,8 @@ namespace DangDucThuanFinalYear.Services
                     RoomTypeId = model.RoomTypeId,
                     SpecialRequest = model.SpecialRequest,
                     BookingStatus = Constants.BookingStatus.Pendding,
-                    TotalAmount = model.Amount
+                    TotalAmount = model.Amount,
+                    NameCustomer = fullName,
                 };
                 using var context = _contextFactory.CreateDbContext();
                 await context.Boookings.AddAsync(booking);
@@ -81,6 +90,54 @@ namespace DangDucThuanFinalYear.Services
                 .ToArrayAsync();
             return new PageResult<BookingDisplayModel>(totalCount, bookings);
         }
+
+
+        public async Task<PageResult<BookingDisplayModel>> SearchBookingAsync(int pageIndex, int pageSize, string name)
+        {
+           
+            using var context = _contextFactory.CreateDbContext();
+            var query = context.Boookings;
+            var totalCount = await query.CountAsync();
+
+            var bookingsQuery = query.OrderByDescending(x => x.CheckInDateTime)
+                          .Select(x => new BookingDisplayModel
+                          {
+                              Id = x.Id,
+                              Adults = x.Adults,
+                              BookedOn = x.BookedOn,
+                              CheckInDateTime = x.CheckInDateTime,
+                              CheckOutDateTime = x.CheckOutDateTime,
+                              Children = x.Children,
+                              GuestId = x.GuestId,
+                              RoomId = x.RoomId,
+                              RoomTypeId = x.RoomTypeId,
+                              SpecialRequest = x.SpecialRequest,
+                              TotalAmount = x.TotalAmount,
+                              BookingStatus = x.BookingStatus,
+                              RoomNumber = x.RoomId == null ? "" : x.Room.RoomNumber,
+                              RoomTypeName = x.RoomType.Name,
+                              GuestName = x.Guest.FullName,
+                              Remarks = x.Remarks,
+                              FullName = x.NameCustomer,
+                          })
+                          .Skip((pageIndex))
+                          .Take(pageSize);
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                bookingsQuery = bookingsQuery.Where(x => x.FullName == name);
+                 totalCount = await bookingsQuery.CountAsync();
+
+            }
+
+            var bookings = await bookingsQuery.ToArrayAsync();
+
+            return new PageResult<BookingDisplayModel>(totalCount, bookings);
+        }
+
+
+
+
         public async Task<HotelResult> ApproveBookingAsync(long bookingId)
         {
             using var context = _contextFactory.CreateDbContext();
@@ -97,7 +154,7 @@ namespace DangDucThuanFinalYear.Services
                     return "Booking already approved";
                 case Constants.BookingStatus.Cancelled:
                     return "Booking already cancelled";
-                case Constants.BookingStatus.PaymentDone:
+                case Constants.BookingStatus.Paid:
                     bookingApprove.BookingStatus = Constants.BookingStatus.Booked;
                     break;
                 default:
@@ -181,8 +238,6 @@ namespace DangDucThuanFinalYear.Services
             GuestName = x.Guest.FullName,
             Remarks = x.Remarks
         };
-
-
 
     }
 }

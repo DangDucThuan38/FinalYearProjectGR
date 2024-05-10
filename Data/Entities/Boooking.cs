@@ -24,7 +24,7 @@ namespace DangDucThuanFinalYear.Data.Entities
 
         [MaxLength(250),Unicode(false)]
         public string? SpecialRequest { get; set; }
-
+        public string NameCustomer { get; set; }
 
         public BookingStatus? BookingStatus { get; set; } = Constants.BookingStatus.Pendding;
         public virtual Room Room { get; set; }

@@ -43,6 +43,8 @@ namespace DangDucThuanFinalYear.Services
             using var context = _contextFactory.CreateDbContext();
             return await context.Finances.Where(a => a.IsDeleted == false).ToArrayAsync();
         }
+     
+
 
         public async Task<SearchListFinaces[]> GetFinancesAsync()
         {
@@ -55,6 +57,18 @@ namespace DangDucThuanFinalYear.Services
                     x.Money,
                     x.CreationTime
                     )).ToArrayAsync();
+        }
+
+        public Task<Finances[]> GetFinancesSearchAsync(string? name)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var finances = context.Finances.Where(a => a.IsDeleted == false).ToArrayAsync();
+            if (name != null)
+            {
+                finances = context.Finances.Where(a => a.Code == name || a.NameFinance == name && a.IsDeleted == false).ToArrayAsync();
+            }
+            
+                return finances;
         }
 
         public async Task<HotelResult<Finances>> SaveFinanceAsync(Finances input, string userId)

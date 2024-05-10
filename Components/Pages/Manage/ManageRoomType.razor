@@ -70,16 +70,37 @@
         max-width: 100px;
         max-height: 100px;
     }
+
+    .container {
+        padding: 20px;
+    }
+
+    .container h1 {
+        color: green;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+        .container h1 span {
+            margin-right: 5px;
+        }
+
+    .container .btn {
+        margin-top: 10px; /* Thêm khoảng cách giữa tiêu đề và nút */
+    }
+
+    .container hr {
+        margin-top: 20px; /* Thêm khoảng cách giữa nội dung và đường kẻ ngang */
+    }
+
 </style>
 
 <div class="concontainer">
-    <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h3 style="color: blue;">
-            <strong>
-                Manage Rooms Type
-            </strong>
-            </h3>
-        <a href="staff-admin/manage-room-types/new" class="btn btn-success mt-3">+ Add new Rooms</a>
+    <div class="d-flex flex-column align-items-center" style="margin-top: 20px">
+        <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-chevron-right" aria-hidden="true"></i>HOTEL ROOM TYPE MANAGEMENT </p>
+        <NavLink href="staff-admin/manage-room-types/new" class="btn btn-sm btn-success" style="background-color:#12131A;">+ Add new Roooms</NavLink>
+
     </div>
     <hr />
     <table class="room-table">
@@ -108,7 +129,7 @@
                     <tr>
                         <td>@room.Name</td>
                         <td><img src="@room.Image" class="room-image" alt="@room.Name Image" /></td>
-                        <td>@room.Price.ToString("c")/night</td>
+                        <td>@room.Price.ToString("#,##0") VNĐ/night</td>
                         <td>
                             <a href="@editLink" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-pencil-alt"></i> Edit

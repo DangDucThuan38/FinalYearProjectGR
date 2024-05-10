@@ -153,7 +153,7 @@ else
                 {
                     TransactionRef = tempTransactionRef;
                     string? userId = _userId;
-                    statusBooking = BookingStatus.PaymentCanneled;
+                    statusBooking = BookingStatus.Unpaid;
                     statusPayment = "Canncel";
                     var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
                 }
@@ -167,7 +167,7 @@ else
                 {
                     TransactionRef = tempTransactionRef;
                     string? userId = _userId;
-                    statusBooking = BookingStatus.PaymentDone;
+                    statusBooking = BookingStatus.Paid;
                     statusPayment = "Success";
                     var paymentStatus = await PaymentsServices.PaymentWithVNPay(TransactionRef, _userId, statusBooking, statusPayment);
                     var result = await MailsServices.SendEmail(TransactionRef, userId);

@@ -4,8 +4,8 @@
     {
 
         Pendding,
-        PaymentDone,
-        PaymentCanneled,
+        Paid,
+        Unpaid,
         Booked,
         Cancelled
     }

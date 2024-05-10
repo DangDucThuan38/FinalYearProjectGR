@@ -13,6 +13,8 @@ namespace DangDucThuanFinalYear.Data
         public DbSet<Entities.RoomTypeAmenity> RoomTypeAmenitys { get; set; }
         public DbSet<Entities.Boooking> Boookings { get; set; }
         public DbSet<Entities.Finances> Finances { get; set; }
+        public DbSet<Entities.Contact> Contacts { get; set; }
+
         public DbSet<Entities.Payment> Payments { get; set; }
 
 

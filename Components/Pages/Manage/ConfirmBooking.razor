@@ -93,7 +93,7 @@
             <li><strong>Check-in Date:</strong> @_bookingModel.CheckInDate.ToShortDateString()</li>
             <li><strong>Check-out Date:</strong> @_bookingModel.CheckOutDate.ToShortDateString()</li>
             <li><strong>Booking Time:</strong> @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</li>
-            <li><strong>Total Amount:</strong> @_totalAmount $</li>
+            <li><strong>Total Amount:</strong> @_totalAmount.ToString("#,##0") VNĐ</li>
 
             @if (!string.IsNullOrEmpty(_bookingModel.SpecialRequest))
             {
@@ -179,10 +179,6 @@ else
 
         }
     }
-
-
-
-
     private async Task<string?> ResgisterUserAsnyc()
     {
         var user = new Data.ApplicationUser();
@@ -215,10 +211,6 @@ else
         var result = await PaymentsServices.VNPayPayment(bookingId, _bookingModel);
         NavigationManager.NavigateTo(result);
     }
-
-
-
-
     private async Task CancelFunction(MouseEventArgs e)
     {
         if (await JSRuntime.InvokeAsync<bool>("window.confirm", "Are you sure you want to cancel this booking?"))

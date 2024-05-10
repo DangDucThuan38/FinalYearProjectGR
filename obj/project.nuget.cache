@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yWVzHqTw/w3ibFTbsFusL4ChuJlNTCD9lpGzzzMLvRAF8w2Tm/Xo71hjONHCtuL/24013Fc8IBncoVWsoXiOJw==",
+  "dgSpecHash": "y26m0xzLSMafTxoT3EqTR5ZFhZB51sNih0qeco1515UP4othPAmHNbJ1L3H+XC+hIU1z+LanG76G2mTd25YxnA==",
   "success": true,
   "projectFilePath": "F:\\GCH200729\\DangDucThuanFinalYear\\DangDucThuanFinalYear.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,11 @@
     "C:\\Users\\dangd\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\mimekit\\4.3.0\\mimekit.4.3.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\syncfusion.blazor\\25.1.41\\syncfusion.blazor.25.1.41.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\syncfusion.excelexport.net.core\\25.1.41\\syncfusion.excelexport.net.core.25.1.41.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\syncfusion.licensing\\25.1.41\\syncfusion.licensing.25.1.41.nupkg.sha512",
+    "C:\\Users\\dangd\\.nuget\\packages\\syncfusion.pdfexport.net.core\\25.1.41\\syncfusion.pdfexport.net.core.25.1.41.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\dangd\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

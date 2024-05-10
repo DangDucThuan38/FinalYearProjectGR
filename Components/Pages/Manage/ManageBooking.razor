@@ -1,8 +1,8 @@
 ﻿@page "/staff-admin/manage-booking"
 @using Microsoft.AspNetCore.Components.QuickGrid
-@* @layout AddminStaff
- *@
- @layout AdminStaffLayout
+
+@layout AdminStaffLayout
+@inject IMailServices MailsServices
 
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 @using DangDucThuanFinalYear.Data.Entities
@@ -11,24 +11,17 @@
 @inject IBookingServices BookingServices
 @inject IRoomTypeService RoomTypeService
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
-@* @attribute [StreamRendering]
-@rendermode InteractiveServer *@
 @inject NavigationManager NavigationManager
 
 @inject IJSRuntime JsRuntime
 
 <style>
-
-
     .d-flex {
         display: flex;
     }
-
     .align-items-center {
         align-items: center;
     }
-
     .table-responsive {
         overflow-x: auto;
     }
@@ -36,7 +29,6 @@
     .table-striped tbody tr:nth-of-type(odd) {
         background-color: #f9f9f9;
     }
-
     .action-buttons button {
         margin-left: 5px;
         padding: 5px 10px;
@@ -52,47 +44,50 @@
         }
 </style>
 
-    <div class="d-flex justify-content-center align-items-center" style="margin-top: -10px;">
-    <h3 style="color: blue;"><strong>Manage Booking</strong></h3>
+<div class="d-flex " style="margin-top: 30px;">
+
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-chevron-right" aria-hidden="true"></i>MANAGE BOOKING ROOM</p>
+
     </div>
     <hr />
     <div class="table-responsive" style="margin-top:-36px">
-        <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-striped">
+    <div class="mb-3 input-group">
+        <input type="text" @bind="searchQuery" class="form-control" placeholder="Enter search query" />
+        <button class="btn btn-primary" @onclick="SearchAsnyc">Search</button>
+    </div>
+    <QuickGrid ItemsProvider="_bookingsProviders" @ref="_bookingGrid" Pagination="_paginationState" class="table table-responsive-lg">
             <PropertyColumn Property="b=>b.Id" Title="Booking ID" />
             <PropertyColumn Property="b=>b.RoomTypeName" Title="Room Type" />
-            <TemplateColumn Title="Room Number">
+            <TemplateColumn Title="Room">
                 @if (context.RoomId is null)
-                {
-@*                     <label class="d-block">No Room Assigned</label>
- *@                    
+                {                    
                     @if (context.IsRoomNumberAssignable)
                     {
-                        <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">Assign Room</button>
+                    <button type="button" style="width: 63px;background-color:#12131A" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">Assign</button>
                     }
                     else
                     {
-                        <small>Can be assigned only after payment</small>
+                        <small>Asigned after payment</small>
                     }
                 }
                 else
                 {
-                    <button type="button" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">@context.RoomNumber</button>
+                <button type="button" style="width: 63px; background-color:forestgreen" class="btn btn-sm btn-primary" @onclick="()=> OpenAssignRoomModalAsync(context)">@context.RoomNumber</button>
                 }
             </TemplateColumn>
             <PropertyColumn Property="b=>b.GuestName" Title="Guest" />
             <PropertyColumn Property="b=>b.BookedOn" Title="Booking Time" Format="hh:mm dd-MM-yyyy " Class="date-time-column" />
             <PropertyColumn Property="b=>b.CheckInDateTime" Title="CheckIn Time" Format="dd-MM-yyyy" />
             <PropertyColumn Property="b=>b.CheckOutDateTime" Title="CheckOut Time" Format="dd-MM-yyyy" />
-            <PropertyColumn Property="b=>b.Adults" Title="Adults" />
-            <PropertyColumn Property="b=>b.Children" Title="Children" />
             <PropertyColumn Property="b=>b.SpecialRequest" Title="Note Request" />
             <PropertyColumn Property="b=>b.BookingStatus" Title="Booking Status" />
             <PropertyColumn Property="b=>b.Remarks" Title="Remarks" />
             <TemplateColumn Class="action-buttons">
-                <button type="button" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Approve</button>
+            <button type="button" style="width: 63px;" class="btn btn-sm btn-success" disabled="@(!context.CanBeApproved)" @onclick="() => ApproveBookingAsync(context)">Agree</button>
             </TemplateColumn>
             <TemplateColumn>
-                <button type="button" class="btn btn-sm btn-danger" disabled="@(!context.CanBeCancelled)" @onclick="() => CanncelBookingAsync(context)">Cancel</button>
+            @* disabled="@(!context.CanBeCancelled)" *@
+            <button type="button" style="width: 63px;" class="btn btn-sm btn-danger"  @onclick="() => CanncelBookingAsync(context)">Cancel</button>
             </TemplateColumn>
         </QuickGrid>
     </div>
@@ -128,11 +123,12 @@
     private bool _isLoading;
     private QuickGrid<BookingDisplayModel> _bookingGrid;
     private GridItemsProvider<BookingDisplayModel>? _bookingsProviders;
-    private const int PageSize = 10;
+    private const int PageSize = 5;
     private PaginationState _paginationState = new PaginationState{ItemsPerPage = PageSize};
     private Room[] _rooms = [];
     private int _slectedRoomId;
     private BookingDisplayModel? _booking;
+    private string searchQuery  = "";
 
 
     protected override void OnInitialized()
@@ -152,6 +148,26 @@
             return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
         };
     }
+
+    private async Task SearchAsnyc(MouseEventArgs args)
+    {
+        _bookingsProviders = async (GridItemsProviderRequest<BookingDisplayModel> request) =>
+              {
+                  _isLoading = true;
+                  StateHasChanged();
+
+                  //Load Data booking
+                  var result = await BookingServices.SearchBookingAsync(request.StartIndex, request.Count ?? PageSize, searchQuery);
+
+
+                  _isLoading = false;
+                  StateHasChanged();
+
+                  return GridItemsProviderResult.From<BookingDisplayModel>(result.Records, result.TotalCount);
+              };
+    }
+
+
 
     private async Task OpenAssignRoomModalAsync(BookingDisplayModel booking)
     {
@@ -203,6 +219,8 @@
             if(await ComfirmAsync("Are you sure ,you want to approve this booking?"))
             {
                 var result = await BookingServices.ApproveBookingAsync(booking.Id);
+                var mail = await MailsServices.SendEmailConfirmBooking(booking.Id);
+
                 if(!result.IsSuccess)
                 {
                     await AlertAsync(result.ErrorMessage ?? "Error in approving booking");

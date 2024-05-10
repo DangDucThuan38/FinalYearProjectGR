@@ -1,0 +1,97 @@
+﻿@page "/staff-admin/manage-contact"
+@using DangDucThuanFinalYear.HotelDTO.ContactDTO
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+@layout AdminStaffLayout
+
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@using DangDucThuanFinalYear.Data.Entities
+
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject IContactService ContactService
+@inject NavigationManager NavigationManager
+
+
+<style>
+    .d-flex {
+        display: flex;
+    }
+    .align-items-center {
+        align-items: center;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+    .action-buttons button {
+        margin-left: 5px;
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .date-time-column {
+        white-space: nowrap; /* Ngăn ngừa ngắt dòng */
+    }
+
+        .date-time-column time {
+            display: inline-block;
+        }
+</style>
+
+<div class="d-flex " style="margin-top: 30px;">
+
+    <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-chevron-right" aria-hidden="true"></i>MANAGE CONTACT WITH HOTEL</p>
+
+    </div>
+    <hr />
+    <div class="table-responsive" style="margin-top:-36px">
+
+    <QuickGrid ItemsProvider="_contactsProviders"  Pagination="_paginationState" class="table table-responsive-lg">
+            <PropertyColumn Property="b=>b.Name" Title="Name" />
+            <PropertyColumn Property="b=>b.Email" Title="Email" />
+            <PropertyColumn Property="b=>b.Subject" Title="Subject" />
+            <PropertyColumn Property="b=>b.Message" Title="Message" />
+              <PropertyColumn Property="b=>b.ContactOn" Title="Contact Time" Format="dd-MM-yyyy hh:mm:ss" />
+
+     </QuickGrid>
+    </div>
+    <Paginator State="_paginationState" />
+
+@if(_isLoading)
+{
+    <Loader LoadingText="Fetching Contact" />
+}
+
+
+@code {
+    private bool _isLoading;
+    private GridItemsProvider<Contact>? _contactsProviders;
+    private const int PageSize = 5;
+    private PaginationState _paginationState = new PaginationState{ItemsPerPage = PageSize};
+   
+
+    protected override void OnInitialized()
+    {
+        _contactsProviders = async (GridItemsProviderRequest<Contact> request) =>
+        {
+            _isLoading = true;
+            StateHasChanged();
+
+            //Load Data booking
+            var result = await ContactService.GetAllContactAsync(request.StartIndex, request.Count ?? PageSize);
+
+
+            _isLoading = false;
+            StateHasChanged();
+
+            return GridItemsProviderResult.From<Contact>(result.Records, result.TotalCount);
+        };
+    }
+
+
+}

@@ -11,6 +11,8 @@ namespace DangDucThuanFinalYear.IServices
         Task<HotelResult<long>> MakeBookingAsync(BookingModel model, string userId);
     
         Task<PageResult<BookingDisplayModel>> GetBookingAsync(int pageIndex, int pageSize);
+        Task<PageResult<BookingDisplayModel>> SearchBookingAsync(int pageIndex, int pageSize,string name);
+
         Task<HotelResult> ApproveBookingAsync(long bookingId);
         Task<HotelResult> CancelBookingAsync(long bookingId,string cancelReason ,string? userId);
         Task<PageResult<BookingDisplayModel>> GetBookingByGuestAsync(string GuestId,BookingDisplayType type,int pageIndex, int pageSize);

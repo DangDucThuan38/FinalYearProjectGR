@@ -2,7 +2,7 @@
 @layout AddminStaff
 @using DangDucThuanFinalYear.HotelDTO;
 @using DangDucThuanFinalYear.HotelDTO.UserProFileDTO
-
+@attribute [StreamRendering]
 @inject NavigationManager NavigationManager
 <style>
     .container {
@@ -30,22 +30,21 @@
 
 </style>
 
-<div class="container">
-    <div class="d-flex flex-column align-items-center" style="margin-top: 0px">
-        <h3 style="color: blue; display: flex; align-items: center; font-size: 1.5rem;">
-          @*   <NavLink href="/" class="me-2 btn btn-sm btn-default">
-                <i class="fas fa-arrow-left"></i>
-            </NavLink> *@
-            <span style="display: inline-flex; align-items: center;">
-                <strong style="margin-right: 5px;">Manage Staff</strong>
-            </span>
-        </h3>
-        <NavLink href="admin/manage-staff/new" class="btn btn-sm btn-success mt-3">+ Add new Staff</NavLink>
 
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center" style="margin-top: 0px">
+        @* <h3 style="color: #12131A; font-size: 1.5rem;">
+            <strong>Manage Staff</strong>
+        </h3> *@
+        <p style="background-color: transparent; border: none; margin-top: -6px; cursor: pointer; font-size: 20px; color: #27314A; transition: color 0.3s;"> <i class="fa fa-caret-right" aria-hidden="true"></i>MANAGE STAFF</p>
+
+
+        <NavLink href="admin/manage-staff/new" class="btn btn-sm btn-success" style="background-color:#12131A;">+ Add new Staff</NavLink>
     </div>
     <hr />
     <UserList Role="RoleType.Staff" />
 </div>
+
 
 
 

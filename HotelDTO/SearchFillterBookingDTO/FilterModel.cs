@@ -8,27 +8,24 @@ namespace DangDucThuanFinalYear.HotelDTO
         {
             
         }
-        public static FilterModel GetFilterModel(DateOnly? checkInDate, DateOnly? checkOutDate, int? audlts, int? children)
+        public static FilterModel GetFilterModel(string? name, int? audlts, int? children)
         {
             return new()
             {
-                CheckInDate = checkInDate,
-                CheckOutDate = checkOutDate,
+                Name = name,
                 Audlts = audlts,
                 Children = children,
             };
            
         }
 
-        public DateOnly? CheckInDate { get; set; } 
-        public DateOnly? CheckOutDate { get; set; } 
+        public string? Name { get; set; } 
         public int? Audlts { get; set; } = 0;
         public int? Children { get; set; } = 0;
         public IReadOnlyDictionary<string, object?> ToDictionary() =>
             new Dictionary<string, object?>
             {
-                [nameof(CheckInDate)] = CheckInDate,
-                [nameof(CheckOutDate)] = CheckOutDate,
+                [nameof(Name)] = Name,
                 [nameof(Audlts)] = Audlts,
                 [nameof(Children)] = Children,
 
@@ -37,4 +34,28 @@ namespace DangDucThuanFinalYear.HotelDTO
 
 
     }
+    public class Search {
+        public Search()
+        {
+
+        }
+        public static Search GetSearch(string? name)
+        {
+            return new()
+            {
+                Name = name,
+            };
+
+        }
+
+        public string? Name { get; set; }
+        public IReadOnlyDictionary<string, object?> ToDictionary() =>
+            new Dictionary<string, object?>
+            {
+                [nameof(Name)] = Name,
+            };
+    }
+
+
+
 }
